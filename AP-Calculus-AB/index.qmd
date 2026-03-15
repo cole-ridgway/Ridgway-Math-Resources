@@ -1,0 +1,8 @@
+---
+title: "AP Calculus AB Hub"
+---
+
+Welcome to AP Calculus! Use the sidebar on the left to navigate through our course materials:
+
+* **Interactive Textbook:** Digital notes with interactive Python visualizations and click-to-reveal solutions.
+* **Printable Resources:** Static PDF versions of the textbook and your homework assignments.

@@ -1,0 +1,8 @@
+---
+title: "Welcome to Mr. Ridgway's Math Classes"
+---
+
+Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen.
+
+Currently available:
+* **[AP Calculus AB](AP-Calculus-AB/index.qmd)**
