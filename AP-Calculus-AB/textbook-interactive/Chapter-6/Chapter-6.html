@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-059ec1c2623d6a3728345abfca9dc164.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-9c11586df8f511e10146283379b5965b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-059ec1c2623d6a3728345abfca9dc164.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-b21a9e43e8605aff160d6ed0118a8ed2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-d9b2d627ff0c06bf63be62ecf0e23d6f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-b21a9e43e8605aff160d6ed0118a8ed2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -478,9 +478,16 @@ window.Quarto = {
    
   <ul>
   <li><a href="#slope-fields-and-eulers-method" id="toc-slope-fields-and-eulers-method" class="nav-link active" data-scroll-target="#slope-fields-and-eulers-method">6.1 Slope Fields and Euler’s Method</a>
+  <ul>
+  <li><a href="#general-and-particular-solutions" id="toc-general-and-particular-solutions" class="nav-link" data-scroll-target="#general-and-particular-solutions">6.1.1 General and Particular Solutions</a>
   <ul class="collapse">
-  <li><a href="#general-and-particular-solutions" id="toc-general-and-particular-solutions" class="nav-link" data-scroll-target="#general-and-particular-solutions">6.1.1 General and Particular Solutions</a></li>
-  <li><a href="#slope-fields" id="toc-slope-fields" class="nav-link" data-scroll-target="#slope-fields">6.1.2 Slope Fields</a></li>
+  <li><a href="#exercises-verify-solutions-and-find-particular-solutions" id="toc-exercises-verify-solutions-and-find-particular-solutions" class="nav-link" data-scroll-target="#exercises-verify-solutions-and-find-particular-solutions">Exercises: Verify Solutions and Find Particular Solutions</a></li>
+  </ul></li>
+  <li><a href="#slope-fields" id="toc-slope-fields" class="nav-link" data-scroll-target="#slope-fields">6.1.2 Slope Fields</a>
+  <ul class="collapse">
+  <li><a href="#exercises-sketch-match-and-interpret-slope-fields" id="toc-exercises-sketch-match-and-interpret-slope-fields" class="nav-link" data-scroll-target="#exercises-sketch-match-and-interpret-slope-fields">Exercises: Sketch, Match, and Interpret Slope Fields</a></li>
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions">Conceptual Questions</a></li>
+  </ul></li>
   <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link" data-scroll-target="#eulers-method">6.1.3 Euler’s Method</a></li>
   </ul></li>
   </ul>
@@ -582,15 +589,63 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Determine whether the function is a solution of the differential equation <span class="math inline">\(y''-y=0\)</span>.</p>
-<p><strong>a) <span class="math inline">\(y=\sin(x)\)</span></strong> Because <span class="math inline">\(y=\sin(x)\)</span>, <span class="math inline">\(y'=\cos(x)\)</span>, and <span class="math inline">\(y''=-\sin(x)\)</span> it follows that <span class="math display">\[y'' - y = -\sin(x) - \sin(x)=-2\sin(x)\neq 0\]</span> So, <span class="math inline">\(y=\sin(x)\)</span> is not a solution.</p>
-<p><strong>b) <span class="math inline">\(y=4e^{-x}\)</span></strong> Because <span class="math inline">\(y=4e^{-x}\)</span>, <span class="math inline">\(y' = -4e^{-x}\)</span>, <span class="math inline">\(y''=4e^{-4x}\)</span> it follows that <span class="math display">\[y'' - y = 4e^{-x} - 4e^{-x} = 0\]</span> So, <span class="math inline">\(y=4e^{-x}\)</span> is a solution.</p>
-<p><strong>c) <span class="math inline">\(y=Ce^x\)</span></strong> Because <span class="math inline">\(y=Ce^x\)</span>, <span class="math inline">\(y'=Ce^x\)</span>, <span class="math inline">\(y''=Ce^x\)</span>, it follows that <span class="math display">\[y''-y=Ce^x-Ce^x=0\]</span> So, <span class="math inline">\(y=Ce^x\)</span> is a solution for any value of <span class="math inline">\(C\)</span>.</p>
+<p>Determine whether the given function is a solution of the differential equation <span class="math inline">\(y''-y=0\)</span>.</p>
+<p><strong>a)</strong> <span class="math inline">\(y=\sin(x)\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because <span class="math inline">\(y=\sin(x)\)</span>, <span class="math inline">\(y'=\cos(x)\)</span>, and <span class="math inline">\(y''=-\sin(x)\)</span>, it follows that: <span class="math display">\[y'' - y = -\sin(x) - \sin(x) = -2\sin(x) \neq 0\]</span> So, <span class="math inline">\(y=\sin(x)\)</span> is not a solution.</p>
+</div>
+</div>
+</div>
+<p><strong>b)</strong> <span class="math inline">\(y=4e^{-x}\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because <span class="math inline">\(y=4e^{-x}\)</span>, <span class="math inline">\(y' = -4e^{-x}\)</span>, and <span class="math inline">\(y''=4e^{-x}\)</span>, it follows that: <span class="math display">\[y'' - y = 4e^{-x} - 4e^{-x} = 0\]</span> So, <span class="math inline">\(y=4e^{-x}\)</span> is a solution.</p>
+</div>
+</div>
+</div>
+<p><strong>c)</strong> <span class="math inline">\(y=Ce^x\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because <span class="math inline">\(y=Ce^x\)</span>, <span class="math inline">\(y'=Ce^x\)</span>, and <span class="math inline">\(y''=Ce^x\)</span>, it follows that: <span class="math display">\[y''-y=Ce^x-Ce^x=0\]</span> So, <span class="math inline">\(y=Ce^x\)</span> is a solution for any value of <span class="math inline">\(C\)</span>.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <p>Geometrically, the general solution of a first-order differential equation represents a family of curves known as <strong>solution curves</strong>, one for each value assigned to the arbitrary constant. For instance, you can verify that every function of the form</p>
 <p><span class="math display">\[y = \frac{C}{x}\]</span></p>
-<p>is a solution of the differential equation <span class="math inline">\(xy' + y = 0\)</span>.</p>
+<p>is a solution of the differential equation <span class="math inline">\(xy' + y = 0\)</span>. The figure below shows four of the solution curves corresponding to different values of <span class="math inline">\(C\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="fig-6.1.png" class="img-fluid figure-img"></p>
@@ -603,20 +658,310 @@ window.Quarto = {
 <p><span class="math display">\[s(0) = 80, \quad s'(0)=64\]</span></p>
 <p>In this case, the initial conditions yield the particular solution:</p>
 <p><span class="math display">\[s(t) = -16t^2 +64t +80\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the differential equation <span class="math inline">\(xy'-3y=0\)</span>, verify that <span class="math inline">\(y=Cx^3\)</span> is a solution, and find the particular solution determined by the initial condition <span class="math inline">\(y=2\)</span> when <span class="math inline">\(x=-3\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You know that <span class="math inline">\(y=Cx^3\)</span> is a solution because <span class="math inline">\(y'=3Cx^2\)</span> and: <span class="math display">\[xy'-3y = x(3Cx^2)-3(Cx^3) = 0\]</span></p>
+<p>Furthermore, the initial condition <span class="math inline">\(y=2\)</span> when <span class="math inline">\(x=-3\)</span> yields: <span class="math display">\[y = Cx^3 \hspace{2cm} \text{(General Solution)}\]</span> <span class="math display">\[2 = C(-3)^3 \hspace{2cm} \text{(Substitute initial condition)}\]</span> <span class="math display">\[-\frac{2}{27} = C \hspace{2cm} \text{(Solve for C)}\]</span></p>
+<p>and you can conclude that the particular solution is: <span class="math display">\[y = -\frac{2x^3}{27} \hspace{2cm} \text{(Particular Solution)}\]</span></p>
+<p><em>(Try checking this solution by substituting for <span class="math inline">\(y\)</span> and <span class="math inline">\(y'\)</span> in the original differential equation!)</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-verify-solutions-and-find-particular-solutions" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-verify-solutions-and-find-particular-solutions">Exercises: Verify Solutions and Find Particular Solutions</h4>
+<ol type="1">
+<li>Determine whether the function <span class="math inline">\(y = x^3\)</span> is a solution to the differential equation <span class="math inline">\(xy' - 3y = 0\)</span>.</li>
+<li>Verify that <span class="math inline">\(y = 2e^{-x} + xe^{-x}\)</span> is a solution to the second-order differential equation <span class="math inline">\(y'' + 2y' + y = 0\)</span>.</li>
+<li>The general solution of the differential equation <span class="math inline">\(y' + 2y = 0\)</span> is given by <span class="math inline">\(y = Ce^{-2x}\)</span>. Find the particular solution that satisfies the initial condition <span class="math inline">\(y(0) = 5\)</span>.</li>
+<li>Verify that <span class="math inline">\(y = C_1 \sin(3x) + C_2 \cos(3x)\)</span> is a solution to the differential equation <span class="math inline">\(y'' + 9y = 0\)</span>.</li>
+<li>Given the general solution <span class="math inline">\(y = Cx^2\)</span> for the differential equation <span class="math inline">\(xy' = 2y\)</span>, find the particular solution whose graph passes through the point <span class="math inline">\((2, 12)\)</span>.</li>
+<li>For the differential equation <span class="math inline">\(\frac{dy}{dx} = 4x - 1\)</span>, find the particular solution <span class="math inline">\(y=f(x)\)</span> that passes through the point <span class="math inline">\((1, 3)\)</span>.</li>
+</ol>
+</section>
+<hr>
 </section>
 <section id="slope-fields" class="level3">
 <h3 class="anchored" data-anchor-id="slope-fields">6.1.2 Slope Fields</h3>
 <p>Solving a differential equation analytically can be difficult or even impossible. However, there is a graphical approach you can use to learn a lot about the solution of</p>
 <p><span class="math display">\[y'=F(x,y) \hspace{3cm} \text{Differential Equation}\]</span></p>
 <p>At each point <span class="math inline">\((x,y)\)</span> in the <span class="math inline">\(xy\)</span>-plane where <span class="math inline">\(F\)</span> is defined, the differential equation determines the slope <span class="math inline">\(y'=F(x,y)\)</span>. If you draw short line segments with slope <span class="math inline">\(F(x,y)\)</span> at selected points <span class="math inline">\((x,y)\)</span> in the domain of <span class="math inline">\(F\)</span>, then these line segments form a <strong>slope field</strong>, or a <em>direction field</em> for the differential equation <span class="math inline">\(y'=F(x,y)\)</span>. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sketch a slope field for the differential equation <span class="math inline">\(y'=x-y\)</span> for the points <span class="math inline">\((-1,1)\)</span>, <span class="math inline">\((0,1)\)</span>, and <span class="math inline">\((1,1)\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The slope of the solution curve at any points <span class="math inline">\((x,y)\)</span> is <span class="math inline">\(F(x,y)=x-y\)</span>. * The slope at <span class="math inline">\((-1,1)\)</span> is <span class="math inline">\(y'=-1-1=-2\)</span> * The slope at <span class="math inline">\((0,1)\)</span> is <span class="math inline">\(y'=0-1=-1\)</span> * The slope at <span class="math inline">\((1,1)\)</span> is <span class="math inline">\(y'=1-1=0\)</span>.</p>
+<p>Draw short line segments at the three points with their respective slopes, as shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="fig-6.2.png" class="img-fluid figure-img"></p>
 <figcaption>Figure 6.2: Slope Field for the differential equation y’=x-y</figcaption>
 </figure>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Match the slope field with its differential equation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.3.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.3</figcaption>
+</figure>
+</div>
+<p><strong>i)</strong> <span class="math inline">\(y'=x+y\)</span><br>
+<strong>ii)</strong> <span class="math inline">\(y'=x\)</span><br>
+<strong>iii)</strong> <span class="math inline">\(y'=y\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>a)</strong> From Figure 6.3(a), you can see that the slope at any point along the <span class="math inline">\(y\)</span>-axis is 0. The only equation that satisfies this condition is <span class="math inline">\(y'=x\)</span>. So the graph matches (ii).</p>
+<p><strong>b)</strong> From Figure 6.3(b), you can see that the slope at the point <span class="math inline">\((1,-1)\)</span> is 0. The only equation that satisfies this condition is <span class="math inline">\(y'=x+y\)</span>. So, the graph matches (i).</p>
+<p><strong>c)</strong> From Figure 6.3(c), you can see that the slope at any point along the <span class="math inline">\(x\)</span>-axis is 0. The only equation that satisfies this condition is <span class="math inline">\(y'=y\)</span>. So, the graph matches (iii).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>A solution curve of a differential equation <span class="math inline">\(y'=F(x,y)\)</span> is simply a curve in the <span class="math inline">\(xy\)</span>-plane whose tangent line at each point <span class="math inline">\((x,y)\)</span> has slope equal to <span class="math inline">\(F(x,y)\)</span>. This is illustrated in the next example.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sketch a slope field for the differential equation <span class="math inline">\(y' = 2x+y\)</span>. Use the slope field to sketch the solution that passes through the point <span class="math inline">\((1,1)\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Make a table showing the slopes at several points. The table shown is a small sample. The slopes at many other points should be calculated to get a representative slope field.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: left;">-2</th>
+<th style="text-align: left;">-2</th>
+<th style="text-align: left;">-1</th>
+<th style="text-align: left;">-1</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
+<th style="text-align: left;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(y\)</span></td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(y' = 2x+y\)</span></td>
+<td style="text-align: left;">-5</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-3</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">-1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">5</td>
+</tr>
+</tbody>
+</table>
+<p>Next, draw line segments at the points with their respective slopes, as shown in Figure 6.4. After the slope field is drawn, start at the initial point <span class="math inline">\((1,1)\)</span> and move to the right in the direction of the line segment. Continue to draw the solution curve so that it moves parallel to the nearby line segments. Do the same to the left of <span class="math inline">\((1,1)\)</span>. The resulting solution is shown in Figure 6.5.</p>
+<p><img src="fig-6.4.png" class="img-fluid" alt="Figure 6.4: Slope field for y’=2x+y"> <img src="fig-6.5.png" class="img-fluid" alt="Figure 6.5: Particular solution passing through (1,1)"></p>
+<p><em>(Note that the slope field shows that <span class="math inline">\(y'\)</span> increases to infinity as <span class="math inline">\(x\)</span> increases).</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><em>A note from the textbook:</em> Drawing a slope field by hand is tedious. In practice, slope fields are usually drawn using a graphing utility.<br>
 <em>A note from your teacher, me, Cole <span class="math inline">\(\mathbb{R}\)</span>idgway:</em> The TI-84 can do this.</p>
+<section id="exercises-sketch-match-and-interpret-slope-fields" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-sketch-match-and-interpret-slope-fields">Exercises: Sketch, Match, and Interpret Slope Fields</h4>
+<ol type="1">
+<li><p><strong>Sketching:</strong> Sketch a slope field for the differential equation <span class="math inline">\(y' = x + y\)</span> at the nine points indicated below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-1.png" class="img-fluid figure-img"></p>
+<figcaption>Exercise 1 Graph</figcaption>
+</figure>
+</div></li>
+<li><p><strong>Matching:</strong> Match the differential equation with its slope field.</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-2a.png" class="img-fluid figure-img"></p>
+<figcaption>Graph I</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-2b.png" class="img-fluid figure-img"></p>
+<figcaption>Graph II</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-2c.png" class="img-fluid figure-img"></p>
+<figcaption>Graph III</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><span class="math inline">\(\frac{dy}{dx} = x + y\)</span></li>
+<li><span class="math inline">\(\frac{dy}{dx} = x\)</span></li>
+<li><span class="math inline">\(\frac{dy}{dx} = y\)</span></li>
+</ol></li>
+<li><p><strong>Interpretation:</strong> The slope field for the differential equation <span class="math inline">\(\frac{dy}{dx} = y - 2\)</span> is shown below. Sketch the solution curve that passes through the point <span class="math inline">\((0, 1)\)</span> and the solution curve that passes through <span class="math inline">\((0, 3)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-3.png" class="img-fluid figure-img"></p>
+<figcaption>Exercise 3 Graph</figcaption>
+</figure>
+</div></li>
+<li><p>Consider the differential equation <span class="math inline">\(\frac{dy}{dx} = \frac{x}{y}\)</span>.</p>
+<ol type="a">
+<li><p>On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-4.png" class="img-fluid figure-img"></p>
+<figcaption>Exercise 4 Graph</figcaption>
+</figure>
+</div></li>
+<li><p>Describe the general shape of the solution curves.</p></li>
+</ol></li>
+<li><p>Which of the following differential equations generates a slope field where the slopes are parallel along vertical lines?</p>
+<ol type="a">
+<li><span class="math inline">\(\frac{dy}{dx} = x + y\)</span></li>
+<li><span class="math inline">\(\frac{dy}{dx} = xy\)</span></li>
+<li><span class="math inline">\(\frac{dy}{dx} = 2x\)</span></li>
+<li><span class="math inline">\(\frac{dy}{dx} = 2y\)</span></li>
+</ol></li>
+<li><p><strong>Analysis:</strong> The figure below shows the slope field for a differential equation <span class="math inline">\(\frac{dy}{dx} = f(x,y)\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ex-6.png" class="img-fluid figure-img"></p>
+<figcaption>Exercise 6 Graph</figcaption>
+</figure>
+</div>
+<p>Based on the slope field, which of the following could be the specific solution <span class="math inline">\(y=f(x)\)</span> passing through <span class="math inline">\((0,2)\)</span>?</p>
+<ol type="a">
+<li><span class="math inline">\(y = x^2 + 2\)</span></li>
+<li><span class="math inline">\(y = \sqrt{4-x^2}\)</span></li>
+<li><span class="math inline">\(y = e^x + 1\)</span></li>
+<li><span class="math inline">\(y = 2\)</span></li>
+</ol></li>
+</ol>
+</section>
+<section id="conceptual-questions" class="level4 conceptual-box">
+<h4 class="anchored" data-anchor-id="conceptual-questions">Conceptual Questions</h4>
+<ol type="1">
+<li><strong>Visualizing Variable Dependence:</strong> Analytically, a differential equation can depend on <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, or both. Geometrically, the layout of the slope field reveals this dependence.
+<ul>
+<li>If the slopes are identical along any vertical line (moving up and down doesn’t change the slope), the differential equation depends only on <span class="math inline">\(x\)</span> (e.g., <span class="math inline">\(y' = 2x\)</span>).</li>
+<li>If the slopes are identical along any horizontal line (moving left and right doesn’t change the slope), the differential equation depends only on <span class="math inline">\(y\)</span> (e.g., <span class="math inline">\(y' = 2y\)</span>). Explain why this geometric symmetry occurs. <em>(Hint: Consider how changing the coordinate <span class="math inline">\(y\)</span> affects the value of <span class="math inline">\(y'\)</span> in the equation <span class="math inline">\(y'=2x\)</span>).</em></li>
+</ul></li>
+<li><strong>The Geometry of a Solution Curve:</strong> The text states that a slope field shows the general shape of all solutions. When you sketch a particular solution curve starting at a point <span class="math inline">\((x_1, y_1)\)</span>, you must draw it such that the curve is tangent to every slope segment it passes near. Analytically, this is because <span class="math inline">\(y'\)</span> represents the instantaneous rate of change. Explain why a curve that <em>crosses</em> the slope segments at a sharp angle (perpendicularly, for example) cannot be a solution to the differential equation.</li>
+<li><strong>Interpreting “Flat” Slopes (Equilibrium):</strong> Consider the differential equation <span class="math inline">\(y' = y - 2\)</span>. Analytically, if <span class="math inline">\(y=2\)</span>, the derivative <span class="math inline">\(y'\)</span> becomes 0. Geometrically, this creates a horizontal row of flat slope segments at the height <span class="math inline">\(y=2\)</span>. If a solution curve starts exactly at the initial condition <span class="math inline">\(y(0)=2\)</span>, what does the graph of this particular solution look like for all time <span class="math inline">\(t\)</span>?</li>
+</ol>
+</section>
+<hr>
 </section>
 <section id="eulers-method" class="level3">
 <h3 class="anchored" data-anchor-id="eulers-method">6.1.3 Euler’s Method</h3>
@@ -636,15 +981,13 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Use Euler’s Method to approximate the particular solution of the differential equation <span class="math inline">\(y' = x - y\)</span> passing through the point <span class="math inline">\((0,1)\)</span> using step size <span class="math inline">\(h=0.1\)</span>. Compare your results with the exact solution <span class="math inline">\(y = 2e^{-x} + x - 1\)</span>.</p>
-</div>
-</div>
 <p><em>Use the interactive slider below to change the step size (</em><span class="math inline">\(h\)</span>) and see how it affects the accuracy of Euler’s Method.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>viewof h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> {</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Step Size (h):"</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="257" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 256;"><span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>viewof h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> {</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span></span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Step Size (h):"</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -652,59 +995,59 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="117" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>eulerPlot <span class="op">=</span> {</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Exact solution data (fine resolution) ---</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactData <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-9</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.01</span>) {</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    exactData<span class="op">.</span><span class="fu">push</span>({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>x) <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Exact Solution"</span> })<span class="op">;</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Euler approximation data ---</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerData <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Final error at x=1 ---</span></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactAt1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerAt1 <span class="op">=</span> eulerData[eulerData<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> err <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exactAt1 <span class="op">-</span> eulerAt1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Plot ---</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allData <span class="op">=</span> [<span class="op">...</span>exactData<span class="op">,</span> <span class="op">...</span>eulerData]<span class="op">;</span></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">650</span><span class="op">,</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>] }<span class="op">,</span></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.6</span><span class="op">,</span> <span class="fl">1.05</span>] }<span class="op">,</span></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Exact Solution"</span><span class="op">,</span> <span class="st">"Euler Approx"</span>]<span class="op">,</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> [<span class="st">"green"</span><span class="op">,</span> <span class="st">"steelblue"</span>]</span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    <span class="dt">caption</span><span class="op">:</span> <span class="vs">`Error at x = 1: |exact − Euler| ≈ </span><span class="sc">${</span>err<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(exactData<span class="op">,</span> {</span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(eulerData<span class="op">,</span> {</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(eulerData<span class="op">,</span> {</span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>      })</span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="266" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 265;"><span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>eulerPlot <span class="op">=</span> {</span>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Exact solution data (fine resolution) ---</span></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-9</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.01</span>) {</span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>    exactData<span class="op">.</span><span class="fu">push</span>({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>x) <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Exact Solution"</span> })<span class="op">;</span></span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Euler approximation data ---</span></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>  eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>    eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Final error at x=1 ---</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactAt1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerAt1 <span class="op">=</span> eulerData[eulerData<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> err <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exactAt1 <span class="op">-</span> eulerAt1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Plot ---</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allData <span class="op">=</span> [<span class="op">...</span>exactData<span class="op">,</span> <span class="op">...</span>eulerData]<span class="op">;</span></span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">650</span><span class="op">,</span></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>] }<span class="op">,</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.6</span><span class="op">,</span> <span class="fl">1.05</span>] }<span class="op">,</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Exact Solution"</span><span class="op">,</span> <span class="st">"Euler Approx"</span>]<span class="op">,</span></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> [<span class="st">"green"</span><span class="op">,</span> <span class="st">"steelblue"</span>]</span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>    <span class="dt">caption</span><span class="op">:</span> <span class="vs">`Error at x = 1: |exact − Euler| ≈ </span><span class="sc">${</span>err<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(exactData<span class="op">,</span> {</span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -712,32 +1055,32 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>eulerTable <span class="op">=</span> {</span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
-<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> exact <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>cx) <span class="op">+</span> cx <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> error <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exact <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Step</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> cx<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">,</span></span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Euler y"</span><span class="op">:</span> cy<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
-<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Exact y"</span><span class="op">:</span> exact<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Error</span><span class="op">:</span> error<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)</span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Inputs<span class="op">.</span><span class="fu">table</span>(rows<span class="op">,</span> {</span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> [<span class="st">"Step"</span><span class="op">,</span> <span class="st">"x"</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">,</span> <span class="st">"Error"</span>]<span class="op">,</span></span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> { <span class="dt">Step</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="dt">Error</span><span class="op">:</span> <span class="dv">90</span> }<span class="op">,</span></span>
-<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> <span class="st">"auto"</span></span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="323" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 322;"><span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>eulerTable <span class="op">=</span> {</span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> exact <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>cx) <span class="op">+</span> cx <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> error <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exact <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Step</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> cx<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">,</span></span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Euler y"</span><span class="op">:</span> cy<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Exact y"</span><span class="op">:</span> exact<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Error</span><span class="op">:</span> error<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Inputs<span class="op">.</span><span class="fu">table</span>(rows<span class="op">,</span> {</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> [<span class="st">"Step"</span><span class="op">,</span> <span class="st">"x"</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">,</span> <span class="st">"Error"</span>]<span class="op">,</span></span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> { <span class="dt">Step</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="dt">Error</span><span class="op">:</span> <span class="dv">90</span> }<span class="op">,</span></span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> <span class="st">"auto"</span></span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
@@ -745,6 +1088,8 @@ window.Quarto = {
 </div>
 </div>
 <p><strong>Analysis:</strong> Notice how the error grows with each step. Because Euler’s Method uses the slope at the <em>beginning</em> of each interval, any curvature in the actual solution causes the approximation to drift — this accumulation is called <strong>global truncation error</strong>. Try increasing <span class="math inline">\(h\)</span> to see the error grow, or decreasing it to watch the approximation tighten.</p>
+</div>
+</div>
 
 
 </section>
