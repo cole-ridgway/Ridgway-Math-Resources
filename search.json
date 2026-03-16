@@ -51,7 +51,14 @@
     "href": "index.html",
     "title": "Welcome to Mr. Ridgway’s Math Classes",
     "section": "",
-    "text": "Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen.\nCurrently available: * AP Calculus AB"
+    "text": "Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen."
+  },
+  {
+    "objectID": "index.html#courses",
+    "href": "index.html#courses",
+    "title": "Welcome to Mr. Ridgway’s Math Classes",
+    "section": "Courses",
+    "text": "Courses\n\nAP Calculus AB"
   },
   {
     "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html",
