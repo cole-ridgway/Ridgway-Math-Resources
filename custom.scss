@@ -1,82 +1,172 @@
 /*-- scss:rules --*/
 
-/* 1. The Vertical Sidebar Divider */
+/* 1. Define Theme-Specific Variables */
+/* We'll define two color sets: a light one and a dark one */
+
+// 1.1 - Light Theme Colors (when 'cosmo' is active)
+$conceptual-bg-light: #fcfcfc;
+$practice-bg-light: #fcfcfc;
+$practice-text-light: #333; // Dark text for light background
+$conceptual-text-light: #333; // Dark text for light background
+
+// 1.2 - Dark Theme Colors (when 'darkly' is active)
+// For dark mode, we'll use a darker, less aggressive gray background,
+// and make sure the text (and math) is light and legible.
+$conceptual-bg-dark: #2c2f33; 
+$practice-bg-dark: #2c2f33;
+$practice-text-dark: #eee;  // Light gray/white text for dark background
+$conceptual-text-dark: #eee;  // Light gray/white text for dark background
+
+
+/* 2. Map Variables to Quarto's Theme Hook */
+/* This tells Quarto which colors to use for which theme. */
+
+// We map our custom variables to Quarto's theme variable mechanism.
+// (Quarto will pick up 'cosmo' as the base theme for light)
+[data-quarto-theme="light"] {
+  --conceptual-box-bg: #{$conceptual-bg-light};
+  --conceptual-box-text: #{$conceptual-text-light};
+  --practice-box-bg: #{$practice-bg-light};
+  --practice-box-text: #{$practice-text-light};
+}
+
+// We map our custom variables for when the 'darkly' theme is active.
+[data-quarto-theme="dark"] {
+  --conceptual-box-bg: #{$conceptual-bg-dark};
+  --conceptual-box-text: #{$conceptual-text-dark};
+  --practice-box-bg: #{$practice-bg-dark};
+  --practice-box-text: #{$practice-text-dark};
+}
+
+
+/* 3. Original Layout / Nav Rules (Keep these as they are) */
 #quarto-sidebar {
-  border-right: 2px solid #e0e0e0 !important;
+  border-right: 2px solid var(--bs-border-color) !important;
   padding-right: 15px;
+  background-color: var(--bs-body-bg); 
 }
 
-/* 2. Sidebar Background Color */
-.sidebar {
-  background-color: #f8f9fa; 
-}
-
-/* 3. Constrain the Reading Width */
 main {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-
-/* 4. Top Navbar Customization */
-/* --- Combined Navbar Styles: Dividers + Hover Pills --- */
-
-/* 1. The Vertical Dividers between items */
 .navbar-nav .nav-item {
   border-right: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 0 8px; /* Keeps the pill from touching the vertical line */
+  padding: 0 8px; 
 }
 
-/* Removes the line after the very last item */
 .navbar-nav .nav-item:last-child {
   border-right: none;
 }
 
-/* 2. The Pill Box (Resting State) */
 .navbar .nav-link {
-  background-color: rgba(255, 255, 255, 0.05); /* Nearly transparent resting state */
+  background-color: rgba(255, 255, 255, 0.05); 
   border-radius: 5px;
   padding: 6px 16px !important;
-  transition: background-color 0.2s ease; /* Smooth fade-in effect */
+  transition: background-color 0.2s ease; 
 }
 
-/* 3. The Hover State (Responsive to the mouse) */
 .navbar .nav-link:hover, .navbar .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.25); /* Brightens up when hovered or active */
+  background-color: rgba(255, 255, 255, 0.25); 
 }
 
+
+/* 4. Update the Custom Box Rules to Use the Dynamic Variables */
+/* This is where the magic happens! We replace the fixed colors with our new variables. */
 
 /* --- Practice Exercise Box (Orange) --- */
 .practice-box {
-  border: 2px solid #e67e22; /* A clean, professional orange */
+  border: 2px solid #e67e22; 
   border-radius: 8px;
   padding: 20px 25px;
-  background-color: #fcfcfc;
+  // DYNAMIC VARIABLES FOR BG AND TEXT COLOR!
+  background-color: var(--practice-box-bg);
+  color: var(--practice-box-text); 
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
 .practice-box h3, .practice-box h4 {
   margin-top: 0;
-  color: #333;
+  color: inherit; // Heading colors will now adapt from the parent text color
   border-bottom: 1px solid #e67e22;
   padding-bottom: 10px;
 }
 
 /* --- Conceptual Questions Box (Purple) --- */
 .conceptual-box {
-  border: 2px solid #8e44ad; /* A clean, professional purple */
+  border: 2px solid #8e44ad; 
   border-radius: 8px;
   padding: 20px 25px;
-  background-color: #fcfcfc;
+  // DYNAMIC VARIABLES FOR BG AND TEXT COLOR!
+  background-color: var(--conceptual-box-bg); 
+  color: var(--conceptual-box-text); 
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
 .conceptual-box h3, .conceptual-box h4 {
   margin-top: 0;
-  color: #333;
+  color: inherit; // Heading colors will now adapt from the parent text color
   border-bottom: 1px solid #8e44ad;
   padding-bottom: 10px;
+}
+
+
+
+/* 5. Observable Plot — Force white background + black axes in all themes */
+/* Keeps plots readable in dark mode despite Plot's hardcoded inline styles. */
+
+.cell-output-display svg {
+  background: white !important;
+}
+
+.cell-output-display svg text {
+  fill: black !important;
+}
+
+.cell-output-display svg [stroke="currentColor"],
+.cell-output-display svg [aria-label$="tick"] line,
+.cell-output-display svg [aria-label$="tick"] path,
+.cell-output-display svg [aria-label$="grid"] line,
+.cell-output-display svg [aria-label="x-axis"] line,
+.cell-output-display svg [aria-label="x-axis"] path,
+.cell-output-display svg [aria-label="y-axis"] line,
+.cell-output-display svg [aria-label="y-axis"] path {
+  stroke: black !important;
+}
+
+
+/* 6. Observable JS (OJS) Dark Mode Overrides */
+/* Fixes slider/input borders and table styling in dark mode. */
+
+[data-quarto-theme="dark"] {
+  .observablehq figure,
+  .observablehq svg {
+    background-color: transparent !important;
+  }
+
+  .observablehq,
+  .observablehq-table {
+    color: var(--bs-body-color) !important;
+  }
+
+  .observablehq svg text {
+    fill: var(--bs-body-color) !important;
+  }
+
+  .observablehq svg [stroke="currentColor"] {
+    stroke: var(--bs-body-color) !important;
+  }
+
+  .observablehq svg [fill="currentColor"] {
+    fill: var(--bs-body-color) !important;
+  }
+
+  .observablehq-table th,
+  .observablehq-table td {
+    border-bottom-color: var(--bs-border-color) !important;
+  }
 }

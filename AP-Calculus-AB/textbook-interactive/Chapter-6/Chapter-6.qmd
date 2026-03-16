@@ -1002,6 +1002,18 @@ The centers are at the origin, and the transverse axes are vertical for $K>0$ an
 :::
 :::
 
+::: {.practice-box}
+#### Exercises: Applications of Differential Equations
+
+1. A boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is 91°C at time $t=0$, and the room temperature of the kitchen is a constant 27°C. The internal temperature of the potato at time $t$ minutes can be modeled by the function $H$ that satisfies the differential equation $\frac{dH}{dt} = -\frac{1}{4}(H - 27)$. Find an expression for $H(t)$.
+2. Water is draining from a cylindrical barrel. The height $h$ of the water, in meters, changes at a rate modeled by the differential equation $\frac{dh}{dt} = -\frac{1}{10}\sqrt{h}$, where $t$ is the time in days. At time $t=0$, the height of the water is 4 meters.
+   a) Find the particular solution $h(t)$ to the differential equation.
+   b) According to the model, at what time $t$ will the barrel be completely empty?
+3. A population of insects in a controlled environment grows at a rate modeled by the differential equation $\frac{dP}{dt} = \frac{1}{5}(1000 - P)$, where $P$ is the number of insects and $t$ is the time in days. At time $t=0$, there are 200 insects.
+   a) Find the particular solution $P(t)$ to the differential equation.
+   b) Evaluate $\lim_{t \to \infty} P(t)$ and interpret the meaning of this limit in the context of the problem.
+:::
+
 ---
 
 ### 6.3.4 Logistic Differential Equation
