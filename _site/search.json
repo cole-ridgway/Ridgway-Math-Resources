@@ -54,6 +54,13 @@
     "text": "Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen."
   },
   {
+    "objectID": "index.html#courses",
+    "href": "index.html#courses",
+    "title": "Welcome to Mr. Ridgway’s Math Classes",
+    "section": "Courses",
+    "text": "Courses\n\nAP Calculus AB"
+  },
+  {
     "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html",
     "href": "AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html",
     "title": "Chapter 7: Applications of Integration",
@@ -100,12 +107,5 @@
       "Printable Textbook (PDF)",
       "Chapter 5: Transcendental Functions and Their Inverses"
     ]
-  },
-  {
-    "objectID": "index.html#courses",
-    "href": "index.html#courses",
-    "title": "Welcome to Mr. Ridgway’s Math Classes",
-    "section": "Courses",
-    "text": "Courses\n\nAP Calculus AB"
   }
 ]
