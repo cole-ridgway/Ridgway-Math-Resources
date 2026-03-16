@@ -49,4 +49,5 @@ format:
       light: [cosmo, custom.scss]
       dark: [darkly, custom.scss]
     toc: true
+    toc-depth: 4
     html-math-method: mathjax

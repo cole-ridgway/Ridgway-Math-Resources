@@ -36,26 +36,38 @@ $$s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32$$
 which contains two arbitrary constants. It can be shown that a differential equation of order $n$ has a general solution with $n$ arbitrary constants.
 
 ::: {.callout-note title="Example" icon=false appearance="simple"}
-Determine whether the function is a solution of the differential equation $y''-y=0$.
+Determine whether the given function is a solution of the differential equation $y''-y=0$.
 
-**a) $y=\sin(x)$** Because $y=\sin(x)$, $y'=\cos(x)$, and $y''=-\sin(x)$ it follows that
-$$y'' - y = -\sin(x) - \sin(x)=-2\sin(x)\neq 0$$
+**a)** $y=\sin(x)$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because $y=\sin(x)$, $y'=\cos(x)$, and $y''=-\sin(x)$, it follows that:
+$$y'' - y = -\sin(x) - \sin(x) = -2\sin(x) \neq 0$$
 So, $y=\sin(x)$ is not a solution.
+:::
 
-**b) $y=4e^{-x}$** Because $y=4e^{-x}$, $y' = -4e^{-x}$, $y''=4e^{-4x}$ it follows that 
+**b)** $y=4e^{-x}$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because $y=4e^{-x}$, $y' = -4e^{-x}$, and $y''=4e^{-x}$, it follows that:
 $$y'' - y = 4e^{-x} - 4e^{-x} = 0$$
 So, $y=4e^{-x}$ is a solution.
+:::
 
-**c) $y=Ce^x$** Because $y=Ce^x$, $y'=Ce^x$, $y''=Ce^x$, it follows that
+**c)** $y=Ce^x$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because $y=Ce^x$, $y'=Ce^x$, and $y''=Ce^x$, it follows that:
 $$y''-y=Ce^x-Ce^x=0$$
 So, $y=Ce^x$ is a solution for any value of $C$.
+:::
 :::
 
 Geometrically, the general solution of a first-order differential equation represents a family of curves known as **solution curves**, one for each value assigned to the arbitrary constant. For instance, you can verify that every function of the form
 
 $$y = \frac{C}{x}$$
 
-is a solution of the differential equation $xy' + y = 0$. 
+is a solution of the differential equation $xy' + y = 0$. The figure below shows four of the solution curves corresponding to different values of $C$.
 
 ![Figure 6.1](fig-6.1.png)
 
@@ -71,6 +83,35 @@ In this case, the initial conditions yield the particular solution:
 
 $$s(t) = -16t^2 +64t +80$$
 
+::: {.callout-note title="Example" icon=false appearance="simple"}
+For the differential equation $xy'-3y=0$, verify that $y=Cx^3$ is a solution, and find the particular solution determined by the initial condition $y=2$ when $x=-3$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+You know that $y=Cx^3$ is a solution because $y'=3Cx^2$ and:
+$$xy'-3y = x(3Cx^2)-3(Cx^3) = 0$$
+
+Furthermore, the initial condition $y=2$ when $x=-3$ yields:
+$$y = Cx^3 \hspace{2cm} \text{(General Solution)}$$
+$$2 = C(-3)^3 \hspace{2cm} \text{(Substitute initial condition)}$$
+$$-\frac{2}{27} = C \hspace{2cm} \text{(Solve for C)}$$
+
+and you can conclude that the particular solution is:
+$$y = -\frac{2x^3}{27} \hspace{2cm} \text{(Particular Solution)}$$
+
+*(Try checking this solution by substituting for $y$ and $y'$ in the original differential equation!)*
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: Verify Solutions and Find Particular Solutions
+1. Determine whether the function $y = x^3$ is a solution to the differential equation $xy' - 3y = 0$.
+2. Verify that $y = 2e^{-x} + xe^{-x}$ is a solution to the second-order differential equation $y'' + 2y' + y = 0$.
+3. The general solution of the differential equation $y' + 2y = 0$ is given by $y = Ce^{-2x}$. Find the particular solution that satisfies the initial condition $y(0) = 5$.
+4. Verify that $y = C_1 \sin(3x) + C_2 \cos(3x)$ is a solution to the differential equation $y'' + 9y = 0$.
+5. Given the general solution $y = Cx^2$ for the differential equation $xy' = 2y$, find the particular solution whose graph passes through the point $(2, 12)$.
+6. For the differential equation $\frac{dy}{dx} = 4x - 1$, find the particular solution $y=f(x)$ that passes through the point $(1, 3)$.
+::: 
+---
 
 ### 6.1.2 Slope Fields
 
@@ -80,11 +121,119 @@ $$y'=F(x,y) \hspace{3cm} \text{Differential Equation}$$
 
 At each point $(x,y)$ in the $xy$-plane where $F$ is defined, the differential equation determines the slope $y'=F(x,y)$. If you draw short line segments with slope $F(x,y)$ at selected points $(x,y)$ in the domain of $F$, then these line segments form a **slope field**, or a *direction field* for the differential equation $y'=F(x,y)$. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.
 
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Sketch a slope field for the differential equation $y'=x-y$ for the points $(-1,1)$, $(0,1)$, and $(1,1)$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+The slope of the solution curve at any points $(x,y)$ is $F(x,y)=x-y$. 
+* The slope at $(-1,1)$ is $y'=-1-1=-2$
+* The slope at $(0,1)$ is $y'=0-1=-1$
+* The slope at $(1,1)$ is $y'=1-1=0$. 
+
+Draw short line segments at the three points with their respective slopes, as shown below:
+
 ![Figure 6.2: Slope Field for the differential equation y'=x-y](fig-6.2.png)
+:::
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Match the slope field with its differential equation.
+
+![Figure 6.3](fig-6.3.png)
+
+**i)** $y'=x+y$  
+**ii)** $y'=x$  
+**iii)** $y'=y$  
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+**a)** From Figure 6.3(a), you can see that the slope at any point along the $y$-axis is 0. The only equation that satisfies this condition is $y'=x$. So the graph matches (ii).
+
+**b)** From Figure 6.3(b), you can see that the slope at the point $(1,-1)$ is 0. The only equation that satisfies this condition is $y'=x+y$. So, the graph matches (i).
+
+**c)** From Figure 6.3(c), you can see that the slope at any point along the $x$-axis is 0. The only equation that satisfies this condition is $y'=y$. So, the graph matches (iii).
+:::
+:::
+
+A solution curve of a differential equation $y'=F(x,y)$ is simply a curve in the $xy$-plane whose tangent line at each point $(x,y)$ has slope equal to $F(x,y)$. This is illustrated in the next example.
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Sketch a slope field for the differential equation $y' = 2x+y$. Use the slope field to sketch the solution that passes through the point $(1,1)$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Make a table showing the slopes at several points. The table shown is a small sample. The slopes at many other points should be calculated to get a representative slope field.
+
+| $x$ | -2 | -2 | -1 | -1 | 0 | 0 | 1 | 1 | 2 | 2 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| $y$ | -1 | 1 | -1 | 1 | -1 | 1 | -1 | 1 | -1 | 1 |
+| $y' = 2x+y$ | -5 | -3 | -3 | -1 | -1 | 1 | 1 | 3 | 3 | 5 |
+
+Next, draw line segments at the points with their respective slopes, as shown in Figure 6.4. After the slope field is drawn, start at the initial point $(1,1)$ and move to the right in the direction of the line segment. Continue to draw the solution curve so that it moves parallel to the nearby line segments. Do the same to the left of $(1,1)$. The resulting solution is shown in Figure 6.5.
+
+![Figure 6.4: Slope field for y'=2x+y](fig-6.4.png)
+![Figure 6.5: Particular solution passing through (1,1)](fig-6.5.png)
+
+*(Note that the slope field shows that $y'$ increases to infinity as $x$ increases).*
+:::
+:::
 
 *A note from the textbook:* Drawing a slope field by hand is tedious. In practice, slope fields are usually drawn using a graphing utility.  
 *A note from your teacher, me, Cole $\mathbb{R}$idgway:* The TI-84 can do this.
 
+::: {.practice-box}
+#### Exercises: Sketch, Match, and Interpret Slope Fields
+1. **Sketching:** Sketch a slope field for the differential equation $y' = x + y$ at the nine points indicated below.
+   
+   ![Exercise 1 Graph](ex-1.png)
+2. **Matching:** Match the differential equation with its slope field.
+   
+   ::: {layout-ncol=3}
+   ![Graph I](ex-2a.png)
+   
+   ![Graph II](ex-2b.png)
+   
+   ![Graph III](ex-2c.png)
+   :::
+   
+   a) $\frac{dy}{dx} = x + y$
+   b) $\frac{dy}{dx} = x$
+   c) $\frac{dy}{dx} = y$
+3. **Interpretation:** The slope field for the differential equation $\frac{dy}{dx} = y - 2$ is shown below. Sketch the solution curve that passes through the point $(0, 1)$ and the solution curve that passes through $(0, 3)$.
+
+   ![Exercise 3 Graph](ex-3.png)
+
+4. Consider the differential equation $\frac{dy}{dx} = \frac{x}{y}$.
+   a) On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.
+
+      ![Exercise 4 Graph](ex-4.png)
+
+   b) Describe the general shape of the solution curves.
+5. Which of the following differential equations generates a slope field where the slopes are parallel along vertical lines?
+   a) $\frac{dy}{dx} = x + y$
+   b) $\frac{dy}{dx} = xy$
+   c) $\frac{dy}{dx} = 2x$
+   d) $\frac{dy}{dx} = 2y$
+6. **Analysis:** The figure below shows the slope field for a differential equation $\frac{dy}{dx} = f(x,y)$.
+   
+   ![Exercise 6 Graph](ex-6.png)
+
+   Based on the slope field, which of the following could be the specific solution $y=f(x)$ passing through $(0,2)$?
+   a) $y = x^2 + 2$
+   b) $y = \sqrt{4-x^2}$
+   c) $y = e^x + 1$
+   d) $y = 2$
+::: 
+
+::: {.conceptual-box}
+#### Conceptual Questions
+1. **Visualizing Variable Dependence:** Analytically, a differential equation can depend on $x$, $y$, or both. Geometrically, the layout of the slope field reveals this dependence.
+   * If the slopes are identical along any vertical line (moving up and down doesn't change the slope), the differential equation depends only on $x$ (e.g., $y' = 2x$).
+   * If the slopes are identical along any horizontal line (moving left and right doesn't change the slope), the differential equation depends only on $y$ (e.g., $y' = 2y$).
+   Explain why this geometric symmetry occurs. *(Hint: Consider how changing the coordinate $y$ affects the value of $y'$ in the equation $y'=2x$).*
+2. **The Geometry of a Solution Curve:** The text states that a slope field shows the general shape of all solutions. When you sketch a particular solution curve starting at a point $(x_1, y_1)$, you must draw it such that the curve is tangent to every slope segment it passes near. Analytically, this is because $y'$ represents the instantaneous rate of change. Explain why a curve that *crosses* the slope segments at a sharp angle (perpendicularly, for example) cannot be a solution to the differential equation.
+3. **Interpreting "Flat" Slopes (Equilibrium):** Consider the differential equation $y' = y - 2$. Analytically, if $y=2$, the derivative $y'$ becomes 0. Geometrically, this creates a horizontal row of flat slope segments at the height $y=2$. If a solution curve starts exactly at the initial condition $y(0)=2$, what does the graph of this particular solution look like for all time $t$?
+:::
+
+---
 
 ### 6.1.3 Euler's Method
 
@@ -100,7 +249,7 @@ If you think of $(x_1,y_1)$ as a new starting point, you can repeat the process 
 
 ::: {.callout-note title="Example: Euler's Method Approximation" icon="false" appearance="simple"}
 Use Euler's Method to approximate the particular solution of the differential equation $y' = x - y$ passing through the point $(0,1)$ using step size $h=0.1$. Compare your results with the exact solution $y = 2e^{-x} + x - 1$.
-:::
+
 
 *Use the interactive slider below to change the step size (*$h$) and see how it affects the accuracy of Euler's Method.
 
@@ -201,3 +350,4 @@ eulerTable = {
 ```
 
 **Analysis:** Notice how the error grows with each step. Because Euler's Method uses the slope at the *beginning* of each interval, any curvature in the actual solution causes the approximation to drift — this accumulation is called **global truncation error**. Try increasing $h$ to see the error grow, or decreasing it to watch the approximation tighten.
+:::
