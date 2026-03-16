@@ -11,101 +11,27 @@
     ]
   },
   {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter2.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter2.html",
-    "title": "Chapter 2: Differentiation",
-    "section": "",
-    "text": "Welcome to Chapter 2!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.",
-    "crumbs": [
-      "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 2: Differentiation"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter4.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter4.html",
-    "title": "Chapter 4: Integration",
-    "section": "",
-    "text": "Welcome to Chapter 4!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n📄 Download Blank Student Notes\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.\n\n📝 Download Completed Teacher Notes",
-    "crumbs": [
-      "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 4: Integration"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter6.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter6.html",
+    "objectID": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html",
+    "href": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html",
     "title": "Chapter 6: Differential Equations",
     "section": "",
-    "text": "Welcome to Chapter 6!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.",
+    "text": "Euler’s Method is a numerical approach to approximating the particular solution of the differential equation \\(y'=F(x,y)\\) that passes through the point \\((x_0,y_0)\\).\nFrom this starting point, you can proceed in the direction indicated by the slope. Using a small step \\(h\\), move along the tangent line until you arrive at the next point.\n\n\nLet’s look at how the step size \\(h\\) changes the accuracy of our approximation. Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as \\(h\\) gets smaller.\n#| echo: false #| warning: false\nimport matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets",
     "crumbs": [
       "AP Calculus AB",
-      "Printable Textbook (PDF)",
+      "Interactive Textbook",
       "Chapter 6: Differential Equations"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to Mr. Ridgway’s Math Classes",
+    "objectID": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html#eulers-method",
+    "href": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html#eulers-method",
+    "title": "Chapter 6: Differential Equations",
     "section": "",
-    "text": "Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen."
-  },
-  {
-    "objectID": "index.html#courses",
-    "href": "index.html#courses",
-    "title": "Welcome to Mr. Ridgway’s Math Classes",
-    "section": "Courses",
-    "text": "Courses\n\nAP Calculus AB"
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html",
-    "title": "Chapter 7: Applications of Integration",
-    "section": "",
-    "text": "Welcome to Chapter 7!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.",
+    "text": "Euler’s Method is a numerical approach to approximating the particular solution of the differential equation \\(y'=F(x,y)\\) that passes through the point \\((x_0,y_0)\\).\nFrom this starting point, you can proceed in the direction indicated by the slope. Using a small step \\(h\\), move along the tangent line until you arrive at the next point.\n\n\nLet’s look at how the step size \\(h\\) changes the accuracy of our approximation. Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as \\(h\\) gets smaller.\n#| echo: false #| warning: false\nimport matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets",
     "crumbs": [
       "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 7: Applications of Integration"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.html",
-    "title": "Chapter 1: Limits and Continuity",
-    "section": "",
-    "text": "Welcome to Chapter 1!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.",
-    "crumbs": [
-      "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 1: Limits and Continuity"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter3.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter3.html",
-    "title": "Chapter 3: Applications of Differentiation",
-    "section": "",
-    "text": "Welcome to Chapter 3!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.",
-    "crumbs": [
-      "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 3: Applications of Differentiation"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter5.html",
-    "href": "AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter5.html",
-    "title": "Chapter 5: Transcendental Functions and Their Inverses",
-    "section": "",
-    "text": "Welcome to Chapter 5!\nUse the links below to download the printable PDF packets.\n\nFor Students\nPrint this blank packet to bring to class.\n\n📄 Download Blank Student Notes\n\n\n\nFor Parents & Review\nUse this completed packet to check your work or review missed lectures.\n\n📝 Download Completed Teacher Notes",
-    "crumbs": [
-      "AP Calculus AB",
-      "Printable Textbook (PDF)",
-      "Chapter 5: Transcendental Functions and Their Inverses"
+      "Interactive Textbook",
+      "Chapter 6: Differential Equations"
     ]
   },
   {
@@ -157,6 +83,20 @@
     ]
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to Mr. Ridgway’s Math Classes",
+    "section": "",
+    "text": "Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen."
+  },
+  {
+    "objectID": "index.html#courses",
+    "href": "index.html#courses",
+    "title": "Welcome to Mr. Ridgway’s Math Classes",
+    "section": "Courses",
+    "text": "Courses\n\nAP Calculus AB"
+  },
+  {
     "objectID": "AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.html",
     "href": "AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.html",
     "title": "Chapter 6: Differential Equations",
@@ -190,30 +130,6 @@
       "AP Calculus AB",
       "Printable Textbook (PDF)",
       "Chapter 2: Differentiation"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html",
-    "href": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html",
-    "title": "Chapter 6: Differential Equations",
-    "section": "",
-    "text": "Euler’s Method is a numerical approach to approximating the particular solution of the differential equation \\(y'=F(x,y)\\) that passes through the point \\((x_0,y_0)\\).\nFrom this starting point, you can proceed in the direction indicated by the slope. Using a small step \\(h\\), move along the tangent line until you arrive at the next point.\n\n\nLet’s look at how the step size \\(h\\) changes the accuracy of our approximation. Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as \\(h\\) gets smaller.\n#| echo: false #| warning: false\nimport matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets",
-    "crumbs": [
-      "AP Calculus AB",
-      "Interactive Textbook",
-      "Chapter 6: Differential Equations"
-    ]
-  },
-  {
-    "objectID": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html#eulers-method",
-    "href": "AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html#eulers-method",
-    "title": "Chapter 6: Differential Equations",
-    "section": "",
-    "text": "Euler’s Method is a numerical approach to approximating the particular solution of the differential equation \\(y'=F(x,y)\\) that passes through the point \\((x_0,y_0)\\).\nFrom this starting point, you can proceed in the direction indicated by the slope. Using a small step \\(h\\), move along the tangent line until you arrive at the next point.\n\n\nLet’s look at how the step size \\(h\\) changes the accuracy of our approximation. Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as \\(h\\) gets smaller.\n#| echo: false #| warning: false\nimport matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets",
-    "crumbs": [
-      "AP Calculus AB",
-      "Interactive Textbook",
-      "Chapter 6: Differential Equations"
     ]
   }
 ]
