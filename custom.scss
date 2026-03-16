@@ -17,3 +17,31 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+/* 4. Top Navbar Customization */
+/* --- Combined Navbar Styles: Dividers + Hover Pills --- */
+
+/* 1. The Vertical Dividers between items */
+.navbar-nav .nav-item {
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0 8px; /* Keeps the pill from touching the vertical line */
+}
+
+/* Removes the line after the very last item */
+.navbar-nav .nav-item:last-child {
+  border-right: none;
+}
+
+/* 2. The Pill Box (Resting State) */
+.navbar .nav-link {
+  background-color: rgba(255, 255, 255, 0.05); /* Nearly transparent resting state */
+  border-radius: 5px;
+  padding: 6px 16px !important;
+  transition: background-color 0.2s ease; /* Smooth fade-in effect */
+}
+
+/* 3. The Hover State (Responsive to the mouse) */
+.navbar .nav-link:hover, .navbar .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.25); /* Brightens up when hovered or active */
+}
