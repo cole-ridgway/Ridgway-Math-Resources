@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 7: Applications of Integration – Ridgway Math Resources</title>
+<title>Chapter 6: Differential Equations – Ridgway Math Resources</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -277,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.html">Printable Textbook (PDF)</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html">Chapter 7: Applications of Integration</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html">Chapter 6: Differential Equations</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,43 +335,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 1: Limits and Continuity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 2: Differentiation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 3: Applications of Differentiation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 4: Integration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 5: Transcendental Functions and Their Inverses</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter6.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 6: Differential Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 7: Applications of Integration</span></a>
   </div>
 </li>
@@ -358,26 +387,47 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 1: Limits and Continuity</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-2/Chapter-2.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-2/Chapter-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 2: Differentiation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-3/Chapter-3.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-3/Chapter-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 3: Applications of Differentiation</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-4/Chapter-4.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-4/Chapter-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 4: Integration</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-5/Chapter-5.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-5/Chapter-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 5: Transcendental Functions and Their Inverses</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Chapter 6: Differential Equations</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chapter 7: Applications of Integration</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -390,8 +440,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#for-students" id="toc-for-students" class="nav-link active" data-scroll-target="#for-students">For Students</a></li>
-  <li><a href="#for-parents-review" id="toc-for-parents-review" class="nav-link" data-scroll-target="#for-parents-review">For Parents &amp; Review</a></li>
+  <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link active" data-scroll-target="#eulers-method">Euler’s Method</a>
+  <ul class="collapse">
+  <li><a href="#interactive-exploration" id="toc-interactive-exploration" class="nav-link" data-scroll-target="#interactive-exploration">Interactive Exploration</a></li>
+  </ul></li>
+  <li><a href="#define-the-differential-equation-and-exact-solution" id="toc-define-the-differential-equation-and-exact-solution" class="nav-link" data-scroll-target="#define-the-differential-equation-and-exact-solution">1. Define the differential equation and Exact Solution</a></li>
+  <li><a href="#the-plotting-function" id="toc-the-plotting-function" class="nav-link" data-scroll-target="#the-plotting-function">2. The Plotting Function</a></li>
+  <li><a href="#create-the-interactive-slider" id="toc-create-the-interactive-slider" class="nav-link" data-scroll-target="#create-the-interactive-slider">3. Create the Interactive Slider</a></li>
   </ul>
 </nav>
     </div>
@@ -399,9 +454,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.html">Printable Textbook (PDF)</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.html">Chapter 7: Applications of Integration</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.html">Chapter 6: Differential Equations</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Chapter 7: Applications of Integration</h1>
+<h1 class="title">Chapter 6: Differential Equations</h1>
 </div>
 
 
@@ -418,17 +473,52 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to Chapter 7!</p>
-<p>Use the links below to download the printable PDF packets.</p>
-<section id="for-students" class="level3">
-<h3 class="anchored" data-anchor-id="for-students">For Students</h3>
-<p>Print this blank packet to bring to class.</p>
-<!--* [📄 Download Blank Student Notes](Chapter-7-Student-Notes.pdf) >!-->
+<section id="eulers-method" class="level2">
+<h2 class="anchored" data-anchor-id="eulers-method">Euler’s Method</h2>
+<p><strong>Euler’s Method</strong> is a numerical approach to approximating the particular solution of the differential equation <span class="math inline">\(y'=F(x,y)\)</span> that passes through the point <span class="math inline">\((x_0,y_0)\)</span>.</p>
+<p>From this starting point, you can proceed in the direction indicated by the slope. Using a small step <span class="math inline">\(h\)</span>, move along the tangent line until you arrive at the next point.</p>
+<section id="interactive-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-exploration">Interactive Exploration</h3>
+<p>Let’s look at how the step size <span class="math inline">\(h\)</span> changes the accuracy of our approximation. <strong>Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as <span class="math inline">\(h\)</span> gets smaller.</strong></p>
+<p>#| echo: false #| warning: false</p>
+<p>import matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets</p>
 </section>
-<section id="for-parents-review" class="level3">
-<h3 class="anchored" data-anchor-id="for-parents-review">For Parents &amp; Review</h3>
-<p>Use this completed packet to check your work or review missed lectures.</p>
-<!--* [📝 Download Completed Teacher Notes](Chapter-7-Teacher-Notes.pdf) >!-->
+</section>
+<section id="define-the-differential-equation-and-exact-solution" class="level1">
+<h1>1. Define the differential equation and Exact Solution</h1>
+<p>def f(x, y): return x - y</p>
+<p>def exact_sol(x): return 2 * math.exp(-x) + x - 1</p>
+</section>
+<section id="the-plotting-function" class="level1">
+<h1>2. The Plotting Function</h1>
+<p>def plot_euler(h): x, y = 0, 1 steps = int(1.0 / h) # Calculate up to x = 1.0</p>
+<pre><code>x_plot, y_euler = [x], [y]
+
+# Perform Euler's Method
+for _ in range(steps):
+    y += h * f(x, y)
+    x += h
+    x_plot.append(x)
+    y_euler.append(y)
+
+# Generate smooth line for exact solution
+x_smooth = np.linspace(0, 1, 100)
+y_smooth = [exact_sol(xi) for xi in x_smooth]
+
+# Plotting
+plt.figure(figsize=(8, 5))
+plt.plot(x_plot, y_euler, 'bo--', label=f'Euler Approx (h={h})')
+plt.plot(x_smooth, y_smooth, 'g-', label='Exact Solution')
+plt.legend()
+plt.title("Euler's Method vs Exact Solution")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True)
+plt.show()</code></pre>
+</section>
+<section id="create-the-interactive-slider" class="level1">
+<h1>3. Create the Interactive Slider</h1>
+<p>interact(plot_euler, h=widgets.FloatSlider(min=0.01, max=0.5, step=0.01, value=0.1, description=‘Step Size (h):’));</p>
 
 
 </section>
@@ -520,7 +610,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/cole-ridgway\.github\.io\/Ridgway-Math-Resources\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
