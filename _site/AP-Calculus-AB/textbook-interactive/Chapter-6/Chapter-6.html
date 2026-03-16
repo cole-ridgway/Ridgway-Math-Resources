@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -74,6 +109,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -440,13 +477,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link active" data-scroll-target="#eulers-method">Euler’s Method</a>
+  <li><a href="#slope-fields-and-eulers-method" id="toc-slope-fields-and-eulers-method" class="nav-link active" data-scroll-target="#slope-fields-and-eulers-method">6.1 Slope Fields and Euler’s Method</a>
   <ul class="collapse">
-  <li><a href="#interactive-exploration" id="toc-interactive-exploration" class="nav-link" data-scroll-target="#interactive-exploration">Interactive Exploration</a></li>
+  <li><a href="#general-and-particular-solutions" id="toc-general-and-particular-solutions" class="nav-link" data-scroll-target="#general-and-particular-solutions">6.1.1 General and Particular Solutions</a></li>
+  <li><a href="#slope-fields" id="toc-slope-fields" class="nav-link" data-scroll-target="#slope-fields">6.1.2 Slope Fields</a></li>
+  <li><a href="#eulers-method" id="toc-eulers-method" class="nav-link" data-scroll-target="#eulers-method">6.1.3 Euler’s Method</a></li>
   </ul></li>
-  <li><a href="#define-the-differential-equation-and-exact-solution" id="toc-define-the-differential-equation-and-exact-solution" class="nav-link" data-scroll-target="#define-the-differential-equation-and-exact-solution">1. Define the differential equation and Exact Solution</a></li>
-  <li><a href="#the-plotting-function" id="toc-the-plotting-function" class="nav-link" data-scroll-target="#the-plotting-function">2. The Plotting Function</a></li>
-  <li><a href="#create-the-interactive-slider" id="toc-create-the-interactive-slider" class="nav-link" data-scroll-target="#create-the-interactive-slider">3. Create the Interactive Slider</a></li>
   </ul>
 </nav>
     </div>
@@ -473,57 +509,259 @@ window.Quarto = {
 </header>
 
 
-<section id="eulers-method" class="level2">
-<h2 class="anchored" data-anchor-id="eulers-method">Euler’s Method</h2>
-<p><strong>Euler’s Method</strong> is a numerical approach to approximating the particular solution of the differential equation <span class="math inline">\(y'=F(x,y)\)</span> that passes through the point <span class="math inline">\((x_0,y_0)\)</span>.</p>
-<p>From this starting point, you can proceed in the direction indicated by the slope. Using a small step <span class="math inline">\(h\)</span>, move along the tangent line until you arrive at the next point.</p>
-<section id="interactive-exploration" class="level3">
-<h3 class="anchored" data-anchor-id="interactive-exploration">Interactive Exploration</h3>
-<p>Let’s look at how the step size <span class="math inline">\(h\)</span> changes the accuracy of our approximation. <strong>Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as <span class="math inline">\(h\)</span> gets smaller.</strong></p>
-<p>#| echo: false #| warning: false</p>
-<p>import matplotlib.pyplot as plt import math import numpy as np from ipywidgets import interact import ipywidgets as widgets</p>
+<section id="slope-fields-and-eulers-method" class="level2">
+<h2 class="anchored" data-anchor-id="slope-fields-and-eulers-method">6.1 Slope Fields and Euler’s Method</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key Topics &amp; Formulas</th>
+<th style="text-align: left;">Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Use initial conditions to find particular solutions of differential equations.</td>
+<td style="text-align: left;">I can solve a differential equation to find the general solution and then correctly apply a given initial condition to determine the particular solution.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Use slope fields to approximate solutions of differential equations.</td>
+<td style="text-align: left;">I can interpret a slope field and sketch a reasonable solution curve that follows the direction of the slopes and matches a given initial condition.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Use Euler’s Method to approximate solutions of differential equations.</td>
+<td style="text-align: left;">I can use Euler’s Method step-by-step to approximate the value of a solution at a given point and explain how the step size affects the accuracy.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="general-and-particular-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="general-and-particular-solutions">6.1.1 General and Particular Solutions</h3>
+<p>Physical phenomena can be described by different equations; you will see this in problems like radioactive decay, population growth, and Newton’s Law of Cooling can be formulated in terms of differential equations.</p>
+<p>Recall the definition of a differential equation:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Definition: Differential Equation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Differential Equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>differential equation</strong> in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is an equation that involves <span class="math inline">\(x,y,\)</span> and derivatives of <span class="math inline">\(y\)</span>.</p>
+</div>
+</div>
+<p>A function <span class="math inline">\(y=f(x)\)</span> is called a <strong>solution</strong> of a differential equation if the equation is satisfied when <span class="math inline">\(y\)</span> and its derivatives are replaced by <span class="math inline">\(f(x)\)</span> and its derivatives. For example, differentiation and substitution would show that <span class="math inline">\(y=e^{-2x}\)</span> is a solution of the differential equation <span class="math inline">\(y'+2y=0\)</span>. It can be shown that every solution of this differential equation is of the form:</p>
+<p><span class="math display">\[y = Ce^{-2x} \hspace{3cm} \text{General Solution of } y'+2y=0\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is any real number. This solution is called the <strong>general solution</strong>. Some differential equations have <strong>singular solutions</strong> that cannot be written as special cases of the general solution. However such solutions are not considered in this text. The <strong>order</strong> of a differential equation is determined by the highest-order derivative in the equation. For example, <span class="math inline">\(y'=4y\)</span> is a first-order differential equation.</p>
+<p>In section 4.1, you saw that the second-order differential equation <span class="math inline">\(s''(t)=32\)</span> has the general solution:</p>
+<p><span class="math display">\[s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32\]</span></p>
+<p>which contains two arbitrary constants. It can be shown that a differential equation of order <span class="math inline">\(n\)</span> has a general solution with <span class="math inline">\(n\)</span> arbitrary constants.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Determine whether the function is a solution of the differential equation <span class="math inline">\(y''-y=0\)</span>.</p>
+<p><strong>a) <span class="math inline">\(y=\sin(x)\)</span></strong> Because <span class="math inline">\(y=\sin(x)\)</span>, <span class="math inline">\(y'=\cos(x)\)</span>, and <span class="math inline">\(y''=-\sin(x)\)</span> it follows that <span class="math display">\[y'' - y = -\sin(x) - \sin(x)=-2\sin(x)\neq 0\]</span> So, <span class="math inline">\(y=\sin(x)\)</span> is not a solution.</p>
+<p><strong>b) <span class="math inline">\(y=4e^{-x}\)</span></strong> Because <span class="math inline">\(y=4e^{-x}\)</span>, <span class="math inline">\(y' = -4e^{-x}\)</span>, <span class="math inline">\(y''=4e^{-4x}\)</span> it follows that <span class="math display">\[y'' - y = 4e^{-x} - 4e^{-x} = 0\]</span> So, <span class="math inline">\(y=4e^{-x}\)</span> is a solution.</p>
+<p><strong>c) <span class="math inline">\(y=Ce^x\)</span></strong> Because <span class="math inline">\(y=Ce^x\)</span>, <span class="math inline">\(y'=Ce^x\)</span>, <span class="math inline">\(y''=Ce^x\)</span>, it follows that <span class="math display">\[y''-y=Ce^x-Ce^x=0\]</span> So, <span class="math inline">\(y=Ce^x\)</span> is a solution for any value of <span class="math inline">\(C\)</span>.</p>
+</div>
+</div>
+<p>Geometrically, the general solution of a first-order differential equation represents a family of curves known as <strong>solution curves</strong>, one for each value assigned to the arbitrary constant. For instance, you can verify that every function of the form</p>
+<p><span class="math display">\[y = \frac{C}{x}\]</span></p>
+<p>is a solution of the differential equation <span class="math inline">\(xy' + y = 0\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.1</figcaption>
+</figure>
+</div>
+<p>As discussed in Section 4.1, <strong>particular solutions</strong> of a differential equation are obtained from <strong>initial conditions</strong> that give the value of the dependent variable. The term “initial condition” stems from the fact that, often in problems involving time, the value of the dependent variable or one of its derivatives is known at the <em>initial</em> time <span class="math inline">\(t=0\)</span>. For instance, the second-order differential equation <span class="math inline">\(s''(t)=-32\)</span> having the general solution:</p>
+<p><span class="math display">\[s(t) = -16t^2 + C_1t +C_2\]</span></p>
+<p>might have the following initial conditions:</p>
+<p><span class="math display">\[s(0) = 80, \quad s'(0)=64\]</span></p>
+<p>In this case, the initial conditions yield the particular solution:</p>
+<p><span class="math display">\[s(t) = -16t^2 +64t +80\]</span></p>
 </section>
+<section id="slope-fields" class="level3">
+<h3 class="anchored" data-anchor-id="slope-fields">6.1.2 Slope Fields</h3>
+<p>Solving a differential equation analytically can be difficult or even impossible. However, there is a graphical approach you can use to learn a lot about the solution of</p>
+<p><span class="math display">\[y'=F(x,y) \hspace{3cm} \text{Differential Equation}\]</span></p>
+<p>At each point <span class="math inline">\((x,y)\)</span> in the <span class="math inline">\(xy\)</span>-plane where <span class="math inline">\(F\)</span> is defined, the differential equation determines the slope <span class="math inline">\(y'=F(x,y)\)</span>. If you draw short line segments with slope <span class="math inline">\(F(x,y)\)</span> at selected points <span class="math inline">\((x,y)\)</span> in the domain of <span class="math inline">\(F\)</span>, then these line segments form a <strong>slope field</strong>, or a <em>direction field</em> for the differential equation <span class="math inline">\(y'=F(x,y)\)</span>. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.2.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.2: Slope Field for the differential equation y’=x-y</figcaption>
+</figure>
+</div>
+<p><em>A note from the textbook:</em> Drawing a slope field by hand is tedious. In practice, slope fields are usually drawn using a graphing utility.<br>
+<em>A note from your teacher, me, Cole <span class="math inline">\(\mathbb{R}\)</span>idgway:</em> The TI-84 can do this.</p>
 </section>
-<section id="define-the-differential-equation-and-exact-solution" class="level1">
-<h1>1. Define the differential equation and Exact Solution</h1>
-<p>def f(x, y): return x - y</p>
-<p>def exact_sol(x): return 2 * math.exp(-x) + x - 1</p>
+<section id="eulers-method" class="level3">
+<h3 class="anchored" data-anchor-id="eulers-method">6.1.3 Euler’s Method</h3>
+<p><strong>This is not on the AP Calculus AB Test.</strong> Please see this clip from the movie <a href="https://www.youtube.com/watch?v=v-pbGAts_Fg"><em>Hidden Figures</em></a>.</p>
+<p><strong>Euler’s Method</strong> is a numerical approach to approximating the particular solution of the differential equation <span class="math display">\[y'=F(x,y)\]</span> that passes through the point <span class="math inline">\((x_0,y_0)\)</span>. From the given information, you know that the graph of the solution passes through the point <span class="math inline">\((x_0,y_0)\)</span> and has a slope of <span class="math inline">\(F(x_0,y_0)\)</span> at this point. This gives you a “starting point” for approximating the solution.</p>
+<p>From this starting point, you can proceed in the direction indicated by the slope. Using a small step <span class="math inline">\(h\)</span>, move along the tangent line until you arrive at the point <span class="math inline">\((x_1,y_1)\)</span>, where:</p>
+<p><span class="math display">\[x_1=x_0+h \quad \text{ and } \quad y_1 = y_0 + hF(x_0,y_0)\]</span></p>
+<p>If you think of <span class="math inline">\((x_1,y_1)\)</span> as a new starting point, you can repeat the process to obtain a second point <span class="math inline">\((x_2,y_2)\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Euler's Method Approximation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Euler’s Method Approximation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use Euler’s Method to approximate the particular solution of the differential equation <span class="math inline">\(y' = x - y\)</span> passing through the point <span class="math inline">\((0,1)\)</span> using step size <span class="math inline">\(h=0.1\)</span>. Compare your results with the exact solution <span class="math inline">\(y = 2e^{-x} + x - 1\)</span>.</p>
+</div>
+</div>
+<p><em>Use the interactive slider below to change the step size (</em><span class="math inline">\(h\)</span>) and see how it affects the accuracy of Euler’s Method.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="108" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 107;"><span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>viewof h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> {</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Step Size (h):"</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="117" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>eulerPlot <span class="op">=</span> {</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Exact solution data (fine resolution) ---</span></span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-9</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.01</span>) {</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>    exactData<span class="op">.</span><span class="fu">push</span>({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>x) <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Exact Solution"</span> })<span class="op">;</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Euler approximation data ---</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>    eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Final error at x=1 ---</span></span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactAt1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerAt1 <span class="op">=</span> eulerData[eulerData<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> err <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exactAt1 <span class="op">-</span> eulerAt1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Plot ---</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allData <span class="op">=</span> [<span class="op">...</span>exactData<span class="op">,</span> <span class="op">...</span>eulerData]<span class="op">;</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">650</span><span class="op">,</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>] }<span class="op">,</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.6</span><span class="op">,</span> <span class="fl">1.05</span>] }<span class="op">,</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Exact Solution"</span><span class="op">,</span> <span class="st">"Euler Approx"</span>]<span class="op">,</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> [<span class="st">"green"</span><span class="op">,</span> <span class="st">"steelblue"</span>]</span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    <span class="dt">caption</span><span class="op">:</span> <span class="vs">`Error at x = 1: |exact − Euler| ≈ </span><span class="sc">${</span>err<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(exactData<span class="op">,</span> {</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="174" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 173;"><span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>eulerTable <span class="op">=</span> {</span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> exact <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>cx) <span class="op">+</span> cx <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> error <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exact <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Step</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> cx<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">,</span></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Euler y"</span><span class="op">:</span> cy<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Exact y"</span><span class="op">:</span> exact<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Error</span><span class="op">:</span> error<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Inputs<span class="op">.</span><span class="fu">table</span>(rows<span class="op">,</span> {</span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> [<span class="st">"Step"</span><span class="op">,</span> <span class="st">"x"</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">,</span> <span class="st">"Error"</span>]<span class="op">,</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> { <span class="dt">Step</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="dt">Error</span><span class="op">:</span> <span class="dv">90</span> }<span class="op">,</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> <span class="st">"auto"</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<p><strong>Analysis:</strong> Notice how the error grows with each step. Because Euler’s Method uses the slope at the <em>beginning</em> of each interval, any curvature in the actual solution causes the approximation to drift — this accumulation is called <strong>global truncation error</strong>. Try increasing <span class="math inline">\(h\)</span> to see the error grow, or decreasing it to watch the approximation tighten.</p>
+
+
 </section>
-<section id="the-plotting-function" class="level1">
-<h1>2. The Plotting Function</h1>
-<p>def plot_euler(h): x, y = 0, 1 steps = int(1.0 / h) # Calculate up to x = 1.0</p>
-<pre><code>x_plot, y_euler = [x], [y]
-
-# Perform Euler's Method
-for _ in range(steps):
-    y += h * f(x, y)
-    x += h
-    x_plot.append(x)
-    y_euler.append(y)
-
-# Generate smooth line for exact solution
-x_smooth = np.linspace(0, 1, 100)
-y_smooth = [exact_sol(xi) for xi in x_smooth]
-
-# Plotting
-plt.figure(figsize=(8, 5))
-plt.plot(x_plot, y_euler, 'bo--', label=f'Euler Approx (h={h})')
-plt.plot(x_smooth, y_smooth, 'g-', label='Exact Solution')
-plt.legend()
-plt.title("Euler's Method vs Exact Solution")
-plt.xlabel("x")
-plt.ylabel("y")
-plt.grid(True)
-plt.show()</code></pre>
-</section>
-<section id="create-the-interactive-slider" class="level1">
-<h1>3. Create the Interactive Slider</h1>
-<p>interact(plot_euler, h=widgets.FloatSlider(min=0.01, max=0.5, step=0.01, value=0.1, description=‘Step Size (h):’));</p>
-
-
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBoID0gSW5wdXRzLnJhbmdlKFswLjA1LCAwLjVdLCB7XG4gIHZhbHVlOiAwLjEsXG4gIHN0ZXA6IDAuMDUsXG4gIGxhYmVsOiBcIlN0ZXAgU2l6ZSAoaCk6XCJcbn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJldWxlclBsb3QgPSB7XG4gIC8vIC0tLSBFeGFjdCBzb2x1dGlvbiBkYXRhIChmaW5lIHJlc29sdXRpb24pIC0tLVxuICBjb25zdCBleGFjdERhdGEgPSBbXTtcbiAgZm9yIChsZXQgeCA9IDA7IHggPD0gMS4wICsgMWUtOTsgeCArPSAwLjAxKSB7XG4gICAgZXhhY3REYXRhLnB1c2goeyB4LCB5OiAyICogTWF0aC5leHAoLXgpICsgeCAtIDEsIHNlcmllczogXCJFeGFjdCBTb2x1dGlvblwiIH0pO1xuICB9XG5cbiAgLy8gLS0tIEV1bGVyIGFwcHJveGltYXRpb24gZGF0YSAtLS1cbiAgY29uc3QgZXVsZXJEYXRhID0gW107XG4gIGxldCBjeCA9IDA7XG4gIGxldCBjeSA9IDE7XG4gIGV1bGVyRGF0YS5wdXNoKHsgeDogY3gsIHk6IGN5LCBzZXJpZXM6IFwiRXVsZXIgQXBwcm94XCIgfSk7XG4gIGNvbnN0IHN0ZXBzID0gTWF0aC5yb3VuZCgxLjAgLyBoKTtcbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBzdGVwczsgaSsrKSB7XG4gICAgY3kgPSBjeSArIGggKiAoY3ggLSBjeSk7XG4gICAgY3ggPSBjeCArIGg7XG4gICAgZXVsZXJEYXRhLnB1c2goeyB4OiBjeCwgeTogY3ksIHNlcmllczogXCJFdWxlciBBcHByb3hcIiB9KTtcbiAgfVxuXG4gIC8vIC0tLSBGaW5hbCBlcnJvciBhdCB4PTEgLS0tXG4gIGNvbnN0IGV4YWN0QXQxID0gMiAqIE1hdGguZXhwKC0xKSArIDEgLSAxO1xuICBjb25zdCBldWxlckF0MSA9IGV1bGVyRGF0YVtldWxlckRhdGEubGVuZ3RoIC0gMV0ueTtcbiAgY29uc3QgZXJyID0gTWF0aC5hYnMoZXhhY3RBdDEgLSBldWxlckF0MSkudG9GaXhlZCg0KTtcblxuICAvLyAtLS0gUGxvdCAtLS1cbiAgY29uc3QgYWxsRGF0YSA9IFsuLi5leGFjdERhdGEsIC4uLmV1bGVyRGF0YV07XG5cbiAgcmV0dXJuIFBsb3QucGxvdCh7XG4gICAgd2lkdGg6IDY1MCxcbiAgICBoZWlnaHQ6IDQwMCxcbiAgICBncmlkOiB0cnVlLFxuICAgIHg6IHsgbGFiZWw6IFwieFwiLCBkb21haW46IFswLCAxXSB9LFxuICAgIHk6IHsgbGFiZWw6IFwieVwiLCBkb21haW46IFswLjYsIDEuMDVdIH0sXG4gICAgY29sb3I6IHtcbiAgICAgIGxlZ2VuZDogdHJ1ZSxcbiAgICAgIGRvbWFpbjogW1wiRXhhY3QgU29sdXRpb25cIiwgXCJFdWxlciBBcHByb3hcIl0sXG4gICAgICByYW5nZTogW1wiZ3JlZW5cIiwgXCJzdGVlbGJsdWVcIl1cbiAgICB9LFxuICAgIGNhcHRpb246IGBFcnJvciBhdCB4ID0gMTogfGV4YWN0IOKIkiBFdWxlcnwg4omIICR7ZXJyfWAsXG4gICAgbWFya3M6IFtcbiAgICAgIFBsb3QubGluZShleGFjdERhdGEsIHtcbiAgICAgICAgeDogXCJ4XCIsIHk6IFwieVwiLCBzdHJva2U6IFwic2VyaWVzXCIsIHN0cm9rZVdpZHRoOiAyLjVcbiAgICAgIH0pLFxuICAgICAgUGxvdC5saW5lKGV1bGVyRGF0YSwge1xuICAgICAgICB4OiBcInhcIiwgeTogXCJ5XCIsIHN0cm9rZTogXCJzZXJpZXNcIixcbiAgICAgICAgc3Ryb2tlV2lkdGg6IDIsIHN0cm9rZURhc2hhcnJheTogXCI2LDRcIlxuICAgICAgfSksXG4gICAgICBQbG90LmRvdChldWxlckRhdGEsIHtcbiAgICAgICAgeDogXCJ4XCIsIHk6IFwieVwiLCBmaWxsOiBcInNlcmllc1wiLCByOiA0XG4gICAgICB9KVxuICAgIF1cbiAgfSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJldWxlclRhYmxlID0ge1xuICBjb25zdCBzdGVwcyA9IE1hdGgucm91bmQoMS4wIC8gaCk7XG4gIGxldCBjeCA9IDA7XG4gIGxldCBjeSA9IDE7XG4gIGNvbnN0IHJvd3MgPSBbXTtcblxuICBmb3IgKGxldCBpID0gMTsgaSA8PSBzdGVwczsgaSsrKSB7XG4gICAgY3kgPSBjeSArIGggKiAoY3ggLSBjeSk7XG4gICAgY3ggPSBjeCArIGg7XG4gICAgY29uc3QgZXhhY3QgPSAyICogTWF0aC5leHAoLWN4KSArIGN4IC0gMTtcbiAgICBjb25zdCBlcnJvciA9IE1hdGguYWJzKGV4YWN0IC0gY3kpO1xuICAgIHJvd3MucHVzaCh7XG4gICAgICBTdGVwOiBpLFxuICAgICAgeDogY3gudG9GaXhlZCgyKSxcbiAgICAgIFwiRXVsZXIgeVwiOiBjeS50b0ZpeGVkKDQpLFxuICAgICAgXCJFeGFjdCB5XCI6IGV4YWN0LnRvRml4ZWQoNCksXG4gICAgICBFcnJvcjogZXJyb3IudG9GaXhlZCg0KVxuICAgIH0pO1xuICB9XG5cbiAgcmV0dXJuIElucHV0cy50YWJsZShyb3dzLCB7XG4gICAgY29sdW1uczogW1wiU3RlcFwiLCBcInhcIiwgXCJFdWxlciB5XCIsIFwiRXhhY3QgeVwiLCBcIkVycm9yXCJdLFxuICAgIHdpZHRoOiB7IFN0ZXA6IDUwLCB4OiA2MCwgXCJFdWxlciB5XCI6IDkwLCBcIkV4YWN0IHlcIjogOTAsIEVycm9yOiA5MCB9LFxuICAgIGxheW91dDogXCJhdXRvXCJcbiAgfSk7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2gnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../AP-Calculus-AB/textbook-interactive/Chapter-6";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

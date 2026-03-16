@@ -1,62 +1,203 @@
 ---
 title: "Chapter 6: Differential Equations"
-jupyter: python3
 ---
 
-## Euler's Method
+## 6.1 Slope Fields and Euler's Method
 
-**Euler's Method** is a numerical approach to approximating the particular solution of the differential equation $y'=F(x,y)$ that passes through the point $(x_0,y_0)$.
+::: {.callout-tip title="Objectives" icon=false}
+| Key Topics & Formulas | Success Criteria |
+| :--- | :--- |
+| Use initial conditions to find particular solutions of differential equations. | I can solve a differential equation to find the general solution and then correctly apply a given initial condition to determine the particular solution. |
+| Use slope fields to approximate solutions of differential equations. | I can interpret a slope field and sketch a reasonable solution curve that follows the direction of the slopes and matches a given initial condition. |
+| Use Euler's Method to approximate solutions of differential equations. | I can use Euler's Method step-by-step to approximate the value of a solution at a given point and explain how the step size affects the accuracy. |
+: {tbl-colwidths="[40,60]"}
+:::
 
-From this starting point, you can proceed in the direction indicated by the slope. Using a small step $h$, move along the tangent line until you arrive at the next point.
+### 6.1.1 General and Particular Solutions
 
-### Interactive Exploration
-Let's look at how the step size $h$ changes the accuracy of our approximation. **Use the slider below to change the step size and watch how the Euler approximation (blue) snaps closer to the exact solution (green) as $h$ gets smaller.**
+Physical phenomena can be described by different equations; you will see this in problems like radioactive decay, population growth, and Newton's Law of Cooling can be formulated in terms of differential equations.
 
-```{python}
-#| echo: false
-#| warning: false
+Recall the definition of a differential equation:
 
-import matplotlib.pyplot as plt
-import math
-import numpy as np
-from ipywidgets import interact
-import ipywidgets as widgets
+::: {.callout-note title="Definition: Differential Equation" icon=false}
+A **differential equation** in $x$ and $y$ is an equation that involves $x,y,$ and derivatives of $y$.
+:::
 
-# 1. Define the differential equation and Exact Solution
-def f(x, y):
-    return x - y
+A function $y=f(x)$ is called a **solution** of a differential equation if the equation is satisfied when $y$ and its derivatives are replaced by $f(x)$ and its derivatives. For example, differentiation and substitution would show that $y=e^{-2x}$ is a solution of the differential equation $y'+2y=0$. It can be shown that every solution of this differential equation is of the form:
 
-def exact_sol(x):
-    return 2 * math.exp(-x) + x - 1
+$$y = Ce^{-2x} \hspace{3cm} \text{General Solution of } y'+2y=0$$
 
-# 2. The Plotting Function
-def plot_euler(h):
-    x, y = 0, 1
-    steps = int(1.0 / h) # Calculate up to x = 1.0
-    
-    x_plot, y_euler = [x], [y]
-    
-    # Perform Euler's Method
-    for _ in range(steps):
-        y += h * f(x, y)
-        x += h
-        x_plot.append(x)
-        y_euler.append(y)
+where $C$ is any real number. This solution is called the **general solution**. Some differential equations have **singular solutions** that cannot be written as special cases of the general solution. However such solutions are not considered in this text. The **order** of a differential equation is determined by the highest-order derivative in the equation. For example, $y'=4y$ is a first-order differential equation.
 
-    # Generate smooth line for exact solution
-    x_smooth = np.linspace(0, 1, 100)
-    y_smooth = [exact_sol(xi) for xi in x_smooth]
+In section 4.1, you saw that the second-order differential equation $s''(t)=32$ has the general solution:
 
-    # Plotting
-    plt.figure(figsize=(8, 5))
-    plt.plot(x_plot, y_euler, 'bo--', label=f'Euler Approx (h={h})')
-    plt.plot(x_smooth, y_smooth, 'g-', label='Exact Solution')
-    plt.legend()
-    plt.title("Euler's Method vs Exact Solution")
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.grid(True)
-    plt.show()
+$$s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32$$
 
-# 3. Create the Interactive Slider
-interact(plot_euler, h=widgets.FloatSlider(min=0.01, max=0.5, step=0.01, value=0.1, description='Step Size (h):'));
+which contains two arbitrary constants. It can be shown that a differential equation of order $n$ has a general solution with $n$ arbitrary constants.
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Determine whether the function is a solution of the differential equation $y''-y=0$.
+
+**a) $y=\sin(x)$** Because $y=\sin(x)$, $y'=\cos(x)$, and $y''=-\sin(x)$ it follows that
+$$y'' - y = -\sin(x) - \sin(x)=-2\sin(x)\neq 0$$
+So, $y=\sin(x)$ is not a solution.
+
+**b) $y=4e^{-x}$** Because $y=4e^{-x}$, $y' = -4e^{-x}$, $y''=4e^{-4x}$ it follows that 
+$$y'' - y = 4e^{-x} - 4e^{-x} = 0$$
+So, $y=4e^{-x}$ is a solution.
+
+**c) $y=Ce^x$** Because $y=Ce^x$, $y'=Ce^x$, $y''=Ce^x$, it follows that
+$$y''-y=Ce^x-Ce^x=0$$
+So, $y=Ce^x$ is a solution for any value of $C$.
+:::
+
+Geometrically, the general solution of a first-order differential equation represents a family of curves known as **solution curves**, one for each value assigned to the arbitrary constant. For instance, you can verify that every function of the form
+
+$$y = \frac{C}{x}$$
+
+is a solution of the differential equation $xy' + y = 0$. 
+
+![Figure 6.1](fig-6.1.png)
+
+As discussed in Section 4.1, **particular solutions** of a differential equation are obtained from **initial conditions** that give the value of the dependent variable. The term "initial condition" stems from the fact that, often in problems involving time, the value of the dependent variable or one of its derivatives is known at the *initial* time $t=0$. For instance, the second-order differential equation $s''(t)=-32$ having the general solution:
+
+$$s(t) = -16t^2 + C_1t +C_2$$
+
+might have the following initial conditions:
+
+$$s(0) = 80, \quad s'(0)=64$$
+
+In this case, the initial conditions yield the particular solution:
+
+$$s(t) = -16t^2 +64t +80$$
+
+
+### 6.1.2 Slope Fields
+
+Solving a differential equation analytically can be difficult or even impossible. However, there is a graphical approach you can use to learn a lot about the solution of 
+
+$$y'=F(x,y) \hspace{3cm} \text{Differential Equation}$$
+
+At each point $(x,y)$ in the $xy$-plane where $F$ is defined, the differential equation determines the slope $y'=F(x,y)$. If you draw short line segments with slope $F(x,y)$ at selected points $(x,y)$ in the domain of $F$, then these line segments form a **slope field**, or a *direction field* for the differential equation $y'=F(x,y)$. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.
+
+![Figure 6.2: Slope Field for the differential equation y'=x-y](fig-6.2.png)
+
+*A note from the textbook:* Drawing a slope field by hand is tedious. In practice, slope fields are usually drawn using a graphing utility.  
+*A note from your teacher, me, Cole $\mathbb{R}$idgway:* The TI-84 can do this.
+
+
+### 6.1.3 Euler's Method
+
+**This is not on the AP Calculus AB Test.** Please see this clip from the movie [*Hidden Figures*](https://www.youtube.com/watch?v=v-pbGAts_Fg).
+
+**Euler's Method** is a numerical approach to approximating the particular solution of the differential equation $$y'=F(x,y)$$ that passes through the point $(x_0,y_0)$. From the given information, you know that the graph of the solution passes through the point $(x_0,y_0)$ and has a slope of $F(x_0,y_0)$ at this point. This gives you a "starting point" for approximating the solution.
+
+From this starting point, you can proceed in the direction indicated by the slope. Using a small step $h$, move along the tangent line until you arrive at the point $(x_1,y_1)$, where:
+
+$$x_1=x_0+h \quad \text{ and } \quad y_1 = y_0 + hF(x_0,y_0)$$
+
+If you think of $(x_1,y_1)$ as a new starting point, you can repeat the process to obtain a second point $(x_2,y_2)$.
+
+::: {.callout-note title="Example: Euler's Method Approximation" icon="false" appearance="simple"}
+Use Euler's Method to approximate the particular solution of the differential equation $y' = x - y$ passing through the point $(0,1)$ using step size $h=0.1$. Compare your results with the exact solution $y = 2e^{-x} + x - 1$.
+:::
+
+*Use the interactive slider below to change the step size (*$h$) and see how it affects the accuracy of Euler's Method.
+
+```{ojs}
+//| echo: false
+viewof h = Inputs.range([0.05, 0.5], {
+  value: 0.1,
+  step: 0.05,
+  label: "Step Size (h):"
+})
+```
+
+```{ojs}
+//| echo: false
+eulerPlot = {
+  // --- Exact solution data (fine resolution) ---
+  const exactData = [];
+  for (let x = 0; x <= 1.0 + 1e-9; x += 0.01) {
+    exactData.push({ x, y: 2 * Math.exp(-x) + x - 1, series: "Exact Solution" });
+  }
+
+  // --- Euler approximation data ---
+  const eulerData = [];
+  let cx = 0;
+  let cy = 1;
+  eulerData.push({ x: cx, y: cy, series: "Euler Approx" });
+  const steps = Math.round(1.0 / h);
+  for (let i = 0; i < steps; i++) {
+    cy = cy + h * (cx - cy);
+    cx = cx + h;
+    eulerData.push({ x: cx, y: cy, series: "Euler Approx" });
+  }
+
+  // --- Final error at x=1 ---
+  const exactAt1 = 2 * Math.exp(-1) + 1 - 1;
+  const eulerAt1 = eulerData[eulerData.length - 1].y;
+  const err = Math.abs(exactAt1 - eulerAt1).toFixed(4);
+
+  // --- Plot ---
+  const allData = [...exactData, ...eulerData];
+
+  return Plot.plot({
+    width: 650,
+    height: 400,
+    grid: true,
+    x: { label: "x", domain: [0, 1] },
+    y: { label: "y", domain: [0.6, 1.05] },
+    color: {
+      legend: true,
+      domain: ["Exact Solution", "Euler Approx"],
+      range: ["green", "steelblue"]
+    },
+    caption: `Error at x = 1: |exact − Euler| ≈ ${err}`,
+    marks: [
+      Plot.line(exactData, {
+        x: "x", y: "y", stroke: "series", strokeWidth: 2.5
+      }),
+      Plot.line(eulerData, {
+        x: "x", y: "y", stroke: "series",
+        strokeWidth: 2, strokeDasharray: "6,4"
+      }),
+      Plot.dot(eulerData, {
+        x: "x", y: "y", fill: "series", r: 4
+      })
+    ]
+  });
+}
+```
+
+```{ojs}
+//| echo: false
+eulerTable = {
+  const steps = Math.round(1.0 / h);
+  let cx = 0;
+  let cy = 1;
+  const rows = [];
+
+  for (let i = 1; i <= steps; i++) {
+    cy = cy + h * (cx - cy);
+    cx = cx + h;
+    const exact = 2 * Math.exp(-cx) + cx - 1;
+    const error = Math.abs(exact - cy);
+    rows.push({
+      Step: i,
+      x: cx.toFixed(2),
+      "Euler y": cy.toFixed(4),
+      "Exact y": exact.toFixed(4),
+      Error: error.toFixed(4)
+    });
+  }
+
+  return Inputs.table(rows, {
+    columns: ["Step", "x", "Euler y", "Exact y", "Error"],
+    width: { Step: 50, x: 60, "Euler y": 90, "Exact y": 90, Error: 90 },
+    layout: "auto"
+  });
+}
+```
+
+**Analysis:** Notice how the error grows with each step. Because Euler's Method uses the slope at the *beginning* of each interval, any curvature in the actual solution causes the approximation to drift — this accumulation is called **global truncation error**. Try increasing $h$ to see the error grow, or decreasing it to watch the approximation tighten.
