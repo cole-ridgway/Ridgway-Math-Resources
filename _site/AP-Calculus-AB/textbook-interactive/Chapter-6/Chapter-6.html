@@ -499,6 +499,21 @@ window.Quarto = {
   <li><a href="#conceptual-questions-1" id="toc-conceptual-questions-1" class="nav-link" data-scroll-target="#conceptual-questions-1">Conceptual Questions</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#separation-of-variables-and-the-logistic-equation" id="toc-separation-of-variables-and-the-logistic-equation" class="nav-link" data-scroll-target="#separation-of-variables-and-the-logistic-equation">6.3 Separation of Variables and the Logistic Equation</a>
+  <ul>
+  <li><a href="#separation-of-variables" id="toc-separation-of-variables" class="nav-link" data-scroll-target="#separation-of-variables">6.3.1 Separation of Variables</a>
+  <ul class="collapse">
+  <li><a href="#exercises-separation-of-variables" id="toc-exercises-separation-of-variables" class="nav-link" data-scroll-target="#exercises-separation-of-variables">Exercises: Separation of Variables</a></li>
+  <li><a href="#conceptual-questions-2" id="toc-conceptual-questions-2" class="nav-link" data-scroll-target="#conceptual-questions-2">Conceptual Questions</a></li>
+  </ul></li>
+  <li><a href="#homogeneous-differential-equations" id="toc-homogeneous-differential-equations" class="nav-link" data-scroll-target="#homogeneous-differential-equations">6.3.2 Homogeneous Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#exercises-homogeneous-differential-equations" id="toc-exercises-homogeneous-differential-equations" class="nav-link" data-scroll-target="#exercises-homogeneous-differential-equations">Exercises: Homogeneous Differential Equations</a></li>
+  <li><a href="#conceptual-questions-3" id="toc-conceptual-questions-3" class="nav-link" data-scroll-target="#conceptual-questions-3">Conceptual Questions</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">6.3.3 Applications</a></li>
+  <li><a href="#logistic-differential-equation" id="toc-logistic-differential-equation" class="nav-link" data-scroll-target="#logistic-differential-equation">6.3.4 Logistic Differential Equation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1552,6 +1567,693 @@ t &amp;\approx 24.09 \text{ minutes}
 <li><strong>Asymptotic Behavior in Cooling:</strong> Newton’s Law of Cooling models temperature change with the equation <span class="math inline">\(y' = k(y - T_{room})\)</span>. Algebraically, as the object’s temperature <span class="math inline">\(y\)</span> gets closer to the room temperature <span class="math inline">\(T_{room}\)</span>, the value of the derivative <span class="math inline">\(y'\)</span> approaches zero. Describe the visual feature this creates on the graph of Temperature vs.&nbsp;Time as <span class="math inline">\(t \to \infty\)</span>.</li>
 </ol>
 </section>
+</section>
+</section>
+<section id="separation-of-variables-and-the-logistic-equation" class="level2">
+<h2 class="anchored" data-anchor-id="separation-of-variables-and-the-logistic-equation">6.3 Separation of Variables and the Logistic Equation</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key Topics &amp; Formulas</th>
+<th style="text-align: left;">Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Recognize and solve differential equations that can be solved by separation of variables.</td>
+<td style="text-align: left;">I can identify when a differential equation is separable and correctly separate, integrate, and solve for the solution, including applying an initial condition when given.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Recognize and solve homogeneous differential equations.</td>
+<td style="text-align: left;">I can recognize a homogeneous differential equation, use an appropriate substitution to simplify it, and solve for the general solution.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Use differential equations to model and solve applied problems.</td>
+<td style="text-align: left;">I can set up a differential equation from a real-world situation, solve it correctly, and interpret the solution in the context of the problem.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Solve and analyze logistic differential equations.</td>
+<td style="text-align: left;">I can solve a logistic differential equation, identify the carrying capacity, and explain what the solution tells me about long-term behavior.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="separation-of-variables" class="level3">
+<h3 class="anchored" data-anchor-id="separation-of-variables">6.3.1 Separation of Variables</h3>
+<p>Consider a differential equation that can be written in the form: <span class="math display">\[M(x) + N(y) \frac{dy}{dx} = 0\]</span></p>
+<p>where <span class="math inline">\(M\)</span> is a continuous function of <span class="math inline">\(x\)</span> alone and <span class="math inline">\(N\)</span> is a continuous function of <span class="math inline">\(y\)</span> alone. As you saw in the preceding section, for this type of equation, all <span class="math inline">\(x\)</span> terms can be collected with <span class="math inline">\(dx\)</span> and all <span class="math inline">\(y\)</span> terms with <span class="math inline">\(dy\)</span>, and a solution can be obtained by integration. Such equations are said to be <strong>separable</strong>, and the solution procedure is called <em>separation of variables</em>. Below are some examples of differential equations that are separable.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><em>Original Differential Equation</em></th>
+<th style="text-align: left;"><em>Rewritten with Variables Separated</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(x^2 + 3y \frac{dy}{dx} = 0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3y \, dy = -x^2 \, dx\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\((\sin x)y' = \cos x\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(dy = \cot x \, dx\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\frac{xy'}{e^y + 1} = 2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{1}{e^y + 1} \, dy = \frac{2}{x} \, dx\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the general solution of <span class="math inline">\((x^2 + 4) \frac{dy}{dx} =xy\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To begin, note that <span class="math inline">\(y=0\)</span> is a solution. To find other solutions, assume that <span class="math inline">\(y\neq 0\)</span> and separate variables as shown:</p>
+<p><span class="math display">\[
+\begin{align*}
+(x^2+4) \, dy &amp;= xy \, dx \qquad &amp;&amp; \text{(Differential form)} \\
+\frac{1}{y} \, dy &amp;= \frac{x}{x^2+4} \, dx \qquad &amp;&amp; \text{(Separate variables)}
+\end{align*}
+\]</span></p>
+<p>Now integrate:</p>
+<p><span class="math display">\[
+\begin{align*}
+\int \frac{1}{y} \, dy &amp;= \int \frac{x}{x^2+4} \, dx \qquad &amp;&amp; \text{(Integrate)} \\
+\ln|y| &amp;= \frac{1}{2}\ln(x^2+4) + C_1 \\
+\ln|y| &amp;= \ln \sqrt{x^2+4} + C_1 \\
+|y| &amp;= e^{C_1} \sqrt{x^2+4} \\
+y &amp;= \pm e^{C_1} \sqrt{x^2+4}
+\end{align*}
+\]</span></p>
+<p>Because <span class="math inline">\(y = 0\)</span> is also a solution, you can write the general solution as: <span class="math display">\[y = C\sqrt{x^2+4}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In some cases it is not feasible to write the general solution in the explicit form <span class="math inline">\(y=f(x)\)</span>. The next example illustrates such a solution. Implicit differentiation can be used to verify this solution.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given the initial condition <span class="math inline">\(y(0) = 1\)</span>, find the particular solution of the equation: <span class="math display">\[xy \, dx + e^{-x^2}(y^2-1)\,dy =0\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Note that <span class="math inline">\(y=0\)</span> is a solution of the differential equation—but this solution does not satisfy the initial condition. So, you can assume that <span class="math inline">\(y \neq 0\)</span>. To separate variables, you must rid the first term of <span class="math inline">\(y\)</span> and the second term of <span class="math inline">\(e^{-x^2}\)</span>. So, you should multiply by <span class="math inline">\(e^{x^2}/y\)</span> and obtain:</p>
+<p><span class="math display">\[
+\begin{align*}
+xy \, dx + e^{-x^2}(y^2-1)\,dy &amp;=0 \\
+e^{-x^2}(y^2-1)\,dy &amp;= -xy \,dx \\
+\int \left( y - \frac{1}{y} \right) \,dy &amp;= \int -xe^{x^2}\,dx \\
+\frac{y^2}{2}-\ln|y| &amp;= -\frac{1}{2}e^{x^2} +C
+\end{align*}
+\]</span></p>
+<p>From the initial condition <span class="math inline">\(y(0) = 1\)</span>, you have <span class="math inline">\(\frac{1}{2}-0 = -\frac{1}{2} +C\)</span>, which implies that <span class="math inline">\(C=1\)</span>. So, the particular solution has the implicit form:</p>
+<p><span class="math display">\[
+\begin{align*}
+\frac{y^2}{2} - \ln|y| &amp;= -\frac{1}{2}e^{x^2} + 1 \\
+y^2 - \ln \left( y^2 \right) + e^{x^2} &amp;= 2
+\end{align*}
+\]</span></p>
+<p><em>(You can check this by differentiating and rewriting to get the original equation).</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the equation of the curve that passes through the point <span class="math inline">\((1,3)\)</span> and has a slope of <span class="math inline">\(y/x^2\)</span> at any point <span class="math inline">\((x,y)\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because the slope of the curve is given by <span class="math inline">\(y/x^2\)</span>, you have: <span class="math display">\[\frac{dy}{dx} =\frac{y}{x^2}\]</span></p>
+<p>with the initial condition <span class="math inline">\(y(1)= 3\)</span>. Separating variables and integrating produces:</p>
+<p><span class="math display">\[
+\begin{align*}
+\int \frac{1}{y} \, dy &amp;= \int \frac{1}{x^2} \, dx, \quad y \neq 0 \\
+\ln|y| &amp;= -\frac{1}{x} + C_1 \\
+y &amp;= e^{-(1/x)+C_1} = Ce^{-1/x}
+\end{align*}
+\]</span></p>
+<p>Because <span class="math inline">\(y=3\)</span> when <span class="math inline">\(x=1\)</span>, it follows that <span class="math inline">\(3=Ce^{-1}\)</span> and <span class="math inline">\(C=3e\)</span>. So, the equation of the specified curve is: <span class="math display">\[y = (3e)e^{-1/x}=3e^{(x-1)/x}, \quad x&gt;0\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-separation-of-variables" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-separation-of-variables">Exercises: Separation of Variables</h4>
+<ol type="1">
+<li>Find the general solution of the differential equation <span class="math inline">\(\frac{dy}{dx} = 3x^2 e^{-y}\)</span>.</li>
+<li>Find the particular solution <span class="math inline">\(y=f(x)\)</span> to the differential equation <span class="math inline">\(\frac{dy}{dx} = xy^2\)</span> with the initial condition <span class="math inline">\(f(1) = -1\)</span>. State the domain of the solution.</li>
+<li>Find the particular solution <span class="math inline">\(y=f(x)\)</span> to the differential equation <span class="math inline">\(\frac{dy}{dx} = (1+y^2)\cos(x)\)</span> with the initial condition <span class="math inline">\(f(0) = \sqrt{3}\)</span>.</li>
+<li>A curve passes through the point <span class="math inline">\((0, 2)\)</span> and has a slope of <span class="math inline">\(\frac{2x}{y-1}\)</span> at any point <span class="math inline">\((x,y)\)</span> where <span class="math inline">\(y \neq 1\)</span>. Find the equation of the curve.</li>
+<li>The rate of change of a quantity <span class="math inline">\(P\)</span> is proportional to the square root of <span class="math inline">\(P\)</span>. At time <span class="math inline">\(t=0\)</span>, <span class="math inline">\(P=9\)</span>, and at time <span class="math inline">\(t=2\)</span>, <span class="math inline">\(P=25\)</span>. Find the value of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t=3\)</span>.</li>
+<li>Consider the differential equation <span class="math inline">\(\frac{dy}{dx} = \frac{x}{y}\)</span> for <span class="math inline">\(y \neq 0\)</span>.
+<ol type="a">
+<li>Find the particular solution <span class="math inline">\(y=f(x)\)</span> with the initial condition <span class="math inline">\(f(-2) = -1\)</span>.</li>
+<li>State the domain of the particular solution found in part (a).</li>
+</ol></li>
+</ol>
+</section>
+<section id="conceptual-questions-2" class="level4 conceptual-box">
+<h4 class="anchored" data-anchor-id="conceptual-questions-2">Conceptual Questions</h4>
+<p><em>Answer the following in 1-3 complete sentences.</em></p>
+<ol type="1">
+<li><strong>Identifying Separable Equations:</strong> Analytically, the method of separation of variables requires that the differential equation can be factored into the form <span class="math inline">\(\frac{dy}{dx} = g(x)h(y)\)</span>. Explain algebraically why a differential equation like <span class="math inline">\(\frac{dy}{dx} = x + y\)</span> cannot be solved using this method, whereas <span class="math inline">\(\frac{dy}{dx} = x + xy\)</span> can be. <em>(Hint: Try to separate the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> terms onto opposite sides for both equations).</em></li>
+<li><strong>Lost Solutions and Division:</strong> In the example <span class="math inline">\((x^2 + 4)\frac{dy}{dx} = xy\)</span>, the first algebraic step is to divide both sides by <span class="math inline">\(y\)</span> to separate the variables. Analytically, division by zero is undefined.
+<ul>
+<li>Explain why it is necessary to check if <span class="math inline">\(y=0\)</span> is a solution <em>before</em> performing this division.</li>
+<li>Geometrically, what does the solution <span class="math inline">\(y=0\)</span> look like on a graph, and how does it relate to the slope field along the x-axis?</li>
+</ul></li>
+<li><strong>Implicit vs.&nbsp;Explicit Solutions:</strong> The text notes that sometimes it is not feasible to solve for <span class="math inline">\(y\)</span> explicitly, resulting in an <em>implicit solution</em> (e.g., <span class="math inline">\(y^2 - \ln(y^2) + e^{x^2} = C\)</span>). Geometrically, an explicit function <span class="math inline">\(y=f(x)\)</span> must pass the vertical line test. Explain why an implicit solution curve derived from a differential equation might fail the vertical line test, yet still be a valid representation of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="homogeneous-differential-equations" class="level3">
+<h3 class="anchored" data-anchor-id="homogeneous-differential-equations">6.3.2 Homogeneous Differential Equations</h3>
+<p>Some differential equations that are not separable in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> can be made separable by a change of variables. This is true for differential equations of the form <span class="math inline">\(y' = f(x,y)\)</span>, where <span class="math inline">\(f\)</span> is a <strong>homogeneous function</strong>. The function given by <span class="math inline">\(f(x,y)\)</span> is <strong>homogeneous of degree <span class="math inline">\(n\)</span></strong> if: <span class="math display">\[f(tx,ty) = t^nf(x,y)\]</span> where <span class="math inline">\(n\)</span> is a real number.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Identifying Homogeneous Functions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Identifying Homogeneous Functions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Determine if the following functions are homogeneous.</p>
+<p><strong>a)</strong> <span class="math inline">\(f(x, y) = x^2y - 4x^3 + 3xy^2\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a homogeneous function of degree 3 because: <span class="math display">\[
+\begin{align*}
+f(tx, ty) &amp;= (tx)^2(ty) - 4(tx)^3 + 3(tx)(ty)^2 \\
+          &amp;= t^3(x^2y) - t^3(4x^3) + t^3(3xy^2) \\
+          &amp;= t^3(x^2y - 4x^3 + 3xy^2) \\
+          &amp;= t^3f(x, y)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>b)</strong> <span class="math inline">\(f(x, y) = xe^{x/y} + y \sin(y/x)\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a homogeneous function of degree 1 because: <span class="math display">\[
+\begin{align*}
+f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
+          &amp;= t\left(xe^{x/y} + y \sin \left(\frac{y}{x}\right)\right) \\
+          &amp;= tf(x, y)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>c)</strong> <span class="math inline">\(f(x, y) = x + y^2\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is not a homogeneous function because: <span class="math display">\[f(tx, ty) = tx + t^2y^2 = t(x + ty^2) \neq t^n(x + y^2)\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>d)</strong> <span class="math inline">\(f(x, y) = x/y\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a homogeneous function of degree 0 because: <span class="math display">\[f(tx, ty) = \frac{tx}{ty} = t^0 \frac{x}{y}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Definition: Homogeneous Differential Equation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Definition: Homogeneous Differential Equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>homogeneous differential equation</strong> is an equation of the form: <span class="math display">\[M(x,y) \, dx + N(x,y) \, dy = 0\]</span> where <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are homogeneous functions of the same degree.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Identifying Homogeneous Differential Equations">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Identifying Homogeneous Differential Equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>a)</strong> <span class="math inline">\((x^2 + xy) \, dx + y^2 \, dy = 0\)</span> is homogeneous of degree 2. <strong>b)</strong> <span class="math inline">\(x^3 \, dx = y^3 \, dy\)</span> is homogeneous of degree 3. <strong>c)</strong> <span class="math inline">\((x^2+1)\, dx + y^2 \, dy = 0\)</span> is <em>not</em> a homogeneous differential equation.</p>
+</div>
+</div>
+<p>To solve a homogeneous differential equation by the method of separation of variables, use the following change of variables theorem.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Theorem: Change of Variables for Homogeneous Equations">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Theorem: Change of Variables for Homogeneous Equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(M(x,y) \, dx + N(x,y) \, dy = 0\)</span> is homogeneous, then it can be transformed into a differential equation whose variables are separable by the substitution: <span class="math display">\[y=vx\]</span> where <span class="math inline">\(v\)</span> is a differentiable function of <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the general solution of: <span class="math display">\[(x^2 - y^2)dx + 3xy \, dy = 0\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because <span class="math inline">\((x^2-y^2)\)</span> and <span class="math inline">\(3xy\)</span> are both homogeneous of degree 2, let <span class="math inline">\(y=vx\)</span> to obtain <span class="math inline">\(dy=x \, dv + v \, dx\)</span>. Then, by substitution, you have:</p>
+<p><span class="math display">\[
+\begin{align*}
+(x^2 - v^2x^2) \, dx + 3x(vx)\overbrace{(x \, dv + v \, dx)}^{ dy} &amp;= 0 \\
+(x^2 + 2v^2x^2) \, dx + 3x^3v \, dv &amp;= 0 \\
+x^2(1 + 2v^2) \, dx + x^2(3vx) \, dv &amp;= 0
+\end{align*}
+\]</span></p>
+<p>Dividing by <span class="math inline">\(x^2\)</span> and separating variables produces:</p>
+<p><span class="math display">\[
+\begin{align*}
+(1 + 2v^2) \, dx &amp;= -3vx \, dv \\
+\int \frac{dx}{x} &amp;= \int \frac{-3v}{1 + 2v^2} \, dv \\
+\ln|x| &amp;= -\frac{3}{4} \ln(1 + 2v^2) + C_1 \\
+4 \ln|x| &amp;= -3 \ln(1 + 2v^2) + \ln|C| \\
+\ln x^4 &amp;= \ln|C(1 + 2v^2)^{-3}| \\
+x^4 &amp;= C(1 + 2v^2)^{-3}
+\end{align*}
+\]</span></p>
+<p>Substituting for <span class="math inline">\(v\)</span> produces the following general solution:</p>
+<p><span class="math display">\[
+\begin{align*}
+x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
+\left(1 + \frac{2y^2}{x^2}\right)^3 x^4 &amp;= C \\
+(x^2 + 2y^2)^3 &amp;= Cx^2 \qquad &amp;&amp; \text{(General solution)}
+\end{align*}
+\]</span></p>
+<p><em>(You can check this by differentiating and rewriting to get the original equation).</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-homogeneous-differential-equations" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-homogeneous-differential-equations">Exercises: Homogeneous Differential Equations</h4>
+<ol type="1">
+<li>Determine whether the following functions are homogeneous. If they are, state the degree of the function.
+<ol type="a">
+<li><span class="math inline">\(f(x,y) = x^3 + 3x^2y - y^3\)</span></li>
+<li><span class="math inline">\(f(x,y) = \frac{x^2 - y^2}{\sqrt{x^2+y^2}}\)</span></li>
+<li><span class="math inline">\(f(x,y) = x^2 + \sin(x+y)\)</span></li>
+</ol></li>
+<li>Show that the differential equation <span class="math inline">\((x^2 + y^2)dx - 2xy \, dy = 0\)</span> is homogeneous, and find the general solution.</li>
+<li>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{x+y}{2x}\)</span>.</li>
+<li>Find the particular solution <span class="math inline">\(y=f(x)\)</span> to the differential equation <span class="math inline">\(xx' = y + \sqrt{x^2-y^2}\)</span> with the initial condition <span class="math inline">\(f(1) = 0\)</span>. (Assume <span class="math inline">\(x&gt;0\)</span>).</li>
+<li>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{y}{x} + \sec\left(\frac{y}{x}\right)\)</span>.</li>
+<li>Consider the differential equation <span class="math inline">\((y^2 + xy)dx - x^2 \, dy = 0\)</span>.
+<ol type="a">
+<li>Verify that the differential equation is homogeneous.</li>
+<li>Solve the differential equation by using the substitution <span class="math inline">\(y=vx\)</span>.</li>
+<li>Verify your solution from part (b) by using the substitution <span class="math inline">\(x=uy\)</span>.</li>
+</ol></li>
+</ol>
+</section>
+<section id="conceptual-questions-3" class="level4 conceptual-box">
+<h4 class="anchored" data-anchor-id="conceptual-questions-3">Conceptual Questions</h4>
+<p><em>Answer the following in 1-3 complete sentences.</em></p>
+<ol type="1">
+<li><strong>Recognizing Homogeneity Algebraically:</strong> Analytically, the formal test for a homogeneous function is <span class="math inline">\(f(tx, ty) = t^n f(x,y)\)</span>. However, for polynomial functions, you can often determine homogeneity by inspecting the exponents. In the expression <span class="math inline">\(x^2y - 4x^3 + 3xy^2\)</span>, every term has a “total degree” (sum of exponents) of 3. Explain why an expression like <span class="math inline">\(x^3 + xy\)</span> fails this test and therefore prevents the differential equation from being solved using the homogeneous method.</li>
+<li><strong>The Purpose of the Substitution:</strong> The text introduces the substitution <span class="math inline">\(y = vx\)</span> (and consequently <span class="math inline">\(dy = v\,dx + x\,dv\)</span>). In the context of solving differential equations, we often use substitutions to simplify an integral. However, in this specific context, what is the primary structural change that occurs to the differential equation after substituting and simplifying?
+<ol type="a">
+<li>It transforms a linear equation into a quadratic one.</li>
+<li>It transforms a non-separable equation into a separable one.</li>
+<li>It eliminates the differential <span class="math inline">\(dx\)</span> entirely.</li>
+<li>It makes the equation homogeneous of degree 0.</li>
+</ol></li>
+<li><strong>Geometric Behavior of Homogeneous Slopes:</strong> Many homogeneous differential equations can be rewritten in the form <span class="math inline">\(y' = F\left(\frac{y}{x}\right)\)</span>. Analytically, this means the slope depends only on the ratio of the coordinates, not their individual magnitudes. Geometrically, the ratio <span class="math inline">\(\frac{y}{x}\)</span> is constant along any line passing through the origin. Looking at a slope field for a homogeneous equation, what characteristic pattern should appear along any straight line radiating from the origin?</li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">6.3.3 Applications</h3>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Modeling Population Growth">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Modeling Population Growth
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The rate of change of the number of coyotes <span class="math inline">\(N(t)\)</span> in a population is directly proportional to <span class="math inline">\(650 - N(t)\)</span>, where <span class="math inline">\(t\)</span> is the time in years. When <span class="math inline">\(t = 0\)</span>, the population is 300, and when <span class="math inline">\(t = 2\)</span>, the population has increased to 500. Find the population when <span class="math inline">\(t = 3\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Because the rate of change of the population is proportional to <span class="math inline">\(650 - N(t)\)</span>, you can write the following differential equation: <span class="math display">\[\frac{dN}{dt} = k(650 - N)\]</span></p>
+<p>You can solve this equation using separation of variables: <span class="math display">\[
+\begin{align*}
+dN &amp;= k(650 - N) \, dt \qquad &amp;&amp; \text{(Differential form)} \\
+\frac{dN}{650 - N} &amp;= k \, dt \qquad &amp;&amp; \text{(Separate variables)} \\
+-\ln|650 - N| &amp;= kt + C_1 \qquad &amp;&amp; \text{(Integrate)} \\
+\ln|650 - N| &amp;= -kt - C_1 \\
+650 - N &amp;= e^{-kt - C_1} \qquad &amp;&amp; \text{(Assume } N &lt; 650) \\
+N &amp;= 650 - Ce^{-kt} \qquad &amp;&amp; \text{(General solution)}
+\end{align*}
+\]</span></p>
+<p>Using <span class="math inline">\(N = 300\)</span> when <span class="math inline">\(t = 0\)</span>, you can conclude that <span class="math inline">\(C = 350\)</span>, which produces: <span class="math display">\[N = 650 - 350e^{-kt}\]</span></p>
+<p>Then, using <span class="math inline">\(N = 500\)</span> when <span class="math inline">\(t = 2\)</span>, it follows that: <span class="math display">\[500 = 650 - 350e^{-2k} \quad \Rightarrow \quad e^{-2k} = \frac{3}{7} \quad \Rightarrow \quad k \approx 0.4236\]</span></p>
+<p>So, the model for the coyote population is: <span class="math display">\[N = 650 - 350e^{-0.4236t} \qquad \text{(Model for population)}\]</span></p>
+<p>When <span class="math inline">\(t = 3\)</span>, you can approximate the population to be: <span class="math display">\[N = 650 - 350e^{-0.4236(3)} \approx 552 \text{ coyotes.}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>A common problem in electrostatics, thermodynamics, and hydrodynamics involves finding a family of curves, each of which is orthogonal to all members of a given family of curves. For example, the figure below shows a family of circles: <span class="math display">\[x^2+y^2=C\]</span></p>
+<p>each of which intersects the lines in the family: <span class="math display">\[y=Kx\]</span></p>
+<p>at right angles. Two such families of curves are said to be <strong>mutually orthogonal</strong>, and each curve in one of the families is called an <strong>orthogonal trajectory</strong> of the other family. In electrostatics, lines of force are orthogonal to the <em>equipotential curves</em>.</p>
+<p>In thermodynamics, the flow of heat across a plane surface is orthogonal to the <em>isothermal curves</em>. In hydrodynamics, the flow (stream) lines are orthogonal trajectories of the <em>velocity potential curves</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.6.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.6: Each line y=Kx is an orthogonal trajectory to the family of circles.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Orthogonal Trajectories">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Orthogonal Trajectories
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Describe the orthogonal trajectories for the family of curves given by: <span class="math display">\[y = \frac{C}{x}\]</span> for <span class="math inline">\(C \neq 0\)</span>. Sketch several members of each family.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First, solve the given equation for <span class="math inline">\(C\)</span> and write <span class="math inline">\(xy=C\)</span>. Then, by differentiating implicitly with respect to <span class="math inline">\(x\)</span>, you obtain the differential equation:</p>
+<p><span class="math display">\[
+\begin{align*}
+xy' + y &amp;= 0 \qquad &amp;&amp; \text{(Differential Equation)} \\
+x\frac{dy}{dx} &amp;= -y \\
+\frac{dy}{dx} &amp;= - \frac{y}{x}
+\end{align*}
+\]</span></p>
+<p>Because <span class="math inline">\(y'\)</span> represents the slope of the given family of curves at <span class="math inline">\((x,y)\)</span>, it follows that the orthogonal family has the negative reciprocal slope <span class="math inline">\(x/y\)</span>. So: <span class="math display">\[\frac{dy}{dx} = \frac{x}{y} \qquad \text{(Slope of orthogonal family)}\]</span></p>
+<p>Now you can find the orthogonal family by separating variables and integrating: <span class="math display">\[
+\begin{align*}
+\int y \, dy &amp;= \int x \, dx \\
+\frac{y^2}{2} &amp;= \frac{x^2}{2} + C_1 \\
+y^2 - x^2 &amp;= K
+\end{align*}
+\]</span></p>
+<p>The centers are at the origin, and the transverse axes are vertical for <span class="math inline">\(K&gt;0\)</span> and horizontal for <span class="math inline">\(K&lt;0\)</span>. If <span class="math inline">\(K=0\)</span>, the orthogonal trajectories are the lines <span class="math inline">\(y=\pm x\)</span>. If <span class="math inline">\(K\neq 0\)</span>, the orthogonal trajectories are hyperbolas. Several trajectories are shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.7.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.7: Orthogonal trajectories</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="logistic-differential-equation" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-differential-equation">6.3.4 Logistic Differential Equation</h3>
+<p>In Section 6.2, the exponential growth model is derived from the fact that the rate of change of a variable <span class="math inline">\(y\)</span> is proportional to the value of <span class="math inline">\(y\)</span>. You observed that the differential equation <span class="math inline">\(dy/dt=ky\)</span> has the general solution <span class="math inline">\(y=Ce^{kt}\)</span>. Exponential growth is unlimited, but when describing a population, there often exists some upper limit <span class="math inline">\(L\)</span> past which growth cannot occur.</p>
+<p>This upper limit <span class="math inline">\(L\)</span> is called the <strong>carrying capacity</strong>, which is the maximum population <span class="math inline">\(y(t)\)</span> that can be sustained or supported as time <span class="math inline">\(t\)</span> increases. A model that is often used for this type of growth is the <strong>logistic differential equation</strong>:</p>
+<p><span class="math display">\[\frac{dy}{dt} = ky \left(1 - \frac{y}{L} \right)\]</span></p>
+<p>where <span class="math inline">\(k\)</span> and <span class="math inline">\(L\)</span> are positive constants. A population that satisfies this equation does not grow without bound, but approaches the carrying capacity <span class="math inline">\(L\)</span>, then <span class="math inline">\(dy/dt&gt;0\)</span>, and the population increases. If <span class="math inline">\(y\)</span> is greater than <span class="math inline">\(L\)</span>, then $dy/dt &lt; 0 $, and the population decreases. The graph of the function <span class="math inline">\(y\)</span> is called the <em>logistic curve</em>, as shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.8.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.8: Note that as t approaches infinity, y approaches L</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Solve the logistic differential equation <span class="math inline">\(\displaystyle \frac{dy}{dt} = ky\left(1 - \frac{y}{L}\right)\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Begin by separating variables.</p>
+<p><span class="math display">\[
+\begin{align*}
+\frac{dy}{dt} &amp;= ky\left(1 - \frac{y}{L}\right) \qquad &amp;&amp; \text{(Write differential equation)} \\
+\frac{1}{y(1 - y/L)} \, dy &amp;= k \, dt \qquad &amp;&amp; \text{(Separate variables)} \\
+\int \frac{1}{y(1 - y/L)} \, dy &amp;= \int k \, dt \qquad &amp;&amp; \text{(Integrate each side)} \\
+\int \left( \frac{1}{y} + \frac{1}{L - y} \right) \, dy &amp;= \int k \, dt \qquad &amp;&amp; \text{(Rewrite left side using partial fractions)} \\
+\ln|y| - \ln|L - y| &amp;= kt + C \qquad &amp;&amp; \text{(Find antiderivative of each side)} \\
+\ln \left| \frac{L - y}{y} \right| &amp;= -kt - C \qquad &amp;&amp; \text{(Multiply each side by -1 and simplify)} \\
+\left| \frac{L - y}{y} \right| &amp;= e^{-kt - C} = e^{-C}e^{-kt} \qquad &amp;&amp; \text{(Exponentiate each side)} \\
+\frac{L - y}{y} &amp;= be^{-kt} \qquad &amp;&amp; \text{(Let } \pm e^{-C} = b)
+\end{align*}
+\]</span></p>
+<p>Solving this equation for <span class="math inline">\(y\)</span> produces <span class="math inline">\(\displaystyle y = \frac{L}{1 + be^{-kt}}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>From the previous example, you can conclude that all solutions of the logistic differential equation are of the general form: <span class="math display">\[y = \frac{L}{1+be^{-kt}}\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A state game commission releases 40 elk into a game refuge. After 5 years, the elk population is 104. The commission believes that the environment can support no more than 4000 elk. The growth rate of the elk population <span class="math inline">\(p\)</span> is:</p>
+<p><span class="math display">\[\frac{dp}{dt} = kp \left( 1- \frac{p}{4000} \right), \quad 40 \leq p \leq 4000\]</span></p>
+<p>where <span class="math inline">\(t\)</span> is the number of years.</p>
+<p><strong>a)</strong> Write a model for the elk population in terms of <span class="math inline">\(t\)</span>.</p>
+<p><strong>b)</strong> Graph the slope field of the differential equation and the solution that passes through the point <span class="math inline">\((0,40)\)</span>.</p>
+<p><strong>c)</strong> Use the model to estimate the elk population after 15 years.</p>
+<p><strong>d)</strong> Find the limit of the model as <span class="math inline">\(t\to \infty\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>a)</strong> You know that <span class="math inline">\(L=4000\)</span>. So, the solution of the equation is of the form: <span class="math display">\[p = \frac{4000}{1 + be^{-kt}}\]</span></p>
+<p>Because <span class="math inline">\(p(0)= 40\)</span>, you can solve for <span class="math inline">\(b\)</span> as shown: <span class="math display">\[
+\begin{align*}
+40 &amp;= \frac{4000}{1 + be^{-k(0)}} \\
+40 &amp;= \frac{4000}{1+b} \quad \Rightarrow \quad b=99
+\end{align*}
+\]</span></p>
+<p>Then, because <span class="math inline">\(p=104\)</span> when <span class="math inline">\(t=5\)</span>, you can solve for <span class="math inline">\(k\)</span>: <span class="math display">\[104 = \frac{4000}{1+99e^{-k(5)}} \quad \Rightarrow \quad k \approx 0.194\]</span></p>
+<p>So, the model for the elk population is given by <span class="math inline">\(p = \frac{4000}{1+99e^{-0.194t}}\)</span>.</p>
+<p><strong>b)</strong> Using a graphing utility, you can graph the slope field of: <span class="math display">\[\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)\]</span> and the solution that passes through <span class="math inline">\((0,40)\)</span>, as shown:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-6.9.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6.9: Elk Population Slope Field</figcaption>
+</figure>
+</div>
+<p><strong>c)</strong> To estimate the elk population after 15 years, substitute 15 for <span class="math inline">\(t\)</span> in the model: <span class="math display">\[
+\begin{align*}
+p &amp;= \frac{4000}{1+99e^{-0.194(15)}} \\
+p &amp;= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
+\end{align*}
+\]</span></p>
+<p><strong>d)</strong> As <span class="math inline">\(t\)</span> increases without bound, the denominator of <span class="math inline">\(\frac{4000}{1+99e^{-0.194t}}\)</span> gets closer to 1. So: <span class="math display">\[\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>

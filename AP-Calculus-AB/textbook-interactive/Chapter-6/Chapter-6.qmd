@@ -644,3 +644,451 @@ So, it will require about 14.09 *more* minutes for the object to cool to a tempe
 4. **Asymptotic Behavior in Cooling:** Newton's Law of Cooling models temperature change with the equation $y' = k(y - T_{room})$. Algebraically, as the object's temperature $y$ gets closer to the room temperature $T_{room}$, the value of the derivative $y'$ approaches zero. Describe the visual feature this creates on the graph of Temperature vs. Time as $t \to \infty$.
 :::
 
+## 6.3 Separation of Variables and the Logistic Equation
+
+::: {.callout-tip title="Objectives" icon=false}
+| Key Topics & Formulas | Success Criteria |
+| :--- | :--- |
+| Recognize and solve differential equations that can be solved by separation of variables. | I can identify when a differential equation is separable and correctly separate, integrate, and solve for the solution, including applying an initial condition when given. |
+| Recognize and solve homogeneous differential equations. | I can recognize a homogeneous differential equation, use an appropriate substitution to simplify it, and solve for the general solution. |
+| Use differential equations to model and solve applied problems. | I can set up a differential equation from a real-world situation, solve it correctly, and interpret the solution in the context of the problem. |
+| Solve and analyze logistic differential equations. | I can solve a logistic differential equation, identify the carrying capacity, and explain what the solution tells me about long-term behavior. |
+: {tbl-colwidths="[40,60]"}
+:::
+
+### 6.3.1 Separation of Variables
+
+Consider a differential equation that can be written in the form:
+$$M(x) + N(y) \frac{dy}{dx} = 0$$
+
+where $M$ is a continuous function of $x$ alone and $N$ is a continuous function of $y$ alone. As you saw in the preceding section, for this type of equation, all $x$ terms can be collected with $dx$ and all $y$ terms with $dy$, and a solution can be obtained by integration. Such equations are said to be **separable**, and the solution procedure is called *separation of variables*. Below are some examples of differential equations that are separable.
+
+| *Original Differential Equation* | *Rewritten with Variables Separated* |
+| :--- | :--- |
+| $x^2 + 3y \frac{dy}{dx} = 0$ | $3y \, dy = -x^2 \, dx$ |
+| $(\sin x)y' = \cos x$ | $dy = \cot x \, dx$ |
+| $\frac{xy'}{e^y + 1} = 2$ | $\frac{1}{e^y + 1} \, dy = \frac{2}{x} \, dx$ |
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the general solution of $(x^2 + 4) \frac{dy}{dx} =xy$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+To begin, note that $y=0$ is a solution. To find other solutions, assume that $y\neq 0$ and separate variables as shown:
+
+$$
+\begin{align*}
+(x^2+4) \, dy &= xy \, dx \qquad && \text{(Differential form)} \\
+\frac{1}{y} \, dy &= \frac{x}{x^2+4} \, dx \qquad && \text{(Separate variables)}
+\end{align*}
+$$
+
+Now integrate:
+
+$$
+\begin{align*}
+\int \frac{1}{y} \, dy &= \int \frac{x}{x^2+4} \, dx \qquad && \text{(Integrate)} \\
+\ln|y| &= \frac{1}{2}\ln(x^2+4) + C_1 \\
+\ln|y| &= \ln \sqrt{x^2+4} + C_1 \\
+|y| &= e^{C_1} \sqrt{x^2+4} \\
+y &= \pm e^{C_1} \sqrt{x^2+4}
+\end{align*}
+$$
+
+Because $y = 0$ is also a solution, you can write the general solution as:
+$$y = C\sqrt{x^2+4}$$
+:::
+:::
+
+In some cases it is not feasible to write the general solution in the explicit form $y=f(x)$. The next example illustrates such a solution. Implicit differentiation can be used to verify this solution.
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Given the initial condition $y(0) = 1$, find the particular solution of the equation:
+$$xy \, dx + e^{-x^2}(y^2-1)\,dy =0$$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Note that $y=0$ is a solution of the differential equation—but this solution does not satisfy the initial condition. So, you can assume that $y \neq 0$. To separate variables, you must rid the first term of $y$ and the second term of $e^{-x^2}$. So, you should multiply by $e^{x^2}/y$ and obtain:
+
+$$
+\begin{align*}
+xy \, dx + e^{-x^2}(y^2-1)\,dy &=0 \\
+e^{-x^2}(y^2-1)\,dy &= -xy \,dx \\
+\int \left( y - \frac{1}{y} \right) \,dy &= \int -xe^{x^2}\,dx \\
+\frac{y^2}{2}-\ln|y| &= -\frac{1}{2}e^{x^2} +C
+\end{align*}
+$$
+
+From the initial condition $y(0) = 1$, you have $\frac{1}{2}-0 = -\frac{1}{2} +C$, which implies that $C=1$. So, the particular solution has the implicit form:
+
+$$
+\begin{align*}
+\frac{y^2}{2} - \ln|y| &= -\frac{1}{2}e^{x^2} + 1 \\
+y^2 - \ln \left( y^2 \right) + e^{x^2} &= 2
+\end{align*}
+$$
+
+*(You can check this by differentiating and rewriting to get the original equation).*
+:::
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the equation of the curve that passes through the point $(1,3)$ and has a slope of $y/x^2$ at any point $(x,y)$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because the slope of the curve is given by $y/x^2$, you have: 
+$$\frac{dy}{dx} =\frac{y}{x^2}$$
+
+with the initial condition $y(1)= 3$. Separating variables and integrating produces:
+
+$$
+\begin{align*}
+\int \frac{1}{y} \, dy &= \int \frac{1}{x^2} \, dx, \quad y \neq 0 \\
+\ln|y| &= -\frac{1}{x} + C_1 \\
+y &= e^{-(1/x)+C_1} = Ce^{-1/x}
+\end{align*}
+$$
+
+Because $y=3$ when $x=1$, it follows that $3=Ce^{-1}$ and $C=3e$. So, the equation of the specified curve is:
+$$y = (3e)e^{-1/x}=3e^{(x-1)/x}, \quad x>0$$
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: Separation of Variables
+1. Find the general solution of the differential equation $\frac{dy}{dx} = 3x^2 e^{-y}$.
+2. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = xy^2$ with the initial condition $f(1) = -1$. State the domain of the solution.
+3. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = (1+y^2)\cos(x)$ with the initial condition $f(0) = \sqrt{3}$.
+4. A curve passes through the point $(0, 2)$ and has a slope of $\frac{2x}{y-1}$ at any point $(x,y)$ where $y \neq 1$. Find the equation of the curve.
+5. The rate of change of a quantity $P$ is proportional to the square root of $P$. At time $t=0$, $P=9$, and at time $t=2$, $P=25$. Find the value of $P$ at time $t=3$.
+6. Consider the differential equation $\frac{dy}{dx} = \frac{x}{y}$ for $y \neq 0$.
+   a) Find the particular solution $y=f(x)$ with the initial condition $f(-2) = -1$.
+   b) State the domain of the particular solution found in part (a).
+:::
+
+::: {.conceptual-box}
+#### Conceptual Questions
+*Answer the following in 1-3 complete sentences.*
+
+1. **Identifying Separable Equations:** Analytically, the method of separation of variables requires that the differential equation can be factored into the form $\frac{dy}{dx} = g(x)h(y)$. Explain algebraically why a differential equation like $\frac{dy}{dx} = x + y$ cannot be solved using this method, whereas $\frac{dy}{dx} = x + xy$ can be. *(Hint: Try to separate the $x$ and $y$ terms onto opposite sides for both equations).*
+2. **Lost Solutions and Division:** In the example $(x^2 + 4)\frac{dy}{dx} = xy$, the first algebraic step is to divide both sides by $y$ to separate the variables. Analytically, division by zero is undefined.
+   * Explain why it is necessary to check if $y=0$ is a solution *before* performing this division.
+   * Geometrically, what does the solution $y=0$ look like on a graph, and how does it relate to the slope field along the x-axis?
+3. **Implicit vs. Explicit Solutions:** The text notes that sometimes it is not feasible to solve for $y$ explicitly, resulting in an *implicit solution* (e.g., $y^2 - \ln(y^2) + e^{x^2} = C$). Geometrically, an explicit function $y=f(x)$ must pass the vertical line test. Explain why an implicit solution curve derived from a differential equation might fail the vertical line test, yet still be a valid representation of the relationship between $x$ and $y$.
+:::
+
+---
+
+### 6.3.2 Homogeneous Differential Equations
+
+Some differential equations that are not separable in $x$ and $y$ can be made separable by a change of variables. This is true for differential equations of the form $y' = f(x,y)$, where $f$ is a **homogeneous function**. The function given by $f(x,y)$ is **homogeneous of degree $n$** if:
+$$f(tx,ty) = t^nf(x,y)$$
+where $n$ is a real number.
+
+::: {.callout-note title="Example: Identifying Homogeneous Functions" icon=false appearance="simple"}
+Determine if the following functions are homogeneous.
+
+**a)** $f(x, y) = x^2y - 4x^3 + 3xy^2$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+This is a homogeneous function of degree 3 because:
+$$
+\begin{align*}
+f(tx, ty) &= (tx)^2(ty) - 4(tx)^3 + 3(tx)(ty)^2 \\
+          &= t^3(x^2y) - t^3(4x^3) + t^3(3xy^2) \\
+          &= t^3(x^2y - 4x^3 + 3xy^2) \\
+          &= t^3f(x, y)
+\end{align*}
+$$
+:::
+
+**b)** $f(x, y) = xe^{x/y} + y \sin(y/x)$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+This is a homogeneous function of degree 1 because:
+$$
+\begin{align*}
+f(tx, ty) &= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
+          &= t\left(xe^{x/y} + y \sin \left(\frac{y}{x}\right)\right) \\
+          &= tf(x, y)
+\end{align*}
+$$
+:::
+
+**c)** $f(x, y) = x + y^2$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+This is not a homogeneous function because:
+$$f(tx, ty) = tx + t^2y^2 = t(x + ty^2) \neq t^n(x + y^2)$$
+:::
+
+**d)** $f(x, y) = x/y$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+This is a homogeneous function of degree 0 because:
+$$f(tx, ty) = \frac{tx}{ty} = t^0 \frac{x}{y}$$
+:::
+:::
+
+::: {.callout-important title="Definition: Homogeneous Differential Equation" icon=false}
+A **homogeneous differential equation** is an equation of the form:
+$$M(x,y) \, dx + N(x,y) \, dy = 0$$
+where $M$ and $N$ are homogeneous functions of the same degree.
+:::
+
+::: {.callout-note title="Example: Identifying Homogeneous Differential Equations" icon=false appearance="simple"}
+**a)** $(x^2 + xy) \, dx + y^2 \, dy = 0$ is homogeneous of degree 2.
+**b)** $x^3 \, dx = y^3 \, dy$ is homogeneous of degree 3.
+**c)** $(x^2+1)\, dx + y^2 \, dy = 0$ is *not* a homogeneous differential equation.
+:::
+
+To solve a homogeneous differential equation by the method of separation of variables, use the following change of variables theorem.
+
+::: {.callout-important title="Theorem: Change of Variables for Homogeneous Equations" icon=false}
+If $M(x,y) \, dx + N(x,y) \, dy = 0$ is homogeneous, then it can be transformed into a differential equation whose variables are separable by the substitution:
+$$y=vx$$
+where $v$ is a differentiable function of $x$.
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the general solution of:
+$$(x^2 - y^2)dx + 3xy \, dy = 0$$
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because $(x^2-y^2)$ and $3xy$ are both homogeneous of degree 2, let $y=vx$ to obtain $dy=x \, dv + v \, dx$. Then, by substitution, you have:
+
+$$
+\begin{align*}
+(x^2 - v^2x^2) \, dx + 3x(vx)\overbrace{(x \, dv + v \, dx)}^{ dy} &= 0 \\
+(x^2 + 2v^2x^2) \, dx + 3x^3v \, dv &= 0 \\
+x^2(1 + 2v^2) \, dx + x^2(3vx) \, dv &= 0
+\end{align*}
+$$
+
+Dividing by $x^2$ and separating variables produces:
+
+$$
+\begin{align*}
+(1 + 2v^2) \, dx &= -3vx \, dv \\
+\int \frac{dx}{x} &= \int \frac{-3v}{1 + 2v^2} \, dv \\
+\ln|x| &= -\frac{3}{4} \ln(1 + 2v^2) + C_1 \\
+4 \ln|x| &= -3 \ln(1 + 2v^2) + \ln|C| \\
+\ln x^4 &= \ln|C(1 + 2v^2)^{-3}| \\
+x^4 &= C(1 + 2v^2)^{-3}
+\end{align*}
+$$
+
+Substituting for $v$ produces the following general solution:
+
+$$
+\begin{align*}
+x^4 &= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
+\left(1 + \frac{2y^2}{x^2}\right)^3 x^4 &= C \\
+(x^2 + 2y^2)^3 &= Cx^2 \qquad && \text{(General solution)}
+\end{align*}
+$$
+
+*(You can check this by differentiating and rewriting to get the original equation).*
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: Homogeneous Differential Equations
+1. Determine whether the following functions are homogeneous. If they are, state the degree of the function.
+   a) $f(x,y) = x^3 + 3x^2y - y^3$
+   b) $f(x,y) = \frac{x^2 - y^2}{\sqrt{x^2+y^2}}$
+   c) $f(x,y) = x^2 + \sin(x+y)$
+2. Show that the differential equation $(x^2 + y^2)dx - 2xy \, dy = 0$ is homogeneous, and find the general solution.
+3. Find the general solution of the differential equation $y' = \frac{x+y}{2x}$.
+4. Find the particular solution $y=f(x)$ to the differential equation $xx' = y + \sqrt{x^2-y^2}$ with the initial condition $f(1) = 0$. (Assume $x>0$).
+5. Find the general solution of the differential equation $y' = \frac{y}{x} + \sec\left(\frac{y}{x}\right)$.
+6. Consider the differential equation $(y^2 + xy)dx - x^2 \, dy = 0$.
+   a) Verify that the differential equation is homogeneous.
+   b) Solve the differential equation by using the substitution $y=vx$.
+   c) Verify your solution from part (b) by using the substitution $x=uy$.
+:::
+
+::: {.conceptual-box}
+#### Conceptual Questions
+*Answer the following in 1-3 complete sentences.*
+
+1. **Recognizing Homogeneity Algebraically:** Analytically, the formal test for a homogeneous function is $f(tx, ty) = t^n f(x,y)$. However, for polynomial functions, you can often determine homogeneity by inspecting the exponents. In the expression $x^2y - 4x^3 + 3xy^2$, every term has a "total degree" (sum of exponents) of 3. Explain why an expression like $x^3 + xy$ fails this test and therefore prevents the differential equation from being solved using the homogeneous method.
+2. **The Purpose of the Substitution:** The text introduces the substitution $y = vx$ (and consequently $dy = v\,dx + x\,dv$). In the context of solving differential equations, we often use substitutions to simplify an integral. However, in this specific context, what is the primary structural change that occurs to the differential equation after substituting and simplifying?
+   a) It transforms a linear equation into a quadratic one.
+   b) It transforms a non-separable equation into a separable one.
+   c) It eliminates the differential $dx$ entirely.
+   d) It makes the equation homogeneous of degree 0.
+3. **Geometric Behavior of Homogeneous Slopes:** Many homogeneous differential equations can be rewritten in the form $y' = F\left(\frac{y}{x}\right)$. Analytically, this means the slope depends only on the ratio of the coordinates, not their individual magnitudes. Geometrically, the ratio $\frac{y}{x}$ is constant along any line passing through the origin. Looking at a slope field for a homogeneous equation, what characteristic pattern should appear along any straight line radiating from the origin?
+:::
+
+---
+
+### 6.3.3 Applications
+
+::: {.callout-note title="Example: Modeling Population Growth" icon=false appearance="simple"}
+The rate of change of the number of coyotes $N(t)$ in a population is directly proportional to $650 - N(t)$, where $t$ is the time in years. When $t = 0$, the population is 300, and when $t = 2$, the population has increased to 500. Find the population when $t = 3$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because the rate of change of the population is proportional to $650 - N(t)$, you can write the following differential equation:
+$$\frac{dN}{dt} = k(650 - N)$$
+
+You can solve this equation using separation of variables:
+$$
+\begin{align*}
+dN &= k(650 - N) \, dt \qquad && \text{(Differential form)} \\
+\frac{dN}{650 - N} &= k \, dt \qquad && \text{(Separate variables)} \\
+-\ln|650 - N| &= kt + C_1 \qquad && \text{(Integrate)} \\
+\ln|650 - N| &= -kt - C_1 \\
+650 - N &= e^{-kt - C_1} \qquad && \text{(Assume } N < 650) \\
+N &= 650 - Ce^{-kt} \qquad && \text{(General solution)}
+\end{align*}
+$$
+
+Using $N = 300$ when $t = 0$, you can conclude that $C = 350$, which produces:
+$$N = 650 - 350e^{-kt}$$
+
+Then, using $N = 500$ when $t = 2$, it follows that:
+$$500 = 650 - 350e^{-2k} \quad \Rightarrow \quad e^{-2k} = \frac{3}{7} \quad \Rightarrow \quad k \approx 0.4236$$
+
+So, the model for the coyote population is:
+$$N = 650 - 350e^{-0.4236t} \qquad \text{(Model for population)}$$
+
+When $t = 3$, you can approximate the population to be:
+$$N = 650 - 350e^{-0.4236(3)} \approx 552 \text{ coyotes.}$$
+:::
+:::
+
+A common problem in electrostatics, thermodynamics, and hydrodynamics involves finding a family of curves, each of which is orthogonal to all members of a given family of curves. For example, the figure below shows a family of circles:
+$$x^2+y^2=C$$
+
+each of which intersects the lines in the family:
+$$y=Kx$$
+
+at right angles. Two such families of curves are said to be **mutually orthogonal**, and each curve in one of the families is called an **orthogonal trajectory** of the other family. In electrostatics, lines of force are orthogonal to the *equipotential curves*. 
+
+In thermodynamics, the flow of heat across a plane surface is orthogonal to the *isothermal curves*. In hydrodynamics, the flow (stream) lines are orthogonal trajectories of the *velocity potential curves*.
+
+![Figure 6.6: Each line y=Kx is an orthogonal trajectory to the family of circles.](fig-6.6.png)
+
+::: {.callout-note title="Example: Orthogonal Trajectories" icon=false appearance="simple"}
+Describe the orthogonal trajectories for the family of curves given by:
+$$y = \frac{C}{x}$$
+for $C \neq 0$. Sketch several members of each family.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+First, solve the given equation for $C$ and write $xy=C$. Then, by differentiating implicitly with respect to $x$, you obtain the differential equation:
+
+$$
+\begin{align*}
+xy' + y &= 0 \qquad && \text{(Differential Equation)} \\
+x\frac{dy}{dx} &= -y \\
+\frac{dy}{dx} &= - \frac{y}{x}
+\end{align*}
+$$
+
+Because $y'$ represents the slope of the given family of curves at $(x,y)$, it follows that the orthogonal family has the negative reciprocal slope $x/y$. So:
+$$\frac{dy}{dx} = \frac{x}{y} \qquad \text{(Slope of orthogonal family)}$$
+
+Now you can find the orthogonal family by separating variables and integrating:
+$$
+\begin{align*}
+\int y \, dy &= \int x \, dx \\
+\frac{y^2}{2} &= \frac{x^2}{2} + C_1 \\
+y^2 - x^2 &= K
+\end{align*}
+$$
+
+The centers are at the origin, and the transverse axes are vertical for $K>0$ and horizontal for $K<0$. If $K=0$, the orthogonal trajectories are the lines $y=\pm x$. If $K\neq 0$, the orthogonal trajectories are hyperbolas. Several trajectories are shown below.
+
+![Figure 6.7: Orthogonal trajectories](fig-6.7.png)
+:::
+:::
+
+---
+
+### 6.3.4 Logistic Differential Equation
+
+In Section 6.2, the exponential growth model is derived from the fact that the rate of change of a variable $y$ is proportional to the value of $y$. You observed that the differential equation $dy/dt=ky$ has the general solution $y=Ce^{kt}$. Exponential growth is unlimited, but when describing a population, there often exists some upper limit $L$ past which growth cannot occur. 
+
+This upper limit $L$ is called the **carrying capacity**, which is the maximum population $y(t)$ that can be sustained or supported as time $t$ increases. A model that is often used for this type of growth is the **logistic differential equation**:
+
+$$\frac{dy}{dt} = ky \left(1 - \frac{y}{L} \right)$$
+
+where $k$ and $L$ are positive constants. A population that satisfies this equation does not grow without bound, but approaches the carrying capacity $L$, then $dy/dt>0$, and the population increases. If $y$ is greater than $L$, then $dy/dt < 0 $, and the population decreases. The graph of the function $y$ is called the *logistic curve*, as shown below.
+
+![Figure 6.8: Note that as t approaches infinity, y approaches L](fig-6.8.png)
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Solve the logistic differential equation $\displaystyle \frac{dy}{dt} = ky\left(1 - \frac{y}{L}\right)$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Begin by separating variables.
+
+$$
+\begin{align*}
+\frac{dy}{dt} &= ky\left(1 - \frac{y}{L}\right) \qquad && \text{(Write differential equation)} \\
+\frac{1}{y(1 - y/L)} \, dy &= k \, dt \qquad && \text{(Separate variables)} \\
+\int \frac{1}{y(1 - y/L)} \, dy &= \int k \, dt \qquad && \text{(Integrate each side)} \\
+\int \left( \frac{1}{y} + \frac{1}{L - y} \right) \, dy &= \int k \, dt \qquad && \text{(Rewrite left side using partial fractions)} \\
+\ln|y| - \ln|L - y| &= kt + C \qquad && \text{(Find antiderivative of each side)} \\
+\ln \left| \frac{L - y}{y} \right| &= -kt - C \qquad && \text{(Multiply each side by -1 and simplify)} \\
+\left| \frac{L - y}{y} \right| &= e^{-kt - C} = e^{-C}e^{-kt} \qquad && \text{(Exponentiate each side)} \\
+\frac{L - y}{y} &= be^{-kt} \qquad && \text{(Let } \pm e^{-C} = b)
+\end{align*}
+$$
+
+Solving this equation for $y$ produces $\displaystyle y = \frac{L}{1 + be^{-kt}}$.
+:::
+:::
+
+From the previous example, you can conclude that all solutions of the logistic differential equation are of the general form:
+$$y = \frac{L}{1+be^{-kt}}$$
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+A state game commission releases 40 elk into a game refuge. After 5 years, the elk population is 104. The commission believes that the environment can support no more than 4000 elk. The growth rate of the elk population $p$ is: 
+
+$$\frac{dp}{dt} = kp \left( 1- \frac{p}{4000} \right), \quad 40 \leq p \leq 4000$$
+
+where $t$ is the number of years.
+
+**a)** Write a model for the elk population in terms of $t$.
+
+**b)** Graph the slope field of the differential equation and the solution that passes through the point $(0,40)$.
+
+**c)** Use the model to estimate the elk population after 15 years.
+
+**d)** Find the limit of the model as $t\to \infty$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+**a)** You know that $L=4000$. So, the solution of the equation is of the form:
+$$p = \frac{4000}{1 + be^{-kt}}$$
+
+Because $p(0)= 40$, you can solve for $b$ as shown:
+$$
+\begin{align*}
+40 &= \frac{4000}{1 + be^{-k(0)}} \\
+40 &= \frac{4000}{1+b} \quad \Rightarrow \quad b=99
+\end{align*}
+$$
+
+Then, because $p=104$ when $t=5$, you can solve for $k$:
+$$104 = \frac{4000}{1+99e^{-k(5)}} \quad \Rightarrow \quad k \approx 0.194$$
+
+So, the model for the elk population is given by $p = \frac{4000}{1+99e^{-0.194t}}$.
+
+**b)** Using a graphing utility, you can graph the slope field of: 
+$$\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)$$
+and the solution that passes through $(0,40)$, as shown:
+
+![Figure 6.9: Elk Population Slope Field](fig-6.9.png)
+
+**c)** To estimate the elk population after 15 years, substitute 15 for $t$ in the model:
+$$
+\begin{align*}
+p &= \frac{4000}{1+99e^{-0.194(15)}} \\
+p &= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
+\end{align*}
+$$
+
+**d)** As $t$ increases without bound, the denominator of $\frac{4000}{1+99e^{-0.194t}}$ gets closer to 1. So:
+$$\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000$$
+:::
+:::
