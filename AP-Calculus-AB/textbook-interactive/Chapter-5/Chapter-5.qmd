@@ -1,0 +1,4 @@
+---
+title: "Chapter 5: Transcendental Functions and Their Inverses"
+jupyter: python3
+---

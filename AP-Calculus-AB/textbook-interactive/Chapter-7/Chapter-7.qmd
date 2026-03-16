@@ -1,0 +1,4 @@
+---
+title: "Chapter 7: Applications of Integration"
+jupyter: python3
+---

@@ -1,0 +1,4 @@
+---
+title: "Chapter 3: Applications of Differentiation"
+jupyter: python3
+---

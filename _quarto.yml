@@ -24,18 +24,24 @@ website:
         
         - section: "Printable Textbook (PDF)"
           contents:
-            - AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter2.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter3.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter4.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter5.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter6.qmd
-            - AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter-1.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter-2.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter-3.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter-4.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter-5.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7.qmd
 
         - section: "Interactive Textbook"
+          collapse: false
           contents:
-            - AP-Calculus-AB/interactive-text/index.qmd
-            # We will drop your Euler's Method chapter in here next!
+            - AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-2/Chapter-2.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-3/Chapter-3.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-4/Chapter-4.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-5/Chapter-5.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.qmd
 
 format:
   html:
