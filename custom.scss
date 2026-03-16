@@ -1,0 +1,19 @@
+/*-- scss:rules --*/
+
+/* 1. The Vertical Sidebar Divider */
+#quarto-sidebar {
+  border-right: 2px solid #e0e0e0 !important;
+  padding-right: 15px;
+}
+
+/* 2. Sidebar Background Color */
+.sidebar {
+  background-color: #f8f9fa; 
+}
+
+/* 3. Constrain the Reading Width */
+main {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}

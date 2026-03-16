@@ -21,19 +21,26 @@ website:
       style: "floating"
       contents:
         - AP-Calculus-AB/index.qmd
+        
+        - section: "Printable Textbook (PDF)"
+          contents:
+            - AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter1.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter2.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter3.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter4.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter5.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter6.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter7.qmd
+
         - section: "Interactive Textbook"
           contents:
             - AP-Calculus-AB/interactive-text/index.qmd
-            - AP-Calculus-AB/interactive-text/ch6_differential_equations.qmd
-        - section: "Printable Resources"
-          contents:
-            - AP-Calculus-AB/textbook-pdf/index.qmd
-            - AP-Calculus-AB/homework/index.qmd
+            # We will drop your Euler's Method chapter in here next!
 
 format:
   html:
     theme: 
-      light: cosmo
-      dark: darkly
+      light: [cosmo, custom.scss]
+      dark: [darkly, custom.scss]
     toc: true
     html-math-method: mathjax
