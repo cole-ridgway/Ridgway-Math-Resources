@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-b21a9e43e8605aff160d6ed0118a8ed2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-d9b2d627ff0c06bf63be62ecf0e23d6f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-b21a9e43e8605aff160d6ed0118a8ed2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-98e90602813b7d694c6da4077c86d096.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-0f3344cbe0318a019a6e7445bb01ba33.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-98e90602813b7d694c6da4077c86d096.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -511,7 +511,10 @@ window.Quarto = {
   <li><a href="#exercises-homogeneous-differential-equations" id="toc-exercises-homogeneous-differential-equations" class="nav-link" data-scroll-target="#exercises-homogeneous-differential-equations">Exercises: Homogeneous Differential Equations</a></li>
   <li><a href="#conceptual-questions-3" id="toc-conceptual-questions-3" class="nav-link" data-scroll-target="#conceptual-questions-3">Conceptual Questions</a></li>
   </ul></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">6.3.3 Applications</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">6.3.3 Applications</a>
+  <ul class="collapse">
+  <li><a href="#exercises-applications-of-differential-equations" id="toc-exercises-applications-of-differential-equations" class="nav-link" data-scroll-target="#exercises-applications-of-differential-equations">Exercises: Applications of Differential Equations</a></li>
+  </ul></li>
   <li><a href="#logistic-differential-equation" id="toc-logistic-differential-equation" class="nav-link" data-scroll-target="#logistic-differential-equation">6.3.4 Logistic Differential Equation</a></li>
   </ul></li>
   </ul>
@@ -2140,6 +2143,22 @@ y^2 - x^2 &amp;= K
 </div>
 </div>
 </div>
+<section id="exercises-applications-of-differential-equations" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-applications-of-differential-equations">Exercises: Applications of Differential Equations</h4>
+<ol type="1">
+<li>A boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is 91°C at time <span class="math inline">\(t=0\)</span>, and the room temperature of the kitchen is a constant 27°C. The internal temperature of the potato at time <span class="math inline">\(t\)</span> minutes can be modeled by the function <span class="math inline">\(H\)</span> that satisfies the differential equation <span class="math inline">\(\frac{dH}{dt} = -\frac{1}{4}(H - 27)\)</span>. Find an expression for <span class="math inline">\(H(t)\)</span>.</li>
+<li>Water is draining from a cylindrical barrel. The height <span class="math inline">\(h\)</span> of the water, in meters, changes at a rate modeled by the differential equation <span class="math inline">\(\frac{dh}{dt} = -\frac{1}{10}\sqrt{h}\)</span>, where <span class="math inline">\(t\)</span> is the time in days. At time <span class="math inline">\(t=0\)</span>, the height of the water is 4 meters.
+<ol type="a">
+<li>Find the particular solution <span class="math inline">\(h(t)\)</span> to the differential equation.</li>
+<li>According to the model, at what time <span class="math inline">\(t\)</span> will the barrel be completely empty?</li>
+</ol></li>
+<li>A population of insects in a controlled environment grows at a rate modeled by the differential equation <span class="math inline">\(\frac{dP}{dt} = \frac{1}{5}(1000 - P)\)</span>, where <span class="math inline">\(P\)</span> is the number of insects and <span class="math inline">\(t\)</span> is the time in days. At time <span class="math inline">\(t=0\)</span>, there are 200 insects.
+<ol type="a">
+<li>Find the particular solution <span class="math inline">\(P(t)\)</span> to the differential equation.</li>
+<li>Evaluate <span class="math inline">\(\lim_{t \to \infty} P(t)\)</span> and interpret the meaning of this limit in the context of the problem.</li>
+</ol></li>
+</ol>
+</section>
 <hr>
 </section>
 <section id="logistic-differential-equation" class="level3">
