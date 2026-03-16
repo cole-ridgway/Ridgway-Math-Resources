@@ -351,3 +351,296 @@ eulerTable = {
 
 **Analysis:** Notice how the error grows with each step. Because Euler's Method uses the slope at the *beginning* of each interval, any curvature in the actual solution causes the approximation to drift — this accumulation is called **global truncation error**. Try increasing $h$ to see the error grow, or decreasing it to watch the approximation tighten.
 :::
+
+
+## 6.2 Differential Equations: Growth and Decay
+
+::: {.callout-tip title="Objectives" icon=false}
+| Key Topics & Formulas | Success Criteria |
+| :--- | :--- |
+| Use separation of variables to solve a simple differential equation. | I can separate the variables correctly, integrate both sides, and solve for the dependent variable, including applying an initial condition when given. |
+| Use exponential function to model growth and decay in applied problems. | I can write and use an exponential growth or decay model to represent a real-world situation and correctly interpret the meaning of the parameters in context. |
+: {tbl-colwidths="[40,60]"}
+:::
+
+### 6.2.1 Differential Equations
+
+In the preceding section, you learned to analyze visually the solutions of differential equations using slope fields and to approximate solutions numerically using Euler's Method. Analytically, you have learned to solve only two types of differential equations—those of the forms:
+
+$$y'=f(x) \quad \text{ and } \quad y''=f(x)$$
+
+In this section, you will learn how to solve a more general type of differential equation. The strategy is to rewrite the equation so that each variable occurs on only one side of the equation. This strategy is called *separation of variables*. (You will study this strategy in detail in Section 6.3).
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Solve the differential equation $y'=2x/y$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+$$
+\begin{align*}
+y' &= \frac{2x}{y} && \text{(Write original equation)} \\
+yy' &= 2x && \text{(Multiply both sides by } y) \\
+\int yy' \, dx &= \int 2x \, dx && \text{(Integrate with respect to } x) \\
+\int y \, dy &= \int 2x \, dx && (dy = y' \, dx) \\
+\frac{1}{2}y^2 &= x^2 + C_1 && \text{(Apply Power Rule)} \\
+y^2 - 2x^2 &= C && \text{(Rewrite, letting } C = 2C_1)
+\end{align*}
+$$
+
+So, the general solution is given by $y^2 - 2x^2 = C$. *(You can use implicit differentiation to check this result).*
+:::
+:::
+
+It is very common for people to use either prime notation (like in the previous example) or using Leibniz notation (as shown below). "Separating the variables" feels more natural using Leibniz notation, but many mathematicians use the prime notation because it is faster.
+
+$$
+\begin{align*}
+\frac{dy}{dx} &= \frac{2x}{y} && \text{(Write original equation)} \\
+y \, dy &= 2x \, dx && \text{(Multiply both sides by } y) \\
+\int y \, dy &= \int 2x \, dx && \text{(Integrate with respect to } x) \\
+\frac{1}{2}y^2 &= x^2 + C_1 && \text{(Apply Power Rule)} \\
+y^2 - 2x^2 &= C && \text{(Rewrite, letting } C = 2C_1)
+\end{align*}
+$$
+
+---
+
+### 6.2.2 Growth and Decay Models
+
+In many applications, the rate of change of a variable $y$ is proportional to the value of $y$. If $y$ is a function of time $t$, the proportion can be written as shown:
+
+$$
+\underbrace{\frac{dy}{dt}}_{\text{Rate of change of } y} 
+\quad \underbrace{=}_{\text{is}} \quad
+\underbrace{ky}_{\text{proportional to } y}
+$$
+
+The general solution of this differential equation is given in the following theorem.
+
+::: {.callout-important title="Theorem: Exponential Growth and Decay Model" icon=false}
+If $y$ is a differentiable function of $t$ such that $y>0$ and $y'=ky$, for some constant $k$, then:
+
+$$y = Ce^{kt}$$
+
+$C$ is the **initial value** of $y$, and $k$ is the **proportionality constant**. **Exponential growth** occurs when $k>0$, and **exponential decay** occurs when $k<0$.
+:::
+
+::: {.callout-note title="Proof: Exponential Growth and Decay Model" icon=false appearance="simple"}
+::: {.callout-tip collapse="true" title="Show Proof" icon=false}
+$$
+\begin{align*}
+y' &= ky && \text{(Write original equation)} \\
+\frac{y'}{y} &= k && \text{(Separate variables)} \\
+\int \frac{y'}{y} \, dt &= \int k \, dt && \text{(Integrate with respect to } t) \\
+\int \frac{1}{y} \, dy &= \int k \, dt && (dy=y' \, dt) \\
+\ln(y) &= kt + C_1 && \text{(Find antiderivative of each side)} \\
+y &= e^{kt}e^{C_1} && \text{(Solve for } y) \\
+y &= Ce^{kt} && \text{(Let } C=e^{C_1}) 
+\end{align*}
+$$
+
+So, all solutions of $y' = ky$ are of the form $y=Ce^{kt}$.
+:::
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+The rate of change of $y$ is proportional to $y$. When $t=2, y=4$. What is the value of $y$ when $t=3$?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Because $y'=ky$, you know that $y$ and $t$ are related by the equation $y=Ce^{kt}$. You can find the values of the constants $C$ and $k$ by applying the initial conditions.
+
+$$
+\begin{align*}
+2 &= Ce^0 \quad \Rightarrow \quad C = 2 && \text{(When } t=0 \text{, } y=2) \\
+4 &= 2e^{2k} \quad \Rightarrow \quad k = \frac{1}{2}\ln(2) \approx 0.3466 && \text{(When } t=2 \text{, } y=4)
+\end{align*}
+$$
+
+So, the model is $y \approx 2e^{0.3466t}$. When $t=3$, the value of $y$ is $2e^{0.3466(3)} \approx 5.667$.
+:::
+:::
+
+Radioactive decay is measured in terms of *half-life*—the number of years required for a half of the atoms in a sample of radioactive material to decay. The half-lives of some common radioactive isotopes are shown below.
+
+| Isotope | Half-Life |
+| :--- | :--- |
+| Uranium ($^{238}\text{U}$) | 4,470,000,000 years |
+| Plutonium ($^{239}\text{Pu}$) | 24,100 years |
+| Carbon ($^{14}\text{C}$) | 5,715 years |
+| Radium ($^{226}\text{Ra}$) | 1,599 years |
+| Einsteinium ($^{276}\text{Es}$) | 276 years |
+| Nobelium ($^{257}\text{No}$) | 25 seconds |
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Suppose that 10 grams of Plutonium-239 ($^{239}\text{Pu}$) was released in the Chernobyl nuclear accident. How long will it take for the 10 grams to decay to 1 gram?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Let $y$ represent the mass (in grams) of the plutonium. Because the rate of decay is proportional to $y$, you know that: 
+
+$$y=Ce^{kt}$$
+
+where $t$ is the time in years. To find the values of the constants $C$ and $k$, apply the initial conditions. Using the fact that $y=10$ when $t=0$, you can write:
+
+$$10 = Ce^{k(0)} = Ce^{0}$$
+
+which implies that $C=10$. Next, using the fact that $y=5$ when $t=24,100$, you can write:
+
+$$
+\begin{align*}
+5 &= 10e^{k(24,100)} \\
+\frac{1}{2} &= e^{k(24,100)} \\
+\frac{1}{24,100}\ln \left( \frac{1}{2} \right) &= k \\
+-0.000028761 &\approx k
+\end{align*}
+$$
+
+So, the model is:
+$$y=10e^{-0.000028761t}$$
+
+To find the time it would take for 10 grams to decay to 1 gram, you can solve for $t$ in the equation:
+$$1 =10e^{-0.000028761t}$$
+
+The solution is approximately 80,059 years.^[And this is why we aren't allowed to boil water with cool rocks anymore.]
+:::
+:::
+
+From the previous example, notice that in an exponential growth or decay problem, it is easy to solve for $C$ when you are given the value of $y$ at $t=0$.
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Suppose an experimental population of fruit flies increases according to the law of exponential growth. There were 100 flies after the second day of the experiment and 300 flies after the fourth day. Approximately how many flies were in the original population?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Let $y=Ce^{kt}$ be the number of flies at time $t$, where $t$ is measured in days. Because $y=100$ when $t=2$ and $y=300$ when $t=4$, you can write:
+
+$$100=Ce^{2k} \quad \text{ and } \quad 300 = Ce^{4k}$$
+
+From the first equation, you know that $C=100e^{-2k}$. Substituting this value into the second equation produces the following:
+
+$$
+\begin{align*}
+300 &= \left(100e^{-2k}\right)e^{4k} \\
+300 &= 100e^{2k} \\
+\ln(3) &= 2k \\
+\frac{1}{2}\ln(3) &= k \\
+0.5493 & \approx k
+\end{align*}
+$$
+
+So, the exponential growth model is: 
+$$y= Ce^{0.5493t}$$
+
+To solve for $C$, reapply the condition $y=100$ when $t=2$ and obtain:
+
+$$
+\begin{align*}
+100 &= Ce^{0.5493(2)} \\
+C &= 100e^{-1.0986} \approx 33
+\end{align*}
+$$
+
+So, the original population (when $t=0$) consisted of approximately $y=C=33$ flies.
+:::
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Four months after it stops advertising, a manufacturing company notices that its sales have dropped from 100,000 units per month to 80,000 units per month. If the sales follow an exponential pattern of decline, what will they be after another 2 months?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Use the exponential decay model $y=Ce^{kt}$, where $t$ is measured in months. From the initial condition $(t=0)$, you know that $C=100,000$. Moreover, because $y=80,000$ when $t=4$, you have:
+
+$$
+\begin{align*}
+80,000 &= 100,000e^{4k} \\
+0.8 &= e^{4k} \\
+\ln(0.8) &= 4k \\
+-0.0558 &\approx k
+\end{align*}
+$$
+
+So, after 2 more months $(t=6)$, you can expect the monthly sales rate to be:
+
+$$
+\begin{align*}
+y &\approx 100,000e^{-0.0558(6)} \\
+& \approx 71,500 \text{ units}
+\end{align*}
+$$
+:::
+:::
+
+Throughout these examples, you did not actually have to solve the differential equation $y' = ky$. It was only done in the proof! The next example demonstrates a problem whose solution involves the separation of variables technique. The example concerns **Newton's Law of Cooling**, which states that the rate of change in the temperature of an object is proportional to the difference between the object's temperature and the temperature of the surrounding medium.
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Let $y$ represent the temperature (in $^\circ$F) of an object in a room whose temperature is kept at a constant $60^\circ$F. If the object cools from $100^\circ$F to $90^\circ$F in 10 minutes, how much longer will it take for its temperature to decrease to $80^\circ$F?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+From Newton's Law of Cooling, you know that the rate of change in $y$ is proportional to the difference between $y$ and $60$. This can be written as:
+
+$$y' = k(y-60), \quad 80 \leq y \leq 100$$
+
+To solve this differential equation, use separation of variables as shown:
+
+$$
+\begin{align*}
+\frac{dy}{dt} &= k(y-60) && \text{(Differential Equation)} \\
+\left( \frac{1}{y-60} \right)dy &= k \, dt && \text{(Separate variables)} \\
+\int \left( \frac{1}{y-60} \right)dy &= \int k \, dt && \text{(Integrate each side)} \\
+\ln|y-60| &= kt + C_1 && \text{(Find antiderivative of each side)}
+\end{align*}
+$$
+
+Because $y>60$, $|y-60| = y-60$, and you can omit the absolute value signs. Using exponential notation, you have:
+
+$$y - 60 = e^{kt + C_1} \quad \Rightarrow \quad y=60+Ce^{kt} \quad (\text{letting } C=e^{C_1})$$
+
+Using $y=100$ when $t=0$, you obtain $100=60+Ce^{k(0)} = 60 +C$, which implies that $C=40$. Because $y=90$ when $t=10$:
+
+$$
+\begin{align*}
+90 &= 60 + 40e^{k(10)} \\
+30 &= 40e^{10k} \\
+k &= \frac{1}{10}\ln\left(\frac{3}{4}\right) \approx -0.02877
+\end{align*}
+$$
+
+So, the model is:
+$$y = 60 + 40e^{-0.02877t}$$
+
+and finally, when $y=80$, you obtain:
+
+$$
+\begin{align*}
+80 &= 60 + 40e^{-0.02877t} \\
+20 &= 40e^{-0.02877t} \\
+\frac{1}{2} &= e^{-0.02877t} \\
+\ln \left( \frac{1}{2} \right) &= -0.02877t \\
+t &\approx 24.09 \text{ minutes}
+\end{align*}
+$$
+
+So, it will require about 14.09 *more* minutes for the object to cool to a temperature of $80^\circ$F.
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: Growth and Decay Models
+
+1. Find the general solution of the differential equation $y' = 4xy$.
+2. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = e^{x-y}$ with the initial condition $f(0) = \ln(2)$.
+3. The rate of change of the number of bacteria in a culture is proportional to the number of bacteria present. If the population of bacteria doubles every 5 hours, how long will it take for the population to triple?
+4. A radioactive isotope, "Calc-238," decays at a rate proportional to the amount present. If the half-life of Calc-238 is 1,500 years, what percentage of the original sample will remain after 1,000 years?
+5. A metal ingot is heated to $200^\circ$F and then placed in a room where the temperature is a constant $70^\circ$F. After 10 minutes, the ingot cools to $150^\circ$F. According to Newton's Law of Cooling, what will the temperature of the ingot be after 20 minutes?
+6. Consider the differential equation $\frac{dy}{dx} = \frac{y-1}{x^2}$, where $x \neq 0$.
+   a) Find the particular solution $y=f(x)$ to the differential equation with the initial condition $f(2) = 0$.
+   b) For the particular solution found in part (a), find $\lim_{x \to \infty} f(x)$.
+:::
+
+::: {.conceptual-box}
+#### Conceptual Questions
+*Answer the following in 1-3 complete sentences.*
+
+1. **The Necessity of Separation:** Analytically, in earlier sections, you solved differential equations like $y' = 2x$ by simply integrating both sides with respect to $x$. Explain analytically why this direct integration method fails for an equation like $y' = 2y$, and how moving the $y$ term to the left side allows the integration to proceed.
+2. **Geometric Meaning of the General Solution:** When you perform indefinite integration to find the general solution of a differential equation (e.g., $y = x^2 + C$), you introduce an arbitrary constant $C$. Geometrically, this general solution represents an infinite "family" of curves. Explain why a single *initial condition*, such as $y(1)=3$, is sufficient to isolate one specific curve from this infinite family.
+3. **Analyzing Exponential Growth Rates:** The differential equation for exponential growth is $y' = ky$ (where $k > 0$). In the context of a population model, this equation implies that the rate of growth is proportional to the current population size. Explain why this relationship causes the graph of the population to become steeper and steeper as $y$ increases, rather than maintaining a constant slope.
+4. **Asymptotic Behavior in Cooling:** Newton's Law of Cooling models temperature change with the equation $y' = k(y - T_{room})$. Algebraically, as the object's temperature $y$ gets closer to the room temperature $T_{room}$, the value of the derivative $y'$ approaches zero. Describe the visual feature this creates on the graph of Temperature vs. Time as $t \to \infty$.
+:::
+
