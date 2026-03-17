@@ -517,6 +517,18 @@ window.Quarto = {
   </ul></li>
   <li><a href="#logistic-differential-equation" id="toc-logistic-differential-equation" class="nav-link" data-scroll-target="#logistic-differential-equation">6.3.4 Logistic Differential Equation</a></li>
   </ul></li>
+  <li><a href="#first-order-linear-differential-equations" id="toc-first-order-linear-differential-equations" class="nav-link" data-scroll-target="#first-order-linear-differential-equations">6.4 First-Order Linear Differential Equations</a>
+  <ul>
+  <li><a href="#first-order-linear-differential-equations-1" id="toc-first-order-linear-differential-equations-1" class="nav-link" data-scroll-target="#first-order-linear-differential-equations-1">6.4.1 First-Order Linear Differential Equations</a>
+  <ul class="collapse">
+  <li><a href="#exercises-first-order-linear-equations" id="toc-exercises-first-order-linear-equations" class="nav-link" data-scroll-target="#exercises-first-order-linear-equations">Exercises: First-Order Linear Equations</a></li>
+  </ul></li>
+  <li><a href="#bernoulli-equation" id="toc-bernoulli-equation" class="nav-link" data-scroll-target="#bernoulli-equation">6.4.2 Bernoulli Equation</a></li>
+  <li><a href="#applications-1" id="toc-applications-1" class="nav-link" data-scroll-target="#applications-1">6.4.3 Applications</a>
+  <ul class="collapse">
+  <li><a href="#exercises-applications-of-linear-equations" id="toc-exercises-applications-of-linear-equations" class="nav-link" data-scroll-target="#exercises-applications-of-linear-equations">Exercises: Applications of Linear Equations</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -930,11 +942,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<ol type="a">
-<li><span class="math inline">\(\frac{dy}{dx} = x + y\)</span></li>
-<li><span class="math inline">\(\frac{dy}{dx} = x\)</span></li>
-<li><span class="math inline">\(\frac{dy}{dx} = y\)</span></li>
-</ol></li>
+<p><strong>(A)</strong> <span class="math inline">\(\frac{dy}{dx} = x + y\)</span></p>
+<p><strong>(B)</strong> <span class="math inline">\(\frac{dy}{dx} = x\)</span></p>
+<p><strong>(C)</strong> <span class="math inline">\(\frac{dy}{dx} = y\)</span></p></li>
 <li><p><strong>Interpretation:</strong> The slope field for the differential equation <span class="math inline">\(\frac{dy}{dx} = y - 2\)</span> is shown below. Sketch the solution curve that passes through the point <span class="math inline">\((0, 1)\)</span> and the solution curve that passes through <span class="math inline">\((0, 3)\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -948,18 +958,16 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ex-4.png" class="img-fluid figure-img"></p>
-<figcaption>Exercise 4 Graph</figcaption>
+<figcaption>Exercise 4a Graph</figcaption>
 </figure>
 </div></li>
-<li><p>Describe the general shape of the solution curves.</p></li>
+<li><p>Describe the general shape of the solution curves. `</p></li>
 </ol></li>
 <li><p>Which of the following differential equations generates a slope field where the slopes are parallel along vertical lines?</p>
-<ol type="a">
-<li><span class="math inline">\(\frac{dy}{dx} = x + y\)</span></li>
-<li><span class="math inline">\(\frac{dy}{dx} = xy\)</span></li>
-<li><span class="math inline">\(\frac{dy}{dx} = 2x\)</span></li>
-<li><span class="math inline">\(\frac{dy}{dx} = 2y\)</span></li>
-</ol></li>
+<p><strong>(A)</strong> <span class="math inline">\(\frac{dy}{dx} = x + y\)</span></p>
+<p><strong>(B)</strong> <span class="math inline">\(\frac{dy}{dx} = xy\)</span></p>
+<p><strong>(C)</strong> <span class="math inline">\(\frac{dy}{dx} = 2x\)</span></p>
+<p><strong>(D)</strong> <span class="math inline">\(\frac{dy}{dx} = 2y\)</span></p></li>
 <li><p><strong>Analysis:</strong> The figure below shows the slope field for a differential equation <span class="math inline">\(\frac{dy}{dx} = f(x,y)\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -968,12 +976,10 @@ window.Quarto = {
 </figure>
 </div>
 <p>Based on the slope field, which of the following could be the specific solution <span class="math inline">\(y=f(x)\)</span> passing through <span class="math inline">\((0,2)\)</span>?</p>
-<ol type="a">
-<li><span class="math inline">\(y = x^2 + 2\)</span></li>
-<li><span class="math inline">\(y = \sqrt{4-x^2}\)</span></li>
-<li><span class="math inline">\(y = e^x + 1\)</span></li>
-<li><span class="math inline">\(y = 2\)</span></li>
-</ol></li>
+<p><strong>(A)</strong> <span class="math inline">\(y = x^2 + 2\)</span></p>
+<p><strong>(B)</strong> <span class="math inline">\(y = \sqrt{4-x^2}\)</span></p>
+<p><strong>(C)</strong> <span class="math inline">\(y = e^x + 1\)</span></p>
+<p><strong>(D)</strong> <span class="math inline">\(y = 2\)</span></p></li>
 </ol>
 </section>
 <section id="conceptual-questions" class="level4 conceptual-box">
@@ -1010,11 +1016,11 @@ window.Quarto = {
 <p>Use Euler’s Method to approximate the particular solution of the differential equation <span class="math inline">\(y' = x - y\)</span> passing through the point <span class="math inline">\((0,1)\)</span> using step size <span class="math inline">\(h=0.1\)</span>. Compare your results with the exact solution <span class="math inline">\(y = 2e^{-x} + x - 1\)</span>.</p>
 <p><em>Use the interactive slider below to change the step size (</em><span class="math inline">\(h\)</span>) and see how it affects the accuracy of Euler’s Method.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="257" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 256;"><span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>viewof h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> {</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span></span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Step Size (h):"</span></span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="269" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 268;"><span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>viewof h <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="fl">0.05</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> {</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>  <span class="dt">step</span><span class="op">:</span> <span class="fl">0.05</span><span class="op">,</span></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Step Size (h):"</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -1022,59 +1028,59 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="266" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 265;"><span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>eulerPlot <span class="op">=</span> {</span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Exact solution data (fine resolution) ---</span></span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactData <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-9</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.01</span>) {</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>    exactData<span class="op">.</span><span class="fu">push</span>({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>x) <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Exact Solution"</span> })<span class="op">;</span></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Euler approximation data ---</span></span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerData <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>  eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
-<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
-<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>    eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="278" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 277;"><span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>eulerPlot <span class="op">=</span> {</span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Exact solution data (fine resolution) ---</span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="fl">1.0</span> <span class="op">+</span> <span class="fl">1e-9</span><span class="op">;</span> x <span class="op">+=</span> <span class="fl">0.01</span>) {</span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a>    exactData<span class="op">.</span><span class="fu">push</span>({ x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>x) <span class="op">+</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Exact Solution"</span> })<span class="op">;</span></span>
 <span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Final error at x=1 ---</span></span>
-<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactAt1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerAt1 <span class="op">=</span> eulerData[eulerData<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
-<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> err <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exactAt1 <span class="op">-</span> eulerAt1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span></span>
-<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Plot ---</span></span>
-<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allData <span class="op">=</span> [<span class="op">...</span>exactData<span class="op">,</span> <span class="op">...</span>eulerData]<span class="op">;</span></span>
-<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">650</span><span class="op">,</span></span>
-<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
-<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>] }<span class="op">,</span></span>
-<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.6</span><span class="op">,</span> <span class="fl">1.05</span>] }<span class="op">,</span></span>
-<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Exact Solution"</span><span class="op">,</span> <span class="st">"Euler Approx"</span>]<span class="op">,</span></span>
-<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> [<span class="st">"green"</span><span class="op">,</span> <span class="st">"steelblue"</span>]</span>
-<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a>    <span class="dt">caption</span><span class="op">:</span> <span class="vs">`Error at x = 1: |exact − Euler| ≈ </span><span class="sc">${</span>err<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
-<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(exactData<span class="op">,</span> {</span>
-<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
-<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
-<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(eulerData<span class="op">,</span> {</span>
-<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span></span>
-<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
-<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
-<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(eulerData<span class="op">,</span> {</span>
-<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span></span>
-<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>      })</span>
-<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Euler approximation data ---</span></span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerData <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>  eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-292"><a href="#cb2-292" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb2-293"><a href="#cb2-293" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a>    eulerData<span class="op">.</span><span class="fu">push</span>({ <span class="dt">x</span><span class="op">:</span> cx<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> cy<span class="op">,</span> <span class="dt">series</span><span class="op">:</span> <span class="st">"Euler Approx"</span> })<span class="op">;</span></span>
+<span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Final error at x=1 ---</span></span>
+<span id="cb2-298"><a href="#cb2-298" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> exactAt1 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-299"><a href="#cb2-299" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> eulerAt1 <span class="op">=</span> eulerData[eulerData<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">y</span><span class="op">;</span></span>
+<span id="cb2-300"><a href="#cb2-300" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> err <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exactAt1 <span class="op">-</span> eulerAt1)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">;</span></span>
+<span id="cb2-301"><a href="#cb2-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-302"><a href="#cb2-302" aria-hidden="true" tabindex="-1"></a>  <span class="co">// --- Plot ---</span></span>
+<span id="cb2-303"><a href="#cb2-303" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allData <span class="op">=</span> [<span class="op">...</span>exactData<span class="op">,</span> <span class="op">...</span>eulerData]<span class="op">;</span></span>
+<span id="cb2-304"><a href="#cb2-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-305"><a href="#cb2-305" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb2-306"><a href="#cb2-306" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">650</span><span class="op">,</span></span>
+<span id="cb2-307"><a href="#cb2-307" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb2-308"><a href="#cb2-308" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-309"><a href="#cb2-309" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>] }<span class="op">,</span></span>
+<span id="cb2-310"><a href="#cb2-310" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">domain</span><span class="op">:</span> [<span class="fl">0.6</span><span class="op">,</span> <span class="fl">1.05</span>] }<span class="op">,</span></span>
+<span id="cb2-311"><a href="#cb2-311" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
+<span id="cb2-312"><a href="#cb2-312" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-313"><a href="#cb2-313" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> [<span class="st">"Exact Solution"</span><span class="op">,</span> <span class="st">"Euler Approx"</span>]<span class="op">,</span></span>
+<span id="cb2-314"><a href="#cb2-314" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> [<span class="st">"green"</span><span class="op">,</span> <span class="st">"steelblue"</span>]</span>
+<span id="cb2-315"><a href="#cb2-315" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-316"><a href="#cb2-316" aria-hidden="true" tabindex="-1"></a>    <span class="dt">caption</span><span class="op">:</span> <span class="vs">`Error at x = 1: |exact − Euler| ≈ </span><span class="sc">${</span>err<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb2-317"><a href="#cb2-317" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb2-318"><a href="#cb2-318" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(exactData<span class="op">,</span> {</span>
+<span id="cb2-319"><a href="#cb2-319" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">2.5</span></span>
+<span id="cb2-320"><a href="#cb2-320" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-321"><a href="#cb2-321" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">line</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-322"><a href="#cb2-322" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span></span>
+<span id="cb2-323"><a href="#cb2-323" aria-hidden="true" tabindex="-1"></a>        <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"6,4"</span></span>
+<span id="cb2-324"><a href="#cb2-324" aria-hidden="true" tabindex="-1"></a>      })<span class="op">,</span></span>
+<span id="cb2-325"><a href="#cb2-325" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(eulerData<span class="op">,</span> {</span>
+<span id="cb2-326"><a href="#cb2-326" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"series"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">4</span></span>
+<span id="cb2-327"><a href="#cb2-327" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb2-328"><a href="#cb2-328" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-329"><a href="#cb2-329" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-330"><a href="#cb2-330" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -1082,32 +1088,32 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="323" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 322;"><span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>eulerTable <span class="op">=</span> {</span>
-<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
-<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
-<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> exact <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>cx) <span class="op">+</span> cx <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> error <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exact <span class="op">-</span> cy)<span class="op">;</span></span>
-<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">.</span><span class="fu">push</span>({</span>
-<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Step</span><span class="op">:</span> i<span class="op">,</span></span>
-<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> cx<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">,</span></span>
-<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Euler y"</span><span class="op">:</span> cy<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
-<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Exact y"</span><span class="op">:</span> exact<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
-<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Error</span><span class="op">:</span> error<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)</span>
-<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Inputs<span class="op">.</span><span class="fu">table</span>(rows<span class="op">,</span> {</span>
-<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> [<span class="st">"Step"</span><span class="op">,</span> <span class="st">"x"</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">,</span> <span class="st">"Error"</span>]<span class="op">,</span></span>
-<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> { <span class="dt">Step</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="dt">Error</span><span class="op">:</span> <span class="dv">90</span> }<span class="op">,</span></span>
-<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> <span class="st">"auto"</span></span>
-<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="335" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 334;"><span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>eulerTable <span class="op">=</span> {</span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> steps <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(<span class="fl">1.0</span> <span class="op">/</span> h)<span class="op">;</span></span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cx <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> cy <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rows <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> steps<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>    cy <span class="op">=</span> cy <span class="op">+</span> h <span class="op">*</span> (cx <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>    cx <span class="op">=</span> cx <span class="op">+</span> h<span class="op">;</span></span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> exact <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">exp</span>(<span class="op">-</span>cx) <span class="op">+</span> cx <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> error <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(exact <span class="op">-</span> cy)<span class="op">;</span></span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Step</span><span class="op">:</span> i<span class="op">,</span></span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> cx<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">,</span></span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Euler y"</span><span class="op">:</span> cy<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Exact y"</span><span class="op">:</span> exact<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)<span class="op">,</span></span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>      <span class="dt">Error</span><span class="op">:</span> error<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">4</span>)</span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Inputs<span class="op">.</span><span class="fu">table</span>(rows<span class="op">,</span> {</span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>    <span class="dt">columns</span><span class="op">:</span> [<span class="st">"Step"</span><span class="op">,</span> <span class="st">"x"</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">,</span> <span class="st">"Error"</span>]<span class="op">,</span></span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> { <span class="dt">Step</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="dv">60</span><span class="op">,</span> <span class="st">"Euler y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="st">"Exact y"</span><span class="op">:</span> <span class="dv">90</span><span class="op">,</span> <span class="dt">Error</span><span class="op">:</span> <span class="dv">90</span> }<span class="op">,</span></span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>    <span class="dt">layout</span><span class="op">:</span> <span class="st">"auto"</span></span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="declaration">
 
@@ -2229,10 +2235,12 @@ y^2 - x^2 &amp;= K
 <p>A state game commission releases 40 elk into a game refuge. After 5 years, the elk population is 104. The commission believes that the environment can support no more than 4000 elk. The growth rate of the elk population <span class="math inline">\(p\)</span> is:</p>
 <p><span class="math display">\[\frac{dp}{dt} = kp \left( 1- \frac{p}{4000} \right), \quad 40 \leq p \leq 4000\]</span></p>
 <p>where <span class="math inline">\(t\)</span> is the number of years.</p>
-<p><strong>a)</strong> Write a model for the elk population in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>b)</strong> Graph the slope field of the differential equation and the solution that passes through the point <span class="math inline">\((0,40)\)</span>.</p>
-<p><strong>c)</strong> Use the model to estimate the elk population after 15 years.</p>
-<p><strong>d)</strong> Find the limit of the model as <span class="math inline">\(t\to \infty\)</span>.</p>
+<ol type="a">
+<li>Write a model for the elk population in terms of <span class="math inline">\(t\)</span>.</li>
+<li>Graph the slope field of the differential equation and the solution that passes through the point <span class="math inline">\((0,40)\)</span>.</li>
+<li>Use the model to estimate the elk population after 15 years.</li>
+<li>Find the limit of the model as <span class="math inline">\(t\to \infty\)</span>.</li>
+</ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2245,7 +2253,8 @@ y^2 - x^2 &amp;= K
 </div>
 <div id="callout-55" class="callout-55-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>a)</strong> You know that <span class="math inline">\(L=4000\)</span>. So, the solution of the equation is of the form: <span class="math display">\[p = \frac{4000}{1 + be^{-kt}}\]</span></p>
+<ol type="a">
+<li><p>You know that <span class="math inline">\(L=4000\)</span>. So, the solution of the equation is of the form: <span class="math display">\[p = \frac{4000}{1 + be^{-kt}}\]</span></p>
 <p>Because <span class="math inline">\(p(0)= 40\)</span>, you can solve for <span class="math inline">\(b\)</span> as shown: <span class="math display">\[
 \begin{align*}
 40 &amp;= \frac{4000}{1 + be^{-k(0)}} \\
@@ -2253,26 +2262,576 @@ y^2 - x^2 &amp;= K
 \end{align*}
 \]</span></p>
 <p>Then, because <span class="math inline">\(p=104\)</span> when <span class="math inline">\(t=5\)</span>, you can solve for <span class="math inline">\(k\)</span>: <span class="math display">\[104 = \frac{4000}{1+99e^{-k(5)}} \quad \Rightarrow \quad k \approx 0.194\]</span></p>
-<p>So, the model for the elk population is given by <span class="math inline">\(p = \frac{4000}{1+99e^{-0.194t}}\)</span>.</p>
-<p><strong>b)</strong> Using a graphing utility, you can graph the slope field of: <span class="math display">\[\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)\]</span> and the solution that passes through <span class="math inline">\((0,40)\)</span>, as shown:</p>
+<p>So, the model for the elk population is given by <span class="math inline">\(p = \frac{4000}{1+99e^{-0.194t}}\)</span>.</p></li>
+<li><p>Using a graphing utility, you can graph the slope field of: <span class="math display">\[\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)\]</span> and the solution that passes through <span class="math inline">\((0,40)\)</span>, as shown:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="fig-6.9.png" class="img-fluid figure-img"></p>
 <figcaption>Figure 6.9: Elk Population Slope Field</figcaption>
 </figure>
-</div>
-<p><strong>c)</strong> To estimate the elk population after 15 years, substitute 15 for <span class="math inline">\(t\)</span> in the model: <span class="math display">\[
+</div></li>
+<li><p>To estimate the elk population after 15 years, substitute 15 for <span class="math inline">\(t\)</span> in the model: <span class="math display">\[
 \begin{align*}
 p &amp;= \frac{4000}{1+99e^{-0.194(15)}} \\
 p &amp;= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
 \end{align*}
+\]</span></p></li>
+<li><p>As <span class="math inline">\(t\)</span> increases without bound, the denominator of <span class="math inline">\(\frac{4000}{1+99e^{-0.194t}}\)</span> gets closer to 1. So: <span class="math display">\[\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000\]</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="first-order-linear-differential-equations" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-linear-differential-equations">6.4 First-Order Linear Differential Equations</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key Topics &amp; Formulas</th>
+<th style="text-align: left;">Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Solve a first-order linear differential equation.</td>
+<td style="text-align: left;">I can identify a first-order linear differential equation, find the integrating factor, and solve for the general solution, including applying an initial condition when given.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Solve a Bernoulli differential equation.</td>
+<td style="text-align: left;">I can recognize a Bernoulli equation, make the appropriate substitution to turn it into a linear equation, and solve it correctly.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Use linear differential equations to solve applied problems.</td>
+<td style="text-align: left;">I can model a real-world situation with a linear differential equation, solve it, and clearly interpret the solution in context.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="first-order-linear-differential-equations-1" class="level3">
+<h3 class="anchored" data-anchor-id="first-order-linear-differential-equations-1">6.4.1 First-Order Linear Differential Equations</h3>
+<p>In this section, you will see how to solve a very important class of first-order differential equations—first-order linear differential equations.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Definition: First-Order Linear Differential Equations">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: First-Order Linear Differential Equations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A first-order linear differential equation is an equation of the form: <span class="math display">\[\frac{dy}{dx} + P(x)y = Q(x)\]</span> where <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are continuous functions of <span class="math inline">\(x\)</span>. This first-order linear differential equation is said to be in <strong>standard form</strong>.</p>
+</div>
+</div>
+<p>To solve a linear differential equation, write it in standard form to identify the functions <span class="math inline">\(P(x)\)</span> and <span class="math inline">\(Q(x)\)</span>. Then integrate <span class="math inline">\(P(x)\)</span> and form the expression: <span class="math display">\[u(x) = e^{\int P(x)dx} \qquad \text{(Integrating Factor)}\]</span></p>
+<p>which is called an <strong>integrating factor</strong>. The general solution of the equation is: <span class="math display">\[y = \frac{1}{u(x)}\int Q(x)u(x) \, dx \qquad \text{(General Solution)}\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the General Solution of <span class="math inline">\(y' + y = e^x\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-59" class="callout-59-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For this equation, <span class="math inline">\(P(x) = 1\)</span> and <span class="math inline">\(Q(x) = e^x\)</span>. So, the integrating factor is: <span class="math display">\[
+\begin{align*}
+u(x) &amp;= e^{\int P(x) \, dx} \\
+&amp;= e^{\int 1 \, dx} \\
+&amp;= e^x
+\end{align*}
 \]</span></p>
-<p><strong>d)</strong> As <span class="math inline">\(t\)</span> increases without bound, the denominator of <span class="math inline">\(\frac{4000}{1+99e^{-0.194t}}\)</span> gets closer to 1. So: <span class="math display">\[\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000\]</span></p>
+<p>This implies that the general solution is: <span class="math display">\[
+\begin{align*}
+y &amp;= \frac{1}{u(x)} \int Q(x)u(x) \, dx \\
+&amp;= \frac{1}{e^x} \int e^x(e^x) \, dx \\
+&amp;= e^{-x} \left( \frac{1}{2} e^{2x}+ C \right) \\
+&amp;= \frac{1}{2}e^x + Ce^{-x} \qquad \text{(General Solution)}
+\end{align*}
+\]</span></p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Theorem: Solution of a First-Order Linear Differential Equation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Theorem: Solution of a First-Order Linear Differential Equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An integrating factor for the first-order linear differential equation: <span class="math display">\[y'  + P(x)y = Q(x)\]</span> is <span class="math inline">\(u(x)=e^{\int P(x)dx}\)</span>. The solution of the differential equation is: <span class="math display">\[ye^{\int P(x)dx} = \int Q(x) e^{\int P(x)dx}dx + C\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the general solution of <span class="math inline">\(xy' -2y = x^2\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-62" class="callout-62-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The standard form of the given equation is: <span class="math display">\[
+\begin{align*}
+y' + P(x)y &amp;= Q(x) \\
+y' - \left( \frac{2}{x} \right)y &amp;= x  \qquad \text{(Standard Form)}
+\end{align*}
+\]</span></p>
+<p>So, <span class="math inline">\(P(x) = -2/x\)</span>, and you have: <span class="math display">\[
+\begin{align*}
+\int P(x) \, dx &amp;= - \int \frac{2}{x} \, dx \\
+&amp;= -\ln \left(x^2 \right) \\
+e^{\int P(x)dx} &amp;= e^{-\ln \left(x^2 \right)} \\
+&amp;= \frac{1}{e^{\ln \left( x^2 \right)}} \\
+&amp;= \frac{1}{x^2} \qquad \text{(Integrating Factor)}
+\end{align*}
+\]</span></p>
+<p>So, multiplying each side of the standard form by <span class="math inline">\(1/x^2\)</span> yields: <span class="math display">\[
+\begin{align*}
+\frac{y'}{x^2} - \frac{2y}{x^3} &amp;= \frac{1}{x} \\
+\frac{d}{dx} \left[ \frac{y}{x^2} \right] &amp;= \frac{1}{x} \\
+\frac{y}{x^2} &amp;= \int \frac{1}{x} \, dx \\
+\frac{y}{x^2} &amp;= \ln|x| +C \\
+y &amp;= x^2(\ln |x| +C) \qquad \text{(General Solution)}
+\end{align*}
+\]</span></p>
+<p><em>(You can see the solution curves on <a href="https://www.desmos.com/calculator/ohcxmrowtz">Desmos</a>).</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the general solution of <span class="math inline">\(y'-y \tan(t) = 1, \quad -\frac{\pi}{2} &lt; t &lt; \frac{\pi}{2}\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The equation is already in the standard form <span class="math inline">\(y' + P(t)y = Q(t)\)</span>. So, <span class="math inline">\(P(t) = -\tan(t)\)</span>, and: <span class="math display">\[\int P(t) \, dt = - \int \tan(t) \, dt = \ln|\cos(t)|\]</span></p>
+<p>which implies that the integrating factor is: <span class="math display">\[
+\begin{align*}
+e^{\int P(t) dt} &amp;= e^{\ln |\cos(t)|} \\
+&amp;= |\cos(t)| \qquad \text{(Integrating Factor)}
+\end{align*}
+\]</span></p>
+<p>A quick check shows that <span class="math inline">\(\cos(t)\)</span> is also an integrating factor. So, multiplying <span class="math inline">\(y'-y\tan(t) = 1\)</span> by <span class="math inline">\(\cos(t)\)</span> produces: <span class="math display">\[
+\begin{align*}
+\frac{d}{dt} [y \cos(t)] &amp;= \cos(t) \\
+y\cos(t) &amp;= \int \cos(t) \, dt \\
+y\cos(t) &amp;= \sin(t) +C \\
+y &amp;= \tan(t) + C\sec(t)
+\end{align*}
+\]</span></p>
+<p><em>(You can see several solution curves on <a href="https://www.desmos.com/calculator/ytu33hzqpa">Desmos</a>).</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-first-order-linear-equations" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-first-order-linear-equations">Exercises: First-Order Linear Equations</h4>
+<ol type="1">
+<li><p>Find the general solution to the differential equation <span class="math inline">\(y' + 3y = e^{-3x}\)</span>.</p></li>
+<li><p>Find the general solution to the differential equation <span class="math inline">\(x \frac{dy}{dx} + 2y = x^2 - x + 1\)</span> for <span class="math inline">\(x &gt; 0\)</span>.</p></li>
+<li><p>Find the particular solution <span class="math inline">\(y = f(x)\)</span> to the differential equation <span class="math inline">\(y' - \frac{2}{x}y = x^3\)</span> with the initial condition <span class="math inline">\(f(1) = 0\)</span>.</p></li>
+<li><p>Find the particular solution to the differential equation <span class="math inline">\(\cos(x)y' + \sin(x)y = 1\)</span> with the initial condition <span class="math inline">\(y(0) = 5\)</span>. Assume <span class="math inline">\(-\frac{\pi}{2} &lt; x &lt; \frac{\pi}{2}\)</span>.</p></li>
+<li><p>What is the integrating factor <span class="math inline">\(u(x)\)</span> for the linear differential equation <span class="math inline">\(x^2 y' + xy = 5\)</span>?</p>
+<p><strong>(A)</strong> <span class="math inline">\(u(x) = e^x\)</span></p>
+<p><strong>(B)</strong> <span class="math inline">\(u(x) = x\)</span></p>
+<p><strong>(C)</strong> <span class="math inline">\(u(x) = x^2\)</span></p>
+<p><strong>(D)</strong> <span class="math inline">\(u(x) = \ln|x|\)</span></p></li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="bernoulli-equation" class="level3">
+<h3 class="anchored" data-anchor-id="bernoulli-equation">6.4.2 Bernoulli Equation</h3>
+<p>A well-known nonlinear equation that reduces to a linear one with an appropriate substitution is the <strong>Bernoulli equation</strong>, named after James Bernoulli (1654–1705).</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="The Bernoulli Equation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Bernoulli Equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[y' + P(x)y = Q(x)y^n\]</span></p>
+</div>
+</div>
+<p>This equation is linear if <span class="math inline">\(n=0\)</span>, and has separable variables if <span class="math inline">\(n=1\)</span>. So, in the following development, assume that <span class="math inline">\(n \neq 0\)</span> and <span class="math inline">\(n \neq 1\)</span>. Begin by multiplying by <span class="math inline">\(y^{-n}\)</span> and <span class="math inline">\((1-n)\)</span> to obtain: <span class="math display">\[
+\begin{align*}
+y^{-n}y' + P(x)y^{1-n} &amp;= Q(x) \\
+(1-n)y^{-n}y' + (1-n)P(x)y^{1-n} &amp;= (1-n)Q(x) \\
+\frac{d}{dx}\left[ y^{1-n} \right] + (1-n)P(x)y^{1-n} &amp;= (1-n)Q(x)  
+\end{align*}
+\]</span></p>
+<p>which is a linear equation in the variable <span class="math inline">\(y^{1-n}\)</span>. Letting <span class="math inline">\(z=y^{1-n}\)</span> produces the linear equation: <span class="math display">\[\frac{dz}{dx} + (1-n)P(x)z = (1-n)Q(x)\]</span></p>
+<p>Finally, by Theorem 6.3, the <em>general solution of the Bernoulli equation</em> is:</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="General Solution of the Bernoulli Equation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>General Solution of the Bernoulli Equation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[y^{1-n}e^{\int (1-n)P(x)dx} = \int (1-n)Q(x)e^{\int (1-n)P(x)dx}dx +C\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the general solution of <span class="math inline">\(y' + xy = xe^{-x^2}y^{-3}\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-68-contents" aria-controls="callout-68" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-68" class="callout-68-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For this Bernoulli equation, let <span class="math inline">\(n=-3\)</span>, and use the substitution: <span class="math display">\[
+\begin{align*}
+z &amp;= y^4 \qquad &amp;&amp;\text{(Let } z = y^{1-n} = y^{1-(-3)}) \\
+z' &amp;= 4y^3y' \qquad &amp;&amp;\text{(Differentiate)}
+\end{align*}
+\]</span></p>
+<p>Multiplying the original equation by <span class="math inline">\(4y^3\)</span> produces: <span class="math display">\[
+\begin{align*}
+y' + xy &amp;= xe^{-x^2}y^{-3} \qquad &amp;&amp;\text{(Write original equation)} \\
+4y^3y' + 4xy^4 &amp;= 4xe^{-x^2} \qquad &amp;&amp;\text{(Multiply each side by } 4y^3) \\
+z' + 4xz &amp;= 4xe^{-x^2} \qquad &amp;&amp;\text{(Linear equation: } z' + P(x)z = Q(x))
+\end{align*}
+\]</span></p>
+<p>This equation is linear in <span class="math inline">\(z\)</span>. Using <span class="math inline">\(P(x) = 4x\)</span> produces: <span class="math display">\[
+\begin{align*}
+\int P(x) \, dx &amp;= \int 4x \, dx \\
+&amp;= 2x^2
+\end{align*}
+\]</span></p>
+<p>which implies that <span class="math inline">\(e^{2x^2}\)</span> is an integrating factor. Multiplying the linear equation by this factor produces: <span class="math display">\[
+\begin{align*}
+z' + 4xz &amp;= 4xe^{-x^2} \qquad &amp;&amp;\text{(Linear equation)} \\
+z'e^{2x^2} + 4xze^{2x^2} &amp;= 4xe^{x^2} \qquad &amp;&amp;\text{(Multiply by integrating factor)} \\
+\frac{d}{dx}[ze^{2x^2}] &amp;= 4xe^{x^2} \qquad &amp;&amp;\text{(Write left side as derivative)} \\
+ze^{2x^2} &amp;= \int 4xe^{x^2} \, dx \qquad &amp;&amp;\text{(Integrate each side)} \\
+ze^{2x^2} &amp;= 2e^{x^2} + C \\
+z &amp;= 2e^{-x^2} + Ce^{-2x^2} \qquad &amp;&amp;\text{(Divide each side by } e^{2x^2})
+\end{align*}
+\]</span></p>
+<p>Finally, substituting <span class="math inline">\(z = y^4\)</span>, the general solution is: <span class="math display">\[y^4 = 2e^{-x^2} + Ce^{-2x^2} \qquad \text{(General solution)}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>So far you have studied several types of first-order differential equations. Of these, the separable variables case is usually the simplest, and a solution by an integrating factor is ordinarily used only as a last resort.</p>
+<p><strong>Summary of First-Order Differential Equations</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><em>Method</em></th>
+<th style="text-align: left;"><em>Form of Equation</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1.</strong> Separable variables:</td>
+<td style="text-align: left;"><span class="math inline">\(M(x)\,dx + N(y)\,dy = 0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2.</strong> Homogeneous:</td>
+<td style="text-align: left;"><span class="math inline">\(M(x, y)\,dx + N(x, y)\,dy = 0\)</span>, where <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are <span class="math inline">\(n\)</span>th-degree homogeneous</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3.</strong> Linear:</td>
+<td style="text-align: left;"><span class="math inline">\(y' + P(x)y = Q(x)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>4.</strong> Bernoulli equation:</td>
+<td style="text-align: left;"><span class="math inline">\(y' + P(x)y = Q(x)y^n\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="applications-1" class="level3">
+<h3 class="anchored" data-anchor-id="applications-1">6.4.3 Applications</h3>
+<p>Differential equations appear whenever modeling systems involving rates of change, predominantly in physics, engineering, economics, and biology.</p>
+<p>One type of problem that can be described in terms of a differential equation involves chemical mixtures, as illustrated in the next example.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Mixture Problem">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Mixture Problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A craft distillery is adjusting the proof of a batch before barreling. A blending tank initially contains 50 gallons of liquid that is 10% alcohol by volume (ABV) and 90% water. To increase the proof, a stronger spirit that is 50% ABV is pumped into the tank at a rate of 4 gallons per minute. At the same time, the mixture is continuously pumped out of the tank to a filtration system at a rate of 5 gallons per minute. Assume the tank is perfectly mixed at all times. How many gallons of pure alcohol are in the tank after 10 minutes?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-70-contents" aria-controls="callout-70" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-70" class="callout-70-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A(t)\)</span> be the number of gallons of alcohol in the tank at time <span class="math inline">\(t\)</span> (minutes).</p>
+<p><strong>Volume in the tank</strong> <span class="math display">\[
+\begin{align*}
+\frac{dV}{dt} &amp;= 4 - 5 = -1 \\
+V(t) &amp;= 50 - t
+\end{align*}
+\]</span></p>
+<p><strong>Initial amount of alcohol</strong> <span class="math display">\[A(0) = 0.10(50) = 5\]</span></p>
+<p><strong>Rates of alcohol flow</strong> Alcohol entering: <span class="math display">\[0.50 \times 4 = 2 \text{ gallons per minute}\]</span></p>
+<p>Alcohol leaving: <span class="math display">\[
+\begin{align*}
+\text{concentration in tank} &amp;= \frac{A(t)}{V(t)} = \frac{A(t)}{50 - t} \\
+\text{rate out} &amp;= 5 \cdot \frac{A(t)}{50 - t}
+\end{align*}
+\]</span></p>
+<p><strong>Differential equation</strong> <span class="math display">\[
+\begin{align*}
+\frac{dA}{dt} &amp;= \text{rate in} - \text{rate out} \\
+&amp;= 2 - 5\frac{A}{50 - t}
+\end{align*}
+\]</span></p>
+<p><strong>Solve the linear differential equation</strong> <span class="math display">\[\frac{dA}{dt} + \frac{5}{50 - t}A = 2\]</span></p>
+<p>Integrating factor: <span class="math display">\[
+\begin{align*}
+\mu(t) &amp;= \exp\!\left(\int \frac{5}{50 - t}\,dt \right) \\
+&amp;= (50 - t)^{-5}
+\end{align*}
+\]</span></p>
+<p>Multiply the equation by the integrating factor: <span class="math display">\[\frac{d}{dt}\left[(50 - t)^{-5}A\right] = 2(50 - t)^{-5}\]</span></p>
+<p>Integrate: <span class="math display">\[
+\begin{align*}
+(50 - t)^{-5}A &amp;= \int 2(50 - t)^{-5}\,dt \\
+&amp;= \frac{1}{2}(50 - t)^{-4} + C
+\end{align*}
+\]</span></p>
+<p>Solve for <span class="math inline">\(A(t)\)</span>: <span class="math display">\[A(t) = \frac{1}{2}(50 - t) + C(50 - t)^5\]</span></p>
+<p><strong>Apply the initial condition</strong> <span class="math display">\[
+\begin{align*}
+A(0) &amp;= 5 \\
+5 &amp;= \frac{1}{2}(50) + C(50)^5 \\
+5 &amp;= 25 + C(50)^5 \\
+C &amp;= -\frac{20}{50^5}
+\end{align*}
+\]</span></p>
+<p><strong>Evaluate at <span class="math inline">\(t = 10\)</span></strong> <span class="math display">\[
+\begin{align*}
+A(10) &amp;= \frac{1}{2}(40) + C(40)^5 \\
+&amp;= 20 - 20\left(\frac{40}{50}\right)^5 \\
+&amp;= 20 - 20(0.8)^5 \\
+&amp;= 20 - 6.5536 \\
+&amp;\approx 13.45
+\end{align*}
+\]</span></p>
+<p><strong>Answer:</strong> <span class="math inline">\(A(10) \approx 13.45 \text{ gallons of alcohol}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In most falling-body problems discussed so far in the text, air resistance has been neglected. The next example includes this factor. In the next example, the air resistance on the falling object is assumed to be proportional to its velocity <span class="math inline">\(v\)</span>. If <span class="math inline">\(g\)</span> is the gravitational constant, the downward force <span class="math inline">\(F\)</span> on a falling object of mass <span class="math inline">\(m\)</span> is given by the difference <span class="math inline">\(mg-kv\)</span>. But by Newton’s Second Law of Motion, you know that: <span class="math display">\[
+\begin{align*}
+F &amp;= ma \\
+&amp;= m \left(\frac{dv}{dt}\right)
+\end{align*}
+\]</span></p>
+<p>which yields the following differential equation: <span class="math display">\[m \frac{dv}{dt} = mg - kv \quad \Rightarrow \quad \frac{dv}{dt} + \frac{k}{m}v = g\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Falling Body with Air Resistance">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Falling Body with Air Resistance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An object of mass <span class="math inline">\(m\)</span> is dropped from a hovering helicopter. Find its velocity as a function of time <span class="math inline">\(t\)</span>, assuming that the air resistance is proportional to the velocity of the object.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-72" class="callout-72-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The velocity <span class="math inline">\(v\)</span> satisfies the equation: <span class="math display">\[\frac{dv}{dt} + \frac{kv}{m} = g\]</span></p>
+<p>where <span class="math inline">\(g\)</span> is the gravitational constant and <span class="math inline">\(k\)</span> is the constant of proportionality. Letting <span class="math inline">\(b=k/m\)</span>, you can <em>separate variables</em> to obtain: <span class="math display">\[
+\begin{align*}
+dv &amp;= (g-bv) \, dt \\
+\int \frac{1}{g-bv} \, dv &amp;= \int dt \\
+-\frac{1}{b}\ln | g-bv| &amp;= t + C_1 \\
+\ln|g-bv| &amp;= -bt - bC_1 \\
+g - bv &amp;= Ce^{-bt}
+\end{align*}
+\]</span></p>
+<p>Because the object was dropped, <span class="math inline">\(v=0\)</span> when <span class="math inline">\(t=0\)</span>; so <span class="math inline">\(g=C\)</span>, and it follows that: <span class="math display">\[-bv = -g + ge^{-bt} \quad \Rightarrow \quad v = \frac{g - ge^{-bt}}{b} = \frac{mg}{k}(1-e^{-kt/m})\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>A simple electric circuit consists of electric current <span class="math inline">\(I\)</span> (in amperes), a resistance <span class="math inline">\(R\)</span> (in ohms), and inductance <span class="math inline">\(L\)</span> (in henrys), and a constant electromotive force <span class="math inline">\(E\)</span> (in volts), as shown below. According to Kirchhoff’s Second Law, if the switch <span class="math inline">\(S\)</span> is closed when <span class="math inline">\(t=0\)</span>, the applied electromotive force (voltage) is equal to the sum of the voltage drops in the rest of the circuit. This in turn means that the current <span class="math inline">\(I\)</span> satisfies the differential equation: <span class="math display">\[L \frac{dI}{dt} + RI = E\]</span></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example: Electric Circuit">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example: Electric Circuit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the current <span class="math inline">\(I\)</span> as a function of time <span class="math inline">\(t\)</span> (in seconds), given that <span class="math inline">\(I\)</span> satisfies the differential equation <span class="math inline">\(L(dI/dt) + RI = \sin(2t)\)</span>, where <span class="math inline">\(R\)</span> and <span class="math inline">\(L\)</span> are nonzero constants.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-74-contents" aria-controls="callout-74" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-74" class="callout-74-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In standard form, the given linear equation is: <span class="math display">\[\frac{dI}{dt} + \frac{R}{L}I = \frac{1}{L} \sin(2t)\]</span></p>
+<p>Let <span class="math inline">\(P(t)=R/L\)</span>, so that <span class="math inline">\(e^{\int P(t)dt} = e^{(R/L)t}\)</span>, and, by Theorem 6.3: <span class="math display">\[
+\begin{align*}
+Ie^{(R/L)t} &amp;= \frac{1}{L}\int e^{\int P(t)dt} \sin(2t) \, dt \\
+&amp;= \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos(2t)) +C
+\end{align*}
+\]</span></p>
+<p>So, the general solution is: <span class="math display">\[
+\begin{align*}
+I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos(2t)) +C\right] \\
+&amp;= \frac{1}{4L^2 + R^2} (R\sin(2t) - 2L\cos(2t)) +C e^{-(R/L)t}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-applications-of-linear-equations" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-applications-of-linear-equations">Exercises: Applications of Linear Equations</h4>
+<ol type="1">
+<li>An object is dropped from a high altitude. The velocity <span class="math inline">\(v\)</span> of the object, in meters per second, is modeled by the differential equation <span class="math inline">\(\frac{dv}{dt} = -9.8 - 0.2v\)</span>, where <span class="math inline">\(t\)</span> is the time in seconds. At time <span class="math inline">\(t=0\)</span>, the velocity is <span class="math inline">\(0\)</span>.
+<ol type="a">
+<li>Find an expression for <span class="math inline">\(v(t)\)</span>, the particular solution to the differential equation.</li>
+<li>Evaluate <span class="math inline">\(\lim_{t \to \infty} v(t)\)</span> and interpret its meaning in the context of the falling object.</li>
+</ol></li>
+<li>A baby animal is born weighing 5 pounds. The rate of change of the animal’s weight <span class="math inline">\(W\)</span>, in pounds per month, is proportional to the difference between its maximum adult weight of 40 pounds and its current weight. At <span class="math inline">\(t=2\)</span> months, the animal weighs 12 pounds.
+<ol type="a">
+<li>Write a differential equation that models the rate of change of the animal’s weight.</li>
+<li>Find the particular solution <span class="math inline">\(W(t)\)</span> for the weight of the animal at time <span class="math inline">\(t\)</span>.</li>
+</ol></li>
+<li>The concentration of a medication in a patient’s bloodstream <span class="math inline">\(C(t)\)</span>, measured in milligrams per liter, decreases at a rate modeled by the differential equation <span class="math inline">\(\frac{dC}{dt} = -kC^2\)</span>, where <span class="math inline">\(k\)</span> is a positive constant and <span class="math inline">\(t\)</span> is the time in hours since the medication was administered. If the initial concentration is <span class="math inline">\(C(0) = 4\)</span> mg/L, and the concentration drops to <span class="math inline">\(2\)</span> mg/L after 1 hour, what will the concentration be after 3 hours?</li>
+</ol>
+</section>
 
 
 </section>
@@ -2382,7 +2941,7 @@ window._ojs.runtime.interpretFromScriptTags();
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cole-ridgway\.github\.io\/Ridgway-Math-Resources\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

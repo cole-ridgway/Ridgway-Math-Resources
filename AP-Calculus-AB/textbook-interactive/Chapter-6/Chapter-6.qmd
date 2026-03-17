@@ -194,9 +194,11 @@ Next, draw line segments at the points with their respective slopes, as shown in
    ![Graph III](ex-2c.png)
    :::
    
-   a) $\frac{dy}{dx} = x + y$
-   b) $\frac{dy}{dx} = x$
-   c) $\frac{dy}{dx} = y$
+   **(A)** $\frac{dy}{dx} = x + y$
+
+   **(B)** $\frac{dy}{dx} = x$
+
+   **(C)** $\frac{dy}{dx} = y$
 3. **Interpretation:** The slope field for the differential equation $\frac{dy}{dx} = y - 2$ is shown below. Sketch the solution curve that passes through the point $(0, 1)$ and the solution curve that passes through $(0, 3)$.
 
    ![Exercise 3 Graph](ex-3.png)
@@ -204,23 +206,33 @@ Next, draw line segments at the points with their respective slopes, as shown in
 4. Consider the differential equation $\frac{dy}{dx} = \frac{x}{y}$.
    a) On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.
 
-      ![Exercise 4 Graph](ex-4.png)
+      ![Exercise 4a Graph](ex-4.png)
 
    b) Describe the general shape of the solution curves.
+`
 5. Which of the following differential equations generates a slope field where the slopes are parallel along vertical lines?
-   a) $\frac{dy}{dx} = x + y$
-   b) $\frac{dy}{dx} = xy$
-   c) $\frac{dy}{dx} = 2x$
-   d) $\frac{dy}{dx} = 2y$
+
+   **(A)** $\frac{dy}{dx} = x + y$
+
+   **(B)** $\frac{dy}{dx} = xy$
+
+   **(C)** $\frac{dy}{dx} = 2x$
+
+   **(D)** $\frac{dy}{dx} = 2y$
+
 6. **Analysis:** The figure below shows the slope field for a differential equation $\frac{dy}{dx} = f(x,y)$.
    
    ![Exercise 6 Graph](ex-6.png)
 
    Based on the slope field, which of the following could be the specific solution $y=f(x)$ passing through $(0,2)$?
-   a) $y = x^2 + 2$
-   b) $y = \sqrt{4-x^2}$
-   c) $y = e^x + 1$
-   d) $y = 2$
+
+   **(A)** $y = x^2 + 2$
+
+   **(B)** $y = \sqrt{4-x^2}$
+
+   **(C)** $y = e^x + 1$
+
+   **(D)** $y = 2$
 ::: 
 
 ::: {.conceptual-box}
@@ -1061,46 +1073,439 @@ $$\frac{dp}{dt} = kp \left( 1- \frac{p}{4000} \right), \quad 40 \leq p \leq 4000
 
 where $t$ is the number of years.
 
-**a)** Write a model for the elk population in terms of $t$.
-
-**b)** Graph the slope field of the differential equation and the solution that passes through the point $(0,40)$.
-
-**c)** Use the model to estimate the elk population after 15 years.
-
-**d)** Find the limit of the model as $t\to \infty$.
+a) Write a model for the elk population in terms of $t$.
+b) Graph the slope field of the differential equation and the solution that passes through the point $(0,40)$.
+c) Use the model to estimate the elk population after 15 years.
+d) Find the limit of the model as $t\to \infty$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
-**a)** You know that $L=4000$. So, the solution of the equation is of the form:
-$$p = \frac{4000}{1 + be^{-kt}}$$
+a) You know that $L=4000$. So, the solution of the equation is of the form:
+   $$p = \frac{4000}{1 + be^{-kt}}$$
 
-Because $p(0)= 40$, you can solve for $b$ as shown:
-$$
-\begin{align*}
-40 &= \frac{4000}{1 + be^{-k(0)}} \\
-40 &= \frac{4000}{1+b} \quad \Rightarrow \quad b=99
-\end{align*}
-$$
+   Because $p(0)= 40$, you can solve for $b$ as shown:
+   $$
+   \begin{align*}
+   40 &= \frac{4000}{1 + be^{-k(0)}} \\
+   40 &= \frac{4000}{1+b} \quad \Rightarrow \quad b=99
+   \end{align*}
+   $$
 
-Then, because $p=104$ when $t=5$, you can solve for $k$:
-$$104 = \frac{4000}{1+99e^{-k(5)}} \quad \Rightarrow \quad k \approx 0.194$$
+   Then, because $p=104$ when $t=5$, you can solve for $k$:
+   $$104 = \frac{4000}{1+99e^{-k(5)}} \quad \Rightarrow \quad k \approx 0.194$$
 
-So, the model for the elk population is given by $p = \frac{4000}{1+99e^{-0.194t}}$.
+   So, the model for the elk population is given by $p = \frac{4000}{1+99e^{-0.194t}}$.
 
-**b)** Using a graphing utility, you can graph the slope field of: 
-$$\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)$$
-and the solution that passes through $(0,40)$, as shown:
+b) Using a graphing utility, you can graph the slope field of: 
+   $$\frac{dp}{dt} = 0.194p \left( 1 - \frac{p}{4000} \right)$$
+   and the solution that passes through $(0,40)$, as shown:
 
-![Figure 6.9: Elk Population Slope Field](fig-6.9.png)
+   ![Figure 6.9: Elk Population Slope Field](fig-6.9.png)
 
-**c)** To estimate the elk population after 15 years, substitute 15 for $t$ in the model:
-$$
-\begin{align*}
-p &= \frac{4000}{1+99e^{-0.194(15)}} \\
-p &= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
-\end{align*}
-$$
+c) To estimate the elk population after 15 years, substitute 15 for $t$ in the model:
+   $$
+   \begin{align*}
+   p &= \frac{4000}{1+99e^{-0.194(15)}} \\
+   p &= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
+   \end{align*}
+   $$
 
-**d)** As $t$ increases without bound, the denominator of $\frac{4000}{1+99e^{-0.194t}}$ gets closer to 1. So:
-$$\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000$$
+d) As $t$ increases without bound, the denominator of $\frac{4000}{1+99e^{-0.194t}}$ gets closer to 1. So:
+   $$\lim_{t \to \infty} \frac{4000}{1+99e^{-0.194t}} = 4000$$
 :::
+:::
+
+## 6.4 First-Order Linear Differential Equations
+
+::: {.callout-tip title="Objectives" icon=false}
+| Key Topics & Formulas | Success Criteria |
+| :--- | :--- |
+| Solve a first-order linear differential equation. | I can identify a first-order linear differential equation, find the integrating factor, and solve for the general solution, including applying an initial condition when given. |
+| Solve a Bernoulli differential equation. | I can recognize a Bernoulli equation, make the appropriate substitution to turn it into a linear equation, and solve it correctly. |
+| Use linear differential equations to solve applied problems. | I can model a real-world situation with a linear differential equation, solve it, and clearly interpret the solution in context. |
+: {tbl-colwidths="[40,60]"}
+:::
+
+### 6.4.1 First-Order Linear Differential Equations
+
+In this section, you will see how to solve a very important class of first-order differential equations—first-order linear differential equations.
+
+::: {.callout-note title="Definition: First-Order Linear Differential Equations" icon=false}
+A first-order linear differential equation is an equation of the form:
+$$\frac{dy}{dx} + P(x)y = Q(x)$$
+where $P$ and $Q$ are continuous functions of $x$. This first-order linear differential equation is said to be in **standard form**.
+:::
+
+To solve a linear differential equation, write it in standard form to identify the functions $P(x)$ and $Q(x)$. Then integrate $P(x)$ and form the expression:
+$$u(x) = e^{\int P(x)dx} \qquad \text{(Integrating Factor)}$$
+
+which is called an **integrating factor**. The general solution of the equation is: 
+$$y = \frac{1}{u(x)}\int Q(x)u(x) \, dx \qquad \text{(General Solution)}$$
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the General Solution of $y' + y = e^x$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+For this equation, $P(x) = 1$ and $Q(x) = e^x$. So, the integrating factor is: 
+$$
+\begin{align*}
+u(x) &= e^{\int P(x) \, dx} \\
+&= e^{\int 1 \, dx} \\
+&= e^x
+\end{align*}
+$$
+
+This implies that the general solution is:
+$$
+\begin{align*}
+y &= \frac{1}{u(x)} \int Q(x)u(x) \, dx \\
+&= \frac{1}{e^x} \int e^x(e^x) \, dx \\
+&= e^{-x} \left( \frac{1}{2} e^{2x}+ C \right) \\
+&= \frac{1}{2}e^x + Ce^{-x} \qquad \text{(General Solution)}
+\end{align*}
+$$
+:::
+:::
+
+::: {.callout-important title="Theorem: Solution of a First-Order Linear Differential Equation" icon=false}
+An integrating factor for the first-order linear differential equation:
+$$y'  + P(x)y = Q(x)$$
+is $u(x)=e^{\int P(x)dx}$. The solution of the differential equation is:
+$$ye^{\int P(x)dx} = \int Q(x) e^{\int P(x)dx}dx + C$$
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the general solution of $xy' -2y = x^2$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+The standard form of the given equation is: 
+$$
+\begin{align*}
+y' + P(x)y &= Q(x) \\
+y' - \left( \frac{2}{x} \right)y &= x  \qquad \text{(Standard Form)}
+\end{align*}
+$$
+
+So, $P(x) = -2/x$, and you have:
+$$
+\begin{align*}
+\int P(x) \, dx &= - \int \frac{2}{x} \, dx \\
+&= -\ln \left(x^2 \right) \\
+e^{\int P(x)dx} &= e^{-\ln \left(x^2 \right)} \\
+&= \frac{1}{e^{\ln \left( x^2 \right)}} \\
+&= \frac{1}{x^2} \qquad \text{(Integrating Factor)}
+\end{align*}
+$$
+
+So, multiplying each side of the standard form by $1/x^2$ yields:
+$$
+\begin{align*}
+\frac{y'}{x^2} - \frac{2y}{x^3} &= \frac{1}{x} \\
+\frac{d}{dx} \left[ \frac{y}{x^2} \right] &= \frac{1}{x} \\
+\frac{y}{x^2} &= \int \frac{1}{x} \, dx \\
+\frac{y}{x^2} &= \ln|x| +C \\
+y &= x^2(\ln |x| +C) \qquad \text{(General Solution)}
+\end{align*}
+$$
+
+*(You can see the solution curves on [Desmos](https://www.desmos.com/calculator/ohcxmrowtz)).*
+:::
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the general solution of $y'-y \tan(t) = 1, \quad -\frac{\pi}{2} < t < \frac{\pi}{2}$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+The equation is already in the standard form $y' + P(t)y = Q(t)$. So, $P(t) = -\tan(t)$, and: 
+$$\int P(t) \, dt = - \int \tan(t) \, dt = \ln|\cos(t)|$$
+
+which implies that the integrating factor is: 
+$$
+\begin{align*}
+e^{\int P(t) dt} &= e^{\ln |\cos(t)|} \\
+&= |\cos(t)| \qquad \text{(Integrating Factor)}
+\end{align*}
+$$
+
+A quick check shows that $\cos(t)$ is also an integrating factor. So, multiplying $y'-y\tan(t) = 1$ by $\cos(t)$ produces:
+$$
+\begin{align*}
+\frac{d}{dt} [y \cos(t)] &= \cos(t) \\
+y\cos(t) &= \int \cos(t) \, dt \\
+y\cos(t) &= \sin(t) +C \\
+y &= \tan(t) + C\sec(t)
+\end{align*}
+$$
+
+*(You can see several solution curves on [Desmos](https://www.desmos.com/calculator/ytu33hzqpa)).*
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: First-Order Linear Equations
+1. Find the general solution to the differential equation $y' + 3y = e^{-3x}$.
+2. Find the general solution to the differential equation $x \frac{dy}{dx} + 2y = x^2 - x + 1$ for $x > 0$.
+3. Find the particular solution $y = f(x)$ to the differential equation $y' - \frac{2}{x}y = x^3$ with the initial condition $f(1) = 0$.
+4. Find the particular solution to the differential equation $\cos(x)y' + \sin(x)y = 1$ with the initial condition $y(0) = 5$. Assume $-\frac{\pi}{2} < x < \frac{\pi}{2}$.
+5. What is the integrating factor $u(x)$ for the linear differential equation $x^2 y' + xy = 5$?
+   
+   **(A)** $u(x) = e^x$
+
+   **(B)** $u(x) = x$
+
+   **(C)** $u(x) = x^2$
+
+   **(D)** $u(x) = \ln|x|$
+:::
+
+---
+
+### 6.4.2 Bernoulli Equation
+
+A well-known nonlinear equation that reduces to a linear one with an appropriate substitution is the **Bernoulli equation**, named after James Bernoulli (1654–1705). 
+
+::: {.callout-important title="The Bernoulli Equation" icon=false}
+$$y' + P(x)y = Q(x)y^n$$
+:::
+
+This equation is linear if $n=0$, and has separable variables if $n=1$. So, in the following development, assume that $n \neq 0$ and $n \neq 1$. Begin by multiplying by $y^{-n}$ and $(1-n)$ to obtain:
+$$
+\begin{align*}
+y^{-n}y' + P(x)y^{1-n} &= Q(x) \\
+(1-n)y^{-n}y' + (1-n)P(x)y^{1-n} &= (1-n)Q(x) \\
+\frac{d}{dx}\left[ y^{1-n} \right] + (1-n)P(x)y^{1-n} &= (1-n)Q(x)  
+\end{align*}
+$$
+
+which is a linear equation in the variable $y^{1-n}$. Letting $z=y^{1-n}$ produces the linear equation:
+$$\frac{dz}{dx} + (1-n)P(x)z = (1-n)Q(x)$$
+
+Finally, by Theorem 6.3, the *general solution of the Bernoulli equation* is: 
+
+::: {.callout-important title="General Solution of the Bernoulli Equation" icon=false}
+$$y^{1-n}e^{\int (1-n)P(x)dx} = \int (1-n)Q(x)e^{\int (1-n)P(x)dx}dx +C$$
+:::
+
+::: {.callout-note title="Example" icon=false appearance="simple"}
+Find the general solution of $y' + xy = xe^{-x^2}y^{-3}$.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+For this Bernoulli equation, let $n=-3$, and use the substitution: 
+$$
+\begin{align*}
+z &= y^4 \qquad &&\text{(Let } z = y^{1-n} = y^{1-(-3)}) \\
+z' &= 4y^3y' \qquad &&\text{(Differentiate)}
+\end{align*}
+$$
+
+Multiplying the original equation by $4y^3$ produces:
+$$
+\begin{align*}
+y' + xy &= xe^{-x^2}y^{-3} \qquad &&\text{(Write original equation)} \\
+4y^3y' + 4xy^4 &= 4xe^{-x^2} \qquad &&\text{(Multiply each side by } 4y^3) \\
+z' + 4xz &= 4xe^{-x^2} \qquad &&\text{(Linear equation: } z' + P(x)z = Q(x))
+\end{align*}
+$$
+
+This equation is linear in $z$. Using $P(x) = 4x$ produces:
+$$
+\begin{align*}
+\int P(x) \, dx &= \int 4x \, dx \\
+&= 2x^2
+\end{align*}
+$$
+
+which implies that $e^{2x^2}$ is an integrating factor. Multiplying the linear equation by this factor produces:
+$$
+\begin{align*}
+z' + 4xz &= 4xe^{-x^2} \qquad &&\text{(Linear equation)} \\
+z'e^{2x^2} + 4xze^{2x^2} &= 4xe^{x^2} \qquad &&\text{(Multiply by integrating factor)} \\
+\frac{d}{dx}[ze^{2x^2}] &= 4xe^{x^2} \qquad &&\text{(Write left side as derivative)} \\
+ze^{2x^2} &= \int 4xe^{x^2} \, dx \qquad &&\text{(Integrate each side)} \\
+ze^{2x^2} &= 2e^{x^2} + C \\
+z &= 2e^{-x^2} + Ce^{-2x^2} \qquad &&\text{(Divide each side by } e^{2x^2})
+\end{align*}
+$$
+
+Finally, substituting $z = y^4$, the general solution is:
+$$y^4 = 2e^{-x^2} + Ce^{-2x^2} \qquad \text{(General solution)}$$
+:::
+:::
+
+So far you have studied several types of first-order differential equations. Of these, the separable variables case is usually the simplest, and a solution by an integrating factor is ordinarily used only as a last resort.
+
+**Summary of First-Order Differential Equations**
+
+| *Method* | *Form of Equation* |
+| :--- | :--- |
+| **1.** Separable variables: | $M(x)\,dx + N(y)\,dy = 0$ |
+| **2.** Homogeneous: | $M(x, y)\,dx + N(x, y)\,dy = 0$, where $M$ and $N$ are $n$th-degree homogeneous |
+| **3.** Linear: | $y' + P(x)y = Q(x)$ |
+| **4.** Bernoulli equation: | $y' + P(x)y = Q(x)y^n$ |
+
+---
+
+### 6.4.3 Applications
+
+Differential equations appear whenever modeling systems involving rates of change, predominantly in physics, engineering, economics, and biology. 
+
+One type of problem that can be described in terms of a differential equation involves chemical mixtures, as illustrated in the next example.
+
+::: {.callout-note title="Example: Mixture Problem" icon=false appearance="simple"}
+A craft distillery is adjusting the proof of a batch before barreling. A blending tank initially contains 50 gallons of liquid that is 10% alcohol by volume (ABV) and 90% water. To increase the proof, a stronger spirit that is 50% ABV is pumped into the tank at a rate of 4 gallons per minute. At the same time, the mixture is continuously pumped out of the tank to a filtration system at a rate of 5 gallons per minute. Assume the tank is perfectly mixed at all times. How many gallons of pure alcohol are in the tank after 10 minutes?
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+Let $A(t)$ be the number of gallons of alcohol in the tank at time $t$ (minutes).
+
+**Volume in the tank**
+$$
+\begin{align*}
+\frac{dV}{dt} &= 4 - 5 = -1 \\
+V(t) &= 50 - t
+\end{align*}
+$$
+
+**Initial amount of alcohol**
+$$A(0) = 0.10(50) = 5$$
+
+**Rates of alcohol flow**
+Alcohol entering:
+$$0.50 \times 4 = 2 \text{ gallons per minute}$$
+
+Alcohol leaving:
+$$
+\begin{align*}
+\text{concentration in tank} &= \frac{A(t)}{V(t)} = \frac{A(t)}{50 - t} \\
+\text{rate out} &= 5 \cdot \frac{A(t)}{50 - t}
+\end{align*}
+$$
+
+**Differential equation**
+$$
+\begin{align*}
+\frac{dA}{dt} &= \text{rate in} - \text{rate out} \\
+&= 2 - 5\frac{A}{50 - t}
+\end{align*}
+$$
+
+**Solve the linear differential equation**
+$$\frac{dA}{dt} + \frac{5}{50 - t}A = 2$$
+
+Integrating factor:
+$$
+\begin{align*}
+\mu(t) &= \exp\!\left(\int \frac{5}{50 - t}\,dt \right) \\
+&= (50 - t)^{-5}
+\end{align*}
+$$
+
+Multiply the equation by the integrating factor:
+$$\frac{d}{dt}\left[(50 - t)^{-5}A\right] = 2(50 - t)^{-5}$$
+
+Integrate:
+$$
+\begin{align*}
+(50 - t)^{-5}A &= \int 2(50 - t)^{-5}\,dt \\
+&= \frac{1}{2}(50 - t)^{-4} + C
+\end{align*}
+$$
+
+Solve for $A(t)$:
+$$A(t) = \frac{1}{2}(50 - t) + C(50 - t)^5$$
+
+**Apply the initial condition**
+$$
+\begin{align*}
+A(0) &= 5 \\
+5 &= \frac{1}{2}(50) + C(50)^5 \\
+5 &= 25 + C(50)^5 \\
+C &= -\frac{20}{50^5}
+\end{align*}
+$$
+
+**Evaluate at $t = 10$**
+$$
+\begin{align*}
+A(10) &= \frac{1}{2}(40) + C(40)^5 \\
+&= 20 - 20\left(\frac{40}{50}\right)^5 \\
+&= 20 - 20(0.8)^5 \\
+&= 20 - 6.5536 \\
+&\approx 13.45
+\end{align*}
+$$
+
+**Answer:** $A(10) \approx 13.45 \text{ gallons of alcohol}$.
+:::
+:::
+
+In most falling-body problems discussed so far in the text, air resistance has been neglected. The next example includes this factor. In the next example, the air resistance on the falling object is assumed to be proportional to its velocity $v$. If $g$ is the gravitational constant, the downward force $F$ on a falling object of mass $m$ is given by the difference $mg-kv$. But by Newton's Second Law of Motion, you know that: 
+$$
+\begin{align*}
+F &= ma \\
+&= m \left(\frac{dv}{dt}\right)
+\end{align*}
+$$
+
+which yields the following differential equation:
+$$m \frac{dv}{dt} = mg - kv \quad \Rightarrow \quad \frac{dv}{dt} + \frac{k}{m}v = g$$
+
+::: {.callout-note title="Example: Falling Body with Air Resistance" icon=false appearance="simple"}
+An object of mass $m$ is dropped from a hovering helicopter. Find its velocity as a function of time $t$, assuming that the air resistance is proportional to the velocity of the object.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+The velocity $v$ satisfies the equation:
+$$\frac{dv}{dt} + \frac{kv}{m} = g$$
+
+where $g$ is the gravitational constant and $k$ is the constant of proportionality. Letting $b=k/m$, you can *separate variables* to obtain:
+$$
+\begin{align*}
+dv &= (g-bv) \, dt \\
+\int \frac{1}{g-bv} \, dv &= \int dt \\
+-\frac{1}{b}\ln | g-bv| &= t + C_1 \\
+\ln|g-bv| &= -bt - bC_1 \\
+g - bv &= Ce^{-bt}
+\end{align*}
+$$
+
+Because the object was dropped, $v=0$ when $t=0$; so $g=C$, and it follows that: 
+$$-bv = -g + ge^{-bt} \quad \Rightarrow \quad v = \frac{g - ge^{-bt}}{b} = \frac{mg}{k}(1-e^{-kt/m})$$
+:::
+:::
+
+A simple electric circuit consists of electric current $I$ (in amperes), a resistance $R$ (in ohms), and inductance $L$ (in henrys), and a constant electromotive force $E$ (in volts), as shown below. According to Kirchhoff's Second Law, if the switch $S$ is closed when $t=0$, the applied electromotive force (voltage) is equal to the sum of the voltage drops in the rest of the circuit. This in turn means that the current $I$ satisfies the differential equation:
+$$L \frac{dI}{dt} + RI = E$$
+
+::: {.callout-note title="Example: Electric Circuit" icon=false appearance="simple"}
+Find the current $I$ as a function of time $t$ (in seconds), given that $I$ satisfies the differential equation $L(dI/dt) + RI = \sin(2t)$, where $R$ and $L$ are nonzero constants.
+
+::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+In standard form, the given linear equation is: 
+$$\frac{dI}{dt} + \frac{R}{L}I = \frac{1}{L} \sin(2t)$$
+
+Let $P(t)=R/L$, so that $e^{\int P(t)dt} = e^{(R/L)t}$, and, by Theorem 6.3: 
+$$
+\begin{align*}
+Ie^{(R/L)t} &= \frac{1}{L}\int e^{\int P(t)dt} \sin(2t) \, dt \\
+&= \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos(2t)) +C
+\end{align*}
+$$
+
+So, the general solution is:
+$$
+\begin{align*}
+I &= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos(2t)) +C\right] \\
+&= \frac{1}{4L^2 + R^2} (R\sin(2t) - 2L\cos(2t)) +C e^{-(R/L)t}
+\end{align*}
+$$
+:::
+:::
+
+::: {.practice-box}
+#### Exercises: Applications of Linear Equations
+1. An object is dropped from a high altitude. The velocity $v$ of the object, in meters per second, is modeled by the differential equation $\frac{dv}{dt} = -9.8 - 0.2v$, where $t$ is the time in seconds. At time $t=0$, the velocity is $0$.
+   a) Find an expression for $v(t)$, the particular solution to the differential equation.
+   b) Evaluate $\lim_{t \to \infty} v(t)$ and interpret its meaning in the context of the falling object.
+2. A baby animal is born weighing 5 pounds. The rate of change of the animal's weight $W$, in pounds per month, is proportional to the difference between its maximum adult weight of 40 pounds and its current weight. At $t=2$ months, the animal weighs 12 pounds.
+   a) Write a differential equation that models the rate of change of the animal's weight.
+   b) Find the particular solution $W(t)$ for the weight of the animal at time $t$.
+3. The concentration of a medication in a patient's bloodstream $C(t)$, measured in milligrams per liter, decreases at a rate modeled by the differential equation $\frac{dC}{dt} = -kC^2$, where $k$ is a positive constant and $t$ is the time in hours since the medication was administered. If the initial concentration is $C(0) = 4$ mg/L, and the concentration drops to $2$ mg/L after 1 hour, what will the concentration be after 3 hours?
 :::
