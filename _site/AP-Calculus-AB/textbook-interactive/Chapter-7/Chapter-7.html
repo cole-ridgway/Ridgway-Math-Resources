@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 7: Applications of Integration – Ridgway Math Resources</title>
+<title>chapter-7 – Ridgway Math Resources</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -277,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html">Chapter 7: Applications of Integration</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html">7.1 Area of a Region Between Two Curves</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -343,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Chapter 7: Applications of Integration</span></a>
+ <span class="menu-text">7.1 Area of a Region Between Two Curves</span></a>
   </div>
 </li>
       </ul>
@@ -406,34 +435,1052 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#area-of-a-region-between-two-curves" id="toc-area-of-a-region-between-two-curves" class="nav-link active" data-scroll-target="#area-of-a-region-between-two-curves">7.1 Area of a Region Between Two Curves</a>
+  <ul>
+  <li><a href="#area-of-a-region-between-two-curves-1" id="toc-area-of-a-region-between-two-curves-1" class="nav-link" data-scroll-target="#area-of-a-region-between-two-curves-1">7.1.1 Area of a Region Between Two Curves</a></li>
+  <li><a href="#area-of-a-region-between-intersecting-curves" id="toc-area-of-a-region-between-intersecting-curves" class="nav-link" data-scroll-target="#area-of-a-region-between-intersecting-curves">7.1.2 Area of a Region Between Intersecting Curves</a>
+  <ul class="collapse">
+  <li><a href="#exercises-intersecting-curves" id="toc-exercises-intersecting-curves" class="nav-link" data-scroll-target="#exercises-intersecting-curves">Exercises: Intersecting Curves</a></li>
+  </ul></li>
+  <li><a href="#integration-as-an-accumulation-process" id="toc-integration-as-an-accumulation-process" class="nav-link" data-scroll-target="#integration-as-an-accumulation-process">7.1.3 Integration as an Accumulation Process</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-questions" id="toc-conceptual-questions" class="nav-link" data-scroll-target="#conceptual-questions">Conceptual Questions</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#volume-the-disk-method" id="toc-volume-the-disk-method" class="nav-link" data-scroll-target="#volume-the-disk-method">7.2 Volume: The Disk Method</a>
+  <ul>
+  <li><a href="#the-disk-method" id="toc-the-disk-method" class="nav-link" data-scroll-target="#the-disk-method">7.2.1 The Disk Method</a>
+  <ul class="collapse">
+  <li><a href="#exercises-the-disk-method" id="toc-exercises-the-disk-method" class="nav-link" data-scroll-target="#exercises-the-disk-method">Exercises: The Disk Method</a></li>
+  </ul></li>
+  <li><a href="#the-washer-method" id="toc-the-washer-method" class="nav-link" data-scroll-target="#the-washer-method">7.2.2 The Washer Method</a>
+  <ul class="collapse">
+  <li><a href="#exercises-the-washer-method" id="toc-exercises-the-washer-method" class="nav-link" data-scroll-target="#exercises-the-washer-method">Exercises: The Washer Method</a></li>
+  <li><a href="#conceptual-questions-1" id="toc-conceptual-questions-1" class="nav-link" data-scroll-target="#conceptual-questions-1">Conceptual Questions</a></li>
+  </ul></li>
+  <li><a href="#solids-with-known-cross-sections" id="toc-solids-with-known-cross-sections" class="nav-link" data-scroll-target="#solids-with-known-cross-sections">7.2.3 Solids with Known Cross Sections</a>
+  <ul class="collapse">
+  <li><a href="#exercises-solids-with-known-cross-sections" id="toc-exercises-solids-with-known-cross-sections" class="nav-link" data-scroll-target="#exercises-solids-with-known-cross-sections">Exercises: Solids with Known Cross Sections</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html">7.1 Area of a Region Between Two Curves</a></li></ol></nav></header>
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.html">Interactive Textbook</a></li><li class="breadcrumb-item"><a href="../../../AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.html">Chapter 7: Applications of Integration</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Chapter 7: Applications of Integration</h1>
+
+
+
+<section id="area-of-a-region-between-two-curves" class="level2">
+<h2 class="anchored" data-anchor-id="area-of-a-region-between-two-curves">7.1 Area of a Region Between Two Curves</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key Topics &amp; Formulas</th>
+<th style="text-align: left;">Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Find the area of a region between two curves using integration</td>
+<td style="text-align: left;">I can set up and evaluate an integral to find the area between two curves by identifying which function is on top and choosing the correct limits.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Find the area of a region between intersecting curves using integration</td>
+<td style="text-align: left;">I can find where two curves intersect and use those points to set up and evaluate the integral(s) needed to find the total area.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Describe integration as an accumulation process</td>
+<td style="text-align: left;">I can explain how a definite integral represents accumulation and describe it as adding up small pieces to find a total.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="area-of-a-region-between-two-curves-1" class="level3">
+<h3 class="anchored" data-anchor-id="area-of-a-region-between-two-curves-1">7.1.1 Area of a Region Between Two Curves</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>With a few modifications you can extend the application of definite integrals from the area of a region <em>under</em> a curve to the area of a region <em>between</em> two curves. Consider two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> that are continuous on the interval <span class="math inline">\([a,b]\)</span>. If, as in Figure 7.1, the graphs of both <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> lie above the <span class="math inline">\(x\)</span>-axis, and the graph of <span class="math inline">\(g\)</span> lies below the graph of <span class="math inline">\(f\)</span>, you can geometrically interpret the area of the region between the graphs as the area of the region under the graph of <span class="math inline">\(g\)</span> subtracted from the area of the region under the graph of <span class="math inline">\(f\)</span>, as shown in Figure 7.2.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.1: Area between two curves.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.2.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.2: Area between two curves.</figcaption>
+</figure>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>To verify the reasonableness of the result shown in Figure 7.2, you can partition the interval <span class="math inline">\([a,b]\)</span> into <span class="math inline">\(n\)</span> subintervals, each of width <span class="math inline">\(\Delta x\)</span>. Then, as shown in Figure 7.3, sketch a <strong>representative rectangle</strong> of width <span class="math inline">\(\Delta x\)</span> and height <span class="math inline">\(f(x_i) - g(x_i)\)</span>, where <span class="math inline">\(x_i\)</span> is in the <span class="math inline">\(i\)</span>th interval.</p>
+<p>The area of this representative rectangle is: <span class="math display">\[\Delta A_i = (\text{height})(\text{width}) = [f(x_i) - g(x_i)]\Delta x \]</span></p>
+<p>By adding the areas of the <span class="math inline">\(n\)</span> rectangles and taking the limit as <span class="math inline">\(||\Delta x|| \to 0 \, (n \to \infty)\)</span>, you obtain: <span class="math display">\[\lim_{n \to \infty} \sum_{i=1}^n [f(x_i) - g(x_i)]\Delta x\]</span></p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.3.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.3</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Because <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are continuous on <span class="math inline">\([a,b]\)</span>, <span class="math inline">\(f-g\)</span> is also continuous on <span class="math inline">\([a,b]\)</span> and the limit exists. So the area of the given region is:</p>
+<p><span class="math display">\[
+\begin{align*}
+\text{Area} &amp;= \lim_{n \to \infty} \sum_{i=1}^n [f(x_i) - g(x_i)]\Delta x \\
+&amp;= \int_a^b [f(x)-g(x)] \, dx
+\end{align*}
+\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Definition: Area of a Region Between Two Curves">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Area of a Region Between Two Curves
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are continuous on <span class="math inline">\([a,b]\)</span> and <span class="math inline">\(g(x) \leq f(x)\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\([a,b]\)</span>, then the area of the region bounded by the graphs of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> and the vertical lines <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span> is: <span class="math display">\[A = \int_a^b [f(x)-g(x)] \, dx\]</span></p>
+</div>
+</div>
+<p>In Figure 7.1, the graphs of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are shown above the <span class="math inline">\(x\)</span>-axis. This, however, is not necessary. The same integrand <span class="math inline">\([f(x)-g(x)]\)</span> can be used as long as <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are continuous and <span class="math inline">\(g(x) \leq f(x)\)</span> for all <span class="math inline">\(x\)</span> in the interval <span class="math inline">\([a,b]\)</span>. This result is summarized graphically in Figure 7.4.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.4.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.4</figcaption>
+</figure>
+</div>
+<p>Representative rectangles are used throughout this chapter in various applications of integration. A vertical rectangle (of width <span class="math inline">\(\Delta x\)</span>) implies integration with respect to <span class="math inline">\(x\)</span>, whereas a horizontal rectangle (of width <span class="math inline">\(\Delta y\)</span>) implies integration with respect to <span class="math inline">\(y\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the area of the region bounded by the graphs of <span class="math inline">\(y=x^2+2, y=-x, x=0,\)</span> and <span class="math inline">\(x=1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(g(x)=-x\)</span> and <span class="math inline">\(f(x)=x^2+2\)</span>. Then <span class="math inline">\(g(x)\leq f(x)\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\([0,1]\)</span>, as shown in Figure 7.5. So, the area of the representative rectangle is: <span class="math display">\[
+\begin{align*}
+\Delta A &amp;= [f(x)-g(x)]\Delta x \\
+&amp;= [(x^2+2)-(-x)]\Delta x
+\end{align*}
+\]</span></p>
+<p>and the area of the region is: <span class="math display">\[
+\begin{align*}
+A = \int_a^b [f(x)-g(x)]\, dx &amp;= \int_0^1 [(x^2+2)-(-x)] \, dx \\
+&amp;= \left[ \frac{x^3}{3} + \frac{x^2}{2} + 2x \right]_0^1 \\
+&amp;= \frac{1}{3}+\frac{1}{2} + 2 \\
+&amp;= \frac{17}{6}
+\end{align*}
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.5.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.5</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="area-of-a-region-between-intersecting-curves" class="level3">
+<h3 class="anchored" data-anchor-id="area-of-a-region-between-intersecting-curves">7.1.2 Area of a Region Between Intersecting Curves</h3>
+<p>In the previous example, the graphs of <span class="math inline">\(f(x)=x^2+2\)</span> and <span class="math inline">\(g(x)=-x\)</span> do not intersect, and the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are given explicitly. A more common problem involves the area of a region bounded by two <em>intersecting</em> graphs, where the values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> must be calculated.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the area of the region bounded by the graphs of <span class="math inline">\(f(x)=2-x^2\)</span> and <span class="math inline">\(g(x)=x\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In Figure 7.6, notice that the graphs of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> have two points of intersection.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.6.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.6</figcaption>
+</figure>
+</div>
+<p>To find the <span class="math inline">\(x\)</span>-coordinates of these points, set <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> equal to each other and solve for <span class="math inline">\(x\)</span>. <span class="math display">\[
+\begin{align*}
+2-x^2 &amp;= x &amp;&amp; \text{(Set $f(x)$ equal to $g(x)$)} \\
+-x^2-x+2 &amp;= 0 &amp;&amp; \text{(Write in general form)} \\
+-(x+2)(x-1) &amp;= 0 &amp;&amp; \text{(Factor)} \\
+x &amp;= -2 \text{ or } 1 &amp;&amp; \text{(Solve for $x$)}
+\end{align*}
+\]</span></p>
+<p>So, <span class="math inline">\(a=-2\)</span> and <span class="math inline">\(b=1\)</span>. Because <span class="math inline">\(g(x)\leq f(x)\)</span> for all <span class="math inline">\(x\)</span> in the interval <span class="math inline">\([-2,1]\)</span>, the representative rectangle has an area of: <span class="math display">\[
+\begin{align*}
+\Delta A &amp;= [f(x)-g(x)] \Delta x\\
+&amp;= [(2-x^2) - x] \Delta x
+\end{align*}
+\]</span></p>
+<p>and the area of the region is: <span class="math display">\[
+\begin{align*}
+A = \int_{-2}^1 [(2-x^2)-x] \, dx &amp;= \left[ -\frac{x^3}{3} - \frac{x^2}{2} + 2x \right]_{-2}^1 \\
+&amp;= \frac{9}{2}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sine and cosine curves intersect infinitely many times, bounding regions of equal areas. Find the area of one of these regions.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Begin by setting <span class="math inline">\(f(x)\)</span> equal to <span class="math inline">\(g(x)\)</span> and solving: <span class="math display">\[
+\begin{align*}
+\sin(x) &amp;= \cos(x) &amp;&amp; \text{(Set $f(x)$ equal to $g(x)$)} \\
+\frac{\sin(x)}{\cos(x)} &amp;= 1 &amp;&amp; \text{(Divide each side by $\cos(x)$)} \\
+\tan(x) &amp;= 1 &amp;&amp; \text{(Trigonometric identity)} \\
+x &amp;= \frac{\pi}{4} \text{ or } \frac{5\pi}{4}, \quad 0 \leq x \leq 2\pi &amp;&amp; \text{(Solve for $x$)}
+\end{align*}
+\]</span></p>
+<p>So, <span class="math inline">\(a=\pi/4\)</span> and <span class="math inline">\(b=5\pi/4\)</span>. Because <span class="math inline">\(\sin(x) \geq \cos(x)\)</span> for all <span class="math inline">\(x\)</span> in the interval <span class="math inline">\([\pi/4, 5\pi/4]\)</span>, the area of the region is: <span class="math display">\[
+\begin{align*}
+A = \int_{\pi/4}^{5\pi/4} [\sin(x)-\cos(x)] \, dx &amp;= \bigg[ -\cos(x) - \sin(x) \bigg]_{\pi/4}^{5\pi/4} \\
+&amp;= 2\sqrt{2}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If two curves intersect at more than two points, then to find the area of the region between the curves, you must find all points of intersection and check to see which curve is above the other in each interval determined by these points.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the area of the region between the graphs of <span class="math inline">\(f(x)=3x^3-x^2-10x\)</span> and <span class="math inline">\(g(x)=-x^2+2x\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Begin by setting <span class="math inline">\(f(x)=g(x)\)</span> and solving for <span class="math inline">\(x\)</span>. This yields the <span class="math inline">\(x\)</span>-values at each point of intersection of the two graphs. <span class="math display">\[
+\begin{align*}
+3x^3 - x^2-10x &amp;= -x^2+2x \\
+3x^3-12x &amp;= 0 \\
+3x(x-2)(x+2)&amp;= 0 \\
+x &amp;= -2, 0, 2
+\end{align*}
+\]</span></p>
+<p>So, the two graphs intersect when <span class="math inline">\(x = -2, 0, 2\)</span>. However, by looking at the graph, notice that <span class="math inline">\(g(x) \leq f(x)\)</span> on the interval <span class="math inline">\([-2,0]\)</span>. However, the graphs switch at the origin, and <span class="math inline">\(f(x)\leq g(x)\)</span> on the interval <span class="math inline">\([0,2]\)</span>.</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= \int_{-2}^0 [f(x)-g(x)] \, dx + \int_0^2 [g(x)-f(x)] \, dx \\
+&amp;= \int_{-2}^0 (3x^3-12x) \, dx + \int_0^2 (-3x^3+12x) \, dx \\
+&amp;= \left[ \frac{3x^4}{4}-6x^2 \right]_{-2}^0 + \left[ \frac{-3x^4}{4} + 6x^2 \right]_0^2 \\
+&amp;= -(12-24) + (-12+24) \\
+&amp;= 24
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>NOTICE</strong> that you obtain an incorrect result if you integrate straight from <span class="math inline">\(-2\)</span> to <span class="math inline">\(2\)</span>: <span class="math display">\[\int_{-2}^2 [f(x)-g(x)] \, dx = \int_{-2}^2 (3x^3-12x) \, dx = 0\]</span></p>
+<p>If the graph of a function of <span class="math inline">\(y\)</span> is a boundary of a region, it is often convenient to use representative rectangles that are <em>horizontal</em> and find the area by integrating with respect to <span class="math inline">\(y\)</span>. In general, to determine the area between two curves, you can use:</p>
+<p><span class="math display">\[
+\begin{align*}
+A &amp;= \int_{x_1}^{x_2} \underbrace{[(\text{top curve}) - (\text{bottom curve})]}_{\text{in variable $x$}} \, dx \\
+A &amp;= \int_{y_1}^{y_2} \underbrace{[(\text{right curve}) - (\text{left curve})]}_{\text{in variable $y$}} \, dy
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span> are either adjacent points of intersection of the two curves involved or points on the specified boundary lines.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the area of a region bounded by the graphs of <span class="math inline">\(x=3-y^2\)</span> and <span class="math inline">\(x=y+1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider: <span class="math display">\[g(y)=3-y^2 \quad \text{ and } \quad f(y) = y+1\]</span></p>
+<p>These two curves intersect when <span class="math inline">\(y=-2\)</span> and <span class="math inline">\(y=1\)</span>. Because <span class="math inline">\(f(y)\leq g(y)\)</span> on this interval, you have: <span class="math display">\[\Delta A = [g(y)-f(y)]\Delta y = [(3-y^2)-(y+1)]\Delta y\]</span></p>
+<p>So, the area is: <span class="math display">\[
+\begin{align*}
+A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
+&amp;= \int_{-2}^1 (-y^2-y+2) \, dy \\
+&amp;= \left[ \frac{-y^3}{3} - \frac{y^2}{2}+2y \right]_{-2}^1 \\
+&amp;= \left( -\frac{1}{3}-\frac{1}{2}+2  \right) - \left( \frac{8}{3}-2-4   \right) \\
+&amp;= \frac{9}{2}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Notice that in the previous example, by integrating with respect to <span class="math inline">\(y\)</span> you need only one integral. If you had integrated with respect to <span class="math inline">\(x\)</span>, you would have needed two integrals because the upper boundary would have changed at <span class="math inline">\(x=2\)</span>. You can see the comparison of the two integrals in Figure 7.7 below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.7.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.7: Horizontal Rectangles vs Vertical Rectangles</figcaption>
+</figure>
+</div>
+<section id="exercises-intersecting-curves" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-intersecting-curves">Exercises: Intersecting Curves</h4>
+<ol type="1">
+<li>Find the area of the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = x\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(x = 2\)</span>.</li>
+<li>Find the area of the region completely bounded by the graphs of <span class="math inline">\(f(x) = 2 - x^2\)</span> and <span class="math inline">\(g(x) = x^2 - 6\)</span>.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span> and <span class="math inline">\(y = \frac{x}{2}\)</span>. Find the area of <span class="math inline">\(R\)</span>.</li>
+<li>Find the area of the region in the first quadrant bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span>, <span class="math inline">\(y = \cos(x)\)</span>, and the <span class="math inline">\(y\)</span>-axis.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(f(x) = x^3 - 3x^2 + 2x\)</span> and <span class="math inline">\(g(x) = 0\)</span>. Find the total area of the region <span class="math inline">\(R\)</span>.</li>
+<li>Consider the region bounded by the graphs of <span class="math inline">\(x = y^2 - 4\)</span> and <span class="math inline">\(x = y + 2\)</span>.
+<ol type="a">
+<li>Write an integral expression with respect to <span class="math inline">\(x\)</span> that represents the area of the region. Do not evaluate the integral.</li>
+<li>Write an integral expression with respect to <span class="math inline">\(y\)</span> that represents the area of the region.</li>
+<li>Evaluate the integral from part (b) to find the area of the region.</li>
+</ol></li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="integration-as-an-accumulation-process" class="level3">
+<h3 class="anchored" data-anchor-id="integration-as-an-accumulation-process">7.1.3 Integration as an Accumulation Process</h3>
+<p>In this section, the integration formula for the area between two curves was developed by using a rectangle as the <em>representative element</em>. For each new application in the remaining sections of this chapter, an appropriate representative element will be constructed using precalculus formulas you already know. Each integration formula will then be obtained by summing or accumulating these representative elements.</p>
+<br>
+<div style="text-align: center; font-size: 1.1em;">
+<p><strong>Known precalculus formula</strong> <span class="math inline">\(\implies\)</span> <strong>Representative element</strong> <span class="math inline">\(\implies\)</span> <strong>New integration formula</strong></p>
+</div>
+<p><br></p>
+<p>For example, in this section the area formula was developed as follows:</p>
+<br>
+<div style="text-align: center; font-size: 1.1em;">
+<p><span class="math inline">\(A=(\text{height})(\text{width})\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(\Delta A = [f(x)-g(x)]\Delta x\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(A=\displaystyle \int_a^b [f(x)-g(x)] \, dx\)</span></p>
+</div>
+<p><br></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the area of the region bounded by the graph of <span class="math inline">\(y=4-x^2\)</span> and the <span class="math inline">\(x\)</span>-axis. Describe the integration as an accumulation process.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The area is given by: <span class="math display">\[A = \int_{-2}^2 \left(4-x^2\right) \, dx\]</span></p>
+<p>You can think of the integration as an accumulation of the areas of the rectangles formed as the representative rectangles slide from <span class="math inline">\(x=-2\)</span> to <span class="math inline">\(x=2\)</span>, as shown via this <a href="https://www.desmos.com/calculator/zaref1t6bq">Desmos Interactive Graph</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="conceptual-questions" class="level4 conceptual-box">
+<h4 class="anchored" data-anchor-id="conceptual-questions">Conceptual Questions</h4>
+<p><em>Answer the following in 1-3 complete sentences.</em></p>
+<ol type="1">
+<li><strong>The Geometry of Accumulation:</strong> In the integral <span class="math inline">\(\int_a^b [f(x)-g(x)] \, dx\)</span>, we are accumulating the areas of infinitely many representative rectangles. Geometrically, what specific parts of a single rectangle do the expressions <span class="math inline">\([f(x) - g(x)]\)</span> and <span class="math inline">\(dx\)</span> represent?</li>
+<li><strong>Area Below the <span class="math inline">\(x\)</span>-axis:</strong> Even if two curves are completely below the <span class="math inline">\(x\)</span>-axis, evaluating <span class="math inline">\(\int_a^b [\text{top} - \text{bottom}] \, dx\)</span> always results in a positive physical area. Algebraically, why does this specific subtraction guarantee a positive number for the height of your rectangles?</li>
+<li><strong>Crossing Curves:</strong> Suppose <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> intersect at <span class="math inline">\(x=0\)</span>, trading places as the “top” curve. If you evaluate the single integral <span class="math inline">\(\int_{-2}^2 [f(x) - g(x)] \, dx\)</span> without splitting it at the intersection, why will your answer fail to represent the total area? What does this single integral actually calculate?</li>
+<li><strong>Choosing <span class="math inline">\(dy\)</span> over <span class="math inline">\(dx\)</span>:</strong> Sometimes it is much more efficient to integrate with respect to <span class="math inline">\(y\)</span> instead of <span class="math inline">\(x\)</span>. Geometrically, what happens to your vertical representative rectangles (<span class="math inline">\(dx\)</span>) that forces you to write multiple integrals, and how do horizontal rectangles (<span class="math inline">\(dy\)</span>) fix this?</li>
+<li><strong>Right vs.&nbsp;Left:</strong> For vertical rectangles (<span class="math inline">\(dx\)</span>), we find the height using <span class="math inline">\([\text{Top} - \text{Bottom}]\)</span>. For horizontal rectangles (<span class="math inline">\(dy\)</span>), the integrand is <span class="math inline">\([\text{Right} - \text{Left}]\)</span>. Explain why the “right” curve must be the first term in the subtraction.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="volume-the-disk-method" class="level2">
+<h2 class="anchored" data-anchor-id="volume-the-disk-method">7.2 Volume: The Disk Method</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Key Topics &amp; Formulas</th>
+<th style="text-align: left;">Success Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Find the volume of a solid of revolution using the disk method</td>
+<td style="text-align: left;">I can set up and evaluate an integral using the disk method by writing the radius in terms of the variable and choosing the correct limits.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Find the volume of a solid of revolution using the washer method</td>
+<td style="text-align: left;">I can set up and evaluate an integral using the washer method by identifying the outer and inner radii and using the correct limits.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Find the volume of a solid with known cross sections</td>
+<td style="text-align: left;">I can write an expression for the area of each cross section and use it to set up and evaluate an integral for the volume.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="the-disk-method" class="level3">
+<h3 class="anchored" data-anchor-id="the-disk-method">7.2.1 The Disk Method</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>In Chapter 4 we mentioned that area is only one of the <em>many</em> applications of the definite integral. Another important application is its use in finding the volume of a three-dimensional solid. In this section you will study a particular type of three-dimensional solid—one whose cross sections are similar. Solids of revolution are used commonly in engineering and manufacturing. Some examples are axles, funnels, pills, bottles, and pistons!</p>
+<p>If a region in the plane is revolved about a line, the resulting solid is a <strong>solid of revolution</strong>, and the line is called the <strong>axis of revolution</strong>. The simplest such solid is a right circular cylinder or <strong>disk</strong> which is formed by revolving a rectangle about an axis adjacent to one side of the rectangle, as shown in Figure 7.8.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.8.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.8</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The volume of such a disk is: <span class="math display">\[
+\begin{align*}
+\text{Volume of disk} &amp;= (\text{area of disk})(\text{width of disk}) \\
+&amp;= \pi R^2 w
+\end{align*}
+\]</span> where <span class="math inline">\(R\)</span> is the radius of the disk and <span class="math inline">\(w\)</span> is the width.</p>
+<p>To see how to use the volume of a disk to find the volume of a general solid of revolution, consider a solid of revolution formed by revolving the plane region in Figure 7.9 about the indicated axis. To determine the volume of this solid, consider a representative rectangle in the plane region. When this rectangle is revolved about the axis of revolution, it generates a representative disk whose volume is: <span class="math display">\[\Delta V = \pi R^2 \Delta x\]</span></p>
+<p>Approximating the volume of the solid by <span class="math inline">\(n\)</span> such disks of width <span class="math inline">\(\Delta x\)</span> and radius <span class="math inline">\(R(x_i)\)</span> produces: <span class="math display">\[
+\begin{align*}
+\text{Volume of solid} &amp;\approx \sum_{i=1}^n \pi [R(x_i)]^2 \Delta x \\
+&amp;= \pi \sum_{i=1}^n [R(x_i)]^2 \Delta x
+\end{align*}
+\]</span></p>
+<p>This approximation appears to become better and better as <span class="math inline">\(||\Delta||\to 0 \, (n\to \infty)\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Definition: Volume of a Solid">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Volume of a Solid
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\text{Volume of a solid} = \lim_{||\Delta || \to 0} \pi \sum_{i=1}^n [R(x_i)]^2 \Delta x = \pi \int_a^b [R(x)]^2 \, dx\]</span></p>
+</div>
+</div>
+<p>Schematically, the disk method looks like this:</p>
+<br>
+<div style="text-align: center; font-size: 1.1em;">
+<p><strong>Volume of disk</strong> <br> <span class="math inline">\(V = \pi R^2 w\)</span> <span class="math inline">\(\implies\)</span> <span class="math inline">\(\Delta V = \pi [R(x_i)]^2 \Delta x\)</span> <span class="math inline">\(\implies\)</span> <strong>Solid of revolution</strong> <br> <span class="math inline">\(V = \displaystyle \pi \int_a^b [R(x)]^2 \, dx\)</span></p>
+</div>
+<p><br></p>
+<p>A similar formula can be derived if the axis of revolution is vertical.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="The Disk Method">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Disk Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To find the volume of a solid of revolution with the <strong>disk method</strong>, use one of the following:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong><em>Horizontal Axis of Revolution</em></strong> <span class="math inline">\(\displaystyle \text{Volume} = V = \pi \int_a^b [R(x)]^2 \, dx\)</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong><em>Vertical Axis of Revolution</em></strong> <span class="math inline">\(\displaystyle \text{Volume} = V = \pi \int_a^b [R(y)]^2 \, dy\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Note that in Figure 7.9, you can determine the variable of integration by placing a representative rectangle in the plane region “perpendicular” to the axis of revolution. If the width of the rectangle is <span class="math inline">\(\Delta x\)</span>, integrate with respect to <span class="math inline">\(x\)</span>, and if the width of the rectangle is <span class="math inline">\(\Delta y\)</span>, integrate with respect to <span class="math inline">\(y\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.9.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.9</figcaption>
+</figure>
+</div>
+<p>The simplest application of the disk method involves a plane region bounded by the graph of <span class="math inline">\(f\)</span> and the <span class="math inline">\(x\)</span>-axis. If the axis of revolution is the <span class="math inline">\(x\)</span>-axis, the radius <span class="math inline">\(R(x)\)</span> is simply <span class="math inline">\(f(x)\)</span>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid formed by revolving the region bounded by the graph of <span class="math inline">\(f(x)= \sqrt{\sin(x)}\)</span> and the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(0 \leq x \leq \pi\)</span>) about the <span class="math inline">\(x\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Draw the representative rectangle to see that the radius of this solid is: <span class="math display">\[
+\begin{align*}
+R(x) &amp;= f(x) \\
+&amp;= \sqrt{\sin(x)}
+\end{align*}
+\]</span></p>
+<p>So, the volume of the solid of revolution is: <span class="math display">\[
+\begin{align*}
+V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_0^\pi \Big( \sqrt{\sin(x)} \Big)^2 \, dx \\
+&amp;= \pi \int_0^\pi \sin(x) \, dx \\
+&amp;= \pi \Big[ -\cos(x) \Big]_0^\pi \\
+&amp;= \pi(1+1) \\
+&amp;= 2\pi
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid formed by revolving the region bounded by <span class="math inline">\(f(x) = 2-x^2\)</span> and <span class="math inline">\(g(x)=1\)</span> about the line <span class="math inline">\(y=1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By equating <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span>, you can determine the two graphs intersect when <span class="math inline">\(x= \pm 1\)</span>. To find the radius, subtract <span class="math inline">\(g(x)\)</span> from <span class="math inline">\(f(x)\)</span>. <span class="math display">\[
+\begin{align*}
+R(x) &amp;= f(x)-g(x) \\
+&amp;= (2-x^2)-1 \\
+&amp;= 1-x^2
+\end{align*}
+\]</span></p>
+<p>Finally, integrate between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> to find the volume. <span class="math display">\[
+\begin{align*}
+V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_{-1}^1 (1-x^2)^2 \, dx \\
+&amp;= \pi \int_{-1}^1 (1-2x^2+x^4) \, dx \\
+&amp;= \pi \left[ x - \frac{2x^3}{3} + \frac{x^5}{5} \right]_{-1}^1 \\
+&amp;= \frac{16\pi}{15}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-the-disk-method" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-the-disk-method">Exercises: The Disk Method</h4>
+<ol type="1">
+<li>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 4\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
+<li>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = x^3\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(y = 8\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</li>
+<li>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 1\)</span> is revolved about the horizontal line <span class="math inline">\(y = 1\)</span>.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region enclosed by the graph of <span class="math inline">\(f(x) = \frac{1}{x}\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical lines <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=e\)</span>. Which of the following expressions represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis? <strong>(A)</strong> <span class="math inline">\(\pi \int_1^e \frac{1}{x} \, dx\)</span> <strong>(B)</strong> <span class="math inline">\(\pi \int_1^e \frac{1}{x^2} \, dx\)</span> <strong>(C)</strong> <span class="math inline">\(2\pi \int_1^e \frac{1}{x^2} \, dx\)</span> <strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \ln(x) \, dx\)</span></li>
+<li>Let <span class="math inline">\(R\)</span> be the region in the first quadrant bounded by the graph of <span class="math inline">\(y = 4 - x^2\)</span> and the coordinate axes.
+<ol type="a">
+<li>Find the area of <span class="math inline">\(R\)</span>.</li>
+<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
+<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</li>
+</ol></li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="the-washer-method" class="level3">
+<h3 class="anchored" data-anchor-id="the-washer-method">7.2.2 The Washer Method</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>The disk method can be extended to cover solids of revolution with holes by replacing the representative disk with a representative <strong>washer</strong>. The washer is formed by revolving a rectangle about an axis, as shown in the figure. If <span class="math inline">\(r\)</span> and <span class="math inline">\(R\)</span> are the inner and outer radii of the washer and <span class="math inline">\(w\)</span> is the width of the washer, the volume is given by: <span class="math display">\[\text{Volume of washer} = \pi (R^2 - r^2)w\]</span></p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.10.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.10: Washer Method</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To see how this concept can be used to find the volume of a solid of revolution, consider a region bounded by an <strong>outer radius</strong> <span class="math inline">\(R(x)\)</span> and an <strong>inner radius</strong> <span class="math inline">\(r(x)\)</span>, as shown in Figure 7.11 below. If the region is revolved about its axis of revolution, the volume of the resulting solid is given by the <strong>washer method</strong>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="The Washer Method">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Washer Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The volume of a solid generated by the washer method is given by: <span class="math display">\[V = \pi \int_a^b \left([R(x)]^2 - [r(x)]^2 \right) \, dx\]</span></p>
+</div>
+</div>
+<p>Note that the integral involving the inner radius represents the volume of the hole and is <em>subtracted</em> from the integral involving the outer radius.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.11.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.11</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math inline">\(y=\sqrt{x}\)</span> and <span class="math inline">\(y = x^2\)</span> about the <span class="math inline">\(x\)</span>-axis, as shown in Figure 7.12.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.12.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.12</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:65%;">
+<p>You can see that the outer and inner radii are as follows: <span class="math display">\[
+\begin{align*}
+R(x) &amp;= \sqrt{x} \qquad &amp;&amp; \text{(Outer radius)} \\
+r(x) &amp;= x^2 \qquad &amp;&amp; \text{(Inner radius)}
+\end{align*}
+\]</span></p>
+<p>Integrating between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> produces: <span class="math display">\[
+\begin{align*}
+V &amp;= \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx \\
+&amp;= \pi \int_0^1 \left[ (\sqrt{x})^2 - (x^2)^2 \right] \, dx \\
+&amp;= \pi \int_0^1 (x-x^4) \, dx \\
+&amp;= \pi \left[ \frac{x^2}{2} - \frac{x^5}{5} \right]_0^1 \\
+&amp;= \frac{3\pi}{10}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In each example so far, the axis of revolution has been <em>horizontal</em> and you have integrated with respect to <span class="math inline">\(x\)</span>. In the next example, the axis of revolution is <em>vertical</em> and you integrate with respect to <span class="math inline">\(y\)</span>. In this example, you need two separate integrals to compute the volume.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math inline">\(y=x^2+1\)</span>, <span class="math inline">\(y=0\)</span>, <span class="math inline">\(x=0\)</span>, and <span class="math inline">\(x=1\)</span> about the <span class="math inline">\(y\)</span>-axis, as shown in Figure 7.13.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.13.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.13</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For the region shown, the outer radius is simply <span class="math inline">\(R=1\)</span>. There is, however, no convenient formula that represents the inner radius. When <span class="math inline">\(0 \leq y \leq 1\)</span>, <span class="math inline">\(r=0\)</span>, but when <span class="math inline">\(1 \leq y \leq 2\)</span>, <span class="math inline">\(r\)</span> is determined by the equation <span class="math inline">\(y=x^2+1\)</span>, which implies that <span class="math inline">\(r = \sqrt{y-1}\)</span>. <span class="math display">\[
+r(y) =
+\begin{cases}
+0, &amp; 0 \leq y \leq 1 \\
+\sqrt{y-1}, &amp; 1 \leq y \leq 2
+\end{cases}
+\]</span></p>
+<p>Using this definition of the inner radius, you can use two integrals to find the volume. <span class="math display">\[
+\begin{align*}
+V &amp;= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, dy \qquad &amp;&amp; \text{(Apply washer method)} \\
+&amp;= \pi \int_0^1 1 \, dy + \pi \int_1^2 (2-y) \, dy \qquad &amp;&amp; \text{(Simplify)} \\
+&amp;= \pi \Bigg[ y \Bigg]_0^1 + \pi \Bigg[ 2y-\frac{y^2}{2} \Bigg]_1^2 \qquad &amp;&amp; \text{(Integrate)} \\
+&amp;= \pi + \pi \left( 4-2-2+\frac{1}{2} \right) \\
+&amp;= \frac{3\pi}{2}
+\end{align*}
+\]</span></p>
+<p>Note that the first integral <span class="math inline">\(\pi \int_0^1 1 \, dy\)</span> represents the volume of a right circular cylinder of radius 1 and height 1. This portion of the volume could have been determined without using calculus.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A manufacturer drills a hole through the center of a metal sphere of radius 5 inches. The hole has a radius of 3 inches. What is the volume of the resulting metal ring?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can imagine the ring to be generated by a segment of the circle whose equation is <span class="math inline">\(x^2+y^2 = 25\)</span>. Because the radius of the hole is 3 inches, you can let <span class="math inline">\(y=3\)</span> and solve the equation <span class="math inline">\(x^2+y^2=25\)</span> to determine that the limits of integration are <span class="math inline">\(x=\pm4\)</span>. So, the inner and outer radii are <span class="math inline">\(r(x)=3\)</span> and <span class="math inline">\(R(x)=\sqrt{25-x^2}\)</span> and the volume is given by: <span class="math display">\[
+\begin{align*}
+V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx &amp;= \pi \int_{-4}^4 \left[\left(\sqrt{25-x^2} \right)^2 - (3)^2\right] \, dx \\
+&amp;= \pi \int_{-4}^4 (16-x^2)\, dx \\
+&amp;= \pi \Bigg[ 16x-\frac{x^3}{3} \Bigg]_{-4}^4 \\
+&amp;= \frac{256\pi}{3} \text{ in}^3
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-the-washer-method" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-the-washer-method">Exercises: The Washer Method</h4>
+<ol type="1">
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 2x\)</span>. Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(x = y^2\)</span> and the vertical line <span class="math inline">\(x = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span> and <span class="math inline">\(y = x^2\)</span>. Which of the following integrals represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = 2\)</span>? <strong>(A)</strong> <span class="math inline">\(\pi \int_0^1 \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx\)</span> <strong>(B)</strong> <span class="math inline">\(\pi \int_0^1 \left( (2 - \sqrt{x})^2 - (2 - x^2)^2 \right) \, dx\)</span> <strong>(C)</strong> <span class="math inline">\(\pi \int_0^1 \left( \sqrt{x} - x^2 \right)^2 \, dx\)</span> <strong>(D)</strong> <span class="math inline">\(\pi \int_0^1 \left( (\sqrt{x})^2 - (x^2)^2 \right) \, dx\)</span></li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = 5\)</span>.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = e^x\)</span>, the horizontal line <span class="math inline">\(y = 1\)</span>, and the vertical line <span class="math inline">\(x = 2\)</span>.
+<ol type="a">
+<li>Find the area of <span class="math inline">\(R\)</span>.</li>
+<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
+<li>Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = -1\)</span>.</li>
+</ol></li>
+</ol>
+</section>
+<section id="conceptual-questions-1" class="level4 conceptual-box">
+<h4 class="anchored" data-anchor-id="conceptual-questions-1">Conceptual Questions</h4>
+<p><em>Answer the following in 1-3 complete sentences.</em></p>
+<ol type="1">
+<li><strong>Disk vs.&nbsp;Washer:</strong> Geometrically, what specific feature of a bounded region and its relationship to the axis of revolution forces you to use the washer method instead of the disk method?</li>
+<li><strong>The Classic Algebra Mistake:</strong> When setting up a washer method integral, a common mistake is to write the integrand as <span class="math inline">\(\pi [R(x) - r(x)]^2\)</span>. Algebraically and geometrically, why is this incorrect, and why must it be written as <span class="math inline">\(\pi([R(x)]^2 - [r(x)]^2)\)</span> instead?</li>
+<li><strong>Choosing the Variable (<span class="math inline">\(dx\)</span> vs.&nbsp;<span class="math inline">\(dy\)</span>):</strong> If you are revolving a region around a vertical axis (like the y-axis or <span class="math inline">\(x=3\)</span>), you must integrate with respect to <span class="math inline">\(y\)</span>. Geometrically, why does a vertical axis of revolution force your representative rectangles to have a width of <span class="math inline">\(dy\)</span>?</li>
+<li><strong>Shifted Axes of Revolution:</strong> Suppose you are revolving a region around the line <span class="math inline">\(y = -2\)</span> instead of the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(y = 0\)</span>). How do you use the “Top <span class="math inline">\(-\)</span> Bottom” concept to correctly write the radius <span class="math inline">\(R(x)\)</span>, and why does this result in adding 2 to your function?</li>
+<li><strong>The Geometry of the Integrand:</strong> Integration is an accumulation process. In the disk method formula <span class="math inline">\(V = \int_a^b \pi [R(x)]^2 \, dx\)</span>, what specific 3D geometric shape does the expression <span class="math inline">\(\pi [R(x)]^2 \, dx\)</span> represent before the integral adds them all together?</li>
+</ol>
+</section>
+<hr>
+</section>
+<section id="solids-with-known-cross-sections" class="level3">
+<h3 class="anchored" data-anchor-id="solids-with-known-cross-sections">7.2.3 Solids with Known Cross Sections</h3>
+<p>With the disk method, you can find the volume of a solid having a circular cross section whose area is <span class="math inline">\(A=\pi R^2\)</span>. This method can be generalized to solids of any shape, as long as you know a formula for the area of an arbitrary cross section. Some common cross sections are squares, rectangles, triangles, semicircles, and trapezoids.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Volumes of Solids with Known Cross Sections">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Volumes of Solids with Known Cross Sections
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>For cross sections of area <span class="math inline">\(A(x)\)</span> taken perpendicular to the <span class="math inline">\(x\)</span>-axis: <span class="math display">\[\text{Volume} = \int_a^b A(x) \, dx\]</span></li>
+<li>For cross sections of area <span class="math inline">\(A(y)\)</span> taken perpendicular to the <span class="math inline">\(y\)</span>-axis: <span class="math display">\[\text{Volume} = \int_c^d A(y) \, dy\]</span></li>
+</ol>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.14.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7.14: Cross Sections Perpendicular to a Particular Axis</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid shown. The base of the solid is the region bounded by the lines: <span class="math display">\[f(x) = 1 - \frac{x}{2}, \quad g(x) = -1+\frac{x}{2}, \quad \text{ and } \quad x=0\]</span> The cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are equilateral triangles.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.15a.png" class="img-fluid figure-img"></p>
+<figcaption>First view: The base region</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.15b.png" class="img-fluid figure-img"></p>
+<figcaption>Second view: The resulting 3D solid</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The base and area of each triangular cross section are as follows: <span class="math display">\[
+\begin{align*}
+\text{Base} &amp;= \left( 1 - \frac{x}{2} \right) - \left(-1 + \frac{x}{2} \right) = 2-x \qquad &amp;&amp; \text{(Length of base)} \\
+\text{Area}&amp;= \frac{\sqrt{3}}{4} (\text{base})^2 \qquad &amp;&amp; \text{(Area of equilateral triangle)} \\
+A(x) &amp;= \frac{\sqrt{3}}{4}(2-x)^2 \qquad &amp;&amp; \text{(Area of cross section)}
+\end{align*}
+\]</span></p>
+<p>Because <span class="math inline">\(x\)</span> ranges from 0 to 2, the volume of the solid is: <span class="math display">\[
+\begin{align*}
+V = \int_a^b A(x) \, dx &amp;= \int_0^2 \frac{\sqrt{3}}{4}(2-x)^2 \, dx \\
+&amp;= -\frac{\sqrt{3}}{4} \Bigg[ \frac{(2-x)^3}{3} \Bigg]_0^2 \\
+&amp;= \frac{2\sqrt{3}}{3}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove that the volume of a pyramid with a square base is <span class="math inline">\(V=\frac{1}{3}hB\)</span>, where <span class="math inline">\(h\)</span> is the height of the pyramid and <span class="math inline">\(B\)</span> is the area of the base.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You can intersect a pyramid with a plane parallel to the base at height <span class="math inline">\(y\)</span> to form a square cross section whose sides are of length <span class="math inline">\(b'\)</span>. Using similar triangles, you can show that: <span class="math display">\[\frac{b'}{b} = \frac{h-y}{h} \quad \text{ or } \quad b'=\frac{b}{h}(h-y)\]</span></p>
+<p>where <span class="math inline">\(b\)</span> is the length of the sides of the base of the pyramid. So: <span class="math display">\[A(y) = (b')^2 = \frac{b^2}{h^2}(h-y)^2\]</span></p>
+<p>Integrating between <span class="math inline">\(0\)</span> and <span class="math inline">\(h\)</span> produces: <span class="math display">\[
+\begin{align*}
+V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
+&amp;= \frac{b^2}{h^2} \int_0^h (h-y)^2 \, dy \\
+&amp;= -\frac{b^2}{h^2} \left[ \frac{(h-y)^3}{3} \right]_0^h \\
+&amp;= \frac{b^2}{h^2} \left( \frac{h^3}{3} \right) \\
+&amp;= \frac{1}{3}hB \qquad (B=b^2)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="exercises-solids-with-known-cross-sections" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-solids-with-known-cross-sections">Exercises: Solids with Known Cross Sections</h4>
+<ol type="1">
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = \sqrt{x}\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = 9\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 0\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles. Find the volume of the solid.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = 1\)</span>, and <span class="math inline">\(x = 3\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are rectangles whose heights are twice the lengths of their bases in region <span class="math inline">\(R\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = \ln(x)\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = e\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Which of the following integrals represents the volume of the solid? <strong>(A)</strong> <span class="math inline">\(\int_1^e \ln(x) \, dx\)</span> <strong>(B)</strong> <span class="math inline">\(\int_1^e (\ln(x))^2 \, dx\)</span> <strong>(C)</strong> <span class="math inline">\(\pi \int_1^e (\ln(x))^2 \, dx\)</span> <strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx\)</span></li>
+<li>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(x = y^2\)</span> and <span class="math inline">\(x = 4\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(y\)</span>-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.</li>
+<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span> and the <span class="math inline">\(x\)</span>-axis for <span class="math inline">\(0 \leq x \leq \pi\)</span>.
+<ol type="a">
+<li>Find the area of <span class="math inline">\(R\)</span>.</li>
+<li>The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid.</li>
+<li>The region <span class="math inline">\(R\)</span> is the base of another solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles with their diameters across the base. Find the volume of the solid.</li>
+</ol></li>
+</ol>
+</section>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -522,7 +1569,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cole-ridgway\.github\.io\/Ridgway-Math-Resources\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
