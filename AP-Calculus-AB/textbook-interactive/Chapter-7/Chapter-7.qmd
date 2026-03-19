@@ -1,3 +1,7 @@
+---
+title: "Chapter 7: Applications of Integration"
+---
+
 ## 7.1 Area of a Region Between Two Curves
 
 ::: {.callout-tip title="Objectives" icon=false}
@@ -397,26 +401,38 @@ viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
   const Plotly = await require("https://cdn.plot.ly/plotly-2.26.0.min.js");
   const f = x => Math.sqrt(Math.sin(x));
   const a = 0, b = Math.PI;
-  const stepsX = 60, stepsTheta = 60;
+  const stepsX = 60;
 
-  let xVals = [], yVals = [], zVals = [];
-  for (let i = 0; i <= stepsTheta; i++) {
-    let theta = (i / stepsTheta) * sweepAngle1;
-    let xRow = [], yRow = [], zRow = [];
+  // Use fewer angular steps for a snappier feel
+  const stepsTheta = 30;
+
+  function buildTraces(angle) {
+    let xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= stepsTheta; i++) {
+      let theta = (i / stepsTheta) * angle;
+      let xRow = [], yRow = [], zRow = [];
+      for (let j = 0; j <= stepsX; j++) {
+        let x = a + (j / stepsX) * (b - a);
+        let r = f(x);
+        xRow.push(x);
+        yRow.push(r * Math.cos(theta));
+        zRow.push(r * Math.sin(theta));
+      }
+      xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+    }
+
+    let lineX = [], lineY = [], lineZ = [];
     for (let j = 0; j <= stepsX; j++) {
       let x = a + (j / stepsX) * (b - a);
-      let r = f(x);
-      xRow.push(x);
-      yRow.push(r * Math.cos(theta));
-      zRow.push(r * Math.sin(theta));
+      lineX.push(x); lineY.push(f(x)); lineZ.push(0);
     }
-    xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
-  }
 
-  let lineX = [], lineY = [], lineZ = [];
-  for (let j = 0; j <= stepsX; j++) {
-    let x = a + (j / stepsX) * (b - a);
-    lineX.push(x); lineY.push(f(x)); lineZ.push(0);
+    return [
+      { x: xVals, y: yVals, z: zVals, type: "surface",
+        colorscale: "Blues", showscale: false, opacity: 0.85 },
+      { x: lineX, y: lineY, z: lineZ, type: "scatter3d",
+        mode: "lines", line: { color: "red", width: 5 } }
+    ];
   }
 
   const layout = {
@@ -434,12 +450,17 @@ viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
 
   const div = document.createElement("div");
   div.style.cssText = "width:100%; height:480px;";
-  await Plotly.react(div, [
-    { x: xVals, y: yVals, z: zVals, type: "surface",
-      colorscale: "Blues", showscale: false, opacity: 0.85 },
-    { x: lineX, y: lineY, z: lineZ, type: "scatter3d",
-      mode: "lines", line: { color: "red", width: 5 } }
-  ], layout, { responsive: true });
+
+  // Initial render
+  await Plotly.react(div, buildTraces(sweepAngle1), layout, { responsive: true });
+
+  // Smooth update: animate with a short transition instead of full redraw
+  const update = buildTraces(sweepAngle1);
+  await Plotly.animate(div,
+    { data: update },
+    { transition: { duration: 0 }, frame: { duration: 0, redraw: true } }
+  );
+
   return div;
 }
 ```
