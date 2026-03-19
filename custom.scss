@@ -117,27 +117,33 @@ main {
 
 
 /* 5. Observable Plot — Force white background + black axes in all themes */
-/* Keeps plots readable in dark mode despite Plot's hardcoded inline styles. */
+/* Scoped to Observable Plot only, NOT Plotly (which uses canvas+div, not SVG) */
 
-.cell-output-display svg {
+/* Target only Observable Plot's output SVGs, not Plotly's SVG overlays */
+.cell-output-display > svg {
   background: white !important;
 }
 
-.cell-output-display svg text {
+.cell-output-display > svg text {
   fill: black !important;
 }
 
-.cell-output-display svg [stroke="currentColor"],
-.cell-output-display svg [aria-label$="tick"] line,
-.cell-output-display svg [aria-label$="tick"] path,
-.cell-output-display svg [aria-label$="grid"] line,
-.cell-output-display svg [aria-label="x-axis"] line,
-.cell-output-display svg [aria-label="x-axis"] path,
-.cell-output-display svg [aria-label="y-axis"] line,
-.cell-output-display svg [aria-label="y-axis"] path {
+.cell-output-display > svg [stroke="currentColor"],
+.cell-output-display > svg [aria-label$="tick"] line,
+.cell-output-display > svg [aria-label$="tick"] path,
+.cell-output-display > svg [aria-label$="grid"] line,
+.cell-output-display > svg [aria-label="x-axis"] line,
+.cell-output-display > svg [aria-label="x-axis"] path,
+.cell-output-display > svg [aria-label="y-axis"] line,
+.cell-output-display > svg [aria-label="y-axis"] path {
   stroke: black !important;
 }
 
+/* Explicitly prevent Plotly's internal SVG overlay from getting a background */
+.cell-output-display .js-plotly-plot svg,
+.cell-output-display .plotly svg {
+  background: transparent !important;
+}
 
 /* 6. Observable JS (OJS) Dark Mode Overrides */
 /* Fixes slider/input borders and table styling in dark mode. */

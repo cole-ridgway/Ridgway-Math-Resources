@@ -381,10 +381,70 @@ V = \pi \int_a^b [R(x)]^2 \, dx &= \pi \int_0^\pi \Big( \sqrt{\sin(x)} \Big)^2 \
 &= 2\pi
 \end{align*}
 $$
+
+**Interactive Visualization:** Use the slider below to revolve the curve $f(x) = \sqrt{\sin(x)}$ around the $x$-axis.
+```{ojs}
+//| echo: false
+viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
+  value: 0.05,
+  step: 0.05,
+  label: "Angle of Revolution (radians):"
+})
+```
+```{ojs}
+//| echo: false
+{
+  const Plotly = await require("https://cdn.plot.ly/plotly-2.26.0.min.js");
+  const f = x => Math.sqrt(Math.sin(x));
+  const a = 0, b = Math.PI;
+  const stepsX = 60, stepsTheta = 60;
+
+  let xVals = [], yVals = [], zVals = [];
+  for (let i = 0; i <= stepsTheta; i++) {
+    let theta = (i / stepsTheta) * sweepAngle1;
+    let xRow = [], yRow = [], zRow = [];
+    for (let j = 0; j <= stepsX; j++) {
+      let x = a + (j / stepsX) * (b - a);
+      let r = f(x);
+      xRow.push(x);
+      yRow.push(r * Math.cos(theta));
+      zRow.push(r * Math.sin(theta));
+    }
+    xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+  }
+
+  let lineX = [], lineY = [], lineZ = [];
+  for (let j = 0; j <= stepsX; j++) {
+    let x = a + (j / stepsX) * (b - a);
+    lineX.push(x); lineY.push(f(x)); lineZ.push(0);
+  }
+
+  const layout = {
+    title: { text: "Solid of Revolution: f(x) = √(sin x)", font: { size: 14 } },
+    scene: {
+      xaxis: { title: "x", range: [-0.3, Math.PI + 0.3] },
+      yaxis: { title: "y", range: [-1.2, 1.2] },
+      zaxis: { title: "z", range: [-1.2, 1.2] },
+      aspectmode: "cube",
+      camera: { eye: { x: 1.6, y: 1.6, z: 0.8 } }
+    },
+    margin: { l: 0, r: 0, b: 0, t: 40 },
+    showlegend: false
+  };
+
+  const div = document.createElement("div");
+  div.style.cssText = "width:100%; height:480px;";
+  await Plotly.react(div, [
+    { x: xVals, y: yVals, z: zVals, type: "surface",
+      colorscale: "Blues", showscale: false, opacity: 0.85 },
+    { x: lineX, y: lineY, z: lineZ, type: "scatter3d",
+      mode: "lines", line: { color: "red", width: 5 } }
+  ], layout, { responsive: true });
+  return div;
+}
+```
 :::
 :::
-
-
 
 
 ::: {.callout-note title="Example" icon=false appearance="simple"}
@@ -648,117 +708,3 @@ $$
    b) The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Find the volume of the solid.
    c) The region $R$ is the base of another solid. For this solid, the cross sections perpendicular to the $x$-axis are semicircles with their diameters across the base. Find the volume of the solid.
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```{ojs}
-//| echo: false
-// 1. Load Plotly for 3D rendering
-Plotly = require("plotly.js-dist-min")
-
-// 2. Define the reusable interactive graphing function
-function renderVolume(config) {
-  const { f, a, b, angle = 2 * Math.PI, title = "Solid of Revolution" } = config;
-  const stepsX = 60;
-  const stepsTheta = 60;
-  
-  let xVals = [];
-  let yVals = [];
-  let zVals = [];
-
-  // Parametric generation of the 3D surface up to the chosen angle
-  for (let i = 0; i <= stepsTheta; i++) {
-    // Crucial change: multiply by the interactive angle, not just 2*PI
-    let theta = (i / stepsTheta) * angle; 
-    let xRow = [];
-    let yRow = [];
-    let zRow = [];
-    
-    for (let j = 0; j <= stepsX; j++) {
-      let x = a + (j / stepsX) * (b - a);
-      let r = f(x); // Radius is the function value
-      
-      xRow.push(x);
-      yRow.push(r * Math.cos(theta));
-      zRow.push(r * Math.sin(theta)); // Rotating around X-axis
-    }
-    xVals.push(xRow);
-    yVals.push(yRow);
-    zVals.push(zRow);
-  }
-
-  // Generate the original 2D curve as a thick red line
-  let lineX = [], lineY = [], lineZ = [];
-  for (let j = 0; j <= stepsX; j++) {
-    let x = a + (j / stepsX) * (b - a);
-    lineX.push(x);
-    lineY.push(f(x));
-    lineZ.push(0);
-  }
-
-  // Create a container for the plot
-  const div = DOM.element("div");
-  div.style.width = "100%";
-  div.style.height = "500px";
-
-  // Plotly configuration for the 3D surface
-  const surfaceTrace = {
-    x: xVals, y: yVals, z: zVals,
-    type: 'surface',
-    colorscale: 'Blues', // Looks a bit cleaner than Viridis for math
-    showscale: false,
-    opacity: 0.9
-  };
-
-  // Plotly configuration for the original curve
-  const lineTrace = {
-    x: lineX, y: lineY, z: lineZ,
-    type: 'scatter3d',
-    mode: 'lines',
-    line: { color: 'red', width: 6 },
-    name: 'Original Curve'
-  };
-
-  const layout = {
-    title: title,
-    scene: {
-      xaxis: { title: 'X-axis', range: [a - 0.5, b + 0.5] },
-      yaxis: { title: 'Y-axis', range: [-2, 2] },
-      zaxis: { title: 'Z-axis', range: [-2, 2] },
-      aspectmode: 'cube' // Keeps the axes perfectly square so the circle doesn't stretch
-    },
-    margin: { l: 0, r: 0, b: 0, t: 40 },
-    showlegend: false
-  };
-
-  Plotly.newPlot(div, [surfaceTrace, lineTrace], layout);
-  return div;
-}
