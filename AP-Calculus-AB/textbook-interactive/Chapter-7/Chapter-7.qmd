@@ -387,81 +387,9 @@ V = \pi \int_a^b [R(x)]^2 \, dx &= \pi \int_0^\pi \Big( \sqrt{\sin(x)} \Big)^2 \
 $$
 
 **Interactive Visualization:** Use the slider below to revolve the curve $f(x) = \sqrt{\sin(x)}$ around the $x$-axis.
-```{ojs}
-//| echo: false
-viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
-  value: 0.05,
-  step: 0.05,
-  label: "Angle of Revolution (radians):"
-})
-```
-```{ojs}
-//| echo: false
-{
-  const Plotly = await require("https://cdn.plot.ly/plotly-2.26.0.min.js");
-  const f = x => Math.sqrt(Math.sin(x));
-  const a = 0, b = Math.PI;
-  const stepsX = 60, stepsTheta = 30;
-
-  function buildTraces(angle) {
-    let xVals = [], yVals = [], zVals = [];
-    for (let i = 0; i <= stepsTheta; i++) {
-      let theta = (i / stepsTheta) * angle;
-      let xRow = [], yRow = [], zRow = [];
-      for (let j = 0; j <= stepsX; j++) {
-        let x = a + (j / stepsX) * (b - a);
-        let r = f(x);
-        xRow.push(x);
-        yRow.push(r * Math.cos(theta));
-        zRow.push(r * Math.sin(theta));
-      }
-      xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
-    }
-    let lineX = [], lineY = [], lineZ = [];
-    for (let j = 0; j <= stepsX; j++) {
-      let x = a + (j / stepsX) * (b - a);
-      lineX.push(x); lineY.push(f(x)); lineZ.push(0);
-    }
-    return [
-      { x: xVals, y: yVals, z: zVals, type: "surface",
-        colorscale: "Blues", showscale: false, opacity: 0.85 },
-      { x: lineX, y: lineY, z: lineZ, type: "scatter3d",
-        mode: "lines", line: { color: "red", width: 5 } }
-    ];
-  }
-
-  const defaultCamera = {
-    eye:    { x: 0.005, y: 0.25,   z: -2.00  },
-    center: { x: 0.005, y: -0.067, z: -0.014 },
-    up:     { x: 0,     y: 0,      z: 1      }
-  };
-
-  // Look for an already-rendered div from a previous slider tick
-  // and read its current camera so we don't reset the user's rotation
-  const existingDiv = document.querySelector("#sol-rev-1");
-  const currentCamera = existingDiv?._fullLayout?.scene?.camera ?? defaultCamera;
-
-  const layout = {
-    title: { text: "Solid of Revolution: f(x) = √(sin x)", font: { size: 14 } },
-    scene: {
-      xaxis: { title: "x", range: [-1, 4] },
-      yaxis: { title: "y", range: [-1.5, 1.5] },
-      zaxis: { title: "z", range: [-1, 1] },
-      aspectmode: "manual",
-      aspectratio: { x: 1.5, y: 1, z: 0.67 },
-      camera: currentCamera
-    },
-    margin: { l: 0, r: 0, b: 0, t: 40 },
-    showlegend: false
-  };
-
-  const div = document.createElement("div");
-  div.id = "sol-rev-1";
-  div.style.cssText = "width:100%; height:480px;";
-
-  await Plotly.react(div, buildTraces(sweepAngle1), layout, { responsive: true });
-  return div;
-}
+```{=html}
+<iframe src="widget-disk-sqrt-sinx.html" width="100%" height="580"
+        style="border:none; border-radius:8px;"></iframe>
 ```
 :::
 :::
@@ -489,6 +417,13 @@ V = \pi \int_a^b [R(x)]^2 \, dx &= \pi \int_{-1}^1 (1-x^2)^2 \, dx \\
 &= \frac{16\pi}{15}
 \end{align*}
 $$
+
+**Interactive Visualization:** Use the slider below to revolve the curve $f(x) = 2 - x^2$ around the line $y=1$.
+```{=html}
+<iframe src="widget-2-minus-x-squared.html" width="100%" height="580"
+        style="border:none; border-radius:8px;"></iframe>
+```
+
 :::
 :::
 
