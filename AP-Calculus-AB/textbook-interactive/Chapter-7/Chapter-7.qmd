@@ -401,10 +401,7 @@ viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
   const Plotly = await require("https://cdn.plot.ly/plotly-2.26.0.min.js");
   const f = x => Math.sqrt(Math.sin(x));
   const a = 0, b = Math.PI;
-  const stepsX = 60;
-
-  // Use fewer angular steps for a snappier feel
-  const stepsTheta = 30;
+  const stepsX = 60, stepsTheta = 30;
 
   function buildTraces(angle) {
     let xVals = [], yVals = [], zVals = [];
@@ -420,13 +417,11 @@ viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
       }
       xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
     }
-
     let lineX = [], lineY = [], lineZ = [];
     for (let j = 0; j <= stepsX; j++) {
       let x = a + (j / stepsX) * (b - a);
       lineX.push(x); lineY.push(f(x)); lineZ.push(0);
     }
-
     return [
       { x: xVals, y: yVals, z: zVals, type: "surface",
         colorscale: "Blues", showscale: false, opacity: 0.85 },
@@ -435,32 +430,36 @@ viewof sweepAngle1 = Inputs.range([0.05, 2 * Math.PI], {
     ];
   }
 
+  const defaultCamera = {
+    eye:    { x: 0.005, y: 0.25,   z: -2.00  },
+    center: { x: 0.005, y: -0.067, z: -0.014 },
+    up:     { x: 0,     y: 0,      z: 1      }
+  };
+
+  // Look for an already-rendered div from a previous slider tick
+  // and read its current camera so we don't reset the user's rotation
+  const existingDiv = document.querySelector("#sol-rev-1");
+  const currentCamera = existingDiv?._fullLayout?.scene?.camera ?? defaultCamera;
+
   const layout = {
     title: { text: "Solid of Revolution: f(x) = √(sin x)", font: { size: 14 } },
     scene: {
-      xaxis: { title: "x", range: [-0.3, Math.PI + 0.3] },
-      yaxis: { title: "y", range: [-1.2, 1.2] },
-      zaxis: { title: "z", range: [-1.2, 1.2] },
-      aspectmode: "cube",
-      camera: { eye: { x: 1.6, y: 1.6, z: 0.8 } }
+      xaxis: { title: "x", range: [-1, 4] },
+      yaxis: { title: "y", range: [-1.5, 1.5] },
+      zaxis: { title: "z", range: [-1, 1] },
+      aspectmode: "manual",
+      aspectratio: { x: 1.5, y: 1, z: 0.67 },
+      camera: currentCamera
     },
     margin: { l: 0, r: 0, b: 0, t: 40 },
     showlegend: false
   };
 
   const div = document.createElement("div");
+  div.id = "sol-rev-1";
   div.style.cssText = "width:100%; height:480px;";
 
-  // Initial render
   await Plotly.react(div, buildTraces(sweepAngle1), layout, { responsive: true });
-
-  // Smooth update: animate with a short transition instead of full redraw
-  const update = buildTraces(sweepAngle1);
-  await Plotly.animate(div,
-    { data: update },
-    { transition: { duration: 0 }, frame: { duration: 0, redraw: true } }
-  );
-
   return div;
 }
 ```
