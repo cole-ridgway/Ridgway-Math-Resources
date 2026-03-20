@@ -35,7 +35,7 @@ $$s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32$$
 
 which contains two arbitrary constants. It can be shown that a differential equation of order $n$ has a general solution with $n$ arbitrary constants.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Determine whether the given function is a solution of the differential equation $y''-y=0$.
 
 **a)** $y=\sin(x)$
@@ -83,7 +83,7 @@ In this case, the initial conditions yield the particular solution:
 
 $$s(t) = -16t^2 +64t +80$$
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 For the differential equation $xy'-3y=0$, verify that $y=Cx^3$ is a solution, and find the particular solution determined by the initial condition $y=2$ when $x=-3$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -121,7 +121,7 @@ $$y'=F(x,y) \hspace{3cm} \text{Differential Equation}$$
 
 At each point $(x,y)$ in the $xy$-plane where $F$ is defined, the differential equation determines the slope $y'=F(x,y)$. If you draw short line segments with slope $F(x,y)$ at selected points $(x,y)$ in the domain of $F$, then these line segments form a **slope field**, or a *direction field* for the differential equation $y'=F(x,y)$. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Sketch a slope field for the differential equation $y'=x-y$ for the points $(-1,1)$, $(0,1)$, and $(1,1)$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -136,7 +136,7 @@ Draw short line segments at the three points with their respective slopes, as sh
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Match the slope field with its differential equation.
 
 ![Figure 6.3](fig-6.3.png)
@@ -156,7 +156,7 @@ Match the slope field with its differential equation.
 
 A solution curve of a differential equation $y'=F(x,y)$ is simply a curve in the $xy$-plane whose tangent line at each point $(x,y)$ has slope equal to $F(x,y)$. This is illustrated in the next example.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Sketch a slope field for the differential equation $y' = 2x+y$. Use the slope field to sketch the solution that passes through the point $(1,1)$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -383,7 +383,7 @@ $$y'=f(x) \quad \text{ and } \quad y''=f(x)$$
 
 In this section, you will learn how to solve a more general type of differential equation. The strategy is to rewrite the equation so that each variable occurs on only one side of the equation. This strategy is called *separation of variables*. (You will study this strategy in detail in Section 6.3).
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Solve the differential equation $y'=2x/y$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -454,7 +454,7 @@ So, all solutions of $y' = ky$ are of the form $y=Ce^{kt}$.
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 The rate of change of $y$ is proportional to $y$. When $t=2, y=4$. What is the value of $y$ when $t=3$?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -482,7 +482,7 @@ Radioactive decay is measured in terms of *half-life*—the number of years requ
 | Einsteinium ($^{276}\text{Es}$) | 276 years |
 | Nobelium ($^{257}\text{No}$) | 25 seconds |
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Suppose that 10 grams of Plutonium-239 ($^{239}\text{Pu}$) was released in the Chernobyl nuclear accident. How long will it take for the 10 grams to decay to 1 gram?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -517,7 +517,7 @@ The solution is approximately 80,059 years.^[And this is why we aren't allowed t
 
 From the previous example, notice that in an exponential growth or decay problem, it is easy to solve for $C$ when you are given the value of $y$ at $t=0$.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Suppose an experimental population of fruit flies increases according to the law of exponential growth. There were 100 flies after the second day of the experiment and 300 flies after the fourth day. Approximately how many flies were in the original population?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -553,7 +553,7 @@ So, the original population (when $t=0$) consisted of approximately $y=C=33$ fli
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Four months after it stops advertising, a manufacturing company notices that its sales have dropped from 100,000 units per month to 80,000 units per month. If the sales follow an exponential pattern of decline, what will they be after another 2 months?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -581,7 +581,7 @@ $$
 
 Throughout these examples, you did not actually have to solve the differential equation $y' = ky$. It was only done in the proof! The next example demonstrates a problem whose solution involves the separation of variables technique. The example concerns **Newton's Law of Cooling**, which states that the rate of change in the temperature of an object is proportional to the difference between the object's temperature and the temperature of the surrounding medium.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Let $y$ represent the temperature (in $^\circ$F) of an object in a room whose temperature is kept at a constant $60^\circ$F. If the object cools from $100^\circ$F to $90^\circ$F in 10 minutes, how much longer will it take for its temperature to decrease to $80^\circ$F?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -681,7 +681,7 @@ where $M$ is a continuous function of $x$ alone and $N$ is a continuous function
 | $(\sin x)y' = \cos x$ | $dy = \cot x \, dx$ |
 | $\frac{xy'}{e^y + 1} = 2$ | $\frac{1}{e^y + 1} \, dy = \frac{2}{x} \, dx$ |
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the general solution of $(x^2 + 4) \frac{dy}{dx} =xy$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -713,7 +713,7 @@ $$y = C\sqrt{x^2+4}$$
 
 In some cases it is not feasible to write the general solution in the explicit form $y=f(x)$. The next example illustrates such a solution. Implicit differentiation can be used to verify this solution.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Given the initial condition $y(0) = 1$, find the particular solution of the equation:
 $$xy \, dx + e^{-x^2}(y^2-1)\,dy =0$$
 
@@ -742,7 +742,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the equation of the curve that passes through the point $(1,3)$ and has a slope of $y/x^2$ at any point $(x,y)$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -860,7 +860,7 @@ $$y=vx$$
 where $v$ is a differentiable function of $x$.
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the general solution of:
 $$(x^2 - y^2)dx + 3xy \, dy = 0$$
 
@@ -1040,7 +1040,7 @@ where $k$ and $L$ are positive constants. A population that satisfies this equat
 
 ![Figure 6.8: Note that as t approaches infinity, y approaches L](fig-6.8.png)
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Solve the logistic differential equation $\displaystyle \frac{dy}{dt} = ky\left(1 - \frac{y}{L}\right)$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -1066,7 +1066,7 @@ Solving this equation for $y$ produces $\displaystyle y = \frac{L}{1 + be^{-kt}}
 From the previous example, you can conclude that all solutions of the logistic differential equation are of the general form:
 $$y = \frac{L}{1+be^{-kt}}$$
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 A state game commission releases 40 elk into a game refuge. After 5 years, the elk population is 104. The commission believes that the environment can support no more than 4000 elk. The growth rate of the elk population $p$ is: 
 
 $$\frac{dp}{dt} = kp \left( 1- \frac{p}{4000} \right), \quad 40 \leq p \leq 4000$$
@@ -1141,7 +1141,7 @@ $$u(x) = e^{\int P(x)dx} \qquad \text{(Integrating Factor)}$$
 which is called an **integrating factor**. The general solution of the equation is: 
 $$y = \frac{1}{u(x)}\int Q(x)u(x) \, dx \qquad \text{(General Solution)}$$
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the General Solution of $y' + y = e^x$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -1173,7 +1173,7 @@ is $u(x)=e^{\int P(x)dx}$. The solution of the differential equation is:
 $$ye^{\int P(x)dx} = \int Q(x) e^{\int P(x)dx}dx + C$$
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the general solution of $xy' -2y = x^2$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -1211,7 +1211,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the general solution of $y'-y \tan(t) = 1, \quad -\frac{\pi}{2} < t < \frac{\pi}{2}$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -1285,7 +1285,7 @@ Finally, by Theorem 6.3, the *general solution of the Bernoulli equation* is:
 $$y^{1-n}e^{\int (1-n)P(x)dx} = \int (1-n)Q(x)e^{\int (1-n)P(x)dx}dx +C$$
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the general solution of $y' + xy = xe^{-x^2}y^{-3}$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}

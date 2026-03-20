@@ -1,9 +1,80 @@
 ---
-title: "Welcome to Mr. Ridgway's Math Classes"
+title: "Welcome to Mr. ℝidgway's Math Classes"
+toc: false
+page-layout: full
+body-classes: homepage
 ---
 
-Welcome to our digital hub! Please select your course from the navigation bar at the top of the screen.
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 3rem;">
+<!-- ### *"Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding."*
+Welcome to our digital hub! Whether you are a student ready to dive into this week's chapter, or a parent looking to support your student's learning journey, you are in the right place. -->
+</div>
 
-## Courses
+---
 
-* **[AP Calculus AB](AP-Calculus-AB/index.qmd)**
+### Choose Your Path
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100 .shadow-sm}
+::: {.card-header .bg-primary .text-white}
+#### <i class="bi bi-mortarboard-fill"></i> For Students
+:::
+::: {.card-body}
+This site is here for you to access resources, check out the syllabus, and find links to important tools.
+
+Find your course below to get started!
+
+[**Go to AP Calculus AB &rarr;**](AP-Calculus-AB/index.qmd)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100 .shadow-sm}
+::: {.card-header .bg-success .text-white}
+#### <i class="bi bi-house-door-fill"></i> For Parents
+:::
+::: {.card-body}
+For grading policies, contact information, common questions, and more, follow the link below!
+
+[**Read the Syllabus &rarr;**](#)
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.card .h-100 .shadow-sm}
+::: {.card-header .bg-info .text-white}
+#### <i class="bi bi-calculator-fill"></i> Courses & Resources
+:::
+::: {.card-body}
+*(List out your quick links here. This is a great spot for links to Desmos, your school's gradebook portal, or the College Board website.)*
+
+* [AP Calculus AB](AP-Calculus-AB/index.qmd)
+:::
+:::
+:::
+
+:::
+
+---
+
+### <i class="bi bi-person-circle"></i> About Me
+
+::: {.columns}
+::: {.column width="30%"}
+<!-- ![](profile.jpg){style="border-radius: 50%; max-width: 80%; display: block; margin: 0 auto;"} -->
+:::
+
+::: {.column width="70%"}
+Hi, I'm Cole ℝidgway! 
+
+I moved to Boise in 2018 to attend Boise State University, where I earned a double major with a Bachelors of Science in Mathematics with a Secondary Education emphasis as well as a Bachelors of Science in Applied Mathematics. After that, I went back to Boise State to complete my Masters in Mathematics, where I completed a project comparing polynomial interpolating methods for approximating functions. 
+
+During my time at Boise State, I taught a variety of courses as a Graduate Teaching Assistant, including College Algebra, Precalculus, Business Precalculus, and introductory math courses. I also had the opportunity to build a pilot calculus class for the university, where I developed a curriculum alongside the instructor.
+
+I have been teaching at Meridian High School since 2025, and I am currently teaching AP Calculus AB, Math I, and Math III. I am passionate about making math accessible and engaging for all students, and I am excited to share my resources with you through this website!
+:::
+:::

@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Ridgway Math Resources"
+  title: "ℝidgway Math Resources"
   search: true
 
   # --- TOP NAVIGATION (The Class Selector) ---
@@ -50,4 +50,5 @@ format:
       dark: [darkly, custom.scss]
     toc: true
     toc-depth: 4
+    toc-expand: true
     html-math-method: mathjax

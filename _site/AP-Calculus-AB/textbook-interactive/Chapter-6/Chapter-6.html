@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chapter 6: Differential Equations – Ridgway Math Resources</title>
+<title>Chapter 6: Differential Equations – ℝidgway Math Resources</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-65eecbca42a91e4b843b9a618101170d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-980580f04fd0543a5d9f2adf48b2b143.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-65eecbca42a91e4b843b9a618101170d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-5c103945fdf985bce8c2d90447b578dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-41a68bdf8a1f1cba3c41a0d19ddfc440.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-5c103945fdf985bce8c2d90447b578dd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -314,7 +314,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Ridgway Math Resources</span>
+    <span class="navbar-title">ℝidgway Math Resources</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -473,7 +473,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -618,13 +618,13 @@ window.Quarto = {
 <p>In section 4.1, you saw that the second-order differential equation <span class="math inline">\(s''(t)=32\)</span> has the general solution:</p>
 <p><span class="math display">\[s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32\]</span></p>
 <p>which contains two arbitrary constants. It can be shown that a differential equation of order <span class="math inline">\(n\)</span> has a general solution with <span class="math inline">\(n\)</span> arbitrary constants.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -697,13 +697,13 @@ window.Quarto = {
 <p><span class="math display">\[s(0) = 80, \quad s'(0)=64\]</span></p>
 <p>In this case, the initial conditions yield the particular solution:</p>
 <p><span class="math display">\[s(t) = -16t^2 +64t +80\]</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -747,13 +747,13 @@ window.Quarto = {
 <p>Solving a differential equation analytically can be difficult or even impossible. However, there is a graphical approach you can use to learn a lot about the solution of</p>
 <p><span class="math display">\[y'=F(x,y) \hspace{3cm} \text{Differential Equation}\]</span></p>
 <p>At each point <span class="math inline">\((x,y)\)</span> in the <span class="math inline">\(xy\)</span>-plane where <span class="math inline">\(F\)</span> is defined, the differential equation determines the slope <span class="math inline">\(y'=F(x,y)\)</span>. If you draw short line segments with slope <span class="math inline">\(F(x,y)\)</span> at selected points <span class="math inline">\((x,y)\)</span> in the domain of <span class="math inline">\(F\)</span>, then these line segments form a <strong>slope field</strong>, or a <em>direction field</em> for the differential equation <span class="math inline">\(y'=F(x,y)\)</span>. Each line segment has the same slope as the solution curve through that point. A slope field shows the general shape of all the solutions.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -783,13 +783,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -824,13 +824,13 @@ window.Quarto = {
 </div>
 </div>
 <p>A solution curve of a differential equation <span class="math inline">\(y'=F(x,y)\)</span> is simply a curve in the <span class="math inline">\(xy\)</span>-plane whose tangent line at each point <span class="math inline">\((x,y)\)</span> has slope equal to <span class="math inline">\(F(x,y)\)</span>. This is illustrated in the next example.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1166,13 +1166,13 @@ window.Quarto = {
 <p>In the preceding section, you learned to analyze visually the solutions of differential equations using slope fields and to approximate solutions numerically using Euler’s Method. Analytically, you have learned to solve only two types of differential equations—those of the forms:</p>
 <p><span class="math display">\[y'=f(x) \quad \text{ and } \quad y''=f(x)\]</span></p>
 <p>In this section, you will learn how to solve a more general type of differential equation. The strategy is to rewrite the equation so that each variable occurs on only one side of the equation. This strategy is called <em>separation of variables</em>. (You will study this strategy in detail in Section 6.3).</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1280,13 +1280,13 @@ y &amp;= Ce^{kt} &amp;&amp; \text{(Let } C=e^{C_1})
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1351,13 +1351,13 @@ y &amp;= Ce^{kt} &amp;&amp; \text{(Let } C=e^{C_1})
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1396,13 +1396,13 @@ y &amp;= Ce^{kt} &amp;&amp; \text{(Let } C=e^{C_1})
 </div>
 </div>
 <p>From the previous example, notice that in an exponential growth or decay problem, it is easy to solve for <span class="math inline">\(C\)</span> when you are given the value of <span class="math inline">\(y\)</span> at <span class="math inline">\(t=0\)</span>.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1445,13 +1445,13 @@ C &amp;= 100e^{-1.0986} \approx 33
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1490,13 +1490,13 @@ y &amp;\approx 100,000e^{-0.0558(6)} \\
 </div>
 </div>
 <p>Throughout these examples, you did not actually have to solve the differential equation <span class="math inline">\(y' = ky\)</span>. It was only done in the proof! The next example demonstrates a problem whose solution involves the separation of variables technique. The example concerns <strong>Newton’s Law of Cooling</strong>, which states that the rate of change in the temperature of an object is proportional to the difference between the object’s temperature and the temperature of the surrounding medium.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1652,13 +1652,13 @@ t &amp;\approx 24.09 \text{ minutes}
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1699,13 +1699,13 @@ y &amp;= \pm e^{C_1} \sqrt{x^2+4}
 </div>
 </div>
 <p>In some cases it is not feasible to write the general solution in the explicit form <span class="math inline">\(y=f(x)\)</span>. The next example illustrates such a solution. Implicit differentiation can be used to verify this solution.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1744,13 +1744,13 @@ y^2 - \ln \left( y^2 \right) + e^{x^2} &amp;= 2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1949,13 +1949,13 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 <p>If <span class="math inline">\(M(x,y) \, dx + N(x,y) \, dy = 0\)</span> is homogeneous, then it can be transformed into a differential equation whose variables are separable by the substitution: <span class="math display">\[y=vx\]</span> where <span class="math inline">\(v\)</span> is a differentiable function of <span class="math inline">\(x\)</span>.</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2179,13 +2179,13 @@ y^2 - x^2 &amp;= K
 <figcaption>Figure 6.8: Note that as t approaches infinity, y approaches L</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2222,13 +2222,13 @@ y^2 - x^2 &amp;= K
 </div>
 </div>
 <p>From the previous example, you can conclude that all solutions of the logistic differential equation are of the general form: <span class="math display">\[y = \frac{L}{1+be^{-kt}}\]</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2343,13 +2343,13 @@ p &amp;= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
 </div>
 <p>To solve a linear differential equation, write it in standard form to identify the functions <span class="math inline">\(P(x)\)</span> and <span class="math inline">\(Q(x)\)</span>. Then integrate <span class="math inline">\(P(x)\)</span> and form the expression: <span class="math display">\[u(x) = e^{\int P(x)dx} \qquad \text{(Integrating Factor)}\]</span></p>
 <p>which is called an <strong>integrating factor</strong>. The general solution of the equation is: <span class="math display">\[y = \frac{1}{u(x)}\int Q(x)u(x) \, dx \qquad \text{(General Solution)}\]</span></p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2399,13 +2399,13 @@ y &amp;= \frac{1}{u(x)} \int Q(x)u(x) \, dx \\
 <p>An integrating factor for the first-order linear differential equation: <span class="math display">\[y'  + P(x)y = Q(x)\]</span> is <span class="math inline">\(u(x)=e^{\int P(x)dx}\)</span>. The solution of the differential equation is: <span class="math display">\[ye^{\int P(x)dx} = \int Q(x) e^{\int P(x)dx}dx + C\]</span></p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2452,13 +2452,13 @@ y &amp;= x^2(\ln |x| +C) \qquad \text{(General Solution)}
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2550,13 +2550,13 @@ y^{-n}y' + P(x)y^{1-n} &amp;= Q(x) \\
 <p><span class="math display">\[y^{1-n}e^{\int (1-n)P(x)dx} = \int (1-n)Q(x)e^{\int (1-n)P(x)dx}dx +C\]</span></p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Example
+<span class="screen-reader-only">Warning</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">

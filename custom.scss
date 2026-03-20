@@ -23,7 +23,7 @@ $conceptual-text-dark: #eee;  // Light gray/white text for dark background
 
 // We map our custom variables to Quarto's theme variable mechanism.
 // (Quarto will pick up 'cosmo' as the base theme for light)
-[data-quarto-theme="light"] {
+body.quarto-light {
   --conceptual-box-bg: #{$conceptual-bg-light};
   --conceptual-box-text: #{$conceptual-text-light};
   --practice-box-bg: #{$practice-bg-light};
@@ -31,7 +31,7 @@ $conceptual-text-dark: #eee;  // Light gray/white text for dark background
 }
 
 // We map our custom variables for when the 'darkly' theme is active.
-[data-quarto-theme="dark"] {
+body.quarto-dark {
   --conceptual-box-bg: #{$conceptual-bg-dark};
   --conceptual-box-text: #{$conceptual-text-dark};
   --practice-box-bg: #{$practice-bg-dark};
@@ -39,39 +39,27 @@ $conceptual-text-dark: #eee;  // Light gray/white text for dark background
 }
 
 
-/* 3. Original Layout / Nav Rules (Keep these as they are) */
+/* 3. Original Layout / Nav Rules */
+
 #quarto-sidebar {
   border-right: 2px solid var(--bs-border-color) !important;
   padding-right: 15px;
   background-color: var(--bs-body-bg); 
 }
 
-main {
+/* Restrict width on standard reading pages, but let 'full' pages stretch out */
+body:not(.quarto-page-layout-full) main {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.navbar-nav .nav-item {
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 0 8px; 
+/* Restrict width on standard reading pages, but let the homepage stretch out */
+body:not(.homepage) main {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.navbar-nav .nav-item:last-child {
-  border-right: none;
-}
-
-.navbar .nav-link {
-  background-color: rgba(255, 255, 255, 0.05); 
-  border-radius: 5px;
-  padding: 6px 16px !important;
-  transition: background-color 0.2s ease; 
-}
-
-.navbar .nav-link:hover, .navbar .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.25); 
-}
-
 
 /* 4. Update the Custom Box Rules to Use the Dynamic Variables */
 /* This is where the magic happens! We replace the fixed colors with our new variables. */
@@ -175,4 +163,87 @@ main {
   .observablehq-table td {
     border-bottom-color: var(--bs-border-color) !important;
   }
+}
+
+/* 7. Explicit Light/Dark Mode Toggle UI */
+/* Turns the default icon into a clear, labeled pill button */
+
+.quarto-color-scheme-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 16px !important;
+  border-radius: 20px;
+  background-color: rgba(128, 128, 128, 0.15) !important; 
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  width: auto !important; /* Forces the button to expand for the text */
+}
+
+.quarto-color-scheme-toggle:hover {
+  background-color: rgba(128, 128, 128, 0.3) !important;
+}
+
+/* Inject text telling them what the button does based on the current theme */
+body.quarto-light .quarto-color-scheme-toggle::after {
+  content: "Dark Mode";
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+body.quarto-dark .quarto-color-scheme-toggle::after {
+  content: "Light Mode";
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* 8. Right Table of Contents (TOC) Visual Hierarchy */
+
+/* A. Top-Level Headings (e.g., 7.1, 7.2) - Bolder but shrunk */
+#TOC > ul > li > a {
+  font-weight: 700 !important;
+  font-size: 0.9rem; 
+  margin-top: 10px; 
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2); 
+}
+
+/* B. Create a tighter "Tree Line" for nested sub-sections */
+#TOC ul ul {
+  border-left: 2px solid rgba(128, 128, 128, 0.15); 
+  margin-left: 4px;
+  padding-left: 8px; 
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* C. Standard Sub-sections (e.g., 7.1.1) */
+#TOC > ul > li > ul > li > a {
+  font-weight: 500;
+  font-size: 0.85rem; 
+}
+
+/* D. Mute the 3rd level (Exercises/Conceptual) */
+#TOC > ul > li > ul > li > ul > li > a {
+  font-size: 0.7rem; 
+  opacity: 0.75;
+  font-style: italic;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+/* E. Make the "Active" section pop */
+#TOC .nav-link.active {
+  color: var(--bs-primary) !important;
+  opacity: 1 !important;
+}
+
+/* 9. Homepage Card Hover Effects */
+.card.shadow-sm {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card.shadow-sm:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
 }

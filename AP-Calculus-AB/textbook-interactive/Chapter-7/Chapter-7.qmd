@@ -63,7 +63,7 @@ In Figure 7.1, the graphs of $f$ and $g$ are shown above the $x$-axis. This, how
 
 Representative rectangles are used throughout this chapter in various applications of integration. A vertical rectangle (of width $\Delta x$) implies integration with respect to $x$, whereas a horizontal rectangle (of width $\Delta y$) implies integration with respect to $y$.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the area of the region bounded by the graphs of $y=x^2+2, y=-x, x=0,$ and $x=1$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -95,7 +95,7 @@ $$
 
 In the previous example, the graphs of $f(x)=x^2+2$ and $g(x)=-x$ do not intersect, and the values of $a$ and $b$ are given explicitly. A more common problem involves the area of a region bounded by two *intersecting* graphs, where the values of $a$ and $b$ must be calculated.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the area of the region bounded by the graphs of $f(x)=2-x^2$ and $g(x)=x$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -131,7 +131,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 The sine and cosine curves intersect infinitely many times, bounding regions of equal areas. Find the area of one of these regions.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -157,7 +157,7 @@ $$
 
 If two curves intersect at more than two points, then to find the area of the region between the curves, you must find all points of intersection and check to see which curve is above the other in each interval determined by these points.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the area of the region between the graphs of $f(x)=3x^3-x^2-10x$ and $g(x)=-x^2+2x$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -199,7 +199,7 @@ $$
 
 where $(x_1,y_1)$ and $(x_2,y_2)$ are either adjacent points of intersection of the two curves involved or points on the specified boundary lines.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the area of a region bounded by the graphs of $x=3-y^2$ and $x=y+1$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -261,7 +261,7 @@ $A=(\text{height})(\text{width})$ $\implies$ $\Delta A = [f(x)-g(x)]\Delta x$ $\
 <br>
 
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the area of the region bounded by the graph of $y=4-x^2$ and the $x$-axis. Describe the integration as an accumulation process.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -363,7 +363,7 @@ Note that in Figure 7.9, you can determine the variable of integration by placin
 
 The simplest application of the disk method involves a plane region bounded by the graph of $f$ and the $x$-axis. If the axis of revolution is the $x$-axis, the radius $R(x)$ is simply $f(x)$.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the volume of the solid formed by revolving the region bounded by the graph of $f(x)= \sqrt{\sin(x)}$ and the $x$-axis ($0 \leq x \leq \pi$) about the $x$-axis.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -395,7 +395,7 @@ $$
 :::
 
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the volume of the solid formed by revolving the region bounded by $f(x) = 2-x^2$ and $g(x)=1$ about the line $y=1$.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -474,7 +474,7 @@ Note that the integral involving the inner radius represents the volume of the h
 
 ![Figure 7.11](fig-7.11.png)
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the volume of the solid formed by revolving the region bounded by the graphs of $y=\sqrt{x}$ and $y = x^2$ about the $x$-axis.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -515,7 +515,7 @@ $$
 
 In each example so far, the axis of revolution has been *horizontal* and you have integrated with respect to $x$. In the next example, the axis of revolution is *vertical* and you integrate with respect to $y$. In this example, you need two separate integrals to compute the volume.
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the volume of the solid formed by revolving the region bounded by the graphs of $y=x^2+1$, $y=0$, $x=0$, and $x=1$ about the $y$-axis, as shown in Figure 7.13.
 
 ![Figure 7.13](fig-7.13.png)
@@ -551,7 +551,7 @@ Note that the first integral $\pi \int_0^1 1 \, dy$ represents the volume of a r
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 A manufacturer drills a hole through the center of a metal sphere of radius 5 inches. The hole has a radius of 3 inches. What is the volume of the resulting metal ring?
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -620,7 +620,7 @@ With the disk method, you can find the volume of a solid having a circular cross
 
 ![Figure 7.14: Cross Sections Perpendicular to a Particular Axis](fig-7.14.png)
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Find the volume of the solid shown. The base of the solid is the region bounded by the lines:
 $$f(x) = 1 - \frac{x}{2}, \quad g(x) = -1+\frac{x}{2}, \quad \text{ and } \quad x=0$$
 The cross sections perpendicular to the $x$-axis are equilateral triangles.
@@ -652,7 +652,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Example" icon=false appearance="simple"}
+::: {.callout-warning title="Example" icon=false appearance="simple"}
 Prove that the volume of a pyramid with a square base is $V=\frac{1}{3}hB$, where $h$ is the height of the pyramid and $B$ is the area of the base.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
@@ -689,7 +689,7 @@ $$
    **(C)** $\pi \int_1^e (\ln(x))^2 \, dx$
 
    **(D)** $\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx$
-   
+
 5. Let $R$ be the region enclosed by the graphs of $x = y^2$ and $x = 4$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $y$-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.
 6. Let $R$ be the region bounded by the graphs of $y = \sin(x)$ and the $x$-axis for $0 \leq x \leq \pi$. 
    a) Find the area of $R$.
