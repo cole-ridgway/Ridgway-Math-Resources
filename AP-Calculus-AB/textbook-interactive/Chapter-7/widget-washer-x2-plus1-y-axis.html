@@ -3,92 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solid of Revolution: f(x) = √(sin x)</title>
+<title>Washer Method: x²+1 about y-axis</title>
 <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, sans-serif; background: #fff; color: #222; }
-
-  .widget {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-
-  .plot-area {
-    width: 100%;
-    height: 460px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .controls {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .slider-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .slider-label {
-    font-size: 14px;
-    color: #555;
-    min-width: 220px;
-  }
-
-  input[type="range"] {
-    flex: 1;
-    height: 4px;
-    accent-color: #2563eb;
-    cursor: pointer;
-  }
-
-  .slider-value {
-    font-size: 14px;
-    font-weight: 500;
-    min-width: 60px;
-    text-align: right;
-    color: #222;
-  }
-
-  .caption {
-    font-size: 13px;
-    color: #666;
-    margin-top: 0.5rem;
-    font-style: italic;
-  }
+  .widget { width: 100%; max-width: 800px; margin: 0 auto; padding: 1rem; }
+  .plot-area { width: 100%; height: 460px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+  .controls { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .slider-row { display: flex; align-items: center; gap: 12px; }
+  .slider-label { font-size: 14px; color: #555; min-width: 220px; }
+  input[type="range"] { flex: 1; height: 4px; accent-color: #2563eb; cursor: pointer; }
+  .slider-value { font-size: 14px; font-weight: 500; min-width: 60px; text-align: right; color: #222; }
+  .caption { font-size: 13px; color: #666; margin-top: 0.5rem; font-style: italic; }
 </style>
 </head>
 <body>
 
 <script>
+// Revolving about the y-axis, so we integrate with respect to y.
+// The solid runs from y = 0 to y = 2.
+// At each y-slice:
+//   outer radius R = 1         (the vertical line x = 1)
+//   inner radius r(y) = 0      for 0 ≤ y ≤ 1  (solid cylinder, no hole)
+//                  r(y) = √(y-1)  for 1 ≤ y ≤ 2  (the curve y = x²+1 → x = √(y-1))
+//
+// Because the axis of revolution is vertical (the y-axis), the geometry
+// builder treats y as the spine of the solid and sweeps x and z outward.
+// Specifically: x = r·cos(θ), z = r·sin(θ), y = y  (instead of the
+// horizontal-axis pattern: x = x, y = r·cos(θ), z = r·sin(θ)).
+
 const cfg = {
-  title: "f(x) = √(sin x)  revolved about x-axis",
-  f: x => Math.sqrt(Math.sin(x)),
-  g: null,
-  a: 0, b: Math.PI,
-  axisLabel: "f(x) = √(sin x),  x ∈ [0, π]",
-  xRange: [-0.3, 3.5], yRange: [-1.3, 1.3], zRange: [-1.2, 1.2],
-  aspectRatio: { x: 1.5, y: 1, z: 0.67 },
-  stepsX: 60, stepsTheta: 40,
-  surfaceColor: "Blues",
-  outerColor: "red",
+  title: "y = x²+1  revolved about y-axis",
+  // Radii as functions of y (the integration variable)
+  R: y => 1,                                          // outer radius (constant)
+  r: y => y <= 1 ? 0 : Math.sqrt(y - 1),             // inner radius (piecewise)
+  axisMode: "vertical",   // tells buildTraces to use the y-axis geometry
+  a: 0, b: 2,             // y limits
+  axisLabel: "y = x²+1,  x ∈ [0,1],  revolved about the y-axis",
+  xRange: [-1.3, 1.3], yRange: [-0.2, 2.3], zRange: [-1.2, 1.2],
+  aspectRatio: { x: 1, y: 1.2, z: 1 },
+  stepsY: 80,             // steps along y (higher near the kink at y=1)
+  stepsTheta: 40,
+  surfaceColor: "Purples",
+  outerColor: "#1d6fe8",  // the x = 1 boundary line
+  innerColor: "#e83d1d",  // the y = x²+1 curve
   defaultCamera: {
-    eye:    { x: 0.005, y: 0.25,   z: -2.00  },
-    center: { x: 0.005, y: -0.067, z: -0.014 },
-    up:     { x: 0,     y: 0,      z: 1      }
+    eye:    {x: 1.118, y: 0.105, z: 1.948},
+    center: {x: 0.007, y: -0.04, z: -0.00},
+    up:     {x: -0.05, y: 0.998, z: -0.047}
   },
-  axisLineLength: 1.5,   // set to roughly match your xRange/yRange/zRange extents
+  axisLineLength: 1.2,   // set to roughly match your xRange/yRange/zRange extents
   showGrid: true,
   gridMin: -1.5,    // should match roughly your xRange/yRange lower bound
-  gridMax: 4,     // should match roughly your xRange/yRange upper bound
+  gridMax: 2.5,     // should match roughly your xRange/yRange upper bound
   gridSteps: 10,    // number of grid squares — 8–12 looks clean
 };
 </script>
@@ -114,111 +82,107 @@ let pendingAngle = null;
 let plotReady    = false;
 let savedCamera  = null;
 
-// ─── Geometry builder ─────────────────────────────────────────────────────────
+// ─── Geometry builder (vertical axis) ────────────────────────────────────────
+// For a vertical axis of revolution (y-axis), the coordinate mapping is:
+//   x_plot = r · cos(θ)
+//   y_plot = y            ← y is the spine
+//   z_plot = r · sin(θ)
 function buildTraces(angle) {
-  const { f, g, a, b, stepsX, stepsTheta, surfaceColor, outerColor } = cfg;
+  const { R, r, a, b, stepsY, stepsTheta, surfaceColor, outerColor, innerColor } = cfg;
   const traces = [];
 
-  // Outer surface
+  // Outer surface (R = 1, a full cylinder)
   {
     const xVals = [], yVals = [], zVals = [];
     for (let i = 0; i <= stepsTheta; i++) {
       const theta = (i / stepsTheta) * angle;
       const xRow = [], yRow = [], zRow = [];
-      for (let j = 0; j <= stepsX; j++) {
-        const x = a + (j / stepsX) * (b - a);
-        const r = f(x);
-        xRow.push(x);
-        yRow.push(r * Math.cos(theta));
-        zRow.push(r * Math.sin(theta));
+      for (let j = 0; j <= stepsY; j++) {
+        const y = a + (j / stepsY) * (b - a);
+        const rad = R(y);
+        xRow.push(rad * Math.cos(theta));
+        yRow.push(y);
+        zRow.push(rad * Math.sin(theta));
       }
       xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
     }
     traces.push({
       x: xVals, y: yVals, z: zVals,
-      type: "surface",
-      colorscale: surfaceColor,
-      showscale: false,
-      opacity: 0.85,
-      hoverinfo: "skip"
+      type: "surface", colorscale: surfaceColor,
+      showscale: false, opacity: 0.7, hoverinfo: "skip"
     });
   }
 
-  // Inner surface (washer only — skipped when g is null)
-  if (g) {
+  // Inner surface (r(y) = √(y-1) for y ∈ [1,2], 0 below)
+  // Only draw where r > 0 to avoid a degenerate collapsed surface
+  {
     const xVals = [], yVals = [], zVals = [];
     for (let i = 0; i <= stepsTheta; i++) {
       const theta = (i / stepsTheta) * angle;
       const xRow = [], yRow = [], zRow = [];
-      for (let j = 0; j <= stepsX; j++) {
-        const x = a + (j / stepsX) * (b - a);
-        const r = g(x);
-        xRow.push(x);
-        yRow.push(r * Math.cos(theta));
-        zRow.push(r * Math.sin(theta));
+      for (let j = 0; j <= stepsY; j++) {
+        const y = a + (j / stepsY) * (b - a);
+        const rad = r(y);
+        xRow.push(rad * Math.cos(theta));
+        yRow.push(y);
+        zRow.push(rad * Math.sin(theta));
       }
       xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
     }
     traces.push({
       x: xVals, y: yVals, z: zVals,
-      type: "surface",
-      colorscale: "Greys",
-      showscale: false,
-      opacity: 0.55,
-      hoverinfo: "skip"
+      type: "surface", colorscale: "Greys",
+      showscale: false, opacity: 0.6, hoverinfo: "skip"
     });
   }
 
-  // End cap (shown only during partial revolution)
+  // End cap (the swept face at angle θ = angle)
   if (angle < 2 * Math.PI - 0.05) {
     const capX = [], capY = [], capZ = [];
-    for (let j = 0; j <= stepsX; j++) {
-      const x = a + (j / stepsX) * (b - a);
-      const rOuter = f(x);
-      const rInner = g ? g(x) : 0;
+    for (let j = 0; j <= stepsY; j++) {
+      const y = a + (j / stepsY) * (b - a);
+      const rOuter = R(y);
+      const rInner = r(y);
       for (let k = 0; k <= 12; k++) {
-        const r = rInner + (k / 12) * (rOuter - rInner);
-        capX.push(x);
-        capY.push(r * Math.cos(angle));
-        capZ.push(r * Math.sin(angle));
+        const rad = rInner + (k / 12) * (rOuter - rInner);
+        capX.push(rad * Math.cos(angle));
+        capY.push(y);
+        capZ.push(rad * Math.sin(angle));
       }
     }
     traces.push({
       x: capX, y: capY, z: capZ,
-      type: "scatter3d",
-      mode: "markers",
+      type: "scatter3d", mode: "markers",
       marker: { size: 1.8, color: "#aaaaaa", opacity: 0.4 },
       hoverinfo: "skip"
     });
   }
 
-  // Outer curve line
+  // Outer boundary line: x = 1 (drawn at z = 0, x = 1, y from 0 to 2)
   {
     const lineX = [], lineY = [], lineZ = [];
-    for (let j = 0; j <= stepsX; j++) {
-      const x = a + (j / stepsX) * (b - a);
-      lineX.push(x); lineY.push(f(x)); lineZ.push(0);
+    for (let j = 0; j <= stepsY; j++) {
+      const y = a + (j / stepsY) * (b - a);
+      lineX.push(R(y)); lineY.push(y); lineZ.push(0);
     }
     traces.push({
       x: lineX, y: lineY, z: lineZ,
       type: "scatter3d", mode: "lines",
-      line: { color: outerColor, width: 5 },
-      hoverinfo: "skip"
+      line: { color: outerColor, width: 5 }, hoverinfo: "skip"
     });
   }
 
-  // Inner curve line (washer only — skipped when g is null)
-  if (g && cfg.innerColor) {
+  // Inner boundary line: x = √(y-1) i.e. the curve y = x²+1 (for y ∈ [1,2])
+  {
     const lineX = [], lineY = [], lineZ = [];
-    for (let j = 0; j <= stepsX; j++) {
-      const x = a + (j / stepsX) * (b - a);
-      lineX.push(x); lineY.push(g(x)); lineZ.push(0);
+    for (let j = 0; j <= stepsY; j++) {
+      const y = a + (j / stepsY) * (b - a);
+      lineX.push(r(y)); lineY.push(y); lineZ.push(0);
     }
     traces.push({
       x: lineX, y: lineY, z: lineZ,
       type: "scatter3d", mode: "lines",
-      line: { color: cfg.innerColor, width: 5 },
-      hoverinfo: "skip"
+      line: { color: innerColor, width: 5 }, hoverinfo: "skip"
     });
   }
     // ─── x-y grid plane ───────────────────────────────────────────────────────────
@@ -275,6 +239,7 @@ function buildTraces(angle) {
 function buildLayout() {
   return {
     title: { text: cfg.title, font: { size: 13 } },
+    uirevision: 1,
     scene: {
       xaxis: { title: "x", range: cfg.xRange },
       yaxis: { title: "y", range: cfg.yRange },
@@ -290,12 +255,11 @@ function buildLayout() {
   };
 }
 
-// ─── Init (first draw) ────────────────────────────────────────────────────────
+// ─── Init ─────────────────────────────────────────────────────────────────────
 function initPlot() {
   plotReady = false;
   Plotly.newPlot(plotDiv, buildTraces(currentAngle), buildLayout(), {
-    responsive: true,
-    displayModeBar: true,
+    responsive: true, displayModeBar: true,
     modeBarButtonsToRemove: ["toImage", "sendDataToCloud"],
     scrollZoom: true
   }).then(() => {
@@ -308,7 +272,7 @@ function initPlot() {
   document.getElementById("fn-caption").textContent = cfg.axisLabel;
 }
 
-// ─── Smooth slider update (RAF-throttled) ─────────────────────────────────────
+// ─── RAF-throttled update ─────────────────────────────────────────────────────
 function scheduleUpdate(angle) {
   pendingAngle = angle;
   if (animFrame) return;
@@ -323,17 +287,15 @@ function scheduleUpdate(angle) {
   });
 }
 
-// ─── Slider event ─────────────────────────────────────────────────────────────
+// ─── Slider ───────────────────────────────────────────────────────────────────
 const slider  = document.getElementById("angle-slider");
 const display = document.getElementById("angle-display");
-
 slider.addEventListener("input", e => {
   currentAngle = parseFloat(e.target.value);
   display.textContent = currentAngle.toFixed(2);
   scheduleUpdate(currentAngle);
 });
 
-// ─── Boot ─────────────────────────────────────────────────────────────────────
 initPlot();
 </script>
 </body>
