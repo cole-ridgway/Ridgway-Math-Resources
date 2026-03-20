@@ -433,10 +433,15 @@ $$
 2. Find the volume of the solid generated when the region bounded by the graphs of $y = x^3$, $x = 0$, and $y = 8$ is revolved about the $y$-axis.
 3. Find the volume of the solid generated when the region bounded by the graphs of $y = 2 - x^2$ and $y = 1$ is revolved about the horizontal line $y = 1$.
 4. Let $R$ be the region enclosed by the graph of $f(x) = \frac{1}{x}$, the $x$-axis, and the vertical lines $x=1$ and $x=e$. Which of the following expressions represents the volume of the solid generated when $R$ is revolved about the $x$-axis?
+
    **(A)** $\pi \int_1^e \frac{1}{x} \, dx$
+
    **(B)** $\pi \int_1^e \frac{1}{x^2} \, dx$
+
    **(C)** $2\pi \int_1^e \frac{1}{x^2} \, dx$
+   
    **(D)** $\pi \int_1^e \ln(x) \, dx$
+
 5. Let $R$ be the region in the first quadrant bounded by the graph of $y = 4 - x^2$ and the coordinate axes.
    a) Find the area of $R$.
    b) Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
@@ -470,7 +475,7 @@ Note that the integral involving the inner radius represents the volume of the h
 ![Figure 7.11](fig-7.11.png)
 
 ::: {.callout-note title="Example" icon=false appearance="simple"}
-Find the volume of the solid formed by revolving the region bounded by the graphs of $y=\sqrt{x}$ and $y = x^2$ about the $x$-axis, as shown in Figure 7.12.
+Find the volume of the solid formed by revolving the region bounded by the graphs of $y=\sqrt{x}$ and $y = x^2$ about the $x$-axis.
 
 ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
 ::: {.columns}
@@ -573,10 +578,15 @@ $$
 1. Let $R$ be the region bounded by the graphs of $y = x^2$ and $y = 2x$. Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
 2. Let $R$ be the region bounded by the graph of $x = y^2$ and the vertical line $x = 4$. Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the $y$-axis.
 3. Let $R$ be the region enclosed by the graphs of $y = \sqrt{x}$ and $y = x^2$. Which of the following integrals represents the volume of the solid generated when $R$ is revolved about the horizontal line $y = 2$?
+   
    **(A)** $\pi \int_0^1 \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx$
+
    **(B)** $\pi \int_0^1 \left( (2 - \sqrt{x})^2 - (2 - x^2)^2 \right) \, dx$
+
    **(C)** $\pi \int_0^1 \left( \sqrt{x} - x^2 \right)^2 \, dx$
+
    **(D)** $\pi \int_0^1 \left( (\sqrt{x})^2 - (x^2)^2 \right) \, dx$
+
 4. Let $R$ be the region bounded by the graphs of $y = x^2$ and $y = 4$. Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the horizontal line $y = 5$.
 5. Let $R$ be the region bounded by the graph of $y = e^x$, the horizontal line $y = 1$, and the vertical line $x = 2$.
    a) Find the area of $R$.
@@ -671,10 +681,15 @@ $$
 2. Let $R$ be the region bounded by the graphs of $y = 2 - x^2$ and $y = 0$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are semicircles. Find the volume of the solid.
 3. Let $R$ be the region bounded by the graphs of $y = e^x$, $y = 1$, and $x = 3$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are rectangles whose heights are twice the lengths of their bases in region $R$. Write, but do not evaluate, an integral expression for the volume of the solid.
 4. Let $R$ be the region bounded by the graph of $y = \ln(x)$, the $x$-axis, and the vertical line $x = e$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Which of the following integrals represents the volume of the solid?
+   
    **(A)** $\int_1^e \ln(x) \, dx$
+
    **(B)** $\int_1^e (\ln(x))^2 \, dx$
+
    **(C)** $\pi \int_1^e (\ln(x))^2 \, dx$
+
    **(D)** $\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx$
+   
 5. Let $R$ be the region enclosed by the graphs of $x = y^2$ and $x = 4$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $y$-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.
 6. Let $R$ be the region bounded by the graphs of $y = \sin(x)$ and the $x$-axis for $0 \leq x \leq \pi$. 
    a) Find the area of $R$.

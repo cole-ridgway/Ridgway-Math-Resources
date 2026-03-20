@@ -84,7 +84,12 @@ const cfg = {
     eye:    {x: -0.53, y: 0.33, z: -2.28},
     center: {x: -0.21, y: 0.07, z: -0.21},
     up:     {x: 0.01, y: 1, z: 0.12}
-  }
+  },
+  axisLineLength: 1.2,   // set to roughly match your xRange/yRange/zRange extents
+  showGrid: true,
+    gridMin: -1.5,    // should match roughly your xRange/yRange lower bound
+    gridMax: 2.5,     // should match roughly your xRange/yRange upper bound
+    gridSteps: 10,    // number of grid squares — 8–12 looks clean
 };
 </script>
 
@@ -175,6 +180,53 @@ function buildTraces(angle) {
       x: lineX, y: lineY, z: lineZ,
       type: "scatter3d", mode: "lines",
       line: { color: curveColor, width: 5 },
+      hoverinfo: "skip"
+    });
+  }
+
+  // ─── x-y grid plane ───────────────────────────────────────────────────────────
+    if (cfg.showGrid) {
+    const { gridMin, gridMax, gridSteps } = cfg;
+    const xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= gridSteps; i++) {
+        const row_x = [], row_y = [], row_z = [];
+        const x = gridMin + (i / gridSteps) * (gridMax - gridMin);
+        for (let j = 0; j <= gridSteps; j++) {
+        const y = gridMin + (j / gridSteps) * (gridMax - gridMin);
+        row_x.push(x);
+        row_y.push(y);
+        row_z.push(0);
+        }
+        xVals.push(row_x); yVals.push(row_y); zVals.push(row_z);
+    }
+    traces.push({
+        x: xVals, y: yVals, z: zVals,
+        type: "surface",
+        colorscale: [[0, "#e8e8e8"], [1, "#e8e8e8"]],
+        showscale: false,
+        opacity: 0.5,
+        hoverinfo: "skip",
+        hidesurface: false,
+        contours: {
+        x: { show: true, color: "#aaaaaa", width: 1 },
+        y: { show: true, color: "#aaaaaa", width: 1 },
+        z: { show: false }
+        }
+    });
+    }
+
+  // ─── Axis lines ───────────────────────────────────────────────────────────────
+  const axisLen = cfg.axisLineLength;
+  const axes = [
+    { x: [-axisLen, axisLen], y: [0, 0], z: [0, 0] },  // x-axis
+    { x: [0, 0], y: [-axisLen, axisLen], z: [0, 0] },  // y-axis
+    { x: [0, 0], y: [0, 0], z: [-axisLen, axisLen] },  // z-axis
+  ];
+  for (const ax of axes) {
+    traces.push({
+      x: ax.x, y: ax.y, z: ax.z,
+      type: "scatter3d", mode: "lines",
+      line: { color: "#333333", width: 3 },
       hoverinfo: "skip"
     });
   }
