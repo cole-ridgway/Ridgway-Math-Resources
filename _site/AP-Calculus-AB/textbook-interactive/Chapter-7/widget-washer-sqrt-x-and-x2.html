@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Washer Method: √x and x²</title>
+<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #fff; color: #222; }
+  .widget { width: 100%; max-width: 800px; margin: 0 auto; padding: 1rem; }
+  .plot-area { width: 100%; height: 460px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
+  .controls { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .slider-row { display: flex; align-items: center; gap: 12px; }
+  .slider-label { font-size: 14px; color: #555; min-width: 220px; }
+  input[type="range"] { flex: 1; height: 4px; accent-color: #2563eb; cursor: pointer; }
+  .slider-value { font-size: 14px; font-weight: 500; min-width: 60px; text-align: right; color: #222; }
+  .caption { font-size: 13px; color: #666; margin-top: 0.5rem; font-style: italic; }
+</style>
+</head>
+<body>
+
+<script>
+const cfg = {
+  title: "Washer: R(x) = √x (outer),  r(x) = x² (inner),  about x-axis",
+  f: x => Math.sqrt(x),        // outer radius R(x)
+  g: x => x * x,               // inner radius r(x)
+  axisMode: "horizontal",
+  axisY: 0,
+  a: 0, b: 1,
+  axisLabel: "R(x) = √x,  r(x) = x²,  x ∈ [0, 1]",
+  xRange: [-0.2, 1.3], yRange: [-1.2, 1.2], zRange: [-1.1, 1.1],
+  aspectRatio: { x: 1.2, y: 1, z: 1 },
+  stepsX: 60, stepsTheta: 40,
+  surfaceColor: "Oranges",
+  outerColor: "#1d6fe8",
+  innerColor: "#e83d1d",
+  defaultCamera: {
+    eye:    { x: 1.8, y: 1.4, z: 0.8 },
+    center: { x: 0.3, y: 0,   z: 0   },
+    up:     { x: 0,   y: 0,   z: 1   }
+  }
+};
+</script>
+
+<div class="widget">
+  <div id="plot" class="plot-area"></div>
+  <div class="controls">
+    <div class="slider-row">
+      <span class="slider-label">Angle of revolution (radians):</span>
+      <input type="range" id="angle-slider" min="0.05" max="6.2832" step="0.01" value="0.05">
+      <span class="slider-value" id="angle-display">0.05</span>
+    </div>
+    <div class="caption" id="fn-caption"></div>
+  </div>
+</div>
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let currentAngle = 0.05;
+let plotDiv      = document.getElementById("plot");
+let animFrame    = null;
+let pendingAngle = null;
+let plotReady    = false;
+let savedCamera  = null;
+
+// ─── Geometry builder ─────────────────────────────────────────────────────────
+function buildTraces(angle) {
+  const { f, g, a, b, stepsX, stepsTheta, surfaceColor, outerColor, innerColor, axisY } = cfg;
+  const traces = [];
+
+  // Outer surface
+  {
+    const xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= stepsTheta; i++) {
+      const theta = (i / stepsTheta) * angle;
+      const xRow = [], yRow = [], zRow = [];
+      for (let j = 0; j <= stepsX; j++) {
+        const x = a + (j / stepsX) * (b - a);
+        const r = f(x);
+        xRow.push(x);
+        yRow.push(axisY + r * Math.cos(theta));
+        zRow.push(r * Math.sin(theta));
+      }
+      xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+    }
+    traces.push({
+      x: xVals, y: yVals, z: zVals,
+      type: "surface", colorscale: surfaceColor,
+      showscale: false, opacity: 0.85, hoverinfo: "skip"
+    });
+  }
+
+  // Inner surface
+  if (g) {
+    const xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= stepsTheta; i++) {
+      const theta = (i / stepsTheta) * angle;
+      const xRow = [], yRow = [], zRow = [];
+      for (let j = 0; j <= stepsX; j++) {
+        const x = a + (j / stepsX) * (b - a);
+        const r = g(x);
+        xRow.push(x);
+        yRow.push(axisY + r * Math.cos(theta));
+        zRow.push(r * Math.sin(theta));
+      }
+      xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+    }
+    traces.push({
+      x: xVals, y: yVals, z: zVals,
+      type: "surface", colorscale: "Greys",
+      showscale: false, opacity: 0.6, hoverinfo: "skip"
+    });
+  }
+
+  // End cap
+  if (angle < 2 * Math.PI - 0.05) {
+    const capX = [], capY = [], capZ = [];
+    for (let j = 0; j <= stepsX; j++) {
+      const x = a + (j / stepsX) * (b - a);
+      const rOuter = f(x);
+      const rInner = g ? g(x) : 0;
+      for (let k = 0; k <= 12; k++) {
+        const r = rInner + (k / 12) * (rOuter - rInner);
+        capX.push(x);
+        capY.push(axisY + r * Math.cos(angle));
+        capZ.push(r * Math.sin(angle));
+      }
+    }
+    traces.push({
+      x: capX, y: capY, z: capZ,
+      type: "scatter3d", mode: "markers",
+      marker: { size: 1.8, color: "#aaaaaa", opacity: 0.4 },
+      hoverinfo: "skip"
+    });
+  }
+
+  // Outer curve line: R(x) = √x
+  {
+    const lineX = [], lineY = [], lineZ = [];
+    for (let j = 0; j <= stepsX; j++) {
+      const x = a + (j / stepsX) * (b - a);
+      lineX.push(x); lineY.push(axisY + f(x)); lineZ.push(0);
+    }
+    traces.push({
+      x: lineX, y: lineY, z: lineZ,
+      type: "scatter3d", mode: "lines",
+      line: { color: outerColor, width: 5 }, hoverinfo: "skip"
+    });
+  }
+
+  // Inner curve line: r(x) = x²
+  if (g && innerColor) {
+    const lineX = [], lineY = [], lineZ = [];
+    for (let j = 0; j <= stepsX; j++) {
+      const x = a + (j / stepsX) * (b - a);
+      lineX.push(x); lineY.push(axisY + g(x)); lineZ.push(0);
+    }
+    traces.push({
+      x: lineX, y: lineY, z: lineZ,
+      type: "scatter3d", mode: "lines",
+      line: { color: innerColor, width: 5 }, hoverinfo: "skip"
+    });
+  }
+
+  return traces;
+}
+
+// ─── Layout builder ───────────────────────────────────────────────────────────
+function buildLayout() {
+  return {
+    title: { text: cfg.title, font: { size: 13 } },
+    uirevision: 1,
+    scene: {
+      xaxis: { title: "x", range: cfg.xRange },
+      yaxis: { title: "y", range: cfg.yRange },
+      zaxis: { title: "z", range: cfg.zRange },
+      aspectmode: "manual",
+      aspectratio: cfg.aspectRatio,
+      camera: savedCamera || cfg.defaultCamera
+    },
+    margin: { l: 0, r: 0, b: 0, t: 36 },
+    showlegend: false,
+    paper_bgcolor: "rgba(0,0,0,0)",
+    plot_bgcolor:  "rgba(0,0,0,0)"
+  };
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+function initPlot() {
+  plotReady = false;
+  Plotly.newPlot(plotDiv, buildTraces(currentAngle), buildLayout(), {
+    responsive: true, displayModeBar: true,
+    modeBarButtonsToRemove: ["toImage", "sendDataToCloud"],
+    scrollZoom: true
+  }).then(() => {
+    plotReady = true;
+    plotDiv.on("plotly_relayout", () => {
+      const c = plotDiv._fullLayout?.scene?.camera;
+      if (c) savedCamera = JSON.parse(JSON.stringify(c));
+    });
+  });
+  document.getElementById("fn-caption").textContent = cfg.axisLabel;
+}
+
+// ─── RAF-throttled update ─────────────────────────────────────────────────────
+function scheduleUpdate(angle) {
+  pendingAngle = angle;
+  if (animFrame) return;
+  animFrame = requestAnimationFrame(() => {
+    animFrame = null;
+    if (!plotReady) return;
+    const a = pendingAngle;
+    pendingAngle = null;
+    const c = plotDiv._fullLayout?.scene?.camera || cfg.defaultCamera;
+    savedCamera = JSON.parse(JSON.stringify(c));
+    Plotly.react(plotDiv, buildTraces(a), buildLayout(), { responsive: true });
+  });
+}
+
+// ─── Slider ───────────────────────────────────────────────────────────────────
+const slider  = document.getElementById("angle-slider");
+const display = document.getElementById("angle-display");
+slider.addEventListener("input", e => {
+  currentAngle = parseFloat(e.target.value);
+  display.textContent = currentAngle.toFixed(2);
+  scheduleUpdate(currentAngle);
+});
+
+initPlot();
+</script>
+</body>
+</html>

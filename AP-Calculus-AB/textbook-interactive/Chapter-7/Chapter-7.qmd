@@ -499,6 +499,12 @@ V &= \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx \\
 $$
 :::
 :::
+
+**Interactive Visualization:** Use the slider below to revolve the region bounded by $y=\sqrt{x}$ and $y=x^2$ around the $x$-axis.
+```{=html}
+<iframe src="widget-washer-sqrt-x-and-x2.html" width="100%" height="580"
+        style="border:none; border-radius:8px;"></iframe>
+```
 :::
 :::
 
@@ -531,6 +537,12 @@ V &= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, dy \q
 $$
 
 Note that the first integral $\pi \int_0^1 1 \, dy$ represents the volume of a right circular cylinder of radius 1 and height 1. This portion of the volume could have been determined without using calculus.
+
+**Interactive Visualization:** Use the slider below to revolve the region bounded by $y=x^2+1$, $y=0$, $x=0$, and $x=1$ around the $y$-axis.
+```{=html}
+<iframe src="widget-washer-x2-plus1-y-axis.html" width="100%" height="580"
+        style="border:none; border-radius:8px;"></iframe>
+```
 :::
 :::
 
@@ -547,6 +559,12 @@ V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx &= \pi \int_{-4}^4 \le
 &= \frac{256\pi}{3} \text{ in}^3
 \end{align*}
 $$
+
+**Interactive Visualization:** Use the slider below to visualize the solid formed by revolving the region between the outer radius $R(x) = \sqrt{25-x^2}$ and the inner radius $r(x) = 3$ around the $x$-axis.
+```{=html}
+<iframe src="widget-washer-sphere-drilled.html" width="100%" height="580"
+        style="border:none; border-radius:8px;"></iframe>
+```
 :::
 :::
 
