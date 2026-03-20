@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solid of Revolution: f(x) = 2 - x²</title>
+<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #fff; color: #222; }
+
+  .widget {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .plot-area {
+    width: 100%;
+    height: 460px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .controls {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .slider-label {
+    font-size: 14px;
+    color: #555;
+    min-width: 220px;
+  }
+
+  input[type="range"] {
+    flex: 1;
+    height: 4px;
+    accent-color: #2563eb;
+    cursor: pointer;
+  }
+
+  .slider-value {
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 60px;
+    text-align: right;
+    color: #222;
+  }
+
+  .caption {
+    font-size: 13px;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<script>
+const cfg = {
+  title: "f(x) = 2 - x²  revolved about y = 1",
+  R: x => 1 - x * x,       // radius R(x) = f(x) - g(x) = (2 - x²) - 1
+  axisY: 1,                 // y-coordinate of the axis of revolution
+  a: -1, b: 1,
+  axisLabel: "f(x) = 2 - x²  revolved about y = 1,  x ∈ [-1, 1]",
+  xRange: [-1.5, 1.5], yRange: [-0.3, 2.3], zRange: [-1.1, 1.1],
+  aspectRatio: { x: 1.2, y: 1, z: 1 },
+  stepsX: 60, stepsTheta: 40,
+  surfaceColor: "Greens",
+  curveColor: "crimson",
+  defaultCamera: {
+    eye:    {x: -0.53, y: 0.33, z: -2.28},
+    center: {x: -0.21, y: 0.07, z: -0.21},
+    up:     {x: 0.01, y: 1, z: 0.12}
+  }
+};
+</script>
+
+<div class="widget">
+  <div id="plot" class="plot-area"></div>
+  <div class="controls">
+    <div class="slider-row">
+      <span class="slider-label">Angle of revolution (radians):</span>
+      <input type="range" id="angle-slider" min="0.05" max="6.2832" step="0.01" value="0.05">
+      <span class="slider-value" id="angle-display">0.05</span>
+    </div>
+    <div class="caption" id="fn-caption"></div>
+  </div>
+</div>
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let currentAngle = 0.05;
+let plotDiv      = document.getElementById("plot");
+let animFrame    = null;
+let pendingAngle = null;
+let plotReady    = false;
+let savedCamera  = null;
+
+// ─── Geometry builder ─────────────────────────────────────────────────────────
+function buildTraces(angle) {
+  const { R, axisY, a, b, stepsX, stepsTheta, surfaceColor, curveColor } = cfg;
+  const traces = [];
+
+  // Surface — swept around y = axisY
+  {
+    const xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= stepsTheta; i++) {
+      const theta = (i / stepsTheta) * angle;
+      const xRow = [], yRow = [], zRow = [];
+      for (let j = 0; j <= stepsX; j++) {
+        const x = a + (j / stepsX) * (b - a);
+        const r = R(x);
+        xRow.push(x);
+        yRow.push(axisY + r * Math.cos(theta));   // center rotation on y = axisY
+        zRow.push(r * Math.sin(theta));
+      }
+      xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+    }
+    traces.push({
+      x: xVals, y: yVals, z: zVals,
+      type: "surface",
+      colorscale: surfaceColor,
+      showscale: false,
+      opacity: 0.85,
+      hoverinfo: "skip"
+    });
+  }
+
+  // End cap (shown only during partial revolution)
+  if (angle < 2 * Math.PI - 0.05) {
+    const capX = [], capY = [], capZ = [];
+    for (let j = 0; j <= stepsX; j++) {
+      const x = a + (j / stepsX) * (b - a);
+      const r = R(x);
+      for (let k = 0; k <= 12; k++) {
+        const rk = (k / 12) * r;
+        capX.push(x);
+        capY.push(axisY + rk * Math.cos(angle));
+        capZ.push(rk * Math.sin(angle));
+      }
+    }
+    traces.push({
+      x: capX, y: capY, z: capZ,
+      type: "scatter3d",
+      mode: "markers",
+      marker: { size: 1.8, color: "#aaaaaa", opacity: 0.4 },
+      hoverinfo: "skip"
+    });
+  }
+
+  // f(x) = 2 - x² reference curve at z = 0
+  // y = axisY + R(x) = 1 + (1 - x²) = 2 - x², which is exactly f(x)
+  {
+    const lineX = [], lineY = [], lineZ = [];
+    for (let j = 0; j <= stepsX; j++) {
+      const x = a + (j / stepsX) * (b - a);
+      lineX.push(x);
+      lineY.push(axisY + R(x));
+      lineZ.push(0);
+    }
+    traces.push({
+      x: lineX, y: lineY, z: lineZ,
+      type: "scatter3d", mode: "lines",
+      line: { color: curveColor, width: 5 },
+      hoverinfo: "skip"
+    });
+  }
+
+  return traces;
+}
+
+// ─── Layout builder ───────────────────────────────────────────────────────────
+function buildLayout() {
+  return {
+    title: { text: cfg.title, font: { size: 13 } },
+    scene: {
+      xaxis: { title: "x", range: cfg.xRange },
+      yaxis: { title: "y", range: cfg.yRange },
+      zaxis: { title: "z", range: cfg.zRange },
+      aspectmode: "manual",
+      aspectratio: cfg.aspectRatio,
+      camera: savedCamera || cfg.defaultCamera
+    },
+    margin: { l: 0, r: 0, b: 0, t: 36 },
+    showlegend: false,
+    paper_bgcolor: "rgba(0,0,0,0)",
+    plot_bgcolor:  "rgba(0,0,0,0)"
+  };
+}
+
+// ─── Init (first draw) ────────────────────────────────────────────────────────
+function initPlot() {
+  plotReady = false;
+  Plotly.newPlot(plotDiv, buildTraces(currentAngle), buildLayout(), {
+    responsive: true,
+    displayModeBar: true,
+    modeBarButtonsToRemove: ["toImage", "sendDataToCloud"],
+    scrollZoom: true
+  }).then(() => {
+    plotReady = true;
+    plotDiv.on("plotly_relayout", () => {
+      const c = plotDiv._fullLayout?.scene?.camera;
+      if (c) savedCamera = JSON.parse(JSON.stringify(c));
+    });
+  });
+  document.getElementById("fn-caption").textContent = cfg.axisLabel;
+}
+
+// ─── Smooth slider update (RAF-throttled) ─────────────────────────────────────
+function scheduleUpdate(angle) {
+  pendingAngle = angle;
+  if (animFrame) return;
+  animFrame = requestAnimationFrame(() => {
+    animFrame = null;
+    if (!plotReady) return;
+    const a = pendingAngle;
+    pendingAngle = null;
+    const c = plotDiv._fullLayout?.scene?.camera || cfg.defaultCamera;
+    savedCamera = JSON.parse(JSON.stringify(c));
+    Plotly.react(plotDiv, buildTraces(a), buildLayout(), { responsive: true });
+  });
+}
+
+// ─── Slider event ─────────────────────────────────────────────────────────────
+const slider  = document.getElementById("angle-slider");
+const display = document.getElementById("angle-display");
+
+slider.addEventListener("input", e => {
+  currentAngle = parseFloat(e.target.value);
+  display.textContent = currentAngle.toFixed(2);
+  scheduleUpdate(currentAngle);
+});
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+initPlot();
+</script>
+</body>
+</html>
