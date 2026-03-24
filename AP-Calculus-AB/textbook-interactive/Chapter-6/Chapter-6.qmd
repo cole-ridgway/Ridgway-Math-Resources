@@ -104,13 +104,91 @@ $$y = -\frac{2x^3}{27} \hspace{2cm} \text{(Particular Solution)}$$
 
 ::: {.practice-box}
 #### Exercises: Verify Solutions and Find Particular Solutions
+
 1. Determine whether the function $y = x^3$ is a solution to the differential equation $xy' - 3y = 0$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the first derivative of the given function:
+   $$y' = 3x^2$$
+   Substitute $y = x^3$ and $y' = 3x^2$ into the differential equation:
+   $$x(3x^2) - 3(x^3) = 0$$
+   $$3x^3 - 3x^3 = 0$$
+   $$0 = 0$$
+   Because the equation holds true, $y = x^3$ is a solution.
+   :::
+
 2. Verify that $y = 2e^{-x} + xe^{-x}$ is a solution to the second-order differential equation $y'' + 2y' + y = 0$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the first derivative, $y'$, using the product rule on the second term:
+   $$y' = -2e^{-x} + (1 \cdot e^{-x} + x \cdot -e^{-x}) = -e^{-x} - xe^{-x}$$
+   Find the second derivative, $y''$, using the product rule again:
+   $$y'' = e^{-x} - (1 \cdot e^{-x} + x \cdot -e^{-x}) = e^{-x} - e^{-x} + xe^{-x} = xe^{-x}$$
+   Substitute $y$, $y'$, and $y''$ into the differential equation:
+   $$(xe^{-x}) + 2(-e^{-x} - xe^{-x}) + (2e^{-x} + xe^{-x}) = 0$$
+   $$xe^{-x} - 2e^{-x} - 2xe^{-x} + 2e^{-x} + xe^{-x} = 0$$
+   Group like terms together:
+   $$(1 - 2 + 1)xe^{-x} + (-2 + 2)e^{-x} = 0$$
+   $$0 = 0$$
+   The equation holds true, verifying the solution.
+   :::
+
 3. The general solution of the differential equation $y' + 2y = 0$ is given by $y = Ce^{-2x}$. Find the particular solution that satisfies the initial condition $y(0) = 5$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Substitute the initial condition $x = 0$ and $y = 5$ into the general solution:
+   $$5 = Ce^{-2(0)}$$
+   $$5 = Ce^0$$
+   $$5 = C(1) \implies C = 5$$
+   Substitute $C = 5$ back into the general solution to find the particular solution:
+   $$y = 5e^{-2x}$$
+   :::
+
 4. Verify that $y = C_1 \sin(3x) + C_2 \cos(3x)$ is a solution to the differential equation $y'' + 9y = 0$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the first derivative, $y'$:
+   $$y' = 3C_1 \cos(3x) - 3C_2 \sin(3x)$$
+   Find the second derivative, $y''$:
+   $$y'' = -9C_1 \sin(3x) - 9C_2 \cos(3x)$$
+   Substitute $y$ and $y''$ into the differential equation:
+   $$(-9C_1 \sin(3x) - 9C_2 \cos(3x)) + 9(C_1 \sin(3x) + C_2 \cos(3x)) = 0$$
+   $$-9C_1 \sin(3x) - 9C_2 \cos(3x) + 9C_1 \sin(3x) + 9C_2 \cos(3x) = 0$$
+   $$0 = 0$$
+   The equation holds true, verifying the solution.
+   :::
+
 5. Given the general solution $y = Cx^2$ for the differential equation $xy' = 2y$, find the particular solution whose graph passes through the point $(2, 12)$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Substitute the given coordinates $x = 2$ and $y = 12$ into the general solution:
+   $$12 = C(2)^2$$
+   $$12 = 4C$$
+   $$C = 3$$
+   Substitute $C = 3$ back into the general solution:
+   $$y = 3x^2$$
+   :::
+
 6. For the differential equation $\frac{dy}{dx} = 4x - 1$, find the particular solution $y=f(x)$ that passes through the point $(1, 3)$.
-::: 
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Integrate both sides with respect to $x$ to find the general solution:
+   $$y = \int (4x - 1) \,dx$$
+   $$y = 2x^2 - x + C$$
+   Substitute the initial condition $x = 1$ and $y = 3$ into the general solution to solve for the constant $C$:
+   $$3 = 2(1)^2 - (1) + C$$
+   $$3 = 2 - 1 + C$$
+   $$3 = 1 + C \implies C = 2$$
+   Substitute $C = 2$ back into the general equation to find the particular solution:
+   $$y = 2x^2 - x + 2$$
+   :::
+:::
 ---
 
 ### 6.1.2 Slope Fields
@@ -181,9 +259,28 @@ Next, draw line segments at the points with their respective slopes, as shown in
 
 ::: {.practice-box}
 #### Exercises: Sketch, Match, and Interpret Slope Fields
+
 1. **Sketching:** Sketch a slope field for the differential equation $y' = x + y$ at the nine points indicated below.
    
    ![Exercise 1 Graph](ex-1.png)
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Calculate the slope $y' = x + y$ at each of the given coordinates:
+   
+   * $(-1, 1) \implies m = 0$
+   * $(0, 1) \implies m = 1$
+   * $(1, 1) \implies m = 2$
+   * $(-1, 0) \implies m = -1$
+   * $(0, 0) \implies m = 0$
+   * $(1, 0) \implies m = 1$
+   * $(-1, -1) \implies m = -2$
+   * $(0, -1) \implies m = -1$
+   * $(1, -1) \implies m = 0$
+
+   ![Exercise 1 Solution Graph](sol-ex-1.png)
+   :::
+
 2. **Matching:** Match the differential equation with its slope field.
    
    ::: {layout-ncol=3}
@@ -199,17 +296,46 @@ Next, draw line segments at the points with their respective slopes, as shown in
    **(B)** $\frac{dy}{dx} = x$
 
    **(C)** $\frac{dy}{dx} = y$
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   * **(I) matches (B):** The slopes are constant along vertical lines (changing $y$ does not change the slope), indicating the derivative depends only on $x$.
+   * **(II) matches (C):** The slopes are constant along horizontal lines (changing $x$ does not change the slope), indicating the derivative depends only on $y$.
+   * **(III) matches (A):** The slopes change both horizontally and vertically. Along the line $y = -x$, the slopes are zero, which matches $\frac{dy}{dx} = x + y = 0$.
+   :::
+
 3. **Interpretation:** The slope field for the differential equation $\frac{dy}{dx} = y - 2$ is shown below. Sketch the solution curve that passes through the point $(0, 1)$ and the solution curve that passes through $(0, 3)$.
 
    ![Exercise 3 Graph](ex-3.png)
 
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The line $y=2$ acts as a horizontal asymptote (an equilibrium solution where $\frac{dy}{dx} = 0$). The curve through $(0,1)$ will approach $y=2$ as $x \to -\infty$ and decrease as $x \to \infty$. The curve through $(0,3)$ will approach $y=2$ as $x \to -\infty$ and increase exponentially as $x \to \infty$.
+
+   ![Exercise 3 Solution Graph](sol-ex-3.png)
+   :::
+
 4. Consider the differential equation $\frac{dy}{dx} = \frac{x}{y}$.
-   a) On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.
+   **a)** On the axes provided, sketch a slope field for the given differential equation at the twelve points indicated.
 
       ![Exercise 4a Graph](ex-4.png)
 
-   b) Describe the general shape of the solution curves.
-`
+   **b)** Describe the general shape of the solution curves.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Using the points given, calculate $\frac{dy}{dx} = \frac{x}{y}$ for each coordinate pair (e.g., at $(-2, 2)$, $m = -1$; at $(2, 1)$, $m = 2$).
+
+   ![Exercise 4a Solution Graph](sol-ex-4a.png)
+
+   **b)** By solving the differential equation via separation of variables:
+   $$y \, dy = x \, dx$$
+   $$\int y \, dy = \int x \, dx$$
+   $$\frac{1}{2}y^2 = \frac{1}{2}x^2 + C$$
+   $$y^2 - x^2 = C$$
+   This represents a family of **hyperbolas**.
+   :::
+
 5. Which of the following differential equations generates a slope field where the slopes are parallel along vertical lines?
 
    **(A)** $\frac{dy}{dx} = x + y$
@@ -219,6 +345,10 @@ Next, draw line segments at the points with their respective slopes, as shown in
    **(C)** $\frac{dy}{dx} = 2x$
 
    **(D)** $\frac{dy}{dx} = 2y$
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:** **(C)**. If slopes are parallel along vertical lines, it means that for any fixed $x$-value, the slope is constant regardless of the $y$-value. This implies the derivative $\frac{dy}{dx}$ is independent of $y$ and is a function of $x$ only. 
+   :::
 
 6. **Analysis:** The figure below shows the slope field for a differential equation $\frac{dy}{dx} = f(x,y)$.
    
@@ -233,16 +363,39 @@ Next, draw line segments at the points with their respective slopes, as shown in
    **(C)** $y = e^x + 1$
 
    **(D)** $y = 2$
-::: 
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:** **(B)**. The slope field visually traces concentric circles. If the solution paths are circles centered at the origin, the general equation is $x^2 + y^2 = r^2$. 
+   If the curve passes through the point $(0, 2)$, the radius is $2$, meaning $x^2 + y^2 = 4$. Solving for $y$ yields $y = \pm\sqrt{4-x^2}$. Since the point $(0, 2)$ requires a positive output, the specific solution is the upper semicircle $y = \sqrt{4-x^2}$.
+   :::
+:::
 
 ::: {.conceptual-box}
 #### Conceptual Questions
+
 1. **Visualizing Variable Dependence:** Analytically, a differential equation can depend on $x$, $y$, or both. Geometrically, the layout of the slope field reveals this dependence.
    * If the slopes are identical along any vertical line (moving up and down doesn't change the slope), the differential equation depends only on $x$ (e.g., $y' = 2x$).
    * If the slopes are identical along any horizontal line (moving left and right doesn't change the slope), the differential equation depends only on $y$ (e.g., $y' = 2y$).
    Explain why this geometric symmetry occurs. *(Hint: Consider how changing the coordinate $y$ affects the value of $y'$ in the equation $y'=2x$).*
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   In an equation like $y' = 2x$, the instantaneous rate of change (the slope) is completely independent of $y$. If you select a specific $x$-value, such as $x = 1$, the slope will evaluate to $2$ regardless of the $y$-coordinate. Geometrically, if you lock in an $x$-value and move strictly up and down that vertical line, the $y$-value changes but the output of the derivative remains constant. This creates a column of identical, parallel slope segments. The inverse is true for equations dependent only on $y$, resulting in horizontal rows of identical slopes.
+   :::
+
 2. **The Geometry of a Solution Curve:** The text states that a slope field shows the general shape of all solutions. When you sketch a particular solution curve starting at a point $(x_1, y_1)$, you must draw it such that the curve is tangent to every slope segment it passes near. Analytically, this is because $y'$ represents the instantaneous rate of change. Explain why a curve that *crosses* the slope segments at a sharp angle (perpendicularly, for example) cannot be a solution to the differential equation.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   A valid solution curve, $y = f(x)$, must satisfy the differential equation at every single point it passes through. The slope segment plotted at any coordinate $(x,y)$ represents the exact instantaneous rate of change that the solution curve *must* have at that exact location. If a curve crosses a slope segment at a sharp angle, its physical slope on the graph contradicts the required slope dictated by the differential equation. Therefore, it fails to satisfy the equation and cannot be a valid solution.
+   :::
+
 3. **Interpreting "Flat" Slopes (Equilibrium):** Consider the differential equation $y' = y - 2$. Analytically, if $y=2$, the derivative $y'$ becomes 0. Geometrically, this creates a horizontal row of flat slope segments at the height $y=2$. If a solution curve starts exactly at the initial condition $y(0)=2$, what does the graph of this particular solution look like for all time $t$?
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   The graph of this particular solution will be a perfectly flat, horizontal line at $y = 2$ for all time $t$. Because the initial rate of change is $0$, the solution curve has no vertical movement; it neither increases nor decreases. As time moves forward, the $y$-value remains stuck at $2$, which in turn continually keeps the derivative $y'$ evaluated at $0$. This represents a constant, equilibrium solution.
+   :::
 :::
 
 ---
@@ -637,13 +790,111 @@ So, it will require about 14.09 *more* minutes for the object to cool to a tempe
 #### Exercises: Growth and Decay Models
 
 1. Find the general solution of the differential equation $y' = 4xy$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables by dividing both sides by $y$ and multiplying by $dx$:
+   $$\frac{dy}{dx} = 4xy$$
+   $$\frac{1}{y} \, dy = 4x \, dx$$
+   Integrate both sides:
+   $$\int \frac{1}{y} \, dy = \int 4x \, dx$$
+   $$\ln|y| = 2x^2 + C_1$$
+   Solve for $y$ by exponentiating both sides:
+   $$|y| = e^{2x^2 + C_1}$$
+   $$y = \pm e^{C_1} e^{2x^2}$$
+   Let $C = \pm e^{C_1}$ to get the general solution:
+   $$y = Ce^{2x^2}$$
+   :::
+
 2. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = e^{x-y}$ with the initial condition $f(0) = \ln(2)$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Rewrite the exponent using properties of exponents, then separate the variables:
+   $$\frac{dy}{dx} = \frac{e^x}{e^y}$$
+   $$e^y \, dy = e^x \, dx$$
+   Integrate both sides:
+   $$\int e^y \, dy = \int e^x \, dx$$
+   $$e^y = e^x + C$$
+   Substitute the initial condition $x = 0$ and $y = \ln(2)$ to find $C$:
+   $$e^{\ln(2)} = e^0 + C$$
+   $$2 = 1 + C \implies C = 1$$
+   Substitute $C = 1$ back into the integrated equation and solve for $y$:
+   $$e^y = e^x + 1$$
+   $$y = \ln(e^x + 1)$$
+   :::
+
 3. The rate of change of the number of bacteria in a culture is proportional to the number of bacteria present. If the population of bacteria doubles every 5 hours, how long will it take for the population to triple?
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The general equation for exponential growth is $P(t) = P_0 e^{kt}$. 
+   First, use the doubling time ($t = 5$, $P(5) = 2P_0$) to find the growth constant $k$:
+   $$2P_0 = P_0 e^{5k}$$
+   $$2 = e^{5k}$$
+   $$\ln(2) = 5k \implies k = \frac{\ln(2)}{5}$$
+   Now, find the time $t$ when the population triples ($P(t) = 3P_0$):
+   $$3P_0 = P_0 e^{\left(\frac{\ln(2)}{5}\right)t}$$
+   $$3 = e^{\left(\frac{\ln(2)}{5}\right)t}$$
+   $$\ln(3) = \frac{\ln(2)}{5}t$$
+   $$t = \frac{5 \ln(3)}{\ln(2)} \text{ hours}$$
+   *Note: This is approximately $7.92$ hours.*
+   :::
+
 4. A radioactive isotope, "Calc-238," decays at a rate proportional to the amount present. If the half-life of Calc-238 is 1,500 years, what percentage of the original sample will remain after 1,000 years?
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The general equation for exponential decay in terms of half-life is $A(t) = A_0 \left(\frac{1}{2}\right)^{\frac{t}{h}}$, where $h$ is the half-life.
+   Substitute $h = 1500$ and $t = 1000$:
+   $$A(1000) = A_0 \left(\frac{1}{2}\right)^{\frac{1000}{1500}}$$
+   $$A(1000) = A_0 \left(\frac{1}{2}\right)^{\frac{2}{3}}$$
+   To find the percentage remaining, evaluate $\left(\frac{1}{2}\right)^{\frac{2}{3}}$:
+   $$\left(\frac{1}{2}\right)^{\frac{2}{3}} = \frac{1}{\sqrt[3]{4}} \approx 0.630$$
+   Approximately 63.0% of the original sample will remain.
+   :::
+
 5. A metal ingot is heated to $200^\circ$F and then placed in a room where the temperature is a constant $70^\circ$F. After 10 minutes, the ingot cools to $150^\circ$F. According to Newton's Law of Cooling, what will the temperature of the ingot be after 20 minutes?
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Newton's Law of Cooling is modeled by $T(t) = T_s + (T_0 - T_s)e^{kt}$. 
+   Substitute the room temperature $T_s = 70$ and initial temperature $T_0 = 200$:
+   $$T(t) = 70 + (200 - 70)e^{kt} = 70 + 130e^{kt}$$
+   Use the condition $T(10) = 150$ to find the decay factor $e^{10k}$:
+   $$150 = 70 + 130e^{10k}$$
+   $$80 = 130e^{10k} \implies e^{10k} = \frac{8}{13}$$
+   Now, find the temperature after 20 minutes, $T(20)$. Notice that $e^{20k} = (e^{10k})^2$:
+   $$T(20) = 70 + 130e^{20k} = 70 + 130(e^{10k})^2$$
+   $$T(20) = 70 + 130\left(\frac{8}{13}\right)^2$$
+   $$T(20) = 70 + 130\left(\frac{64}{169}\right) = 70 + \frac{640}{13}$$
+   $$T(20) = \frac{910}{13} + \frac{640}{13} = \frac{1550}{13} \approx 119.2^\circ\text{F}$$
+   :::
+
 6. Consider the differential equation $\frac{dy}{dx} = \frac{y-1}{x^2}$, where $x \neq 0$.
-   a) Find the particular solution $y=f(x)$ to the differential equation with the initial condition $f(2) = 0$.
-   b) For the particular solution found in part (a), find $\lim_{x \to \infty} f(x)$.
+   **a)** Find the particular solution $y=f(x)$ to the differential equation with the initial condition $f(2) = 0$.
+   **b)** For the particular solution found in part (a), find $\lim_{x \to \infty} f(x)$.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Separate variables and integrate:
+   $$\frac{1}{y-1} \, dy = x^{-2} \, dx$$
+   $$\int \frac{1}{y-1} \, dy = \int x^{-2} \, dx$$
+   $$\ln|y-1| = -x^{-1} + C_1 = -\frac{1}{x} + C_1$$
+   Solve for $y$:
+   $$|y-1| = e^{-\frac{1}{x} + C_1} = C e^{-\frac{1}{x}}$$
+   $$y = 1 + C e^{-\frac{1}{x}}$$
+   Substitute the initial condition $(2, 0)$ to solve for $C$:
+   $$0 = 1 + C e^{-\frac{1}{2}}$$
+   $$-1 = C e^{-\frac{1}{2}} \implies C = -e^{\frac{1}{2}}$$
+   Substitute $C$ back into the equation:
+   $$y = 1 - e^{\frac{1}{2}} e^{-\frac{1}{x}} = 1 - e^{\frac{1}{2} - \frac{1}{x}}$$
+   
+   **b)** Evaluate the limit of $f(x)$ as $x \to \infty$:
+   $$\lim_{x \to \infty} \left( 1 - e^{\frac{1}{2} - \frac{1}{x}} \right)$$
+   As $x \to \infty$, the term $\frac{1}{x} \to 0$. Therefore:
+   $$\lim_{x \to \infty} f(x) = 1 - e^{\frac{1}{2} - 0} = 1 - \sqrt{e}$$
+   :::
 :::
 
 ::: {.conceptual-box}
@@ -651,9 +902,32 @@ So, it will require about 14.09 *more* minutes for the object to cool to a tempe
 *Answer the following in 1-3 complete sentences.*
 
 1. **The Necessity of Separation:** Analytically, in earlier sections, you solved differential equations like $y' = 2x$ by simply integrating both sides with respect to $x$. Explain analytically why this direct integration method fails for an equation like $y' = 2y$, and how moving the $y$ term to the left side allows the integration to proceed.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   Integrating $y' = 2y$ directly with respect to $x$ yields $y = \int 2y \,dx$, which cannot be evaluated because $y$ is an unknown function of $x$, not a constant. By separating the variables to get $\frac{1}{y} \,dy = 2 \,dx$, we group all $y$-dependent terms with $dy$ and $x$-dependent terms with $dx$, allowing us to correctly integrate both sides with respect to their own variables.
+   :::
+
 2. **Geometric Meaning of the General Solution:** When you perform indefinite integration to find the general solution of a differential equation (e.g., $y = x^2 + C$), you introduce an arbitrary constant $C$. Geometrically, this general solution represents an infinite "family" of curves. Explain why a single *initial condition*, such as $y(1)=3$, is sufficient to isolate one specific curve from this infinite family.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   The constant $C$ represents a vertical shift, meaning the infinite family of curves consists of identical shapes stacked vertically along the $y$-axis. Supplying a single initial condition $(x_1, y_1)$ locks the curve to one specific point in the coordinate plane, which algebraically dictates the exact value of $C$ required to pass through that coordinate.
+   :::
+
 3. **Analyzing Exponential Growth Rates:** The differential equation for exponential growth is $y' = ky$ (where $k > 0$). In the context of a population model, this equation implies that the rate of growth is proportional to the current population size. Explain why this relationship causes the graph of the population to become steeper and steeper as $y$ increases, rather than maintaining a constant slope.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   Because the derivative $y'$ represents the instantaneous slope of the graph, the equation $y' = ky$ dictates that the slope is a direct multiple of the current population $y$. As the population $y$ grows larger, the output of the derivative simultaneously increases, resulting in a continuously steepening curve rather than a linear graph with a constant slope.
+   :::
+
 4. **Asymptotic Behavior in Cooling:** Newton's Law of Cooling models temperature change with the equation $y' = k(y - T_{room})$. Algebraically, as the object's temperature $y$ gets closer to the room temperature $T_{room}$, the value of the derivative $y'$ approaches zero. Describe the visual feature this creates on the graph of Temperature vs. Time as $t \to \infty$.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   As the rate of change $y'$ approaches zero, the graph loses its steepness and flattens out perfectly horizontally. Geometrically, this creates a horizontal asymptote at $y = T_{room}$, indicating that the object's temperature infinitely approaches the room's ambient temperature over time without ever crossing it.
+   :::
 :::
 
 ## 6.3 Separation of Variables and the Logistic Equation
@@ -766,14 +1040,127 @@ $$y = (3e)e^{-1/x}=3e^{(x-1)/x}, \quad x>0$$
 
 ::: {.practice-box}
 #### Exercises: Separation of Variables
+
 1. Find the general solution of the differential equation $\frac{dy}{dx} = 3x^2 e^{-y}$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables by multiplying both sides by $e^y$ and $dx$:
+   $$e^y \, dy = 3x^2 \, dx$$
+   Integrate both sides:
+   $$\int e^y \, dy = \int 3x^2 \, dx$$
+   $$e^y = x^3 + C$$
+   Take the natural logarithm of both sides to solve for $y$:
+   $$y = \ln(x^3 + C)$$
+   :::
+
 2. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = xy^2$ with the initial condition $f(1) = -1$. State the domain of the solution.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables:
+   $$y^{-2} \, dy = x \, dx$$
+   Integrate both sides:
+   $$\int y^{-2} \, dy = \int x \, dx$$
+   $$-\frac{1}{y} = \frac{1}{2}x^2 + C$$
+   Substitute the initial condition $x = 1$ and $y = -1$ to find $C$:
+   $$-\frac{1}{-1} = \frac{1}{2}(1)^2 + C$$
+   $$1 = \frac{1}{2} + C \implies C = \frac{1}{2}$$
+   Substitute $C = \frac{1}{2}$ back into the equation and solve for $y$:
+   $$-\frac{1}{y} = \frac{1}{2}x^2 + \frac{1}{2} = \frac{x^2 + 1}{2}$$
+   $$-y = \frac{2}{x^2 + 1}$$
+   $$y = -\frac{2}{x^2 + 1}$$
+   
+   **Domain:** The denominator $x^2 + 1$ is never zero for any real number $x$. Therefore, the domain is all real numbers, or $(-\infty, \infty)$.
+   :::
+
 3. Find the particular solution $y=f(x)$ to the differential equation $\frac{dy}{dx} = (1+y^2)\cos(x)$ with the initial condition $f(0) = \sqrt{3}$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables:
+   $$\frac{1}{1+y^2} \, dy = \cos(x) \, dx$$
+   Integrate both sides:
+   $$\int \frac{1}{1+y^2} \, dy = \int \cos(x) \, dx$$
+   $$\arctan(y) = \sin(x) + C$$
+   Substitute the initial condition $x = 0$ and $y = \sqrt{3}$ to find $C$:
+   $$\arctan(\sqrt{3}) = \sin(0) + C$$
+   $$\frac{\pi}{3} = 0 + C \implies C = \frac{\pi}{3}$$
+   Substitute $C = \frac{\pi}{3}$ back into the equation and solve for $y$:
+   $$\arctan(y) = \sin(x) + \frac{\pi}{3}$$
+   $$y = \tan\left(\sin(x) + \frac{\pi}{3}\right)$$
+   :::
+
 4. A curve passes through the point $(0, 2)$ and has a slope of $\frac{2x}{y-1}$ at any point $(x,y)$ where $y \neq 1$. Find the equation of the curve.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Set up the differential equation for the slope:
+   $$\frac{dy}{dx} = \frac{2x}{y-1}$$
+   Separate the variables and integrate:
+   $$(y-1) \, dy = 2x \, dx$$
+   $$\int (y-1) \, dy = \int 2x \, dx$$
+   $$\frac{1}{2}y^2 - y = x^2 + C$$
+   Substitute the point $(0, 2)$ to find $C$:
+   $$\frac{1}{2}(2)^2 - 2 = (0)^2 + C$$
+   $$2 - 2 = C \implies C = 0$$
+   The implicit equation is $\frac{1}{2}y^2 - y = x^2$. To find the explicit function, complete the square for $y$:
+   $$y^2 - 2y = 2x^2$$
+   $$(y^2 - 2y + 1) = 2x^2 + 1$$
+   $$(y - 1)^2 = 2x^2 + 1$$
+   $$y - 1 = \pm\sqrt{2x^2 + 1}$$
+   Since the curve passes through $(0, 2)$, we must choose the positive root so that $2 - 1 = +\sqrt{1}$.
+   $$y = 1 + \sqrt{2x^2 + 1}$$
+   :::
+
 5. The rate of change of a quantity $P$ is proportional to the square root of $P$. At time $t=0$, $P=9$, and at time $t=2$, $P=25$. Find the value of $P$ at time $t=3$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Set up the differential equation:
+   $$\frac{dP}{dt} = k\sqrt{P} = kP^{1/2}$$
+   Separate the variables and integrate:
+   $$P^{-1/2} \, dP = k \, dt$$
+   $$\int P^{-1/2} \, dP = \int k \, dt$$
+   $$2P^{1/2} = kt + C \implies 2\sqrt{P} = kt + C$$
+   Use the first condition $t=0, P=9$ to find $C$:
+   $$2\sqrt{9} = k(0) + C \implies 2(3) = C \implies C = 6$$
+   Substitute $C = 6$ into the equation:
+   $$2\sqrt{P} = kt + 6$$
+   Use the second condition $t=2, P=25$ to find $k$:
+   $$2\sqrt{25} = k(2) + 6$$
+   $$2(5) = 2k + 6 \implies 10 = 2k + 6 \implies 4 = 2k \implies k = 2$$
+   Substitute $k=2$ to get the specific equation:
+   $$2\sqrt{P} = 2t + 6 \implies \sqrt{P} = t + 3 \implies P = (t+3)^2$$
+   Find $P$ when $t=3$:
+   $$P(3) = (3+3)^2 = 6^2 = 36$$
+   :::
+
 6. Consider the differential equation $\frac{dy}{dx} = \frac{x}{y}$ for $y \neq 0$.
-   a) Find the particular solution $y=f(x)$ with the initial condition $f(-2) = -1$.
-   b) State the domain of the particular solution found in part (a).
+   **a)** Find the particular solution $y=f(x)$ with the initial condition $f(-2) = -1$.
+   **b)** State the domain of the particular solution found in part (a).
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Separate the variables and integrate:
+   $$y \, dy = x \, dx$$
+   $$\int y \, dy = \int x \, dx$$
+   $$\frac{1}{2}y^2 = \frac{1}{2}x^2 + C_1 \implies y^2 = x^2 + C$$
+   Substitute the initial condition $x = -2$ and $y = -1$ to find $C$:
+   $$(-1)^2 = (-2)^2 + C$$
+   $$1 = 4 + C \implies C = -3$$
+   Substitute $C = -3$ back into the equation:
+   $$y^2 = x^2 - 3$$
+   $$y = \pm\sqrt{x^2 - 3}$$
+   Since $f(-2) = -1$ (a negative value), we must select the negative branch:
+   $$y = -\sqrt{x^2 - 3}$$
+   
+   **b)** To find the domain, the expression inside the square root must be strictly positive because the original differential equation states $y \neq 0$:
+   $$x^2 - 3 > 0 \implies x^2 > 3$$
+   This gives two possible intervals: $x > \sqrt{3}$ or $x < -\sqrt{3}$. 
+   A solution to a differential equation must be continuous on an open interval containing the initial condition. Since our initial condition is at $x = -2$, we must choose the interval that contains $-2$. 
+   Therefore, the domain is $x < -\sqrt{3}$, or $(-\infty, -\sqrt{3})$.
+   :::
 :::
 
 ::: {.conceptual-box}
@@ -781,10 +1168,27 @@ $$y = (3e)e^{-1/x}=3e^{(x-1)/x}, \quad x>0$$
 *Answer the following in 1-3 complete sentences.*
 
 1. **Identifying Separable Equations:** Analytically, the method of separation of variables requires that the differential equation can be factored into the form $\frac{dy}{dx} = g(x)h(y)$. Explain algebraically why a differential equation like $\frac{dy}{dx} = x + y$ cannot be solved using this method, whereas $\frac{dy}{dx} = x + xy$ can be. *(Hint: Try to separate the $x$ and $y$ terms onto opposite sides for both equations).*
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   The expression $x+y$ cannot be factored into a product of purely $x$-dependent and purely $y$-dependent terms, making it algebraically impossible to isolate the variables on opposite sides using multiplication or division. Conversely, $x+xy$ can be factored into $x(1+y)$, allowing us to cleanly separate the variables by dividing to obtain $\frac{1}{1+y} dy = x \, dx$.
+   :::
+
 2. **Lost Solutions and Division:** In the example $(x^2 + 4)\frac{dy}{dx} = xy$, the first algebraic step is to divide both sides by $y$ to separate the variables. Analytically, division by zero is undefined.
    * Explain why it is necessary to check if $y=0$ is a solution *before* performing this division.
    * Geometrically, what does the solution $y=0$ look like on a graph, and how does it relate to the slope field along the x-axis?
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   Dividing the equation by $y$ implicitly assumes $y \neq 0$, which inadvertently deletes the valid equilibrium solution $y=0$ from the mathematical steps that follow. Geometrically, the solution $y=0$ is the $x$-axis itself; if you plot the slope field, every segment along the $x$-axis will be perfectly horizontal, confirming that a particle starting on the axis will never leave it.
+   :::
+
 3. **Implicit vs. Explicit Solutions:** The text notes that sometimes it is not feasible to solve for $y$ explicitly, resulting in an *implicit solution* (e.g., $y^2 - \ln(y^2) + e^{x^2} = C$). Geometrically, an explicit function $y=f(x)$ must pass the vertical line test. Explain why an implicit solution curve derived from a differential equation might fail the vertical line test, yet still be a valid representation of the relationship between $x$ and $y$.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   Differential equations describe the instantaneous rate of change at any arbitrary coordinate $(x,y)$ in the plane, which easily governs continuous geometric shapes like circles or hyperbolas that naturally loop back over themselves. While an explicit function must restrict its domain and range to pass the vertical line test (providing only one $y$ for every $x$), an implicit equation captures the complete, unedited geometric relationship defined by the slope field.
+   :::
 :::
 
 ---
@@ -904,18 +1308,182 @@ $$
 
 ::: {.practice-box}
 #### Exercises: Homogeneous Differential Equations
+
 1. Determine whether the following functions are homogeneous. If they are, state the degree of the function.
-   a) $f(x,y) = x^3 + 3x^2y - y^3$
-   b) $f(x,y) = \frac{x^2 - y^2}{\sqrt{x^2+y^2}}$
-   c) $f(x,y) = x^2 + \sin(x+y)$
+   **a)** $f(x,y) = x^3 + 3x^2y - y^3$
+   **b)** $f(x,y) = \frac{x^2 - y^2}{\sqrt{x^2+y^2}}$
+   **c)** $f(x,y) = x^2 + \sin(x+y)$
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Substitute $tx$ for $x$ and $ty$ for $y$:
+   $$f(tx,ty) = (tx)^3 + 3(tx)^2(ty) - (ty)^3$$
+   $$f(tx,ty) = t^3x^3 + 3t^3x^2y - t^3y^3 = t^3(x^3 + 3x^2y - y^3) = t^3f(x,y)$$
+   Because $f(tx,ty) = t^3f(x,y)$, the function is **homogeneous of degree 3**.
+   
+   **b)** Substitute $tx$ for $x$ and $ty$ for $y$:
+   $$f(tx,ty) = \frac{(tx)^2 - (ty)^2}{\sqrt{(tx)^2+(ty)^2}} = \frac{t^2(x^2 - y^2)}{\sqrt{t^2(x^2+y^2)}}$$
+   Recall that $\sqrt{t^2} = |t|$. Therefore:
+   $$f(tx,ty) = \frac{t^2(x^2 - y^2)}{|t|\sqrt{x^2+y^2}} = \frac{t^2}{|t|} \left( \frac{x^2 - y^2}{\sqrt{x^2+y^2}} \right)$$
+   For $t > 0$, $|t| = t$, which gives:
+   $$f(tx,ty) = \frac{t^2}{t} f(x,y) = t^1f(x,y)$$
+   Because this strictly holds for $t > 0$, the function is **positively homogeneous of degree 1**.
+   
+   **c)** Substitute $tx$ for $x$ and $ty$ for $y$:
+   $$f(tx,ty) = (tx)^2 + \sin(tx+ty) = t^2x^2 + \sin(t(x+y))$$
+   Because $t$ cannot be factored out to form $t^n f(x,y)$, the function is **not homogeneous**.
+   :::
+
 2. Show that the differential equation $(x^2 + y^2)dx - 2xy \, dy = 0$ is homogeneous, and find the general solution.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, verify homogeneity. Let $M(x,y) = x^2 + y^2$ and $N(x,y) = -2xy$:
+   $$M(tx,ty) = (tx)^2 + (ty)^2 = t^2(x^2+y^2) = t^2M(x,y)$$
+   $$N(tx,ty) = -2(tx)(ty) = t^2(-2xy) = t^2N(x,y)$$
+   Both $M$ and $N$ are homogeneous of degree 2, so the differential equation is homogeneous.
+   
+   Now, use the substitution $y = vx$, which means $dy = v\,dx + x\,dv$:
+   $$(x^2 + (vx)^2)dx - 2x(vx)(v\,dx + x\,dv) = 0$$
+   $$x^2(1 + v^2)dx - 2x^2v^2 dx - 2x^3v\,dv = 0$$
+   Divide the entire equation by $x^2$:
+   $$(1 + v^2 - 2v^2)dx - 2xv\,dv = 0$$
+   $$(1 - v^2)dx = 2xv\,dv$$
+   Separate the variables:
+   $$\frac{1}{x} dx = \frac{2v}{1-v^2} dv$$
+   Integrate both sides:
+   $$\int \frac{1}{x} dx = \int \frac{2v}{1-v^2} dv$$
+   $$\ln|x| = -\ln|1-v^2| + C_1$$
+   $$\ln|x| + \ln|1-v^2| = C_1 \implies \ln|x(1-v^2)| = C_1$$
+   Exponentiate both sides (letting $C = \pm e^{C_1}$):
+   $$x(1-v^2) = C$$
+   Substitute $v = \frac{y}{x}$ back into the equation:
+   $$x\left(1 - \frac{y^2}{x^2}\right) = C$$
+   $$x - \frac{y^2}{x} = C$$
+   Multiply by $x$ to get the final general solution:
+   $$x^2 - y^2 = Cx$$
+   :::
+
 3. Find the general solution of the differential equation $y' = \frac{x+y}{2x}$.
-4. Find the particular solution $y=f(x)$ to the differential equation $xx' = y + \sqrt{x^2-y^2}$ with the initial condition $f(1) = 0$. (Assume $x>0$).
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Rewrite the equation as $2x\,dy = (x+y)dx$, or $(x+y)dx - 2x\,dy = 0$.
+   
+   Use the substitution $y = vx$, so $dy = v\,dx + x\,dv$:
+   $$(x + vx)dx - 2x(v\,dx + x\,dv) = 0$$
+   $$x(1+v)dx - 2xv\,dx - 2x^2 dv = 0$$
+   Divide by $x$:
+   $$(1 + v - 2v)dx - 2x\,dv = 0$$
+   $$(1 - v)dx = 2x\,dv$$
+   Separate the variables:
+   $$\frac{1}{2x} dx = \frac{1}{1-v} dv$$
+   Integrate both sides:
+   $$\int \frac{1}{2x} dx = \int \frac{1}{1-v} dv$$
+   $$\frac{1}{2}\ln|x| = -\ln|1-v| + C_1$$
+   Multiply by 2:
+   $$\ln|x| = -2\ln|1-v| + 2C_1$$
+   $$\ln|x| + \ln((1-v)^2) = C_2 \implies \ln|x(1-v)^2| = C_2$$
+   Exponentiate (letting $C = e^{C_2}$):
+   $$x(1-v)^2 = C$$
+   Substitute $v = \frac{y}{x}$:
+   $$x\left(1 - \frac{y}{x}\right)^2 = C$$
+   $$x\left(\frac{x-y}{x}\right)^2 = C$$
+   $$x \frac{(x-y)^2}{x^2} = C \implies \frac{(x-y)^2}{x} = C$$
+   Multiply by $x$ to find the general solution:
+   $$(x-y)^2 = Cx$$
+   :::
+
+4. Find the particular solution $y=f(x)$ to the differential equation $xy' = y + \sqrt{x^2-y^2}$ with the initial condition $f(1) = 0$. (Assume $x>0$).
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Divide by $x$:
+   $$y' = \frac{y}{x} + \frac{\sqrt{x^2-y^2}}{x}$$
+   Because we are given $x > 0$, we know $x = \sqrt{x^2}$. We can rewrite the second term as:
+   $$\frac{\sqrt{x^2-y^2}}{\sqrt{x^2}} = \sqrt{\frac{x^2-y^2}{x^2}} = \sqrt{1 - \left(\frac{y}{x}\right)^2}$$
+   $$y' = \frac{y}{x} + \sqrt{1 - \left(\frac{y}{x}\right)^2}$$
+   Use the substitution $v = \frac{y}{x}$, so $y = vx$ and $y' = v + xv'$:
+   $$v + xv' = v + \sqrt{1-v^2}$$
+   $$xv' = \sqrt{1-v^2}$$
+   Separate variables:
+   $$\frac{1}{\sqrt{1-v^2}} dv = \frac{1}{x} dx$$
+   Integrate both sides:
+   $$\int \frac{1}{\sqrt{1-v^2}} dv = \int \frac{1}{x} dx$$
+   $$\arcsin(v) = \ln|x| + C$$
+   Substitute $v = \frac{y}{x}$:
+   $$\arcsin\left(\frac{y}{x}\right) = \ln|x| + C$$
+   Apply the initial condition $x=1, y=0$:
+   $$\arcsin\left(\frac{0}{1}\right) = \ln|1| + C$$
+   $$0 = 0 + C \implies C = 0$$
+   Substitute $C=0$ and solve for $y$:
+   $$\arcsin\left(\frac{y}{x}\right) = \ln(x) \quad \text{(since $x>0$)}$$
+   $$\frac{y}{x} = \sin(\ln(x))$$
+   $$y = x\sin(\ln(x))$$
+   :::
+
 5. Find the general solution of the differential equation $y' = \frac{y}{x} + \sec\left(\frac{y}{x}\right)$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the substitution $v = \frac{y}{x}$, so $y = vx$ and $y' = v + xv'$:
+   $$v + xv' = v + \sec(v)$$
+   $$xv' = \sec(v)$$
+   Separate variables:
+   $$\frac{1}{\sec(v)} dv = \frac{1}{x} dx$$
+   $$\cos(v) dv = \frac{1}{x} dx$$
+   Integrate both sides:
+   $$\int \cos(v) dv = \int \frac{1}{x} dx$$
+   $$\sin(v) = \ln|x| + C$$
+   Substitute $v = \frac{y}{x}$ back into the equation to find the general solution:
+   $$\sin\left(\frac{y}{x}\right) = \ln|x| + C$$
+   :::
+
 6. Consider the differential equation $(y^2 + xy)dx - x^2 \, dy = 0$.
-   a) Verify that the differential equation is homogeneous.
-   b) Solve the differential equation by using the substitution $y=vx$.
-   c) Verify your solution from part (b) by using the substitution $x=uy$.
+   **a)** Verify that the differential equation is homogeneous.
+   **b)** Solve the differential equation by using the substitution $y=vx$.
+   **c)** Verify your solution from part (b) by using the substitution $x=uy$.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Let $M(x,y) = y^2 + xy$ and $N(x,y) = -x^2$:
+   $$M(tx,ty) = (ty)^2 + (tx)(ty) = t^2y^2 + t^2xy = t^2(y^2+xy) = t^2M(x,y)$$
+   $$N(tx,ty) = -(tx)^2 = -t^2x^2 = t^2N(x,y)$$
+   Both terms are homogeneous of degree 2, verifying the differential equation is homogeneous.
+   
+   **b)** Substitute $y = vx$ and $dy = v\,dx + x\,dv$:
+   $$((vx)^2 + x(vx))dx - x^2(v\,dx + x\,dv) = 0$$
+   $$(v^2x^2 + vx^2)dx - x^2v\,dx - x^3 dv = 0$$
+   Divide by $x^2$:
+   $$(v^2 + v)dx - v\,dx - x\,dv = 0$$
+   $$v^2 dx = x\,dv$$
+   Separate variables:
+   $$\frac{1}{x} dx = \frac{1}{v^2} dv$$
+   Integrate both sides:
+   $$\int \frac{1}{x} dx = \int v^{-2} dv$$
+   $$\ln|x| = -\frac{1}{v} + C$$
+   Substitute $v = \frac{y}{x}$:
+   $$\ln|x| = -\frac{x}{y} + C \implies \frac{x}{y} = C - \ln|x|$$
+   $$y = \frac{x}{C - \ln|x|}$$
+   
+   **c)** Substitute $x = uy$ and $dx = u\,dy + y\,du$:
+   $$(y^2 + (uy)y)(u\,dy + y\,du) - (uy)^2 dy = 0$$
+   $$(y^2 + uy^2)(u\,dy + y\,du) - u^2y^2 dy = 0$$
+   Divide by $y^2$:
+   $$(1 + u)(u\,dy + y\,du) - u^2 dy = 0$$
+   $$(u + u^2)dy + y(1+u)du - u^2 dy = 0$$
+   $$u\,dy + y(1+u)du = 0$$
+   Separate variables:
+   $$u\,dy = -y(1+u)du \implies \frac{1}{y} dy = -\frac{1+u}{u} du$$
+   Integrate both sides:
+   $$\int \frac{1}{y} dy = \int \left(-\frac{1}{u} - 1\right) du$$
+   $$\ln|y| = -\ln|u| - u + C_1$$
+   $$\ln|y| + \ln|u| = -u + C_1 \implies \ln|uy| = -u + C_1$$
+   Substitute $u = \frac{x}{y}$ and note that $uy = x$:
+   $$\ln|x| = -\frac{x}{y} + C_1 \implies \frac{x}{y} = C_1 - \ln|x|$$
+   $$y = \frac{x}{C_1 - \ln|x|}$$
+   This exactly matches the solution found in part (b), verifying the result.
+   :::
 :::
 
 ::: {.conceptual-box}
@@ -923,12 +1491,33 @@ $$
 *Answer the following in 1-3 complete sentences.*
 
 1. **Recognizing Homogeneity Algebraically:** Analytically, the formal test for a homogeneous function is $f(tx, ty) = t^n f(x,y)$. However, for polynomial functions, you can often determine homogeneity by inspecting the exponents. In the expression $x^2y - 4x^3 + 3xy^2$, every term has a "total degree" (sum of exponents) of 3. Explain why an expression like $x^3 + xy$ fails this test and therefore prevents the differential equation from being solved using the homogeneous method.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   The expression $x^3 + xy$ consists of terms with mismatched total degrees (the first term is degree 3, while the second term $x^1y^1$ is degree 2). When applying the formal test $f(tx, ty)$, this results in $t^3x^3 + t^2xy$, making it algebraically impossible to factor out a single, uniform $t^n$ term. Because the terms do not scale uniformly together, the substitution method will fail to separate the variables later in the process.
+   :::
+
 2. **The Purpose of the Substitution:** The text introduces the substitution $y = vx$ (and consequently $dy = v\,dx + x\,dv$). In the context of solving differential equations, we often use substitutions to simplify an integral. However, in this specific context, what is the primary structural change that occurs to the differential equation after substituting and simplifying?
-   a) It transforms a linear equation into a quadratic one.
-   b) It transforms a non-separable equation into a separable one.
-   c) It eliminates the differential $dx$ entirely.
-   d) It makes the equation homogeneous of degree 0.
+   
+   **(A)** It transforms a linear equation into a quadratic one.
+   
+   **(B)** It transforms a non-separable equation into a separable one.
+   
+   **(C)** It eliminates the differential $dx$ entirely.
+   
+   **(D)** It makes the equation homogeneous of degree 0.
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   **(B)**. The entire purpose of the $y=vx$ substitution in this context is to take a differential equation where $x$ and $y$ are inextricably mixed (non-separable) and structurally transform it into a new equation where the variables $x$ and $v$ can be successfully separated onto opposite sides of the equals sign for integration.
+   :::
+
 3. **Geometric Behavior of Homogeneous Slopes:** Many homogeneous differential equations can be rewritten in the form $y' = F\left(\frac{y}{x}\right)$. Analytically, this means the slope depends only on the ratio of the coordinates, not their individual magnitudes. Geometrically, the ratio $\frac{y}{x}$ is constant along any line passing through the origin. Looking at a slope field for a homogeneous equation, what characteristic pattern should appear along any straight line radiating from the origin?
+
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:**
+   Because the ratio $\frac{y}{x}$ remains perfectly constant along any straight line radiating outward from the origin, the slope field will display perfectly identical, parallel slope segments everywhere along that specific radial line. If you were to trace any single straight "spoke" moving outward from the origin, the steepness of the field segments you encounter would never change.
+   :::
 :::
 
 ---
@@ -1017,13 +1606,81 @@ The centers are at the origin, and the transverse axes are vertical for $K>0$ an
 ::: {.practice-box}
 #### Exercises: Applications of Differential Equations
 
-1. A boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is 91°C at time $t=0$, and the room temperature of the kitchen is a constant 27°C. The internal temperature of the potato at time $t$ minutes can be modeled by the function $H$ that satisfies the differential equation $\frac{dH}{dt} = -\frac{1}{4}(H - 27)$. Find an expression for $H(t)$.
+1. A boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is $91^\circ$C at time $t=0$, and the room temperature of the kitchen is a constant $27^\circ$C. The internal temperature of the potato at time $t$ minutes can be modeled by the function $H$ that satisfies the differential equation $\frac{dH}{dt} = -\frac{1}{4}(H - 27)$. Find an expression for $H(t)$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables:
+   $$\frac{1}{H - 27} \, dH = -\frac{1}{4} \, dt$$
+   Integrate both sides:
+   $$\int \frac{1}{H - 27} \, dH = \int -\frac{1}{4} \, dt$$
+   $$\ln|H - 27| = -\frac{1}{4}t + C_1$$
+   Exponentiate both sides to solve for $H$:
+   $$|H - 27| = e^{-\frac{1}{4}t + C_1} = C e^{-\frac{1}{4}t}$$
+   Since the initial temperature is 91°C and the room temperature is 27°C, the potato is cooling down to the room temperature, meaning $H(t) > 27$ for all $t \ge 0$. Therefore, we can drop the absolute value:
+   $$H - 27 = C e^{-\frac{1}{4}t}$$
+   $$H(t) = 27 + C e^{-\frac{1}{4}t}$$
+   Use the initial condition $t = 0$ and $H = 91$ to find $C$:
+   $$91 = 27 + C e^{0}$$
+   $$91 = 27 + C \implies C = 64$$
+   Substitute $C = 64$ back into the equation:
+   $$H(t) = 27 + 64e^{-\frac{1}{4}t}$$
+   :::
+
 2. Water is draining from a cylindrical barrel. The height $h$ of the water, in meters, changes at a rate modeled by the differential equation $\frac{dh}{dt} = -\frac{1}{10}\sqrt{h}$, where $t$ is the time in days. At time $t=0$, the height of the water is 4 meters.
-   a) Find the particular solution $h(t)$ to the differential equation.
-   b) According to the model, at what time $t$ will the barrel be completely empty?
+   **a)** Find the particular solution $h(t)$ to the differential equation.
+   **b)** According to the model, at what time $t$ will the barrel be completely empty?
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Separate the variables, writing $\sqrt{h}$ as $h^{1/2}$:
+   $$h^{-1/2} \, dh = -\frac{1}{10} \, dt$$
+   Integrate both sides:
+   $$\int h^{-1/2} \, dh = \int -\frac{1}{10} \, dt$$
+   $$2h^{1/2} = -\frac{1}{10}t + C$$
+   Use the initial condition $t = 0$ and $h = 4$ to find $C$:
+   $$2\sqrt{4} = -\frac{1}{10}(0) + C$$
+   $$2(2) = C \implies C = 4$$
+   Substitute $C = 4$ into the equation and solve for $h$:
+   $$2\sqrt{h} = -\frac{1}{10}t + 4$$
+   $$\sqrt{h} = -\frac{1}{20}t + 2$$
+   $$h(t) = \left(2 - \frac{1}{20}t\right)^2$$
+   
+   **b)** The barrel is completely empty when the height $h(t) = 0$:
+   $$0 = \left(2 - \frac{1}{20}t\right)^2$$
+   $$0 = 2 - \frac{1}{20}t$$
+   $$\frac{1}{20}t = 2 \implies t = 40$$
+   The barrel will be completely empty at $t = 40$ days.
+   :::
+
 3. A population of insects in a controlled environment grows at a rate modeled by the differential equation $\frac{dP}{dt} = \frac{1}{5}(1000 - P)$, where $P$ is the number of insects and $t$ is the time in days. At time $t=0$, there are 200 insects.
-   a) Find the particular solution $P(t)$ to the differential equation.
-   b) Evaluate $\lim_{t \to \infty} P(t)$ and interpret the meaning of this limit in the context of the problem.
+   **a)** Find the particular solution $P(t)$ to the differential equation.
+   **b)** Evaluate $\lim_{t \to \infty} P(t)$ and interpret the meaning of this limit in the context of the problem.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Separate the variables:
+   $$\frac{1}{1000 - P} \, dP = \frac{1}{5} \, dt$$
+   Integrate both sides (be careful with the negative sign from the chain rule):
+   $$\int \frac{1}{1000 - P} \, dP = \int \frac{1}{5} \, dt$$
+   $$-\ln|1000 - P| = \frac{1}{5}t + C_1$$
+   $$\ln|1000 - P| = -\frac{1}{5}t - C_1$$
+   Exponentiate both sides:
+   $$|1000 - P| = e^{-\frac{1}{5}t - C_1} = C e^{-\frac{1}{5}t}$$
+   Because the initial population is 200, which is less than 1000, $1000 - P$ is positive. We can drop the absolute value:
+   $$1000 - P = C e^{-\frac{1}{5}t}$$
+   Use the initial condition $t = 0$ and $P = 200$ to find $C$:
+   $$1000 - 200 = C e^{0} \implies C = 800$$
+   Substitute $C = 800$ and solve for $P$:
+   $$1000 - P = 800e^{-\frac{1}{5}t}$$
+   $$P(t) = 1000 - 800e^{-\frac{1}{5}t}$$
+   
+   **b)** Evaluate the limit as $t$ approaches infinity:
+   $$\lim_{t \to \infty} \left( 1000 - 800e^{-\frac{1}{5}t} \right)$$
+   As $t \to \infty$, the term $e^{-\frac{1}{5}t} \to 0$. Therefore:
+   $$\lim_{t \to \infty} P(t) = 1000 - 800(0) = 1000$$
+   **Interpretation:** As time goes on indefinitely, the insect population will level off and approach a maximum carrying capacity of 1,000 insects.
+   :::
 :::
 
 ---
@@ -1242,10 +1899,99 @@ $$
 
 ::: {.practice-box}
 #### Exercises: First-Order Linear Equations
+
 1. Find the general solution to the differential equation $y' + 3y = e^{-3x}$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The equation is already in the standard linear form $y' + P(x)y = Q(x)$, with $P(x) = 3$ and $Q(x) = e^{-3x}$.
+   First, find the integrating factor $u(x)$:
+   $$u(x) = e^{\int P(x) \, dx} = e^{\int 3 \, dx} = e^{3x}$$
+   Multiply the entire differential equation by the integrating factor:
+   $$e^{3x}(y' + 3y) = e^{3x}(e^{-3x})$$
+   $$e^{3x}y' + 3e^{3x}y = e^0$$
+   $$e^{3x}y' + 3e^{3x}y = 1$$
+   Condense the left side using the reverse product rule:
+   $$(e^{3x}y)' = 1$$
+   Integrate both sides with respect to $x$:
+   $$\int (e^{3x}y)' \, dx = \int 1 \, dx$$
+   $$e^{3x}y = x + C$$
+   Solve for $y$ to find the general solution:
+   $$y = \frac{x + C}{e^{3x}} = xe^{-3x} + Ce^{-3x}$$
+   :::
+
 2. Find the general solution to the differential equation $x \frac{dy}{dx} + 2y = x^2 - x + 1$ for $x > 0$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Divide the entire equation by $x$ to get it into the standard form $y' + P(x)y = Q(x)$:
+   $$\frac{dy}{dx} + \frac{2}{x}y = x - 1 + \frac{1}{x}$$
+   Identify $P(x) = \frac{2}{x}$ and find the integrating factor $u(x)$:
+   $$u(x) = e^{\int \frac{2}{x} \, dx} = e^{2\ln|x|} = e^{\ln(x^2)} = x^2$$
+   Multiply the standard form equation by $x^2$:
+   $$x^2\left(\frac{dy}{dx} + \frac{2}{x}y\right) = x^2\left(x - 1 + \frac{1}{x}\right)$$
+   $$x^2 y' + 2xy = x^3 - x^2 + x$$
+   Condense the left side using the reverse product rule:
+   $$(x^2 y)' = x^3 - x^2 + x$$
+   Integrate both sides with respect to $x$:
+   $$\int (x^2 y)' \, dx = \int (x^3 - x^2 + x) \, dx$$
+   $$x^2 y = \frac{x^4}{4} - \frac{x^3}{3} + \frac{x^2}{2} + C$$
+   Solve for $y$ to find the general solution:
+   $$y = \frac{x^2}{4} - \frac{x}{3} + \frac{1}{2} + Cx^{-2}$$
+   :::
+
 3. Find the particular solution $y = f(x)$ to the differential equation $y' - \frac{2}{x}y = x^3$ with the initial condition $f(1) = 0$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The equation is in standard form with $P(x) = -\frac{2}{x}$. 
+   Find the integrating factor $u(x)$:
+   $$u(x) = e^{\int -\frac{2}{x} \, dx} = e^{-2\ln|x|} = e^{\ln(x^{-2})} = x^{-2}$$
+   Multiply the differential equation by $x^{-2}$:
+   $$x^{-2}\left(y' - \frac{2}{x}y\right) = x^{-2}(x^3)$$
+   $$x^{-2}y' - 2x^{-3}y = x$$
+   Condense the left side using the reverse product rule:
+   $$(x^{-2}y)' = x$$
+   Integrate both sides with respect to $x$:
+   $$\int (x^{-2}y)' \, dx = \int x \, dx$$
+   $$x^{-2}y = \frac{x^2}{2} + C$$
+   Multiply by $x^2$ to solve for the general solution $y$:
+   $$y = \frac{x^4}{2} + Cx^2$$
+   Apply the initial condition $x = 1, y = 0$ to find $C$:
+   $$0 = \frac{(1)^4}{2} + C(1)^2$$
+   $$0 = \frac{1}{2} + C \implies C = -\frac{1}{2}$$
+   Substitute $C = -\frac{1}{2}$ back into the general equation to find the particular solution:
+   $$y = \frac{x^4}{2} - \frac{x^2}{2}$$
+   :::
+
 4. Find the particular solution to the differential equation $\cos(x)y' + \sin(x)y = 1$ with the initial condition $y(0) = 5$. Assume $-\frac{\pi}{2} < x < \frac{\pi}{2}$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Divide by $\cos(x)$ to get the equation into standard form:
+   $$y' + \frac{\sin(x)}{\cos(x)}y = \frac{1}{\cos(x)}$$
+   $$y' + \tan(x)y = \sec(x)$$
+   Identify $P(x) = \tan(x)$ and find the integrating factor $u(x)$:
+   $$u(x) = e^{\int \tan(x) \, dx} = e^{-\ln|\cos(x)|} = e^{\ln|\sec(x)|}$$
+   Because $-\frac{\pi}{2} < x < \frac{\pi}{2}$, $\sec(x)$ is positive, so we can drop the absolute value to get $u(x) = \sec(x)$.
+   Multiply the standard form equation by $\sec(x)$:
+   $$\sec(x)(y' + \tan(x)y) = \sec(x)(\sec(x))$$
+   $$\sec(x)y' + \sec(x)\tan(x)y = \sec^2(x)$$
+   Condense the left side using the reverse product rule:
+   $$(\sec(x)y)' = \sec^2(x)$$
+   Integrate both sides with respect to $x$:
+   $$\int (\sec(x)y)' \, dx = \int \sec^2(x) \, dx$$
+   $$\sec(x)y = \tan(x) + C$$
+   Solve for $y$ by dividing by $\sec(x)$ (which is equivalent to multiplying by $\cos(x)$):
+   $$y = \frac{\tan(x)}{\sec(x)} + \frac{C}{\sec(x)}$$
+   $$y = \sin(x) + C\cos(x)$$
+   Apply the initial condition $x = 0, y = 5$ to find $C$:
+   $$5 = \sin(0) + C\cos(0)$$
+   $$5 = 0 + C(1) \implies C = 5$$
+   Substitute $C = 5$ to find the particular solution:
+   $$y = \sin(x) + 5\cos(x)$$
+   :::
+
 5. What is the integrating factor $u(x)$ for the linear differential equation $x^2 y' + xy = 5$?
    
    **(A)** $u(x) = e^x$
@@ -1255,6 +2001,15 @@ $$
    **(C)** $u(x) = x^2$
 
    **(D)** $u(x) = \ln|x|$
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:** **(B)**. 
+   To find the integrating factor, the equation must first be written in the standard form $y' + P(x)y = Q(x)$. Divide the entire equation by $x^2$:
+   $$y' + \frac{1}{x}y = \frac{5}{x^2}$$
+   Now identify $P(x) = \frac{1}{x}$. The integrating factor is:
+   $$u(x) = e^{\int \frac{1}{x} \, dx} = e^{\ln|x|} = |x|$$
+   Assuming $x > 0$ for a standard domain, this simplifies to $x$, matching option (B).
+   :::
 :::
 
 ---
@@ -1501,11 +2256,89 @@ $$
 
 ::: {.practice-box}
 #### Exercises: Applications of Linear Equations
+
 1. An object is dropped from a high altitude. The velocity $v$ of the object, in meters per second, is modeled by the differential equation $\frac{dv}{dt} = -9.8 - 0.2v$, where $t$ is the time in seconds. At time $t=0$, the velocity is $0$.
-   a) Find an expression for $v(t)$, the particular solution to the differential equation.
-   b) Evaluate $\lim_{t \to \infty} v(t)$ and interpret its meaning in the context of the falling object.
+   **a)** Find an expression for $v(t)$, the particular solution to the differential equation.
+   **b)** Evaluate $\lim_{t \to \infty} v(t)$ and interpret its meaning in the context of the falling object.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Factor out the $-0.2$ on the right side to make integration easier, then separate the variables:
+   $$\frac{dv}{dt} = -0.2(49 + v)$$
+   $$\frac{1}{v + 49} \, dv = -0.2 \, dt$$
+   Integrate both sides:
+   $$\int \frac{1}{v + 49} \, dv = \int -0.2 \, dt$$
+   $$\ln|v + 49| = -0.2t + C_1$$
+   Exponentiate both sides:
+   $$|v + 49| = e^{-0.2t + C_1} = C e^{-0.2t}$$
+   Because the object starts at rest and falls downward (negative velocity), $v$ will decrease from 0 towards $-49$. Thus, $v + 49$ remains positive, allowing us to drop the absolute value bars:
+   $$v + 49 = C e^{-0.2t}$$
+   Use the initial condition $t = 0$ and $v = 0$ to solve for $C$:
+   $$0 + 49 = C e^0 \implies C = 49$$
+   Substitute $C = 49$ and solve for $v(t)$:
+   $$v + 49 = 49e^{-0.2t}$$
+   $$v(t) = 49e^{-0.2t} - 49$$
+   
+   **b)** Evaluate the limit of $v(t)$ as $t \to \infty$:
+   $$\lim_{t \to \infty} \left( 49e^{-0.2t} - 49 \right)$$
+   As $t \to \infty$, the term $e^{-0.2t} \to 0$:
+   $$\lim_{t \to \infty} v(t) = 49(0) - 49 = -49$$
+   **Interpretation:** As time goes on indefinitely, the velocity of the falling object approaches $-49$ meters per second. This is the object's terminal velocity, where the force of air resistance perfectly balances the force of gravity.
+   :::
+
 2. A baby animal is born weighing 5 pounds. The rate of change of the animal's weight $W$, in pounds per month, is proportional to the difference between its maximum adult weight of 40 pounds and its current weight. At $t=2$ months, the animal weighs 12 pounds.
-   a) Write a differential equation that models the rate of change of the animal's weight.
-   b) Find the particular solution $W(t)$ for the weight of the animal at time $t$.
+   **a)** Write a differential equation that models the rate of change of the animal's weight.
+   **b)** Find the particular solution $W(t)$ for the weight of the animal at time $t$.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** The phrase "proportional to" implies multiplying by a constant $k$. The "difference between its maximum adult weight... and its current weight" is $(40 - W)$. Therefore:
+   $$\frac{dW}{dt} = k(40 - W)$$
+   
+   **b)** Separate the variables and integrate:
+   $$\frac{1}{40 - W} \, dW = k \, dt$$
+   $$\int \frac{1}{40 - W} \, dW = \int k \, dt$$
+   $$-\ln|40 - W| = kt + C_1$$
+   $$\ln|40 - W| = -kt - C_1$$
+   Exponentiate both sides. Since the weight starts at 5 and grows toward 40, $40 - W > 0$, so we drop the absolute value:
+   $$40 - W = C e^{-kt}$$
+   Use the initial condition $t = 0$ and $W = 5$ to find $C$:
+   $$40 - 5 = C e^0 \implies C = 35$$
+   Substitute $C = 35$ into the equation:
+   $$40 - W = 35e^{-kt} \implies W(t) = 40 - 35e^{-kt}$$
+   Now use the condition $t = 2$ and $W = 12$ to find the constant $k$:
+   $$12 = 40 - 35e^{-2k}$$
+   $$-28 = -35e^{-2k}$$
+   $$e^{-2k} = \frac{28}{35} = \frac{4}{5} = 0.8$$
+   $$-2k = \ln(0.8) \implies k = -\frac{1}{2}\ln(0.8)$$
+   Substitute $k$ back into the specific equation to find the final particular solution:
+   $$W(t) = 40 - 35e^{\left(\frac{1}{2}\ln(0.8)\right)t}$$
+   *Note: Using properties of exponents, this can also be elegantly written as $W(t) = 40 - 35(0.8)^{t/2}$.*
+   :::
+
 3. The concentration of a medication in a patient's bloodstream $C(t)$, measured in milligrams per liter, decreases at a rate modeled by the differential equation $\frac{dC}{dt} = -kC^2$, where $k$ is a positive constant and $t$ is the time in hours since the medication was administered. If the initial concentration is $C(0) = 4$ mg/L, and the concentration drops to $2$ mg/L after 1 hour, what will the concentration be after 3 hours?
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Separate the variables and integrate:
+   $$C^{-2} \, dC = -k \, dt$$
+   $$\int C^{-2} \, dC = \int -k \, dt$$
+   $$-C^{-1} = -kt + C_1$$
+   Multiply by $-1$ and let $C_2 = -C_1$:
+   $$\frac{1}{C} = kt + C_2$$
+   Use the initial condition $t = 0$ and $C = 4$ to find $C_2$:
+   $$\frac{1}{4} = k(0) + C_2 \implies C_2 = \frac{1}{4}$$
+   Substitute $C_2 = \frac{1}{4}$ into the equation:
+   $$\frac{1}{C} = kt + \frac{1}{4}$$
+   Use the condition $t = 1$ and $C = 2$ to find $k$:
+   $$\frac{1}{2} = k(1) + \frac{1}{4}$$
+   $$k = \frac{1}{2} - \frac{1}{4} = \frac{1}{4}$$
+   Substitute $k = \frac{1}{4}$ to get the particular solution for the concentration:
+   $$\frac{1}{C(t)} = \frac{1}{4}t + \frac{1}{4} = \frac{t + 1}{4}$$
+   Take the reciprocal of both sides to solve explicitly for $C(t)$:
+   $$C(t) = \frac{4}{t + 1}$$
+   To find the concentration after 3 hours, evaluate $C(3)$:
+   $$C(3) = \frac{4}{3 + 1} = \frac{4}{4} = 1$$
+   The concentration after 3 hours will be $1$ mg/L.
+   :::
 :::
