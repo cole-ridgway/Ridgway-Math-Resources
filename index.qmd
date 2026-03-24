@@ -6,11 +6,65 @@ body-classes: homepage
 ---
 
 <div style="text-align: center; margin-top: 2rem; margin-bottom: 3rem;">
-<!-- ### *"Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding."*
-Welcome to our digital hub! Whether you are a student ready to dive into this week's chapter, or a parent looking to support your student's learning journey, you are in the right place. -->
 </div>
 
 ---
+
+### Choose Your Path
+
+::: {.d-flex .flex-column .flex-md-row .gap-4}
+
+::: {.card .shadow-sm .flex-fill}
+::: {.card-header .bg-info .text-white}
+#### <i class="bi bi-compass-fill"></i> Courses & School Resources
+:::
+::: {.card-body}
+Welcome! Select your class below to access the textbook and daily notes, or use the quick links for general school resources.
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+**<i class="bi bi-book"></i> My Classes**
+
+* [AP Calculus AB](AP-Calculus-AB/index.qmd)
+:::
+
+::: {.column width="50%"}
+**<i class="bi bi-link-45deg"></i> Quick Links**
+
+* [West Ada School District](https://www.westada.org/)
+* [PowerSchool](https://ps.westada.org/public/home.html)
+* [West Ada School District Calendar](https://www.westada.org/page/all-district-calendar)
+:::
+:::
+
+:::
+:::
+
+:::
+
+---
+
+### <i class="bi bi-person-circle"></i> About Me
+
+::: {.columns}
+::: {.column width="30%"}
+:::
+
+::: {.column width="70%"}
+Hi, I'm Cole ℝidgway! 
+
+I moved to Boise in 2018 to attend Boise State University, where I earned a double major with a Bachelors of Science in Mathematics with a Secondary Education emphasis as well as a Bachelors of Science in Applied Mathematics. After that, I went back to Boise State to complete my Masters in Mathematics, where I completed a project comparing polynomial interpolating methods for approximating functions. 
+
+During my time at Boise State, I taught a variety of courses as a Graduate Teaching Assistant, including College Algebra, Precalculus, Business Precalculus, and introductory math courses. I also had the opportunity to build a pilot calculus class for the university, where I developed a curriculum alongside the instructor.
+
+I have been teaching at Meridian High School since 2025, and I am currently teaching AP Calculus AB, Math I, and Math III. I am passionate about making math accessible and engaging for all students, and I am excited to share my resources with you through this website!
+:::
+:::
+
+
+<!-- 
 
 ### Choose Your Path
 
@@ -54,27 +108,4 @@ For grading policies, contact information, common questions, and more, follow th
 
 * [AP Calculus AB](AP-Calculus-AB/index.qmd)
 :::
-:::
-:::
-
-:::
-
----
-
-### <i class="bi bi-person-circle"></i> About Me
-
-::: {.columns}
-::: {.column width="30%"}
-<!-- ![](profile.jpg){style="border-radius: 50%; max-width: 80%; display: block; margin: 0 auto;"} -->
-:::
-
-::: {.column width="70%"}
-Hi, I'm Cole ℝidgway! 
-
-I moved to Boise in 2018 to attend Boise State University, where I earned a double major with a Bachelors of Science in Mathematics with a Secondary Education emphasis as well as a Bachelors of Science in Applied Mathematics. After that, I went back to Boise State to complete my Masters in Mathematics, where I completed a project comparing polynomial interpolating methods for approximating functions. 
-
-During my time at Boise State, I taught a variety of courses as a Graduate Teaching Assistant, including College Algebra, Precalculus, Business Precalculus, and introductory math courses. I also had the opportunity to build a pilot calculus class for the university, where I developed a curriculum alongside the instructor.
-
-I have been teaching at Meridian High School since 2025, and I am currently teaching AP Calculus AB, Math I, and Math III. I am passionate about making math accessible and engaging for all students, and I am excited to share my resources with you through this website!
-:::
-:::
+::: -->
