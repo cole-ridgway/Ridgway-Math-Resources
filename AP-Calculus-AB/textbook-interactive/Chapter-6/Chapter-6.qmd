@@ -31,7 +31,7 @@ where $C$ is any real number. This solution is called the **general solution**. 
 
 In section 4.1, you saw that the second-order differential equation $s''(t)=32$ has the general solution:
 
-$$s(t)=-16t^2+C_1+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32$$
+$$s(t)=-16t^2+C_1t+C_2 \hspace{3cm} \text{General solution of } s''(t)=-32$$
 
 which contains two arbitrary constants. It can be shown that a differential equation of order $n$ has a general solution with $n$ arbitrary constants.
 
