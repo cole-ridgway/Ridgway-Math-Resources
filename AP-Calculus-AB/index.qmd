@@ -15,13 +15,11 @@ This hub is your central command for the year. Whether you are reviewing today's
 #### <i class="bi bi-book-half"></i> Interactive & Printable Textbook
 :::
 ::: {.card-body}
-Our notes are designed to bring calculus to life.
-
 **👈 Select a chapter from the left sidebar to get started.**
 
 * **Interactive Visualizations:** Throughout the digital text, you will find interactive tools (like 3D sliders for solids of revolution) to help build geometric intuition.
 * **Click-to-Reveal Solutions:** Try the practice exercises on your own first, then click the yellow boxes to check the step-by-step breakdowns.
-* **Printable Versions:** If you prefer pencil and paper, expand the resources menu on the left to download static PDF versions of the chapter notes.
+* **Printable Versions:** The note packets given out in class are also available here as downloadable PDFs, so you can annotate them digitally as you prefer. The teacher version of the notes (with solutions) is also available for extra review.
 :::
 :::
 :::
@@ -32,11 +30,15 @@ Our notes are designed to bring calculus to life.
 #### <i class="bi bi-folder2-open"></i> Resources
 :::
 ::: {.card-body}
-Looking for extra practice or reference materials? 
+Click the "Course Resources" tab in the left sidebar to jump directly to the unit you are currently studying. Click on any chapter block there to expand it and access extra practice files. For example,
 
 * [Extra Practice Exercises (PDF)](resources/suggested-homework.pdf)
+
+Below are some links to outside resources that you may find helpful for review and practice throughout the year:
+
 * [Khan Academy AP Calculus AB Course](https://www.khanacademy.org/math/ap-calculus-ab)
-* [AP Calculus AB Exam Practice](https://apstudents.collegeboard.org/courses/ap-calculus-ab/exam-practice)
+* [AP Calculus AB Exam Practice](https://apcentral.collegeboard.org/courses/ap-calculus-ab/exam)
+
 
 <!-- * [**AP Exam Formula & Reference Sheet**](resources/reference.pdf) -->
 :::

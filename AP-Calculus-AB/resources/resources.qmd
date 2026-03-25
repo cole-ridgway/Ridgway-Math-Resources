@@ -1,0 +1,60 @@
+---
+title: "Course Resources"
+toc: true
+toc-title: "Jump to Chapter"
+toc-depth: 2
+---
+
+Welcome to the AP Calculus AB resource hub! Use the menu on the right to jump directly to the unit you are currently studying. Click on any chapter block below to expand it and access the interactive tools, printable PDFs, and extra practice files for that section.
+
+---
+
+## Precalculus & Algebra Review
+::: {.callout-note collapse="true" title="Expand Review Materials" icon=false}
+* *(Resources coming soon!)*
+* *(Resources coming soon!)*
+:::
+
+## Chapter 1: Limits & Continuity
+::: {.callout-note collapse="true" title="Expand Chapter 1 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 2: Differentiation
+::: {.callout-note collapse="true" title="Expand Chapter 2 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 3: Applications of Differentiation
+::: {.callout-note collapse="true" title="Expand Chapter 3 Resources" icon=false}
+* *(Resources coming soon!)*
+* *(Resources coming soon!)*
+:::
+
+## Chapter 4: Integration
+::: {.callout-note collapse="true" title="Expand Chapter 4 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 5: Applications of Integration
+::: {.callout-note collapse="true" title="Expand Chapter 5 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 6: Differential Equations
+::: {.callout-note collapse="true" title="Expand Chapter 6 Resources" icon=false}
+**Interactive Slope Field Generator:**
+*(Use the tool below to visualize differential equations and trace specific solution curves.)*
+
+::: {.callout-tip collapse="true" title="Slope Field Maker" icon=false}
+<iframe src="slope-field-maker.html" width="100%" height="680px" style="border:none; border-radius:8px;"></iframe>
+:::
+
+<!-- * [Differential Equations Study Guide (PDF)](#) -->
+:::
+
+## Other Resources
+::: {.callout-note collapse="true" title="Expand General Resources" icon=false}
+<!-- * [AP Exam Formula Sheet (PDF)](#) -->
+* [Desmos Graphing Calculator &rarr;](https://www.desmos.com/calculator)
+:::

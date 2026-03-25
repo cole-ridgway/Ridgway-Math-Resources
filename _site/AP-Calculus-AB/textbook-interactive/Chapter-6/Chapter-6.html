@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-1b8db3e7a769e581846f82115a9af27f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-f29e49e2f16d98cf5d72485a89853edc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-1b8db3e7a769e581846f82115a9af27f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-b1a6c95305e071400ccc5461f497d846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-eeffab868c4eb079ce93833b73710e12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-b1a6c95305e071400ccc5461f497d846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -463,6 +463,23 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../../AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 7: Applications of Integration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Course Resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../AP-Calculus-AB/resources/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Resources</span></a>
   </div>
 </li>
       </ul>
@@ -2324,13 +2341,61 @@ y &amp;= e^{-(1/x)+C_1} = Ce^{-1/x}
 <h4 class="anchored" data-anchor-id="conceptual-questions-2">Conceptual Questions</h4>
 <p><em>Answer the following in 1-3 complete sentences.</em></p>
 <ol type="1">
-<li><strong>Identifying Separable Equations:</strong> Analytically, the method of separation of variables requires that the differential equation can be factored into the form <span class="math inline">\(\frac{dy}{dx} = g(x)h(y)\)</span>. Explain algebraically why a differential equation like <span class="math inline">\(\frac{dy}{dx} = x + y\)</span> cannot be solved using this method, whereas <span class="math inline">\(\frac{dy}{dx} = x + xy\)</span> can be. <em>(Hint: Try to separate the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> terms onto opposite sides for both equations).</em></li>
-<li><strong>Lost Solutions and Division:</strong> In the example <span class="math inline">\((x^2 + 4)\frac{dy}{dx} = xy\)</span>, the first algebraic step is to divide both sides by <span class="math inline">\(y\)</span> to separate the variables. Analytically, division by zero is undefined.
+<li><p><strong>Identifying Separable Equations:</strong> Analytically, the method of separation of variables requires that the differential equation can be factored into the form <span class="math inline">\(\frac{dy}{dx} = g(x)h(y)\)</span>. Explain algebraically why a differential equation like <span class="math inline">\(\frac{dy}{dx} = x + y\)</span> cannot be solved using this method, whereas <span class="math inline">\(\frac{dy}{dx} = x + xy\)</span> can be. <em>(Hint: Try to separate the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> terms onto opposite sides for both equations).</em></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-70-contents" aria-controls="callout-70" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-70" class="callout-70-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> The expression <span class="math inline">\(x+y\)</span> cannot be factored into a product of purely <span class="math inline">\(x\)</span>-dependent and purely <span class="math inline">\(y\)</span>-dependent terms, making it algebraically impossible to isolate the variables on opposite sides using multiplication or division. Conversely, <span class="math inline">\(x+xy\)</span> can be factored into <span class="math inline">\(x(1+y)\)</span>, allowing us to cleanly separate the variables by dividing to obtain <span class="math inline">\(\frac{1}{1+y} dy = x \, dx\)</span>.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Lost Solutions and Division:</strong> In the example <span class="math inline">\((x^2 + 4)\frac{dy}{dx} = xy\)</span>, the first algebraic step is to divide both sides by <span class="math inline">\(y\)</span> to separate the variables. Analytically, division by zero is undefined.</p>
 <ul>
 <li>Explain why it is necessary to check if <span class="math inline">\(y=0\)</span> is a solution <em>before</em> performing this division.</li>
 <li>Geometrically, what does the solution <span class="math inline">\(y=0\)</span> look like on a graph, and how does it relate to the slope field along the x-axis?</li>
-</ul></li>
-<li><strong>Implicit vs.&nbsp;Explicit Solutions:</strong> The text notes that sometimes it is not feasible to solve for <span class="math inline">\(y\)</span> explicitly, resulting in an <em>implicit solution</em> (e.g., <span class="math inline">\(y^2 - \ln(y^2) + e^{x^2} = C\)</span>). Geometrically, an explicit function <span class="math inline">\(y=f(x)\)</span> must pass the vertical line test. Explain why an implicit solution curve derived from a differential equation might fail the vertical line test, yet still be a valid representation of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-71-contents" aria-controls="callout-71" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-71" class="callout-71-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> Dividing the equation by <span class="math inline">\(y\)</span> implicitly assumes <span class="math inline">\(y \neq 0\)</span>, which inadvertently deletes the valid equilibrium solution <span class="math inline">\(y=0\)</span> from the mathematical steps that follow. Geometrically, the solution <span class="math inline">\(y=0\)</span> is the <span class="math inline">\(x\)</span>-axis itself; if you plot the slope field, every segment along the <span class="math inline">\(x\)</span>-axis will be perfectly horizontal, confirming that a particle starting on the axis will never leave it.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Implicit vs.&nbsp;Explicit Solutions:</strong> The text notes that sometimes it is not feasible to solve for <span class="math inline">\(y\)</span> explicitly, resulting in an <em>implicit solution</em> (e.g., <span class="math inline">\(y^2 - \ln(y^2) + e^{x^2} = C\)</span>). Geometrically, an explicit function <span class="math inline">\(y=f(x)\)</span> must pass the vertical line test. Explain why an implicit solution curve derived from a differential equation might fail the vertical line test, yet still be a valid representation of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-72" class="callout-72-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> Differential equations describe the instantaneous rate of change at any arbitrary coordinate <span class="math inline">\((x,y)\)</span> in the plane, which easily governs continuous geometric shapes like circles or hyperbolas that naturally loop back over themselves. While an explicit function must restrict its domain and range to pass the vertical line test (providing only one <span class="math inline">\(y\)</span> for every <span class="math inline">\(x\)</span>), an implicit equation captures the complete, unedited geometric relationship defined by the slope field.</p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 <hr>
@@ -2351,7 +2416,7 @@ y &amp;= e^{-(1/x)+C_1} = Ce^{-1/x}
 <p>Determine if the following functions are homogeneous.</p>
 <p><strong>a)</strong> <span class="math inline">\(f(x, y) = x^2y - 4x^3 + 3xy^2\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-70-contents" aria-controls="callout-70" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-73-contents" aria-controls="callout-73" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2360,7 +2425,7 @@ y &amp;= e^{-(1/x)+C_1} = Ce^{-1/x}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-70" class="callout-70-contents callout-collapse collapse">
+<div id="callout-73" class="callout-73-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a homogeneous function of degree 3 because: <span class="math display">\[
 \begin{align*}
@@ -2375,7 +2440,7 @@ f(tx, ty) &amp;= (tx)^2(ty) - 4(tx)^3 + 3(tx)(ty)^2 \\
 </div>
 <p><strong>b)</strong> <span class="math inline">\(f(x, y) = xe^{x/y} + y \sin(y/x)\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-71-contents" aria-controls="callout-71" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-74-contents" aria-controls="callout-74" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2384,7 +2449,7 @@ f(tx, ty) &amp;= (tx)^2(ty) - 4(tx)^3 + 3(tx)(ty)^2 \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-71" class="callout-71-contents callout-collapse collapse">
+<div id="callout-74" class="callout-74-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a homogeneous function of degree 1 because: <span class="math display">\[
 \begin{align*}
@@ -2398,7 +2463,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 </div>
 <p><strong>c)</strong> <span class="math inline">\(f(x, y) = x + y^2\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-75-contents" aria-controls="callout-75" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2407,7 +2472,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-72" class="callout-72-contents callout-collapse collapse">
+<div id="callout-75" class="callout-75-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is not a homogeneous function because: <span class="math display">\[f(tx, ty) = tx + t^2y^2 = t(x + ty^2) \neq t^n(x + y^2)\]</span></p>
 </div>
@@ -2415,7 +2480,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 </div>
 <p><strong>d)</strong> <span class="math inline">\(f(x, y) = x/y\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-73-contents" aria-controls="callout-73" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-76-contents" aria-controls="callout-76" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2424,7 +2489,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-73" class="callout-73-contents callout-collapse collapse">
+<div id="callout-76" class="callout-76-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a homogeneous function of degree 0 because: <span class="math display">\[f(tx, ty) = \frac{tx}{ty} = t^0 \frac{x}{y}\]</span></p>
 </div>
@@ -2484,7 +2549,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 <div class="callout-body-container callout-body">
 <p>Find the general solution of: <span class="math display">\[(x^2 - y^2)dx + 3xy \, dy = 0\]</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-78-contents" aria-controls="callout-78" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-81-contents" aria-controls="callout-81" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2493,7 +2558,7 @@ f(tx, ty) &amp;= txe^{tx/ty} + ty \sin \left(\frac{ty}{tx}\right) \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-78" class="callout-78-contents callout-collapse collapse">
+<div id="callout-81" class="callout-81-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Because <span class="math inline">\((x^2-y^2)\)</span> and <span class="math inline">\(3xy\)</span> are both homogeneous of degree 2, let <span class="math inline">\(y=vx\)</span> to obtain <span class="math inline">\(dy=x \, dv + v \, dx\)</span>. Then, by substitution, you have:</p>
 <p><span class="math display">\[
@@ -2533,61 +2598,6 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 <ol type="1">
 <li><p>Determine whether the following functions are homogeneous. If they are, state the degree of the function. <strong>a)</strong> <span class="math inline">\(f(x,y) = x^3 + 3x^2y - y^3\)</span> <strong>b)</strong> <span class="math inline">\(f(x,y) = \frac{x^2 - y^2}{\sqrt{x^2+y^2}}\)</span> <strong>c)</strong> <span class="math inline">\(f(x,y) = x^2 + \sin(x+y)\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-80-contents" aria-controls="callout-80" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-80" class="callout-80-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> <strong>a)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = (tx)^3 + 3(tx)^2(ty) - (ty)^3\]</span> <span class="math display">\[f(tx,ty) = t^3x^3 + 3t^3x^2y - t^3y^3 = t^3(x^3 + 3x^2y - y^3) = t^3f(x,y)\]</span> Because <span class="math inline">\(f(tx,ty) = t^3f(x,y)\)</span>, the function is <strong>homogeneous of degree 3</strong>.</p>
-<p><strong>b)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = \frac{(tx)^2 - (ty)^2}{\sqrt{(tx)^2+(ty)^2}} = \frac{t^2(x^2 - y^2)}{\sqrt{t^2(x^2+y^2)}}\]</span> Recall that <span class="math inline">\(\sqrt{t^2} = |t|\)</span>. Therefore: <span class="math display">\[f(tx,ty) = \frac{t^2(x^2 - y^2)}{|t|\sqrt{x^2+y^2}} = \frac{t^2}{|t|} \left( \frac{x^2 - y^2}{\sqrt{x^2+y^2}} \right)\]</span> For <span class="math inline">\(t &gt; 0\)</span>, <span class="math inline">\(|t| = t\)</span>, which gives: <span class="math display">\[f(tx,ty) = \frac{t^2}{t} f(x,y) = t^1f(x,y)\]</span> Because this strictly holds for <span class="math inline">\(t &gt; 0\)</span>, the function is <strong>positively homogeneous of degree 1</strong>.</p>
-<p><strong>c)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = (tx)^2 + \sin(tx+ty) = t^2x^2 + \sin(t(x+y))\]</span> Because <span class="math inline">\(t\)</span> cannot be factored out to form <span class="math inline">\(t^n f(x,y)\)</span>, the function is <strong>not homogeneous</strong>.</p>
-</div>
-</div>
-</div></li>
-<li><p>Show that the differential equation <span class="math inline">\((x^2 + y^2)dx - 2xy \, dy = 0\)</span> is homogeneous, and find the general solution.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-81-contents" aria-controls="callout-81" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-81" class="callout-81-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> First, verify homogeneity. Let <span class="math inline">\(M(x,y) = x^2 + y^2\)</span> and <span class="math inline">\(N(x,y) = -2xy\)</span>: <span class="math display">\[M(tx,ty) = (tx)^2 + (ty)^2 = t^2(x^2+y^2) = t^2M(x,y)\]</span> <span class="math display">\[N(tx,ty) = -2(tx)(ty) = t^2(-2xy) = t^2N(x,y)\]</span> Both <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are homogeneous of degree 2, so the differential equation is homogeneous.</p>
-<p>Now, use the substitution <span class="math inline">\(y = vx\)</span>, which means <span class="math inline">\(dy = v\,dx + x\,dv\)</span>: <span class="math display">\[(x^2 + (vx)^2)dx - 2x(vx)(v\,dx + x\,dv) = 0\]</span> <span class="math display">\[x^2(1 + v^2)dx - 2x^2v^2 dx - 2x^3v\,dv = 0\]</span> Divide the entire equation by <span class="math inline">\(x^2\)</span>: <span class="math display">\[(1 + v^2 - 2v^2)dx - 2xv\,dv = 0\]</span> <span class="math display">\[(1 - v^2)dx = 2xv\,dv\]</span> Separate the variables: <span class="math display">\[\frac{1}{x} dx = \frac{2v}{1-v^2} dv\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{x} dx = \int \frac{2v}{1-v^2} dv\]</span> <span class="math display">\[\ln|x| = -\ln|1-v^2| + C_1\]</span> <span class="math display">\[\ln|x| + \ln|1-v^2| = C_1 \implies \ln|x(1-v^2)| = C_1\]</span> Exponentiate both sides (letting <span class="math inline">\(C = \pm e^{C_1}\)</span>): <span class="math display">\[x(1-v^2) = C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span> back into the equation: <span class="math display">\[x\left(1 - \frac{y^2}{x^2}\right) = C\]</span> <span class="math display">\[x - \frac{y^2}{x} = C\]</span> Multiply by <span class="math inline">\(x\)</span> to get the final general solution: <span class="math display">\[x^2 - y^2 = Cx\]</span></p>
-</div>
-</div>
-</div></li>
-<li><p>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{x+y}{2x}\)</span>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-82-contents" aria-controls="callout-82" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-82" class="callout-82-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Rewrite the equation as <span class="math inline">\(2x\,dy = (x+y)dx\)</span>, or <span class="math inline">\((x+y)dx - 2x\,dy = 0\)</span>.</p>
-<p>Use the substitution <span class="math inline">\(y = vx\)</span>, so <span class="math inline">\(dy = v\,dx + x\,dv\)</span>: <span class="math display">\[(x + vx)dx - 2x(v\,dx + x\,dv) = 0\]</span> <span class="math display">\[x(1+v)dx - 2xv\,dx - 2x^2 dv = 0\]</span> Divide by <span class="math inline">\(x\)</span>: <span class="math display">\[(1 + v - 2v)dx - 2x\,dv = 0\]</span> <span class="math display">\[(1 - v)dx = 2x\,dv\]</span> Separate the variables: <span class="math display">\[\frac{1}{2x} dx = \frac{1}{1-v} dv\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{2x} dx = \int \frac{1}{1-v} dv\]</span> <span class="math display">\[\frac{1}{2}\ln|x| = -\ln|1-v| + C_1\]</span> Multiply by 2: <span class="math display">\[\ln|x| = -2\ln|1-v| + 2C_1\]</span> <span class="math display">\[\ln|x| + \ln((1-v)^2) = C_2 \implies \ln|x(1-v)^2| = C_2\]</span> Exponentiate (letting <span class="math inline">\(C = e^{C_2}\)</span>): <span class="math display">\[x(1-v)^2 = C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span>: <span class="math display">\[x\left(1 - \frac{y}{x}\right)^2 = C\]</span> <span class="math display">\[x\left(\frac{x-y}{x}\right)^2 = C\]</span> <span class="math display">\[x \frac{(x-y)^2}{x^2} = C \implies \frac{(x-y)^2}{x} = C\]</span> Multiply by <span class="math inline">\(x\)</span> to find the general solution: <span class="math display">\[(x-y)^2 = Cx\]</span></p>
-</div>
-</div>
-</div></li>
-<li><p>Find the particular solution <span class="math inline">\(y=f(x)\)</span> to the differential equation <span class="math inline">\(xy' = y + \sqrt{x^2-y^2}\)</span> with the initial condition <span class="math inline">\(f(1) = 0\)</span>. (Assume <span class="math inline">\(x&gt;0\)</span>).</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-83-contents" aria-controls="callout-83" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -2599,11 +2609,13 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 </div>
 <div id="callout-83" class="callout-83-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Divide by <span class="math inline">\(x\)</span>: <span class="math display">\[y' = \frac{y}{x} + \frac{\sqrt{x^2-y^2}}{x}\]</span> Because we are given <span class="math inline">\(x &gt; 0\)</span>, we know <span class="math inline">\(x = \sqrt{x^2}\)</span>. We can rewrite the second term as: <span class="math display">\[\frac{\sqrt{x^2-y^2}}{\sqrt{x^2}} = \sqrt{\frac{x^2-y^2}{x^2}} = \sqrt{1 - \left(\frac{y}{x}\right)^2}\]</span> <span class="math display">\[y' = \frac{y}{x} + \sqrt{1 - \left(\frac{y}{x}\right)^2}\]</span> Use the substitution <span class="math inline">\(v = \frac{y}{x}\)</span>, so <span class="math inline">\(y = vx\)</span> and <span class="math inline">\(y' = v + xv'\)</span>: <span class="math display">\[v + xv' = v + \sqrt{1-v^2}\]</span> <span class="math display">\[xv' = \sqrt{1-v^2}\]</span> Separate variables: <span class="math display">\[\frac{1}{\sqrt{1-v^2}} dv = \frac{1}{x} dx\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{\sqrt{1-v^2}} dv = \int \frac{1}{x} dx\]</span> <span class="math display">\[\arcsin(v) = \ln|x| + C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span>: <span class="math display">\[\arcsin\left(\frac{y}{x}\right) = \ln|x| + C\]</span> Apply the initial condition <span class="math inline">\(x=1, y=0\)</span>: <span class="math display">\[\arcsin\left(\frac{0}{1}\right) = \ln|1| + C\]</span> <span class="math display">\[0 = 0 + C \implies C = 0\]</span> Substitute <span class="math inline">\(C=0\)</span> and solve for <span class="math inline">\(y\)</span>: <span class="math display">\[\arcsin\left(\frac{y}{x}\right) = \ln(x) \quad \text{(since $x&gt;0$)}\]</span> <span class="math display">\[\frac{y}{x} = \sin(\ln(x))\]</span> <span class="math display">\[y = x\sin(\ln(x))\]</span></p>
+<p><strong>Solution:</strong> <strong>a)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = (tx)^3 + 3(tx)^2(ty) - (ty)^3\]</span> <span class="math display">\[f(tx,ty) = t^3x^3 + 3t^3x^2y - t^3y^3 = t^3(x^3 + 3x^2y - y^3) = t^3f(x,y)\]</span> Because <span class="math inline">\(f(tx,ty) = t^3f(x,y)\)</span>, the function is <strong>homogeneous of degree 3</strong>.</p>
+<p><strong>b)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = \frac{(tx)^2 - (ty)^2}{\sqrt{(tx)^2+(ty)^2}} = \frac{t^2(x^2 - y^2)}{\sqrt{t^2(x^2+y^2)}}\]</span> Recall that <span class="math inline">\(\sqrt{t^2} = |t|\)</span>. Therefore: <span class="math display">\[f(tx,ty) = \frac{t^2(x^2 - y^2)}{|t|\sqrt{x^2+y^2}} = \frac{t^2}{|t|} \left( \frac{x^2 - y^2}{\sqrt{x^2+y^2}} \right)\]</span> For <span class="math inline">\(t &gt; 0\)</span>, <span class="math inline">\(|t| = t\)</span>, which gives: <span class="math display">\[f(tx,ty) = \frac{t^2}{t} f(x,y) = t^1f(x,y)\]</span> Because this strictly holds for <span class="math inline">\(t &gt; 0\)</span>, the function is <strong>positively homogeneous of degree 1</strong>.</p>
+<p><strong>c)</strong> Substitute <span class="math inline">\(tx\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(ty\)</span> for <span class="math inline">\(y\)</span>: <span class="math display">\[f(tx,ty) = (tx)^2 + \sin(tx+ty) = t^2x^2 + \sin(t(x+y))\]</span> Because <span class="math inline">\(t\)</span> cannot be factored out to form <span class="math inline">\(t^n f(x,y)\)</span>, the function is <strong>not homogeneous</strong>.</p>
 </div>
 </div>
 </div></li>
-<li><p>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{y}{x} + \sec\left(\frac{y}{x}\right)\)</span>.</p>
+<li><p>Show that the differential equation <span class="math inline">\((x^2 + y^2)dx - 2xy \, dy = 0\)</span> is homogeneous, and find the general solution.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-84-contents" aria-controls="callout-84" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2616,11 +2628,12 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 </div>
 <div id="callout-84" class="callout-84-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Use the substitution <span class="math inline">\(v = \frac{y}{x}\)</span>, so <span class="math inline">\(y = vx\)</span> and <span class="math inline">\(y' = v + xv'\)</span>: <span class="math display">\[v + xv' = v + \sec(v)\]</span> <span class="math display">\[xv' = \sec(v)\]</span> Separate variables: <span class="math display">\[\frac{1}{\sec(v)} dv = \frac{1}{x} dx\]</span> <span class="math display">\[\cos(v) dv = \frac{1}{x} dx\]</span> Integrate both sides: <span class="math display">\[\int \cos(v) dv = \int \frac{1}{x} dx\]</span> <span class="math display">\[\sin(v) = \ln|x| + C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span> back into the equation to find the general solution: <span class="math display">\[\sin\left(\frac{y}{x}\right) = \ln|x| + C\]</span></p>
+<p><strong>Solution:</strong> First, verify homogeneity. Let <span class="math inline">\(M(x,y) = x^2 + y^2\)</span> and <span class="math inline">\(N(x,y) = -2xy\)</span>: <span class="math display">\[M(tx,ty) = (tx)^2 + (ty)^2 = t^2(x^2+y^2) = t^2M(x,y)\]</span> <span class="math display">\[N(tx,ty) = -2(tx)(ty) = t^2(-2xy) = t^2N(x,y)\]</span> Both <span class="math inline">\(M\)</span> and <span class="math inline">\(N\)</span> are homogeneous of degree 2, so the differential equation is homogeneous.</p>
+<p>Now, use the substitution <span class="math inline">\(y = vx\)</span>, which means <span class="math inline">\(dy = v\,dx + x\,dv\)</span>: <span class="math display">\[(x^2 + (vx)^2)dx - 2x(vx)(v\,dx + x\,dv) = 0\]</span> <span class="math display">\[x^2(1 + v^2)dx - 2x^2v^2 dx - 2x^3v\,dv = 0\]</span> Divide the entire equation by <span class="math inline">\(x^2\)</span>: <span class="math display">\[(1 + v^2 - 2v^2)dx - 2xv\,dv = 0\]</span> <span class="math display">\[(1 - v^2)dx = 2xv\,dv\]</span> Separate the variables: <span class="math display">\[\frac{1}{x} dx = \frac{2v}{1-v^2} dv\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{x} dx = \int \frac{2v}{1-v^2} dv\]</span> <span class="math display">\[\ln|x| = -\ln|1-v^2| + C_1\]</span> <span class="math display">\[\ln|x| + \ln|1-v^2| = C_1 \implies \ln|x(1-v^2)| = C_1\]</span> Exponentiate both sides (letting <span class="math inline">\(C = \pm e^{C_1}\)</span>): <span class="math display">\[x(1-v^2) = C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span> back into the equation: <span class="math display">\[x\left(1 - \frac{y^2}{x^2}\right) = C\]</span> <span class="math display">\[x - \frac{y^2}{x} = C\]</span> Multiply by <span class="math inline">\(x\)</span> to get the final general solution: <span class="math display">\[x^2 - y^2 = Cx\]</span></p>
 </div>
 </div>
 </div></li>
-<li><p>Consider the differential equation <span class="math inline">\((y^2 + xy)dx - x^2 \, dy = 0\)</span>. <strong>a)</strong> Verify that the differential equation is homogeneous. <strong>b)</strong> Solve the differential equation by using the substitution <span class="math inline">\(y=vx\)</span>. <strong>c)</strong> Verify your solution from part (b) by using the substitution <span class="math inline">\(x=uy\)</span>.</p>
+<li><p>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{x+y}{2x}\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-85-contents" aria-controls="callout-85" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2632,6 +2645,58 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-85" class="callout-85-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Rewrite the equation as <span class="math inline">\(2x\,dy = (x+y)dx\)</span>, or <span class="math inline">\((x+y)dx - 2x\,dy = 0\)</span>.</p>
+<p>Use the substitution <span class="math inline">\(y = vx\)</span>, so <span class="math inline">\(dy = v\,dx + x\,dv\)</span>: <span class="math display">\[(x + vx)dx - 2x(v\,dx + x\,dv) = 0\]</span> <span class="math display">\[x(1+v)dx - 2xv\,dx - 2x^2 dv = 0\]</span> Divide by <span class="math inline">\(x\)</span>: <span class="math display">\[(1 + v - 2v)dx - 2x\,dv = 0\]</span> <span class="math display">\[(1 - v)dx = 2x\,dv\]</span> Separate the variables: <span class="math display">\[\frac{1}{2x} dx = \frac{1}{1-v} dv\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{2x} dx = \int \frac{1}{1-v} dv\]</span> <span class="math display">\[\frac{1}{2}\ln|x| = -\ln|1-v| + C_1\]</span> Multiply by 2: <span class="math display">\[\ln|x| = -2\ln|1-v| + 2C_1\]</span> <span class="math display">\[\ln|x| + \ln((1-v)^2) = C_2 \implies \ln|x(1-v)^2| = C_2\]</span> Exponentiate (letting <span class="math inline">\(C = e^{C_2}\)</span>): <span class="math display">\[x(1-v)^2 = C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span>: <span class="math display">\[x\left(1 - \frac{y}{x}\right)^2 = C\]</span> <span class="math display">\[x\left(\frac{x-y}{x}\right)^2 = C\]</span> <span class="math display">\[x \frac{(x-y)^2}{x^2} = C \implies \frac{(x-y)^2}{x} = C\]</span> Multiply by <span class="math inline">\(x\)</span> to find the general solution: <span class="math display">\[(x-y)^2 = Cx\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the particular solution <span class="math inline">\(y=f(x)\)</span> to the differential equation <span class="math inline">\(xy' = y + \sqrt{x^2-y^2}\)</span> with the initial condition <span class="math inline">\(f(1) = 0\)</span>. (Assume <span class="math inline">\(x&gt;0\)</span>).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-86-contents" aria-controls="callout-86" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-86" class="callout-86-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Divide by <span class="math inline">\(x\)</span>: <span class="math display">\[y' = \frac{y}{x} + \frac{\sqrt{x^2-y^2}}{x}\]</span> Because we are given <span class="math inline">\(x &gt; 0\)</span>, we know <span class="math inline">\(x = \sqrt{x^2}\)</span>. We can rewrite the second term as: <span class="math display">\[\frac{\sqrt{x^2-y^2}}{\sqrt{x^2}} = \sqrt{\frac{x^2-y^2}{x^2}} = \sqrt{1 - \left(\frac{y}{x}\right)^2}\]</span> <span class="math display">\[y' = \frac{y}{x} + \sqrt{1 - \left(\frac{y}{x}\right)^2}\]</span> Use the substitution <span class="math inline">\(v = \frac{y}{x}\)</span>, so <span class="math inline">\(y = vx\)</span> and <span class="math inline">\(y' = v + xv'\)</span>: <span class="math display">\[v + xv' = v + \sqrt{1-v^2}\]</span> <span class="math display">\[xv' = \sqrt{1-v^2}\]</span> Separate variables: <span class="math display">\[\frac{1}{\sqrt{1-v^2}} dv = \frac{1}{x} dx\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{\sqrt{1-v^2}} dv = \int \frac{1}{x} dx\]</span> <span class="math display">\[\arcsin(v) = \ln|x| + C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span>: <span class="math display">\[\arcsin\left(\frac{y}{x}\right) = \ln|x| + C\]</span> Apply the initial condition <span class="math inline">\(x=1, y=0\)</span>: <span class="math display">\[\arcsin\left(\frac{0}{1}\right) = \ln|1| + C\]</span> <span class="math display">\[0 = 0 + C \implies C = 0\]</span> Substitute <span class="math inline">\(C=0\)</span> and solve for <span class="math inline">\(y\)</span>: <span class="math display">\[\arcsin\left(\frac{y}{x}\right) = \ln(x) \quad \text{(since $x&gt;0$)}\]</span> <span class="math display">\[\frac{y}{x} = \sin(\ln(x))\]</span> <span class="math display">\[y = x\sin(\ln(x))\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the general solution of the differential equation <span class="math inline">\(y' = \frac{y}{x} + \sec\left(\frac{y}{x}\right)\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-87-contents" aria-controls="callout-87" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-87" class="callout-87-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the substitution <span class="math inline">\(v = \frac{y}{x}\)</span>, so <span class="math inline">\(y = vx\)</span> and <span class="math inline">\(y' = v + xv'\)</span>: <span class="math display">\[v + xv' = v + \sec(v)\]</span> <span class="math display">\[xv' = \sec(v)\]</span> Separate variables: <span class="math display">\[\frac{1}{\sec(v)} dv = \frac{1}{x} dx\]</span> <span class="math display">\[\cos(v) dv = \frac{1}{x} dx\]</span> Integrate both sides: <span class="math display">\[\int \cos(v) dv = \int \frac{1}{x} dx\]</span> <span class="math display">\[\sin(v) = \ln|x| + C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span> back into the equation to find the general solution: <span class="math display">\[\sin\left(\frac{y}{x}\right) = \ln|x| + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Consider the differential equation <span class="math inline">\((y^2 + xy)dx - x^2 \, dy = 0\)</span>. <strong>a)</strong> Verify that the differential equation is homogeneous. <strong>b)</strong> Solve the differential equation by using the substitution <span class="math inline">\(y=vx\)</span>. <strong>c)</strong> Verify your solution from part (b) by using the substitution <span class="math inline">\(x=uy\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-88-contents" aria-controls="callout-88" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-88" class="callout-88-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>a)</strong> Let <span class="math inline">\(M(x,y) = y^2 + xy\)</span> and <span class="math inline">\(N(x,y) = -x^2\)</span>: <span class="math display">\[M(tx,ty) = (ty)^2 + (tx)(ty) = t^2y^2 + t^2xy = t^2(y^2+xy) = t^2M(x,y)\]</span> <span class="math display">\[N(tx,ty) = -(tx)^2 = -t^2x^2 = t^2N(x,y)\]</span> Both terms are homogeneous of degree 2, verifying the differential equation is homogeneous.</p>
 <p><strong>b)</strong> Substitute <span class="math inline">\(y = vx\)</span> and <span class="math inline">\(dy = v\,dx + x\,dv\)</span>: <span class="math display">\[((vx)^2 + x(vx))dx - x^2(v\,dx + x\,dv) = 0\]</span> <span class="math display">\[(v^2x^2 + vx^2)dx - x^2v\,dx - x^3 dv = 0\]</span> Divide by <span class="math inline">\(x^2\)</span>: <span class="math display">\[(v^2 + v)dx - v\,dx - x\,dv = 0\]</span> <span class="math display">\[v^2 dx = x\,dv\]</span> Separate variables: <span class="math display">\[\frac{1}{x} dx = \frac{1}{v^2} dv\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{x} dx = \int v^{-2} dv\]</span> <span class="math display">\[\ln|x| = -\frac{1}{v} + C\]</span> Substitute <span class="math inline">\(v = \frac{y}{x}\)</span>: <span class="math display">\[\ln|x| = -\frac{x}{y} + C \implies \frac{x}{y} = C - \ln|x|\]</span> <span class="math display">\[y = \frac{x}{C - \ln|x|}\]</span></p>
@@ -2645,15 +2710,61 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 <h4 class="anchored" data-anchor-id="conceptual-questions-3">Conceptual Questions</h4>
 <p><em>Answer the following in 1-3 complete sentences.</em></p>
 <ol type="1">
-<li><strong>Recognizing Homogeneity Algebraically:</strong> Analytically, the formal test for a homogeneous function is <span class="math inline">\(f(tx, ty) = t^n f(x,y)\)</span>. However, for polynomial functions, you can often determine homogeneity by inspecting the exponents. In the expression <span class="math inline">\(x^2y - 4x^3 + 3xy^2\)</span>, every term has a “total degree” (sum of exponents) of 3. Explain why an expression like <span class="math inline">\(x^3 + xy\)</span> fails this test and therefore prevents the differential equation from being solved using the homogeneous method.</li>
-<li><strong>The Purpose of the Substitution:</strong> The text introduces the substitution <span class="math inline">\(y = vx\)</span> (and consequently <span class="math inline">\(dy = v\,dx + x\,dv\)</span>). In the context of solving differential equations, we often use substitutions to simplify an integral. However, in this specific context, what is the primary structural change that occurs to the differential equation after substituting and simplifying?
-<ol type="a">
-<li>It transforms a linear equation into a quadratic one.</li>
-<li>It transforms a non-separable equation into a separable one.</li>
-<li>It eliminates the differential <span class="math inline">\(dx\)</span> entirely.</li>
-<li>It makes the equation homogeneous of degree 0.</li>
-</ol></li>
-<li><strong>Geometric Behavior of Homogeneous Slopes:</strong> Many homogeneous differential equations can be rewritten in the form <span class="math inline">\(y' = F\left(\frac{y}{x}\right)\)</span>. Analytically, this means the slope depends only on the ratio of the coordinates, not their individual magnitudes. Geometrically, the ratio <span class="math inline">\(\frac{y}{x}\)</span> is constant along any line passing through the origin. Looking at a slope field for a homogeneous equation, what characteristic pattern should appear along any straight line radiating from the origin?</li>
+<li><p><strong>Recognizing Homogeneity Algebraically:</strong> Analytically, the formal test for a homogeneous function is <span class="math inline">\(f(tx, ty) = t^n f(x,y)\)</span>. However, for polynomial functions, you can often determine homogeneity by inspecting the exponents. In the expression <span class="math inline">\(x^2y - 4x^3 + 3xy^2\)</span>, every term has a “total degree” (sum of exponents) of 3. Explain why an expression like <span class="math inline">\(x^3 + xy\)</span> fails this test and therefore prevents the differential equation from being solved using the homogeneous method.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-89-contents" aria-controls="callout-89" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-89" class="callout-89-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> The expression <span class="math inline">\(x^3 + xy\)</span> consists of terms with mismatched total degrees (the first term is degree 3, while the second term <span class="math inline">\(x^1y^1\)</span> is degree 2). When applying the formal test <span class="math inline">\(f(tx, ty)\)</span>, this results in <span class="math inline">\(t^3x^3 + t^2xy\)</span>, making it algebraically impossible to factor out a single, uniform <span class="math inline">\(t^n\)</span> term. Because the terms do not scale uniformly together, the substitution method will fail to separate the variables later in the process.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>The Purpose of the Substitution:</strong> The text introduces the substitution <span class="math inline">\(y = vx\)</span> (and consequently <span class="math inline">\(dy = v\,dx + x\,dv\)</span>). In the context of solving differential equations, we often use substitutions to simplify an integral. However, in this specific context, what is the primary structural change that occurs to the differential equation after substituting and simplifying?</p>
+<p><strong>(A)</strong> It transforms a linear equation into a quadratic one.</p>
+<p><strong>(B)</strong> It transforms a non-separable equation into a separable one.</p>
+<p><strong>(C)</strong> It eliminates the differential <span class="math inline">\(dx\)</span> entirely.</p>
+<p><strong>(D)</strong> It makes the equation homogeneous of degree 0.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-90-contents" aria-controls="callout-90" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-90" class="callout-90-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> <strong>(B)</strong>. The entire purpose of the <span class="math inline">\(y=vx\)</span> substitution in this context is to take a differential equation where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are inextricably mixed (non-separable) and structurally transform it into a new equation where the variables <span class="math inline">\(x\)</span> and <span class="math inline">\(v\)</span> can be successfully separated onto opposite sides of the equals sign for integration.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Geometric Behavior of Homogeneous Slopes:</strong> Many homogeneous differential equations can be rewritten in the form <span class="math inline">\(y' = F\left(\frac{y}{x}\right)\)</span>. Analytically, this means the slope depends only on the ratio of the coordinates, not their individual magnitudes. Geometrically, the ratio <span class="math inline">\(\frac{y}{x}\)</span> is constant along any line passing through the origin. Looking at a slope field for a homogeneous equation, what characteristic pattern should appear along any straight line radiating from the origin?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-91-contents" aria-controls="callout-91" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Possible Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-91" class="callout-91-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Possible Answer:</strong> Because the ratio <span class="math inline">\(\frac{y}{x}\)</span> remains perfectly constant along any straight line radiating outward from the origin, the slope field will display perfectly identical, parallel slope segments everywhere along that specific radial line. If you were to trace any single straight “spoke” moving outward from the origin, the steepness of the field segments you encounter would never change.</p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 <hr>
@@ -2672,7 +2783,7 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 <div class="callout-body-container callout-body">
 <p>The rate of change of the number of coyotes <span class="math inline">\(N(t)\)</span> in a population is directly proportional to <span class="math inline">\(650 - N(t)\)</span>, where <span class="math inline">\(t\)</span> is the time in years. When <span class="math inline">\(t = 0\)</span>, the population is 300, and when <span class="math inline">\(t = 2\)</span>, the population has increased to 500. Find the population when <span class="math inline">\(t = 3\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-86-contents" aria-controls="callout-86" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-92-contents" aria-controls="callout-92" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2681,7 +2792,7 @@ x^4 &amp;= C\left[1 + 2\left(\frac{y}{x}\right)^2\right]^{-3} \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-86" class="callout-86-contents callout-collapse collapse">
+<div id="callout-92" class="callout-92-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Because the rate of change of the population is proportional to <span class="math inline">\(650 - N(t)\)</span>, you can write the following differential equation: <span class="math display">\[\frac{dN}{dt} = k(650 - N)\]</span></p>
 <p>You can solve this equation using separation of variables: <span class="math display">\[
@@ -2725,7 +2836,7 @@ N &amp;= 650 - Ce^{-kt} \qquad &amp;&amp; \text{(General solution)}
 <div class="callout-body-container callout-body">
 <p>Describe the orthogonal trajectories for the family of curves given by: <span class="math display">\[y = \frac{C}{x}\]</span> for <span class="math inline">\(C \neq 0\)</span>. Sketch several members of each family.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-88-contents" aria-controls="callout-88" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-94-contents" aria-controls="callout-94" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2734,7 +2845,7 @@ N &amp;= 650 - Ce^{-kt} \qquad &amp;&amp; \text{(General solution)}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-88" class="callout-88-contents callout-collapse collapse">
+<div id="callout-94" class="callout-94-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First, solve the given equation for <span class="math inline">\(C\)</span> and write <span class="math inline">\(xy=C\)</span>. Then, by differentiating implicitly with respect to <span class="math inline">\(x\)</span>, you obtain the differential equation:</p>
 <p><span class="math display">\[
@@ -2769,7 +2880,7 @@ y^2 - x^2 &amp;= K
 <ol type="1">
 <li><p>A boiled potato is taken from a pot on a stove and left to cool in a kitchen. The internal temperature of the potato is <span class="math inline">\(91^\circ\)</span>C at time <span class="math inline">\(t=0\)</span>, and the room temperature of the kitchen is a constant <span class="math inline">\(27^\circ\)</span>C. The internal temperature of the potato at time <span class="math inline">\(t\)</span> minutes can be modeled by the function <span class="math inline">\(H\)</span> that satisfies the differential equation <span class="math inline">\(\frac{dH}{dt} = -\frac{1}{4}(H - 27)\)</span>. Find an expression for <span class="math inline">\(H(t)\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-90-contents" aria-controls="callout-90" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-96-contents" aria-controls="callout-96" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2778,7 +2889,7 @@ y^2 - x^2 &amp;= K
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-90" class="callout-90-contents callout-collapse collapse">
+<div id="callout-96" class="callout-96-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> Separate the variables: <span class="math display">\[\frac{1}{H - 27} \, dH = -\frac{1}{4} \, dt\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{H - 27} \, dH = \int -\frac{1}{4} \, dt\]</span> <span class="math display">\[\ln|H - 27| = -\frac{1}{4}t + C_1\]</span> Exponentiate both sides to solve for <span class="math inline">\(H\)</span>: <span class="math display">\[|H - 27| = e^{-\frac{1}{4}t + C_1} = C e^{-\frac{1}{4}t}\]</span> Since the initial temperature is 91°C and the room temperature is 27°C, the potato is cooling down to the room temperature, meaning <span class="math inline">\(H(t) &gt; 27\)</span> for all <span class="math inline">\(t \ge 0\)</span>. Therefore, we can drop the absolute value: <span class="math display">\[H - 27 = C e^{-\frac{1}{4}t}\]</span> <span class="math display">\[H(t) = 27 + C e^{-\frac{1}{4}t}\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(H = 91\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[91 = 27 + C e^{0}\]</span> <span class="math display">\[91 = 27 + C \implies C = 64\]</span> Substitute <span class="math inline">\(C = 64\)</span> back into the equation: <span class="math display">\[H(t) = 27 + 64e^{-\frac{1}{4}t}\]</span></p>
 </div>
@@ -2786,7 +2897,7 @@ y^2 - x^2 &amp;= K
 </div></li>
 <li><p>Water is draining from a cylindrical barrel. The height <span class="math inline">\(h\)</span> of the water, in meters, changes at a rate modeled by the differential equation <span class="math inline">\(\frac{dh}{dt} = -\frac{1}{10}\sqrt{h}\)</span>, where <span class="math inline">\(t\)</span> is the time in days. At time <span class="math inline">\(t=0\)</span>, the height of the water is 4 meters. <strong>a)</strong> Find the particular solution <span class="math inline">\(h(t)\)</span> to the differential equation. <strong>b)</strong> According to the model, at what time <span class="math inline">\(t\)</span> will the barrel be completely empty?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-91-contents" aria-controls="callout-91" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-97-contents" aria-controls="callout-97" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2795,7 +2906,7 @@ y^2 - x^2 &amp;= K
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-91" class="callout-91-contents callout-collapse collapse">
+<div id="callout-97" class="callout-97-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>a)</strong> Separate the variables, writing <span class="math inline">\(\sqrt{h}\)</span> as <span class="math inline">\(h^{1/2}\)</span>: <span class="math display">\[h^{-1/2} \, dh = -\frac{1}{10} \, dt\]</span> Integrate both sides: <span class="math display">\[\int h^{-1/2} \, dh = \int -\frac{1}{10} \, dt\]</span> <span class="math display">\[2h^{1/2} = -\frac{1}{10}t + C\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(h = 4\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[2\sqrt{4} = -\frac{1}{10}(0) + C\]</span> <span class="math display">\[2(2) = C \implies C = 4\]</span> Substitute <span class="math inline">\(C = 4\)</span> into the equation and solve for <span class="math inline">\(h\)</span>: <span class="math display">\[2\sqrt{h} = -\frac{1}{10}t + 4\]</span> <span class="math display">\[\sqrt{h} = -\frac{1}{20}t + 2\]</span> <span class="math display">\[h(t) = \left(2 - \frac{1}{20}t\right)^2\]</span></p>
 <p><strong>b)</strong> The barrel is completely empty when the height <span class="math inline">\(h(t) = 0\)</span>: <span class="math display">\[0 = \left(2 - \frac{1}{20}t\right)^2\]</span> <span class="math display">\[0 = 2 - \frac{1}{20}t\]</span> <span class="math display">\[\frac{1}{20}t = 2 \implies t = 40\]</span> The barrel will be completely empty at <span class="math inline">\(t = 40\)</span> days.</p>
@@ -2804,7 +2915,7 @@ y^2 - x^2 &amp;= K
 </div></li>
 <li><p>A population of insects in a controlled environment grows at a rate modeled by the differential equation <span class="math inline">\(\frac{dP}{dt} = \frac{1}{5}(1000 - P)\)</span>, where <span class="math inline">\(P\)</span> is the number of insects and <span class="math inline">\(t\)</span> is the time in days. At time <span class="math inline">\(t=0\)</span>, there are 200 insects. <strong>a)</strong> Find the particular solution <span class="math inline">\(P(t)\)</span> to the differential equation. <strong>b)</strong> Evaluate <span class="math inline">\(\lim_{t \to \infty} P(t)\)</span> and interpret the meaning of this limit in the context of the problem.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-92-contents" aria-controls="callout-92" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-98-contents" aria-controls="callout-98" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2813,7 +2924,7 @@ y^2 - x^2 &amp;= K
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-92" class="callout-92-contents callout-collapse collapse">
+<div id="callout-98" class="callout-98-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>a)</strong> Separate the variables: <span class="math display">\[\frac{1}{1000 - P} \, dP = \frac{1}{5} \, dt\]</span> Integrate both sides (be careful with the negative sign from the chain rule): <span class="math display">\[\int \frac{1}{1000 - P} \, dP = \int \frac{1}{5} \, dt\]</span> <span class="math display">\[-\ln|1000 - P| = \frac{1}{5}t + C_1\]</span> <span class="math display">\[\ln|1000 - P| = -\frac{1}{5}t - C_1\]</span> Exponentiate both sides: <span class="math display">\[|1000 - P| = e^{-\frac{1}{5}t - C_1} = C e^{-\frac{1}{5}t}\]</span> Because the initial population is 200, which is less than 1000, <span class="math inline">\(1000 - P\)</span> is positive. We can drop the absolute value: <span class="math display">\[1000 - P = C e^{-\frac{1}{5}t}\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(P = 200\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[1000 - 200 = C e^{0} \implies C = 800\]</span> Substitute <span class="math inline">\(C = 800\)</span> and solve for <span class="math inline">\(P\)</span>: <span class="math display">\[1000 - P = 800e^{-\frac{1}{5}t}\]</span> <span class="math display">\[P(t) = 1000 - 800e^{-\frac{1}{5}t}\]</span></p>
 <p><strong>b)</strong> Evaluate the limit as <span class="math inline">\(t\)</span> approaches infinity: <span class="math display">\[\lim_{t \to \infty} \left( 1000 - 800e^{-\frac{1}{5}t} \right)\]</span> As <span class="math inline">\(t \to \infty\)</span>, the term <span class="math inline">\(e^{-\frac{1}{5}t} \to 0\)</span>. Therefore: <span class="math display">\[\lim_{t \to \infty} P(t) = 1000 - 800(0) = 1000\]</span> <strong>Interpretation:</strong> As time goes on indefinitely, the insect population will level off and approach a maximum carrying capacity of 1,000 insects.</p>
@@ -2848,7 +2959,7 @@ y^2 - x^2 &amp;= K
 <div class="callout-body-container callout-body">
 <p>Solve the logistic differential equation <span class="math inline">\(\displaystyle \frac{dy}{dt} = ky\left(1 - \frac{y}{L}\right)\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-93-contents" aria-controls="callout-93" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-99-contents" aria-controls="callout-99" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2857,7 +2968,7 @@ y^2 - x^2 &amp;= K
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-93" class="callout-93-contents callout-collapse collapse">
+<div id="callout-99" class="callout-99-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Begin by separating variables.</p>
 <p><span class="math display">\[
@@ -2899,7 +3010,7 @@ y^2 - x^2 &amp;= K
 <li>Find the limit of the model as <span class="math inline">\(t\to \infty\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-95-contents" aria-controls="callout-95" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-101-contents" aria-controls="callout-101" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2908,7 +3019,7 @@ y^2 - x^2 &amp;= K
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-95" class="callout-95-contents callout-collapse collapse">
+<div id="callout-101" class="callout-101-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>You know that <span class="math inline">\(L=4000\)</span>. So, the solution of the equation is of the form: <span class="math display">\[p = \frac{4000}{1 + be^{-kt}}\]</span></p>
@@ -3012,7 +3123,7 @@ p &amp;= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
 <div class="callout-body-container callout-body">
 <p>Find the General Solution of <span class="math inline">\(y' + y = e^x\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-99-contents" aria-controls="callout-99" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-105-contents" aria-controls="callout-105" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3021,7 +3132,7 @@ p &amp;= \frac{4000}{1+99e^{-2.91}} \approx 626 \text{ elk}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-99" class="callout-99-contents callout-collapse collapse">
+<div id="callout-105" class="callout-105-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For this equation, <span class="math inline">\(P(x) = 1\)</span> and <span class="math inline">\(Q(x) = e^x\)</span>. So, the integrating factor is: <span class="math display">\[
 \begin{align*}
@@ -3068,7 +3179,7 @@ y &amp;= \frac{1}{u(x)} \int Q(x)u(x) \, dx \\
 <div class="callout-body-container callout-body">
 <p>Find the general solution of <span class="math inline">\(xy' -2y = x^2\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-102-contents" aria-controls="callout-102" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-108-contents" aria-controls="callout-108" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3077,7 +3188,7 @@ y &amp;= \frac{1}{u(x)} \int Q(x)u(x) \, dx \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-102" class="callout-102-contents callout-collapse collapse">
+<div id="callout-108" class="callout-108-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The standard form of the given equation is: <span class="math display">\[
 \begin{align*}
@@ -3121,7 +3232,7 @@ y &amp;= x^2(\ln |x| +C) \qquad \text{(General Solution)}
 <div class="callout-body-container callout-body">
 <p>Find the general solution of <span class="math inline">\(y'-y \tan(t) = 1, \quad -\frac{\pi}{2} &lt; t &lt; \frac{\pi}{2}\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-104-contents" aria-controls="callout-104" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-110-contents" aria-controls="callout-110" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3130,7 +3241,7 @@ y &amp;= x^2(\ln |x| +C) \qquad \text{(General Solution)}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-104" class="callout-104-contents callout-collapse collapse">
+<div id="callout-110" class="callout-110-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The equation is already in the standard form <span class="math inline">\(y' + P(t)y = Q(t)\)</span>. So, <span class="math inline">\(P(t) = -\tan(t)\)</span>, and: <span class="math display">\[\int P(t) \, dt = - \int \tan(t) \, dt = \ln|\cos(t)|\]</span></p>
 <p>which implies that the integrating factor is: <span class="math display">\[
@@ -3158,7 +3269,7 @@ y &amp;= \tan(t) + C\sec(t)
 <ol type="1">
 <li><p>Find the general solution to the differential equation <span class="math inline">\(y' + 3y = e^{-3x}\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-106-contents" aria-controls="callout-106" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-112-contents" aria-controls="callout-112" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3167,7 +3278,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-106" class="callout-106-contents callout-collapse collapse">
+<div id="callout-112" class="callout-112-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> The equation is already in the standard linear form <span class="math inline">\(y' + P(x)y = Q(x)\)</span>, with <span class="math inline">\(P(x) = 3\)</span> and <span class="math inline">\(Q(x) = e^{-3x}\)</span>. First, find the integrating factor <span class="math inline">\(u(x)\)</span>: <span class="math display">\[u(x) = e^{\int P(x) \, dx} = e^{\int 3 \, dx} = e^{3x}\]</span> Multiply the entire differential equation by the integrating factor: <span class="math display">\[e^{3x}(y' + 3y) = e^{3x}(e^{-3x})\]</span> <span class="math display">\[e^{3x}y' + 3e^{3x}y = e^0\]</span> <span class="math display">\[e^{3x}y' + 3e^{3x}y = 1\]</span> Condense the left side using the reverse product rule: <span class="math display">\[(e^{3x}y)' = 1\]</span> Integrate both sides with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[\int (e^{3x}y)' \, dx = \int 1 \, dx\]</span> <span class="math display">\[e^{3x}y = x + C\]</span> Solve for <span class="math inline">\(y\)</span> to find the general solution: <span class="math display">\[y = \frac{x + C}{e^{3x}} = xe^{-3x} + Ce^{-3x}\]</span></p>
 </div>
@@ -3175,7 +3286,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div></li>
 <li><p>Find the general solution to the differential equation <span class="math inline">\(x \frac{dy}{dx} + 2y = x^2 - x + 1\)</span> for <span class="math inline">\(x &gt; 0\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-107-contents" aria-controls="callout-107" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-113-contents" aria-controls="callout-113" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3184,7 +3295,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-107" class="callout-107-contents callout-collapse collapse">
+<div id="callout-113" class="callout-113-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> Divide the entire equation by <span class="math inline">\(x\)</span> to get it into the standard form <span class="math inline">\(y' + P(x)y = Q(x)\)</span>: <span class="math display">\[\frac{dy}{dx} + \frac{2}{x}y = x - 1 + \frac{1}{x}\]</span> Identify <span class="math inline">\(P(x) = \frac{2}{x}\)</span> and find the integrating factor <span class="math inline">\(u(x)\)</span>: <span class="math display">\[u(x) = e^{\int \frac{2}{x} \, dx} = e^{2\ln|x|} = e^{\ln(x^2)} = x^2\]</span> Multiply the standard form equation by <span class="math inline">\(x^2\)</span>: <span class="math display">\[x^2\left(\frac{dy}{dx} + \frac{2}{x}y\right) = x^2\left(x - 1 + \frac{1}{x}\right)\]</span> <span class="math display">\[x^2 y' + 2xy = x^3 - x^2 + x\]</span> Condense the left side using the reverse product rule: <span class="math display">\[(x^2 y)' = x^3 - x^2 + x\]</span> Integrate both sides with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[\int (x^2 y)' \, dx = \int (x^3 - x^2 + x) \, dx\]</span> <span class="math display">\[x^2 y = \frac{x^4}{4} - \frac{x^3}{3} + \frac{x^2}{2} + C\]</span> Solve for <span class="math inline">\(y\)</span> to find the general solution: <span class="math display">\[y = \frac{x^2}{4} - \frac{x}{3} + \frac{1}{2} + Cx^{-2}\]</span></p>
 </div>
@@ -3192,7 +3303,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div></li>
 <li><p>Find the particular solution <span class="math inline">\(y = f(x)\)</span> to the differential equation <span class="math inline">\(y' - \frac{2}{x}y = x^3\)</span> with the initial condition <span class="math inline">\(f(1) = 0\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-108-contents" aria-controls="callout-108" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-114-contents" aria-controls="callout-114" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3201,7 +3312,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-108" class="callout-108-contents callout-collapse collapse">
+<div id="callout-114" class="callout-114-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> The equation is in standard form with <span class="math inline">\(P(x) = -\frac{2}{x}\)</span>. Find the integrating factor <span class="math inline">\(u(x)\)</span>: <span class="math display">\[u(x) = e^{\int -\frac{2}{x} \, dx} = e^{-2\ln|x|} = e^{\ln(x^{-2})} = x^{-2}\]</span> Multiply the differential equation by <span class="math inline">\(x^{-2}\)</span>: <span class="math display">\[x^{-2}\left(y' - \frac{2}{x}y\right) = x^{-2}(x^3)\]</span> <span class="math display">\[x^{-2}y' - 2x^{-3}y = x\]</span> Condense the left side using the reverse product rule: <span class="math display">\[(x^{-2}y)' = x\]</span> Integrate both sides with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[\int (x^{-2}y)' \, dx = \int x \, dx\]</span> <span class="math display">\[x^{-2}y = \frac{x^2}{2} + C\]</span> Multiply by <span class="math inline">\(x^2\)</span> to solve for the general solution <span class="math inline">\(y\)</span>: <span class="math display">\[y = \frac{x^4}{2} + Cx^2\]</span> Apply the initial condition <span class="math inline">\(x = 1, y = 0\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[0 = \frac{(1)^4}{2} + C(1)^2\]</span> <span class="math display">\[0 = \frac{1}{2} + C \implies C = -\frac{1}{2}\]</span> Substitute <span class="math inline">\(C = -\frac{1}{2}\)</span> back into the general equation to find the particular solution: <span class="math display">\[y = \frac{x^4}{2} - \frac{x^2}{2}\]</span></p>
 </div>
@@ -3209,7 +3320,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div></li>
 <li><p>Find the particular solution to the differential equation <span class="math inline">\(\cos(x)y' + \sin(x)y = 1\)</span> with the initial condition <span class="math inline">\(y(0) = 5\)</span>. Assume <span class="math inline">\(-\frac{\pi}{2} &lt; x &lt; \frac{\pi}{2}\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-109-contents" aria-controls="callout-109" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-115-contents" aria-controls="callout-115" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3218,7 +3329,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-109" class="callout-109-contents callout-collapse collapse">
+<div id="callout-115" class="callout-115-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> Divide by <span class="math inline">\(\cos(x)\)</span> to get the equation into standard form: <span class="math display">\[y' + \frac{\sin(x)}{\cos(x)}y = \frac{1}{\cos(x)}\]</span> <span class="math display">\[y' + \tan(x)y = \sec(x)\]</span> Identify <span class="math inline">\(P(x) = \tan(x)\)</span> and find the integrating factor <span class="math inline">\(u(x)\)</span>: <span class="math display">\[u(x) = e^{\int \tan(x) \, dx} = e^{-\ln|\cos(x)|} = e^{\ln|\sec(x)|}\]</span> Because <span class="math inline">\(-\frac{\pi}{2} &lt; x &lt; \frac{\pi}{2}\)</span>, <span class="math inline">\(\sec(x)\)</span> is positive, so we can drop the absolute value to get <span class="math inline">\(u(x) = \sec(x)\)</span>. Multiply the standard form equation by <span class="math inline">\(\sec(x)\)</span>: <span class="math display">\[\sec(x)(y' + \tan(x)y) = \sec(x)(\sec(x))\]</span> <span class="math display">\[\sec(x)y' + \sec(x)\tan(x)y = \sec^2(x)\]</span> Condense the left side using the reverse product rule: <span class="math display">\[(\sec(x)y)' = \sec^2(x)\]</span> Integrate both sides with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[\int (\sec(x)y)' \, dx = \int \sec^2(x) \, dx\]</span> <span class="math display">\[\sec(x)y = \tan(x) + C\]</span> Solve for <span class="math inline">\(y\)</span> by dividing by <span class="math inline">\(\sec(x)\)</span> (which is equivalent to multiplying by <span class="math inline">\(\cos(x)\)</span>): <span class="math display">\[y = \frac{\tan(x)}{\sec(x)} + \frac{C}{\sec(x)}\]</span> <span class="math display">\[y = \sin(x) + C\cos(x)\]</span> Apply the initial condition <span class="math inline">\(x = 0, y = 5\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[5 = \sin(0) + C\cos(0)\]</span> <span class="math display">\[5 = 0 + C(1) \implies C = 5\]</span> Substitute <span class="math inline">\(C = 5\)</span> to find the particular solution: <span class="math display">\[y = \sin(x) + 5\cos(x)\]</span></p>
 </div>
@@ -3230,7 +3341,7 @@ y &amp;= \tan(t) + C\sec(t)
 <p><strong>(C)</strong> <span class="math inline">\(u(x) = x^2\)</span></p>
 <p><strong>(D)</strong> <span class="math inline">\(u(x) = \ln|x|\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-110-contents" aria-controls="callout-110" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-116-contents" aria-controls="callout-116" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3239,7 +3350,7 @@ y &amp;= \tan(t) + C\sec(t)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-110" class="callout-110-contents callout-collapse collapse">
+<div id="callout-116" class="callout-116-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>(B)</strong>. To find the integrating factor, the equation must first be written in the standard form <span class="math inline">\(y' + P(x)y = Q(x)\)</span>. Divide the entire equation by <span class="math inline">\(x^2\)</span>: <span class="math display">\[y' + \frac{1}{x}y = \frac{5}{x^2}\]</span> Now identify <span class="math inline">\(P(x) = \frac{1}{x}\)</span>. The integrating factor is: <span class="math display">\[u(x) = e^{\int \frac{1}{x} \, dx} = e^{\ln|x|} = |x|\]</span> Assuming <span class="math inline">\(x &gt; 0\)</span> for a standard domain, this simplifies to <span class="math inline">\(x\)</span>, matching option (B).</p>
 </div>
@@ -3299,7 +3410,7 @@ y^{-n}y' + P(x)y^{1-n} &amp;= Q(x) \\
 <div class="callout-body-container callout-body">
 <p>Find the general solution of <span class="math inline">\(y' + xy = xe^{-x^2}y^{-3}\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-113-contents" aria-controls="callout-113" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-119-contents" aria-controls="callout-119" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3308,7 +3419,7 @@ y^{-n}y' + P(x)y^{1-n} &amp;= Q(x) \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-113" class="callout-113-contents callout-collapse collapse">
+<div id="callout-119" class="callout-119-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For this Bernoulli equation, let <span class="math inline">\(n=-3\)</span>, and use the substitution: <span class="math display">\[
 \begin{align*}
@@ -3395,7 +3506,7 @@ z &amp;= 2e^{-x^2} + Ce^{-2x^2} \qquad &amp;&amp;\text{(Divide each side by } e^
 <div class="callout-body-container callout-body">
 <p>A craft distillery is adjusting the proof of a batch before barreling. A blending tank initially contains 50 gallons of liquid that is 10% alcohol by volume (ABV) and 90% water. To increase the proof, a stronger spirit that is 50% ABV is pumped into the tank at a rate of 4 gallons per minute. At the same time, the mixture is continuously pumped out of the tank to a filtration system at a rate of 5 gallons per minute. Assume the tank is perfectly mixed at all times. How many gallons of pure alcohol are in the tank after 10 minutes?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-115-contents" aria-controls="callout-115" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-121-contents" aria-controls="callout-121" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3404,7 +3515,7 @@ z &amp;= 2e^{-x^2} + Ce^{-2x^2} \qquad &amp;&amp;\text{(Divide each side by } e^
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-115" class="callout-115-contents callout-collapse collapse">
+<div id="callout-121" class="callout-121-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(A(t)\)</span> be the number of gallons of alcohol in the tank at time <span class="math inline">\(t\)</span> (minutes).</p>
 <p><strong>Volume in the tank</strong> <span class="math display">\[
@@ -3484,7 +3595,7 @@ F &amp;= ma \\
 <div class="callout-body-container callout-body">
 <p>An object of mass <span class="math inline">\(m\)</span> is dropped from a hovering helicopter. Find its velocity as a function of time <span class="math inline">\(t\)</span>, assuming that the air resistance is proportional to the velocity of the object.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-117-contents" aria-controls="callout-117" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-123-contents" aria-controls="callout-123" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3493,7 +3604,7 @@ F &amp;= ma \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-117" class="callout-117-contents callout-collapse collapse">
+<div id="callout-123" class="callout-123-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The velocity <span class="math inline">\(v\)</span> satisfies the equation: <span class="math display">\[\frac{dv}{dt} + \frac{kv}{m} = g\]</span></p>
 <p>where <span class="math inline">\(g\)</span> is the gravitational constant and <span class="math inline">\(k\)</span> is the constant of proportionality. Letting <span class="math inline">\(b=k/m\)</span>, you can <em>separate variables</em> to obtain: <span class="math display">\[
@@ -3524,7 +3635,7 @@ g - bv &amp;= Ce^{-bt}
 <div class="callout-body-container callout-body">
 <p>Find the current <span class="math inline">\(I\)</span> as a function of time <span class="math inline">\(t\)</span> (in seconds), given that <span class="math inline">\(I\)</span> satisfies the differential equation <span class="math inline">\(L(dI/dt) + RI = \sin(2t)\)</span>, where <span class="math inline">\(R\)</span> and <span class="math inline">\(L\)</span> are nonzero constants.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-119-contents" aria-controls="callout-119" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-125-contents" aria-controls="callout-125" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3533,7 +3644,7 @@ g - bv &amp;= Ce^{-bt}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-119" class="callout-119-contents callout-collapse collapse">
+<div id="callout-125" class="callout-125-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In standard form, the given linear equation is: <span class="math display">\[\frac{dI}{dt} + \frac{R}{L}I = \frac{1}{L} \sin(2t)\]</span></p>
 <p>Let <span class="math inline">\(P(t)=R/L\)</span>, so that <span class="math inline">\(e^{\int P(t)dt} = e^{(R/L)t}\)</span>, and, by Theorem 6.3: <span class="math display">\[
@@ -3558,7 +3669,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 <ol type="1">
 <li><p>An object is dropped from a high altitude. The velocity <span class="math inline">\(v\)</span> of the object, in meters per second, is modeled by the differential equation <span class="math inline">\(\frac{dv}{dt} = -9.8 - 0.2v\)</span>, where <span class="math inline">\(t\)</span> is the time in seconds. At time <span class="math inline">\(t=0\)</span>, the velocity is <span class="math inline">\(0\)</span>. <strong>a)</strong> Find an expression for <span class="math inline">\(v(t)\)</span>, the particular solution to the differential equation. <strong>b)</strong> Evaluate <span class="math inline">\(\lim_{t \to \infty} v(t)\)</span> and interpret its meaning in the context of the falling object.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-121-contents" aria-controls="callout-121" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-127-contents" aria-controls="callout-127" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3567,7 +3678,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-121" class="callout-121-contents callout-collapse collapse">
+<div id="callout-127" class="callout-127-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>a)</strong> Factor out the <span class="math inline">\(-0.2\)</span> on the right side to make integration easier, then separate the variables: <span class="math display">\[\frac{dv}{dt} = -0.2(49 + v)\]</span> <span class="math display">\[\frac{1}{v + 49} \, dv = -0.2 \, dt\]</span> Integrate both sides: <span class="math display">\[\int \frac{1}{v + 49} \, dv = \int -0.2 \, dt\]</span> <span class="math display">\[\ln|v + 49| = -0.2t + C_1\]</span> Exponentiate both sides: <span class="math display">\[|v + 49| = e^{-0.2t + C_1} = C e^{-0.2t}\]</span> Because the object starts at rest and falls downward (negative velocity), <span class="math inline">\(v\)</span> will decrease from 0 towards <span class="math inline">\(-49\)</span>. Thus, <span class="math inline">\(v + 49\)</span> remains positive, allowing us to drop the absolute value bars: <span class="math display">\[v + 49 = C e^{-0.2t}\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(v = 0\)</span> to solve for <span class="math inline">\(C\)</span>: <span class="math display">\[0 + 49 = C e^0 \implies C = 49\]</span> Substitute <span class="math inline">\(C = 49\)</span> and solve for <span class="math inline">\(v(t)\)</span>: <span class="math display">\[v + 49 = 49e^{-0.2t}\]</span> <span class="math display">\[v(t) = 49e^{-0.2t} - 49\]</span></p>
 <p><strong>b)</strong> Evaluate the limit of <span class="math inline">\(v(t)\)</span> as <span class="math inline">\(t \to \infty\)</span>: <span class="math display">\[\lim_{t \to \infty} \left( 49e^{-0.2t} - 49 \right)\]</span> As <span class="math inline">\(t \to \infty\)</span>, the term <span class="math inline">\(e^{-0.2t} \to 0\)</span>: <span class="math display">\[\lim_{t \to \infty} v(t) = 49(0) - 49 = -49\]</span> <strong>Interpretation:</strong> As time goes on indefinitely, the velocity of the falling object approaches <span class="math inline">\(-49\)</span> meters per second. This is the object’s terminal velocity, where the force of air resistance perfectly balances the force of gravity.</p>
@@ -3576,7 +3687,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 </div></li>
 <li><p>A baby animal is born weighing 5 pounds. The rate of change of the animal’s weight <span class="math inline">\(W\)</span>, in pounds per month, is proportional to the difference between its maximum adult weight of 40 pounds and its current weight. At <span class="math inline">\(t=2\)</span> months, the animal weighs 12 pounds. <strong>a)</strong> Write a differential equation that models the rate of change of the animal’s weight. <strong>b)</strong> Find the particular solution <span class="math inline">\(W(t)\)</span> for the weight of the animal at time <span class="math inline">\(t\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-122-contents" aria-controls="callout-122" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-128-contents" aria-controls="callout-128" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3585,7 +3696,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-122" class="callout-122-contents callout-collapse collapse">
+<div id="callout-128" class="callout-128-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> <strong>a)</strong> The phrase “proportional to” implies multiplying by a constant <span class="math inline">\(k\)</span>. The “difference between its maximum adult weight… and its current weight” is <span class="math inline">\((40 - W)\)</span>. Therefore: <span class="math display">\[\frac{dW}{dt} = k(40 - W)\]</span></p>
 <p><strong>b)</strong> Separate the variables and integrate: <span class="math display">\[\frac{1}{40 - W} \, dW = k \, dt\]</span> <span class="math display">\[\int \frac{1}{40 - W} \, dW = \int k \, dt\]</span> <span class="math display">\[-\ln|40 - W| = kt + C_1\]</span> <span class="math display">\[\ln|40 - W| = -kt - C_1\]</span> Exponentiate both sides. Since the weight starts at 5 and grows toward 40, <span class="math inline">\(40 - W &gt; 0\)</span>, so we drop the absolute value: <span class="math display">\[40 - W = C e^{-kt}\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(W = 5\)</span> to find <span class="math inline">\(C\)</span>: <span class="math display">\[40 - 5 = C e^0 \implies C = 35\]</span> Substitute <span class="math inline">\(C = 35\)</span> into the equation: <span class="math display">\[40 - W = 35e^{-kt} \implies W(t) = 40 - 35e^{-kt}\]</span> Now use the condition <span class="math inline">\(t = 2\)</span> and <span class="math inline">\(W = 12\)</span> to find the constant <span class="math inline">\(k\)</span>: <span class="math display">\[12 = 40 - 35e^{-2k}\]</span> <span class="math display">\[-28 = -35e^{-2k}\]</span> <span class="math display">\[e^{-2k} = \frac{28}{35} = \frac{4}{5} = 0.8\]</span> <span class="math display">\[-2k = \ln(0.8) \implies k = -\frac{1}{2}\ln(0.8)\]</span> Substitute <span class="math inline">\(k\)</span> back into the specific equation to find the final particular solution: <span class="math display">\[W(t) = 40 - 35e^{\left(\frac{1}{2}\ln(0.8)\right)t}\]</span> <em>Note: Using properties of exponents, this can also be elegantly written as <span class="math inline">\(W(t) = 40 - 35(0.8)^{t/2}\)</span>.</em></p>
@@ -3594,7 +3705,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 </div></li>
 <li><p>The concentration of a medication in a patient’s bloodstream <span class="math inline">\(C(t)\)</span>, measured in milligrams per liter, decreases at a rate modeled by the differential equation <span class="math inline">\(\frac{dC}{dt} = -kC^2\)</span>, where <span class="math inline">\(k\)</span> is a positive constant and <span class="math inline">\(t\)</span> is the time in hours since the medication was administered. If the initial concentration is <span class="math inline">\(C(0) = 4\)</span> mg/L, and the concentration drops to <span class="math inline">\(2\)</span> mg/L after 1 hour, what will the concentration be after 3 hours?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-123-contents" aria-controls="callout-123" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-129-contents" aria-controls="callout-129" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3603,7 +3714,7 @@ I &amp;= e^{-(R/L)t} \left[  \frac{1}{4L^2 + R^2} e^{(R/L)t} (R\sin(2t) - 2L\cos
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-123" class="callout-123-contents callout-collapse collapse">
+<div id="callout-129" class="callout-129-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> Separate the variables and integrate: <span class="math display">\[C^{-2} \, dC = -k \, dt\]</span> <span class="math display">\[\int C^{-2} \, dC = \int -k \, dt\]</span> <span class="math display">\[-C^{-1} = -kt + C_1\]</span> Multiply by <span class="math inline">\(-1\)</span> and let <span class="math inline">\(C_2 = -C_1\)</span>: <span class="math display">\[\frac{1}{C} = kt + C_2\]</span> Use the initial condition <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(C = 4\)</span> to find <span class="math inline">\(C_2\)</span>: <span class="math display">\[\frac{1}{4} = k(0) + C_2 \implies C_2 = \frac{1}{4}\]</span> Substitute <span class="math inline">\(C_2 = \frac{1}{4}\)</span> into the equation: <span class="math display">\[\frac{1}{C} = kt + \frac{1}{4}\]</span> Use the condition <span class="math inline">\(t = 1\)</span> and <span class="math inline">\(C = 2\)</span> to find <span class="math inline">\(k\)</span>: <span class="math display">\[\frac{1}{2} = k(1) + \frac{1}{4}\]</span> <span class="math display">\[k = \frac{1}{2} - \frac{1}{4} = \frac{1}{4}\]</span> Substitute <span class="math inline">\(k = \frac{1}{4}\)</span> to get the particular solution for the concentration: <span class="math display">\[\frac{1}{C(t)} = \frac{1}{4}t + \frac{1}{4} = \frac{t + 1}{4}\]</span> Take the reciprocal of both sides to solve explicitly for <span class="math inline">\(C(t)\)</span>: <span class="math display">\[C(t) = \frac{4}{t + 1}\]</span> To find the concentration after 3 hours, evaluate <span class="math inline">\(C(3)\)</span>: <span class="math display">\[C(3) = \frac{4}{3 + 1} = \frac{4}{4} = 1\]</span> The concentration after 3 hours will be <span class="math inline">\(1\)</span> mg/L.</p>
 </div>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope Field Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface2: #eef1f8;
+    --border: #d0d8ec;
+    --accent: #3a6fd8;
+    --accent2: #c4730a;
+    --green: #1a9e62;
+    --red: #d63058;
+    --text: #1a2038;
+    --muted: #6270a0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    padding: 14px 16px 16px;
+  }
+
+  /* ── Header ── */
+  header {
+    margin-bottom: 12px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    display: inline;
+  }
+
+  header span {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-left: 10px;
+  }
+
+  /* ── Two-column layout ── */
+  .layout {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  /* ── Left panel ── */
+  .panel {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .section-title {
+    font-size: 0.67rem;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    padding: 7px 10px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--accent);
+  }
+
+  .ic-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .ic-row input { width: 50%; }
+
+  .ic-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4px;
+  }
+
+  .btn {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 7px 12px;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+
+  .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+
+  .btn-clear {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-clear:hover { border-color: var(--muted); color: var(--text); opacity: 1; }
+
+  .hint {
+    font-size: 0.71rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .hint code {
+    font-family: 'DM Mono', monospace;
+    background: var(--surface2);
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: var(--accent2);
+    font-size: 0.69rem;
+  }
+
+  .error-msg {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.71rem;
+    color: var(--red);
+    min-height: 1em;
+  }
+
+  /* ── Right: canvas column ── */
+  .canvas-col {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .canvas-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-height: 480px;
+    max-width: 480px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .tooltip {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .legend {
+    display: flex;
+    gap: 14px;
+    font-size: 0.71rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+    margin-top: 7px;
+    padding-left: 2px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .legend-line {
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ── Responsive fallback ── */
+  @media (max-width: 520px) {
+    .layout { flex-direction: column; }
+    .panel  { flex: none; width: 100%; }
+    .canvas-wrap { max-width: 100%; max-height: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Slope Field Explorer</h1>
+  <span>first-order linear ODEs</span>
+</header>
+
+<div class="layout">
+
+  <!-- ── Left: controls ── -->
+  <div class="panel">
+
+    <div class="section">
+      <div class="section-title">Equation</div>
+      <input type="text" id="eq-input" placeholder="e.g.  xy' - 3y = 0" spellcheck="false" autocomplete="off" />
+      <button class="btn" id="plot-btn">Plot Slope Field</button>
+      <div class="error-msg" id="error-msg"></div>
+      <div class="hint">
+        Use <code>y'</code> or <code>dy/dx</code>. Juxtaposition implies multiplication — <code>xy</code>, <code>2y</code>, <code>3x</code> all work.<br><br>
+        Functions: <code>sin</code> <code>cos</code> <code>tan</code> <code>exp</code> <code>ln</code> <code>sqrt</code><br><br>
+        Examples:<br>
+        <code>y' = xy</code><br>
+        <code>xy' - 3y = 0</code><br>
+        <code>y' - y = x</code>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Initial Condition</div>
+      <div class="ic-label"><span>x₀</span><span>y₀</span></div>
+      <div class="ic-row">
+        <input type="number" id="ic-x" placeholder="x₀" step="0.5" />
+        <input type="number" id="ic-y" placeholder="y₀" step="0.5" />
+      </div>
+      <button class="btn" id="ic-btn">Add Solution Curve</button>
+      <button class="btn btn-clear" id="clear-btn">Clear Curves</button>
+      <div class="hint">Or click anywhere on the graph to drop a curve.</div>
+    </div>
+
+  </div><!-- .panel -->
+
+  <!-- ── Right: canvas ── -->
+  <div class="canvas-col">
+    <div class="canvas-wrap" id="canvas-wrap">
+      <canvas id="canvas"></canvas>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-line" style="background: rgba(40,100,210,0.65);"></div>
+        <span>Slope field</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background: #1a9e62;"></div>
+        <span>Particular solution</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- .layout -->
+
+<script>
+// ─── Math parsing ─────────────────────────────────────────────────────────────
+
+function parseEquation(raw) {
+  let s = raw.trim()
+    .replace(/\s+/g, '')
+    .replace(/dy\/dx/gi, "yp")
+    .replace(/y'/g, "yp")
+    .replace(/\^/g, "**")
+    .toLowerCase();
+
+  // Implicit multiplication
+  s = s
+    .replace(/(\d)(x|y(?!p)|yp|\()/g, '$1*$2')
+    .replace(/(x|y(?!p)|yp|\))([xy](?!p)|\()/g, '$1*$2')
+    .replace(/(x|y(?!p))(yp)/g, '$1*$2')
+    .replace(/\)(yp)/g, ')*$1')
+    .replace(/(\d)(sin|cos|tan|exp|ln|sqrt|abs|log)\(/g, '$1*$2(');
+
+  // Math functions
+  const fns = ['sin','cos','tan','exp','ln','sqrt','abs','log'];
+  fns.forEach(f => {
+    const mathName = f === 'ln' ? 'Math.log' : (f === 'log' ? 'Math.log10' : `Math.${f}`);
+    s = s.replace(new RegExp(f + '\\(', 'g'), mathName + '(');
+  });
+
+  const parts = s.split('=');
+  if (parts.length !== 2) throw new Error("Equation must contain exactly one '='");
+
+  const expr = `(${parts[0]}) - (${parts[1]})`;
+
+  function evaluate(xv, yv, ypv) {
+    try {
+      return Function('x','y','yp', `"use strict"; return (${expr});`)(xv, yv, ypv);
+    } catch(e) { return NaN; }
+  }
+
+  return function slope(x, y) {
+    const f0 = evaluate(x, y, 0);
+    const f1 = evaluate(x, y, 1);
+    const A = f1 - f0;
+    const B = f0;
+    if (Math.abs(A) < 1e-12) return NaN;
+    return -B / A;
+  };
+}
+
+// ─── Canvas / Drawing ─────────────────────────────────────────────────────────
+
+const canvas  = document.getElementById('canvas');
+const ctx     = canvas.getContext('2d');
+const wrap    = document.getElementById('canvas-wrap');
+const tooltip = document.getElementById('tooltip');
+
+const DOMAIN = 10;
+let W, H, scale;
+
+function resize() {
+  const s = wrap.clientWidth * window.devicePixelRatio;
+  canvas.width = canvas.height = s;
+  W = H = s;
+  scale = W / (2 * DOMAIN);
+  redraw();
+}
+
+function wx(x) { return (x + DOMAIN) * scale; }
+function wy(y) { return (DOMAIN - y) * scale; }
+function cw_x(px) { return px / scale - DOMAIN; }
+function cw_y(py) { return DOMAIN - py / scale; }
+
+let slopeFn = null;
+let curves  = [];
+
+function drawGrid() {
+  ctx.strokeStyle = 'rgba(90,110,180,0.12)';
+  ctx.lineWidth = 1;
+  for (let i = -DOMAIN; i <= DOMAIN; i++) {
+    ctx.beginPath(); ctx.moveTo(wx(i), 0); ctx.lineTo(wx(i), H); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, wy(i)); ctx.lineTo(W, wy(i)); ctx.stroke();
+  }
+  ctx.strokeStyle = 'rgba(60,80,160,0.35)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(wx(0), 0); ctx.lineTo(wx(0), H); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, wy(0)); ctx.lineTo(W, wy(0)); ctx.stroke();
+
+  ctx.fillStyle = 'rgba(80,100,160,0.7)';
+  ctx.font = `${Math.round(scale * 0.38)}px DM Sans, sans-serif`;
+  ctx.textAlign = 'center';
+  for (let i = -DOMAIN; i <= DOMAIN; i += 2) {
+    if (i === 0) continue;
+    ctx.fillText(i, wx(i), wy(0) + scale * 0.52);
+    ctx.textAlign = 'right';
+    ctx.fillText(i, wx(0) - scale * 0.1, wy(i) + scale * 0.15);
+    ctx.textAlign = 'center';
+  }
+}
+
+function drawSlopeField() {
+  if (!slopeFn) return;
+  const tickLen = scale * 0.42;
+
+  for (let xi = -DOMAIN; xi <= DOMAIN; xi++) {
+    for (let yi = -DOMAIN; yi <= DOMAIN; yi++) {
+      const m = slopeFn(xi, yi);
+      if (!isFinite(m)) continue;
+
+      const angle = Math.atan(m);
+      const cx = wx(xi), cy = wy(yi);
+      const dx = Math.cos(angle) * tickLen / 2;
+      const dy = Math.sin(angle) * tickLen / 2;
+
+      const intensity = Math.min(Math.abs(m) / 5, 1);
+      const alpha = 0.5 + 0.35 * (1 - intensity);
+      ctx.strokeStyle = `rgba(40, 100, 210, ${alpha})`;
+      ctx.lineWidth = Math.max(1, scale * 0.045);
+      ctx.lineCap = 'round';
+
+      ctx.beginPath();
+      ctx.moveTo(cx - dx, cy + dy);
+      ctx.lineTo(cx + dx, cy - dy);
+      ctx.stroke();
+
+      const headLen = scale * 0.09;
+      const hx = cx + dx, hy = cy - dy;
+      ctx.beginPath();
+      ctx.moveTo(hx, hy);
+      ctx.lineTo(hx - headLen * Math.cos(angle - 0.5), hy + headLen * Math.sin(angle - 0.5));
+      ctx.moveTo(hx, hy);
+      ctx.lineTo(hx - headLen * Math.cos(angle + 0.5), hy + headLen * Math.sin(angle + 0.5));
+      ctx.stroke();
+    }
+  }
+}
+
+function integrateCurve(x0, y0, fn, forward) {
+  const points = [[x0, y0]];
+  const h = 0.05 * (forward ? 1 : -1);
+  let x = x0, y = y0;
+
+  for (let i = 0; i < 400; i++) {
+    const k1 = fn(x, y);              if (!isFinite(k1)) break;
+    const k2 = fn(x+h/2, y+h/2*k1);  if (!isFinite(k2)) break;
+    const k3 = fn(x+h/2, y+h/2*k2);  if (!isFinite(k3)) break;
+    const k4 = fn(x+h,   y+h*k3);    if (!isFinite(k4)) break;
+    y += h/6 * (k1 + 2*k2 + 2*k3 + k4);
+    x += h;
+    if (Math.abs(y) > 50 || x < -DOMAIN-1 || x > DOMAIN+1) break;
+    points.push([x, y]);
+  }
+  return points;
+}
+
+const CURVE_COLORS = ['#1a9e62','#d63058','#c4730a','#7b28cc','#0a8fa8'];
+
+function drawCurves() {
+  if (!slopeFn) return;
+
+  curves.forEach(({x0, y0}, idx) => {
+    const color = CURVE_COLORS[idx % CURVE_COLORS.length];
+    const fwd  = integrateCurve(x0, y0, slopeFn, true);
+    const back = integrateCurve(x0, y0, slopeFn, false);
+    const pts  = [...back.reverse(), ...fwd.slice(1)];
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = Math.max(1.5, scale * 0.06);
+    ctx.lineJoin = ctx.lineCap = 'round';
+
+    ctx.beginPath();
+    let started = false;
+    for (const [px, py] of pts) {
+      const cx = wx(px), cy = wy(py);
+      if (cx < -5 || cx > W+5 || cy < -5 || cy > H+5) { started = false; continue; }
+      started ? ctx.lineTo(cx, cy) : ctx.moveTo(cx, cy);
+      started = true;
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(wx(x0), wy(y0), scale * 0.13, 0, Math.PI * 2);
+    ctx.fill();
+  });
+}
+
+function redraw() {
+  ctx.clearRect(0, 0, W, H);
+  drawGrid();
+  drawSlopeField();
+  drawCurves();
+}
+
+// ─── Controls ─────────────────────────────────────────────────────────────────
+
+function setError(msg) {
+  document.getElementById('error-msg').textContent = msg;
+}
+
+document.getElementById('plot-btn').addEventListener('click', () => {
+  const raw = document.getElementById('eq-input').value;
+  if (!raw.trim()) { setError('Please enter an equation.'); return; }
+  try {
+    slopeFn = parseEquation(raw);
+    slopeFn(1, 1);
+    setError('');
+    curves = [];
+    redraw();
+  } catch(e) {
+    setError('⚠ ' + e.message);
+    slopeFn = null;
+    redraw();
+  }
+});
+
+document.getElementById('ic-btn').addEventListener('click', () => {
+  if (!slopeFn) { setError('Plot an equation first.'); return; }
+  const xv = parseFloat(document.getElementById('ic-x').value);
+  const yv = parseFloat(document.getElementById('ic-y').value);
+  if (isNaN(xv) || isNaN(yv)) { setError('Enter numeric x₀ and y₀ values.'); return; }
+  setError('');
+  curves.push({x0: xv, y0: yv});
+  redraw();
+});
+
+document.getElementById('clear-btn').addEventListener('click', () => {
+  curves = [];
+  redraw();
+});
+
+document.getElementById('eq-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('plot-btn').click();
+});
+
+wrap.addEventListener('mousemove', e => {
+  if (!slopeFn) return;
+  const rect = wrap.getBoundingClientRect();
+  const ratio = canvas.width / wrap.clientWidth;
+  const x = Math.round(cw_x((e.clientX - rect.left) * ratio) * 10) / 10;
+  const y = Math.round(cw_y((e.clientY - rect.top)  * ratio) * 10) / 10;
+  const m = slopeFn(x, y);
+  if (isFinite(m)) {
+    tooltip.style.opacity = '1';
+    tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+    tooltip.style.top  = (e.clientY - rect.top  - 28) + 'px';
+    tooltip.textContent = `(${x}, ${y})  y′ = ${m.toFixed(3)}`;
+  }
+});
+wrap.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
+
+wrap.addEventListener('click', e => {
+  if (!slopeFn) return;
+  const rect = wrap.getBoundingClientRect();
+  const ratio = canvas.width / wrap.clientWidth;
+  const x = Math.round(cw_x((e.clientX - rect.left) * ratio) * 10) / 10;
+  const y = Math.round(cw_y((e.clientY - rect.top)  * ratio) * 10) / 10;
+  curves.push({x0: x, y0: y});
+  document.getElementById('ic-x').value = x;
+  document.getElementById('ic-y').value = y;
+  setError('');
+  redraw();
+});
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+
+window.addEventListener('resize', resize);
+resize();
+
+document.getElementById('eq-input').value = "y' = xy";
+document.getElementById('plot-btn').click();
+</script>
+</body>
+</html>

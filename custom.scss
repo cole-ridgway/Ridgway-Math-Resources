@@ -49,14 +49,14 @@ body.quarto-dark {
 
 /* Restrict width on standard reading pages, but let 'full' pages stretch out */
 body:not(.quarto-page-layout-full) main {
-  max-width: 900px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Restrict width on standard reading pages, but let the homepage stretch out */
 body:not(.homepage) main {
-  max-width: 900px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
