@@ -30,9 +30,7 @@ This hub is your central command for the year. Whether you are reviewing today's
 #### <i class="bi bi-folder2-open"></i> Resources
 :::
 ::: {.card-body}
-Click the "Course Resources" tab in the left sidebar to jump directly to the unit you are currently studying. Click on any chapter block there to expand it and access extra practice files. For example,
-
-* [Extra Practice Exercises (PDF)](resources/suggested-homework.pdf)
+**👈 Click the "Course Resources" tab in the left sidebar**  to jump directly to the unit you are currently studying. Click on any chapter block there to expand it and access extra practice files.
 
 Below are some links to outside resources that you may find helpful for review and practice throughout the year:
 

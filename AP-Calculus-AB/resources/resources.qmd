@@ -9,9 +9,14 @@ Welcome to the AP Calculus AB resource hub! Use the menu on the right to jump di
 
 ---
 
+## Textbook Exercises 
+All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Single Variable. 8th Edition*. Note that the "Practice Exercises" from the Interactive Textbook are not the same exercises as those in the textbook.
+
+[Extra Practice Exercises (PDF)](resources/suggested-homework.pdf)
+
+
 ## Precalculus & Algebra Review
 ::: {.callout-note collapse="true" title="Expand Review Materials" icon=false}
-* *(Resources coming soon!)*
 * *(Resources coming soon!)*
 :::
 
