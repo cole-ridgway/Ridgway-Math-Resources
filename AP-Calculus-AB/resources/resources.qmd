@@ -12,7 +12,7 @@ Welcome to the AP Calculus AB resource hub! Use the menu on the right to jump di
 ## Textbook Exercises 
 All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Single Variable. 8th Edition*. Note that the "Practice Exercises" from the Interactive Textbook are not the same exercises as those in the textbook.
 
-[Extra Practice Exercises (PDF)](resources/suggested-homework.pdf)
+[Extra Practice Exercises (PDF)](suggested-homework.pdf)
 
 
 ## Precalculus & Algebra Review
@@ -27,21 +27,21 @@ All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Singl
 
 ## Chapter 2: Differentiation
 ::: {.callout-note collapse="true" title="Expand Chapter 2 Resources" icon=false}
-* *(Resources coming soon!)*
+* [Basic Antiderivative Practice (PDF)](basic-antiderivatives.pdf)
+* [Derivative Applications and Initial Value Problems (PDF)](derivative-applications-and-IVPs.pdf)
 :::
 
 ## Chapter 3: Applications of Differentiation
 ::: {.callout-note collapse="true" title="Expand Chapter 3 Resources" icon=false}
-* *(Resources coming soon!)*
-* *(Resources coming soon!)*
+* [Curve Sketching Practice (PDF)](curve-sketching-practice.pdf)
 :::
 
 ## Chapter 4: Integration
 ::: {.callout-note collapse="true" title="Expand Chapter 4 Resources" icon=false}
-* *(Resources coming soon!)*
+* [Riemann Sums & Integration Practice (PDF)](riemann-sums-and-integration.pdf)
 :::
 
-## Chapter 5: Applications of Integration
+## Chapter 5: Transcendental Functions and Their Inverses
 ::: {.callout-note collapse="true" title="Expand Chapter 5 Resources" icon=false}
 * *(Resources coming soon!)*
 :::
@@ -57,6 +57,12 @@ All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Singl
 
 <!-- * [Differential Equations Study Guide (PDF)](#) -->
 :::
+
+## Chapter 7: Applications of Integration
+::: {.callout-note collapse="true" title="Expand Chapter 7 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
 
 ## Other Resources
 ::: {.callout-note collapse="true" title="Expand General Resources" icon=false}
