@@ -1,5 +1,5 @@
 ---
-title: "Chapter 7: Applications of Integration"
+title: "Chapter-7: Applications of Integration"
 ---
 
 ## 7.1 Area of a Region Between Two Curves
@@ -1056,5 +1056,262 @@ $$
    $$V = \int_{0}^{\pi} \frac{\pi}{8}\sin^2(x) \, dx = \frac{\pi}{8} \int_{0}^{\pi} \sin^2(x) \, dx$$
    Using the result from part (b), we know that $\int_{0}^{\pi} \sin^2(x) \, dx = \frac{\pi}{2}$.
    $$V = \frac{\pi}{8} \left( \frac{\pi}{2} \right) = \frac{\pi^2}{16}$$
+   :::
+:::
+
+
+## 7.3 Volume: The Shell Method
+
+::: {.callout-tip title="Objectives" icon=false}
+| **Key Topics & Formulas** | **Success Criteria** | 
+| :--- | :--- |
+| Find the volume of a solid of revolution using the shell method | I can set up and evaluate an integral using the shell method by identifying the radius and height and choosing the correct limits. |
+| Compare the uses of the disk method and the shell method | I can decide which method (disk/washer or shell) is easier for a problem and explain my choice based on how the region is oriented. |
+:::
+
+### The Shell Method
+
+In this section, you will study an alternative method for finding the volume of a solid of revolution. This method is called the **shell method** because it uses cylindrical shells. 
+
+To begin, consider a representative rectangle as shown below:
+
+![Representative rectangle](fig-7.16.png)
+
+where $w$ is the width of the rectangle, $h$ is the height of the rectangle, and $p$ is the distance between the axis of revolution and the *center* of the rectangle. When this rectangle is revolved about its axis of revolution, it forms a cylindrical shell (or tube) of thickness $w$. To find the volume of this shell, consider two cylinders. The radius of the larger cylinder corresponds to the outer radius of the shell, and the radius of the smaller cylinder corresponds to the inner radius of the shell. Because $p$ is the average radius of the shell, you know the outer radius is $p+(w/2)$ and the inner radius is $p-(w/2)$.
+
+$$p+\frac{w}{2} \quad \text{Outer radius}$$
+$$p-\frac{w}{2} \quad \text{Inner radius}$$
+
+So, the volume of the shell is
+$$\begin{aligned} \text{Volume of shell} &= (\text{volume of cylinder}) - (\text{volume of hole}) \\ &= \pi \left( p + \frac{w}{2} \right)^2 h - \pi \left( p - \frac{w}{2} \right)^2h \\ &= 2\pi p h w \\ &= 2 \pi (\text{average radius}) (\text{height}) (\text{thickness}) \end{aligned}$$
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-7}
+You can use this formula to find the volume of a solid of revolution. Assume that the plane region in the figure on the right is revolved about a line to form the indicated solid. If you consider a horizontal rectangle of width $\Delta y$, then, as the plane region is revolved about a line parallel to the $x$-axis, the rectangle generates a representative shell whose volume is 
+$$\Delta V = 2 \pi [ p(y)h(y)] \Delta y$$
+
+You can approximate the volume of the solid by $n$ such shells of thickness $\Delta y$, height $h(y_i)$, and average radius $p(y_i)$.
+:::
+::: {.g-col-12 .g-col-md-5}
+![Representative Shell](fig-7.17.png)
+:::
+:::
+
+$$\text{Volume of solid} \approx \sum_{i=1}^n 2 \pi [ p(y_i)h(y_i)] \Delta  y = 2\pi  \sum_{i=1}^n [ p(y_i)h(y_i)] \Delta y$$
+
+This approximation appears to become better and better as $||\Delta|| \to 0$ ($n \to \infty$). So, the volume of the solid is 
+$$\begin{aligned} \text{Volume of solid} &= \lim_{||\Delta || \to 0} 2\pi  \sum_{i=1}^n [ p(y_i)h(y_i)] \Delta y \\ &= 2\pi \int_c^d [p(y)h(y)] \, dy \end{aligned}$$
+
+::: {.callout-note title="Definition: The Shell Method" icon=false}
+To find the volume of a solid of revolution with the **shell method**, use one of the following, as shown in the figure below.
+
+**Horizontal Axis of Revolution:**
+$$V = 2\pi \int_c^d p(y)h(y) \, dy$$
+
+**Vertical Axis of Revolution:**
+$$V = 2\pi \int_a^b p(x)h(x) \, dx$$
+:::
+
+![Horizontal and Vertical Axes of Revolution](fig-7.18.png)
+
+**Example:**
+Find the volume of the solid of revolution formed by revolving the region bounded by 
+$$y = x - x^3$$
+and the $x$-axis, $0 \leq x \leq 1$, about the $y$-axis.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-7}
+Because the axis of revolution is vertical, use a vertical representative rectangle, as shown in the figure. The width $\Delta x$ indicates that $x$ is the variable of integration. The distance from the center of the rectangle to the axis of revolution is $p(x)=x$, and the height of the rectangle is 
+$$h(x)=x-x^3$$
+:::
+::: {.g-col-12 .g-col-md-5}
+![Example Region](fig-7.19.png)
+:::
+:::
+
+Because $x$ ranges from 0 to 1, the volume of the solid is
+$$\begin{aligned} V &= 2\pi \int_0^1 x(x-x^3)\,dx && \text{Shell Method} \\ &= 2\pi \int_0^1 (-x^4 + x^2)\,dx && \text{Simplify} \\ &= 2\pi \left[ -\frac{x^5}{5} + \frac{x^3}{3} \right]_0^1 && \text{Integrate} \\ &= 2\pi \left( -\frac{1}{5} + \frac{1}{3} \right) \\ &= \frac{4\pi}{15} \end{aligned}$$
+
+
+**Example:**
+Find the volume of the solid of revolution formed by revolving the region bounded by the graph of 
+$$x = e^{-y^2}$$
+and the $y$-axis ($0 \leq y \leq 1$) about the $x$-axis.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-7}
+Because the axis of revolution is horizontal, use a horizontal representative rectangle. The width $\Delta y$ indicates that $y$ is the variable of integration. The distance from the center of the rectangle to the axis of revolution is $p(y)=y$, and the height of the rectangle is 
+$$h(y) = e^{-y^2}$$
+:::
+::: {.g-col-12 .g-col-md-5}
+![Example Region](fig-7.20.png)
+:::
+:::
+
+Because $y$ ranges from 0 to 1, the volume of the solid is
+$$\begin{aligned} V &= 2\pi \int_0^1 y e^{-y^2} \, dy && \text{Shell Method} \\ &= -\pi \left[ e^{-y^2} \right]_0^1 \\ &= \pi \left( 1 - \frac{1}{e} \right) \\ &\approx 1.986 \end{aligned}$$
+
+### Comparison of Disk and Shell Methods
+The disk and shell methods can be distinguished as follows. For the disk method, the representative rectangle is always *perpendicular* to the axis of revolution, whereas for the shell method, the representative rectangle is always *parallel* to the axis of revolution, as shown in the figure below.
+
+![Comparing Representative Rectangles](fig-7.21.png)
+
+Depending on the situation, it may be more convenient to use one over the other.
+
+**Example:**
+Find the volume of the solid formed by revolving the region bounded by the graphs of 
+$$y = x^2+1, \quad y=0, \quad x=0, \quad \text{ and } \quad x=1$$
+about the $y$-axis.
+
+This is the exact same problem as **Example 7.10**. So, we can once again see this by using the washer method:
+$$\begin{aligned} V &= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, dy && \text{Apply washer method.} \\ &= \pi \int_0^1 1 \, dy + \pi \int_1^2 (2-y) \, dy && \text{Simplify.} \\ &= \pi \Bigg[ y \Bigg]_0^1 + \Bigg[ 2y-\frac{y^2}{2} \Bigg]_1^2 && \text{Integrate.} \\ &= \pi + \pi \left( 4-2-2+\frac{1}{2} \right) \\ &= \frac{3\pi}{2} \end{aligned}$$
+
+However, the shell method only requires one integral to find the volume:
+$$\begin{aligned} V &= 2\pi \int_a^b p(x)h(x) \, dx \\ &= 2\pi \int_0^1 x(x^2+1) \, dx \\ &= 2\pi \left[ \frac{x^4}{4} + \frac{x^2}{2} \right]_0^1 \\ &= 2\pi \left( \frac{3}{4} \right) \\ &= \frac{3 \pi}{2} \end{aligned}$$
+
+In some cases, solving for $x$ is very difficult (or even impossible). In such cases you must use a vertical rectangle (of width $\Delta x$), thus making $x$ the variable of integration. The position (horizontal or vertical) of the axis of revolution then determines the method to be used. 
+
+**Example:**
+Find the volume of the solid formed by revolving the region bounded by the graphs of $y=x^3+x+1$, $y=1$, and $x=1$ about the line $x=2$, as shown in the figure below.
+
+![Example Region](fig-7.22.png)
+
+In the equation $y=x^3+x+1$, you cannot easily solve for $x$ in terms of $y$ (see Newton's Method). Therefore, the variable of integration must be $x$ and you should choose a vertical representative rectangle. Because the rectangle is parallel to the axis of revolution, use the shell method and obtain
+$$\begin{aligned} V = 2\pi \int_a^b p(x)h(x) \, dx &= 2\pi \int_0^1 (2-x)(x^3+x+1-1) \, dx \\ &= 2\pi \int_0^1 (-x^4 + 2x^3 - x^2 + 2x) \, dx \\ &= 2\pi \left[ - \frac{x^5}{5} + \frac{x^4}{2} - \frac{x^3}{3} + x^2 \right]_0^1 \\ &= 2\pi \left( -\frac{1}{5} + \frac{1}{2} - \frac{1}{3} + 1 \right) \\ &= \frac{29\pi}{15} \end{aligned}$$
+
+---
+
+::: {.practice-box}
+#### Exercises: The Shell Method
+
+1. Let $R$ be the region bounded by the graphs of $y = x^2$, $y = 0$, and $x = 2$. Use the shell method to find the volume of the solid generated when $R$ is revolved about the $y$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Using the shell method to revolve around the $y$-axis requires integrating with respect to $x$. 
+   The radius of a cylindrical shell is the distance from the $y$-axis to a vertical slice: $p(x) = x$.
+   The height of the shell is the top curve minus the bottom curve: $h(x) = x^2 - 0 = x^2$.
+   The region is bounded from $x = 0$ to $x = 2$.
+   Set up the integral:
+   $$V = 2\pi \int_{0}^{2} p(x)h(x) \, dx$$
+   $$V = 2\pi \int_{0}^{2} (x)(x^2) \, dx$$
+   $$V = 2\pi \int_{0}^{2} x^3 \, dx$$
+   Find the antiderivative and evaluate:
+   $$V = 2\pi \left[ \frac{1}{4}x^4 \right]_{0}^{2}$$
+   $$V = 2\pi \left( \frac{1}{4}(16) - 0 \right)$$
+   $$V = 2\pi (4) = 8\pi$$
+   :::
+
+2. Let $R$ be the region bounded by the graphs of $x = y^2$ and $x = 4$. Use the shell method to find the volume of the solid generated when $R$ is revolved about the $x$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Using the shell method to revolve around the $x$-axis requires integrating with respect to $y$.
+   Because the region is symmetric across the $x$-axis, revolving just the top half of the region (from $y = 0$ to $y = 2$) will generate the entire solid. 
+   The radius of a cylindrical shell is the distance from the $x$-axis: $p(y) = y$.
+   The height of the shell spans horizontally from the left curve to the right vertical line: $h(y) = 4 - y^2$.
+   Set up the integral:
+   $$V = 2\pi \int_{0}^{2} y(4 - y^2) \, dy$$
+   $$V = 2\pi \int_{0}^{2} (4y - y^3) \, dy$$
+   Find the antiderivative and evaluate:
+   $$V = 2\pi \left[ 2y^2 - \frac{1}{4}y^4 \right]_{0}^{2}$$
+   $$V = 2\pi \left( \left( 2(4) - \frac{1}{4}(16) \right) - 0 \right)$$
+   $$V = 2\pi (8 - 4)$$
+   $$V = 2\pi (4) = 8\pi$$
+   :::
+
+3. Let $R$ be the region bounded by the graphs of $y = \sqrt{x}$, $y = 0$, and $x = 4$. Write, but do not evaluate, an integral expression using the shell method for the volume of the solid generated when $R$ is revolved about the vertical line $x = 6$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Using the shell method around a vertical axis requires integrating with respect to $x$. The bounds are from $x = 0$ to $x = 4$.
+   The axis of revolution is $x = 6$, which is to the right of the region. The radius of a shell is the distance from a generic vertical slice $x$ to the axis $x = 6$: $p(x) = 6 - x$.
+   The height of the shell is $h(x) = \sqrt{x} - 0 = \sqrt{x}$.
+   Set up the integral:
+   $$V = 2\pi \int_{0}^{4} (6 - x)\sqrt{x} \, dx$$
+   :::
+
+4. Let $R$ be the region in the first quadrant bounded by the graph of $y = \sin(x^2)$, the $x$-axis, and the vertical line $x = \sqrt{\pi}$. Which of the following integrals represents the volume of the solid generated when $R$ is revolved about the $y$-axis?
+   
+   **(A)** $\pi \int_0^{\sqrt{\pi}} (\sin(x^2))^2 \, dx$
+   
+   **(B)** $2\pi \int_0^{\sqrt{\pi}} x \sin(x^2) \, dx$
+   
+   **(C)** $2\pi \int_0^{\pi} y \sin(y^2) \, dy$
+   
+   **(D)** $\pi \int_0^{\sqrt{\pi}} x^2 \sin(x^2) \, dx$
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   To revolve around the $y$-axis using the shell method, we integrate with respect to $x$.
+   The radius of the shell is $p(x) = x$.
+   The height of the shell is the distance from the $x$-axis to the curve: $h(x) = \sin(x^2)$.
+   The bounds are given as $x = 0$ to $x = \sqrt{\pi}$.
+   Using the formula $V = 2\pi \int_{a}^{b} p(x)h(x) \, dx$:
+   $$V = 2\pi \int_{0}^{\sqrt{\pi}} x \sin(x^2) \, dx$$
+   This matches expression **(B)**.
+   :::
+
+5. Let $R$ be the region bounded by the graphs of $y = x^3 - x^4$ and the $x$-axis.
+   **a)** Briefly explain why using the disk/washer method to find the volume of the solid generated when $R$ is revolved about the $y$-axis would be difficult.
+   **b)** Write an integral expression using the shell method that represents the volume of the solid generated when $R$ is revolved about the $y$-axis.
+   **c)** Evaluate the integral from part (b) to find the volume of the solid.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the points of intersection to establish the bounds:
+   $$x^3 - x^4 = 0 \implies x^3(1 - x) = 0 \implies x = 0, x = 1$$
+   
+   **a)** To use the washer method around the $y$-axis, you must integrate with respect to $y$. This requires solving the equation $y = x^3 - x^4$ for $x$ in terms of $y$ to find the inner and outer radii. Because it is a 4th-degree polynomial, isolating $x$ is analytically extremely difficult or impossible for standard calculus students.
+   
+   **b)** Using the shell method allows us to integrate with respect to $x$. 
+   The radius is $p(x) = x$ and the height is $h(x) = x^3 - x^4$.
+   $$V = 2\pi \int_{0}^{1} x(x^3 - x^4) \, dx$$
+   
+   **c)** Evaluate the integral:
+   $$V = 2\pi \int_{0}^{1} (x^4 - x^5) \, dx$$
+   $$V = 2\pi \left[ \frac{1}{5}x^5 - \frac{1}{6}x^6 \right]_{0}^{1}$$
+   $$V = 2\pi \left( \left( \frac{1}{5} - \frac{1}{6} \right) - 0 \right)$$
+   Find a common denominator of 30:
+   $$V = 2\pi \left( \frac{6}{30} - \frac{5}{30} \right) = 2\pi \left( \frac{1}{30} \right) = \frac{\pi}{15}$$
+   :::
+:::
+
+::: {.conceptual-box}
+#### Conceptual Questions
+
+1. **The Fundamental Difference**
+   When setting up a volume integral, your first step is drawing a representative rectangle. Geometrically, what is the single most important difference in how this rectangle is oriented relative to the axis of revolution for the Shell method compared to the Disk/Washer method?
+   
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:** For the Disk and Washer methods, the representative rectangle is always drawn *perpendicular* to the axis of revolution. For the Shell method, the representative rectangle is always drawn *parallel* to the axis of revolution.
+   :::
+
+2. **Unrolling the Shell**
+   If you slice open a single cylindrical shell and flatten it out, it forms a rectangular slab. In the integral $2\pi \int p(x)h(x) \, dx$, the expression $2\pi p(x) \cdot h(x) \cdot dx$ calculates the volume of this slab. Geometrically, which specific dimensions of the flattened slab do $2\pi p(x)$ and $h(x)$ represent?
+   
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:** The expression $2\pi p(x)$ represents the length of the flattened slab, which corresponds to the circumference of the original unrolled cylindrical shell. The expression $h(x)$ represents the height of the rectangular slab, which corresponds exactly to the height of the original shell.
+   :::
+
+3. **Shifted Axes and the Radius $p(x)$**
+   When revolving a region in the first quadrant around the y-axis, the radius of the shell is simply $p(x) = x$. If you revolve that exact same region around the vertical line $x = 5$ instead, how do you use the "Right $-$ Left" concept to write the new algebraic expression for the radius $p(x)$?
+   
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:** The radius $p(x)$ is the physical distance between the axis of revolution and the representative rectangle. Using the "Right $-$ Left" framework, the vertical line $x = 5$ is further to the right than the region in the first quadrant, making it the "Right" value. The position of the representative rectangle is simply $x$, making it the "Left" value. Therefore, the distance is $5 - x$.
+   :::
+
+4. **The Algebraic Wall**
+   Suppose a region is bounded by $y = x^3 + x + 1$, $y=0$, $x=0$, and $x=1$, and you revolve it around the y-axis. Algebraically, why is it practically impossible to use the Washer method for this problem, forcing you to use the Shell method instead?
+   
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:** To use the Washer method around a vertical axis (the y-axis), you are forced to integrate with respect to $y$. This means you must solve the boundary equation $y = x^3 + x + 1$ for $x$ in terms of $y$. Algebraically isolating $x$ in a polynomial with both cubic and linear terms is incredibly difficult, creating an "algebraic wall." The Shell method avoids this entirely by allowing you to integrate with respect to $x$, using the function exactly as it is written.
+   :::
+
+5. **Axes and Variables ($dx$ vs. $dy$)**
+   You are revolving a region around a *vertical* axis. If you use the Washer method, you must integrate with respect to $y$ ($dy$). If you use the Shell method, what variable must you integrate with respect to, and geometrically, why does the method dictate this choice?
+   
+   ::: {.callout-tip collapse="true" title="Possible Answer" icon=false}
+   **Possible Answer:** For the Shell method around a vertical axis, you must integrate with respect to $x$ ($dx$). Geometrically, the Shell method requires the representative rectangle to be parallel to the axis of revolution. A rectangle parallel to a vertical axis must be drawn vertically. The infinitesimally small width (or thickness) of a vertical rectangle is measured along the x-axis, which dictates a width of $dx$.
    :::
 :::
