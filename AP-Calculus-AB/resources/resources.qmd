@@ -63,9 +63,31 @@ All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Singl
 * *(Resources coming soon!)*
 :::
 
+## AP Test Resources
+
+:::: {.callout-note collapse="true" title="Expand AP Test Resources" icon=false}
+
+Practice FRQs and Solutions:
+
+::: {.callout-note collapse="true" title="Expand Practice FRQs" icon=false}
+* [2023 Sample FRQ](2023-sample-FRQ.pdf)
+* [2024 Sample FRQ](2024-sample-FRQ.pdf)
+* [2025 Sample FRQ](2025-sample-FRQ.pdf)
+:::
+
+Practice Exams (including Multiple Choice and FRQs):
+
+::: {.callout-note collapse="true" title="Expand Practice Exams" icon=false}
+* [2012 Practice Exam](2012-Practice-Exam.pdf)
+* [2014 Practice Exam](2014-Practice-Exam.pdf)
+* [2017 Practice Exam](2017-Practice-Exam.pdf)
+:::
+
+::::
 
 ## Other Resources
 ::: {.callout-note collapse="true" title="Expand General Resources" icon=false}
 <!-- * [AP Exam Formula Sheet (PDF)](#) -->
 * [Desmos Graphing Calculator &rarr;](https://www.desmos.com/calculator)
 :::
+
