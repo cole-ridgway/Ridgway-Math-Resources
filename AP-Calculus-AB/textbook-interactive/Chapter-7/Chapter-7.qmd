@@ -230,14 +230,115 @@ Notice that in the previous example, by integrating with respect to $y$ you need
 #### Exercises: Intersecting Curves
 
 1. Find the area of the region bounded by the graphs of $y = e^x$, $y = x$, $x = 0$, and $x = 2$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, identify the upper and lower functions on the interval $[0, 2]$. Since $e^x > x$ for all $x$ in this interval, the area $A$ is given by:
+   $$A = \int_{0}^{2} (e^x - x) \, dx$$
+   Find the antiderivative and evaluate:
+   $$A = \left[ e^x - \frac{1}{2}x^2 \right]_{0}^{2} = \left( e^2 - \frac{1}{2}(2)^2 \right) - \left( e^0 - \frac{1}{2}(0)^2 \right)$$
+   $$A = (e^2 - 2) - (1 - 0)$$
+   $$A = e^2 - 3$$
+   :::
+
 2. Find the area of the region completely bounded by the graphs of $f(x) = 2 - x^2$ and $g(x) = x^2 - 6$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the points of intersection to determine the bounds by setting $f(x) = g(x)$:
+   $$2 - x^2 = x^2 - 6$$
+   $$2x^2 = 8 \implies x^2 = 4 \implies x = \pm 2$$
+   Testing a point in the interval $(-2, 2)$, such as $x = 0$, reveals $f(0) = 2$ and $g(0) = -6$, so $f(x)$ is the upper curve.
+   $$A = \int_{-2}^{2} \left( (2 - x^2) - (x^2 - 6) \right) \, dx$$
+   $$A = \int_{-2}^{2} (8 - 2x^2) \, dx$$
+   Using symmetry (since the integrand is even):
+   $$A = 2 \int_{0}^{2} (8 - 2x^2) \, dx$$
+   $$A = 2 \left[ 8x - \frac{2}{3}x^3 \right]_{0}^{2}$$
+   $$A = 2 \left( 16 - \frac{16}{3} \right) = 2 \left( \frac{48}{3} - \frac{16}{3} \right)$$
+   $$A = 2 \left( \frac{32}{3} \right) = \frac{64}{3}$$
+   :::
+
 3. Let $R$ be the region enclosed by the graphs of $y = \sqrt{x}$ and $y = \frac{x}{2}$. Find the area of $R$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the points of intersection:
+   $$\sqrt{x} = \frac{x}{2}$$
+   $$x = \frac{x^2}{4}$$
+   $$x^2 - 4x = 0 \implies x(x - 4) = 0 \implies x = 0, x = 4$$
+   On the interval $(0, 4)$, $\sqrt{x} > \frac{x}{2}$, so $y = \sqrt{x}$ is the upper curve.
+   $$A = \int_{0}^{4} \left( \sqrt{x} - \frac{x}{2} \right) \, dx$$
+   $$A = \left[ \frac{2}{3}x^{3/2} - \frac{1}{4}x^2 \right]_{0}^{4}$$
+   $$A = \left( \frac{2}{3}(4)^{3/2} - \frac{1}{4}(4)^2 \right) - (0)$$
+   $$A = \left( \frac{2}{3}(8) - 4 \right) = \frac{16}{3} - \frac{12}{3}$$
+   $$A = \frac{4}{3}$$
+   :::
+
 4. Find the area of the region in the first quadrant bounded by the graphs of $y = \sin(x)$, $y = \cos(x)$, and the $y$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The region is bounded by the $y$-axis ($x = 0$). Find where the curves intersect in the first quadrant:
+   $$\sin(x) = \cos(x)$$
+   $$\tan(x) = 1 \implies x = \frac{\pi}{4}$$
+   On the interval $\left[0, \frac{\pi}{4}\right]$, $\cos(x) \ge \sin(x)$.
+   $$A = \int_{0}^{\pi/4} (\cos(x) - \sin(x)) \, dx$$
+   $$A = \left[ \sin(x) + \cos(x) \right]_{0}^{\pi/4}$$
+   $$A = \left( \sin\left(\frac{\pi}{4}\right) + \cos\left(\frac{\pi}{4}\right) \right) - (\sin(0) + \cos(0))$$
+   $$A = \left( \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \right) - (0 + 1)$$
+   $$A = \sqrt{2} - 1$$
+   :::
+
 5. Let $R$ be the region bounded by the graphs of $f(x) = x^3 - 3x^2 + 2x$ and $g(x) = 0$. Find the total area of the region $R$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the points of intersection between $f(x)$ and the $x$-axis ($g(x) = 0$):
+   $$x^3 - 3x^2 + 2x = 0$$
+   $$x(x^2 - 3x + 2) = 0 \implies x(x - 1)(x - 2) = 0 \implies x = 0, 1, 2$$
+   The total area requires splitting the integral because the curve crosses the $x$-axis. 
+   On $(0, 1)$, $f(x) > 0$. On $(1, 2)$, $f(x) < 0$.
+   $$A = \int_{0}^{1} (x^3 - 3x^2 + 2x) \, dx - \int_{1}^{2} (x^3 - 3x^2 + 2x) \, dx$$
+   Find the general antiderivative: $F(x) = \frac{1}{4}x^4 - x^3 + x^2$.
+   Evaluate the first integral:
+   $$F(1) - F(0) = \left( \frac{1}{4} - 1 + 1 \right) - 0 = \frac{1}{4}$$
+   Evaluate the second integral:
+   $$F(2) - F(1) = \left( \frac{16}{4} - 8 + 4 \right) - \frac{1}{4} = (4 - 8 + 4) - \frac{1}{4} = -\frac{1}{4}$$
+   Subtract to find the total absolute area:
+   $$A = \frac{1}{4} - \left(-\frac{1}{4}\right) = \frac{1}{4} + \frac{1}{4} = \frac{1}{2}$$
+   :::
+
 6. Consider the region bounded by the graphs of $x = y^2 - 4$ and $x = y + 2$.
-   a) Write an integral expression with respect to $x$ that represents the area of the region. Do not evaluate the integral.
-   b) Write an integral expression with respect to $y$ that represents the area of the region.
-   c) Evaluate the integral from part (b) to find the area of the region.
+   **a)** Write an integral expression with respect to $x$ that represents the area of the region. Do not evaluate the integral.
+   **b)** Write an integral expression with respect to $y$ that represents the area of the region.
+   **c)** Evaluate the integral from part (b) to find the area of the region.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the points of intersection by setting the equations equal to each other. It is easier to solve for $y$:
+   $$y^2 - 4 = y + 2$$
+   $$y^2 - y - 6 = 0 \implies (y - 3)(y + 2) = 0 \implies y = 3, y = -2$$
+   The intersection points are $(5, 3)$ and $(0, -2)$.
+   
+   **a)** To integrate with respect to $x$, we must solve both equations for $y$:
+   $$x = y^2 - 4 \implies y = \pm\sqrt{x + 4}$$
+   $$x = y + 2 \implies y = x - 2$$
+   The region must be split at $x = 0$ because the lower boundary changes.
+   $$A = \int_{-4}^{0} \left( \sqrt{x+4} - (-\sqrt{x+4}) \right) \, dx + \int_{0}^{5} \left( \sqrt{x+4} - (x - 2) \right) \, dx$$
+   
+   **b)** To integrate with respect to $y$, the "right" curve is $x = y + 2$ and the "left" curve is $x = y^2 - 4$.
+   $$A = \int_{-2}^{3} \left( (y + 2) - (y^2 - 4) \right) \, dy$$
+   $$A = \int_{-2}^{3} (-y^2 + y + 6) \, dy$$
+   
+   **c)** Evaluate the integral from part (b):
+   $$A = \left[ -\frac{1}{3}y^3 + \frac{1}{2}y^2 + 6y \right]_{-2}^{3}$$
+   Evaluate at upper bound $y = 3$:
+   $$-\frac{1}{3}(27) + \frac{1}{2}(9) + 6(3) = -9 + \frac{9}{2} + 18 = 9 + \frac{9}{2} = \frac{27}{2}$$
+   Evaluate at lower bound $y = -2$:
+   $$-\frac{1}{3}(-8) + \frac{1}{2}(4) + 6(-2) = \frac{8}{3} + 2 - 12 = \frac{8}{3} - 10 = \frac{8}{3} - \frac{30}{3} = -\frac{22}{3}$$
+   Subtract to find the total area:
+   $$A = \frac{27}{2} - \left( -\frac{22}{3} \right) = \frac{81}{6} + \frac{44}{6} = \frac{125}{6}$$
+   :::
 :::
 
 ---
@@ -429,9 +530,63 @@ $$
 
 ::: {.practice-box}
 #### Exercises: The Disk Method
+
 1. Find the volume of the solid generated when the region bounded by the graphs of $y = \sqrt{x}$, $y = 0$, and $x = 4$ is revolved about the $x$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the disk method. The radius of a representative disk is $r(x) = \sqrt{x}$. 
+   Set up the integral with respect to $x$ from $x = 0$ to $x = 4$:
+   $$V = \pi \int_{0}^{4} (\sqrt{x})^2 \, dx$$
+   Simplify the integrand:
+   $$V = \pi \int_{0}^{4} x \, dx$$
+   Find the antiderivative and evaluate:
+   $$V = \pi \left[ \frac{1}{2}x^2 \right]_{0}^{4}$$
+   $$V = \pi \left( \frac{1}{2}(4)^2 - \frac{1}{2}(0)^2 \right)$$
+   $$V = \pi \left( \frac{16}{2} - 0 \right)$$
+   $$V = 8\pi$$
+   :::
+
 2. Find the volume of the solid generated when the region bounded by the graphs of $y = x^3$, $x = 0$, and $y = 8$ is revolved about the $y$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Because the region is revolved around the $y$-axis, use the disk method with respect to $y$. First, solve the given function for $x$ to find the radius $r(y)$:
+   $$y = x^3 \implies x = \sqrt[3]{y} = y^{1/3}$$
+   Set up the integral from $y = 0$ to $y = 8$:
+   $$V = \pi \int_{0}^{8} \left(y^{1/3}\right)^2 \, dy$$
+   $$V = \pi \int_{0}^{8} y^{2/3} \, dy$$
+   Find the antiderivative and evaluate:
+   $$V = \pi \left[ \frac{3}{5}y^{5/3} \right]_{0}^{8}$$
+   $$V = \pi \left( \frac{3}{5}(8)^{5/3} - 0 \right)$$
+   Since $8^{1/3} = 2$, we have $8^{5/3} = 2^5 = 32$:
+   $$V = \pi \left( \frac{3}{5}(32) \right)$$
+   $$V = \frac{96\pi}{5}$$
+   :::
+
 3. Find the volume of the solid generated when the region bounded by the graphs of $y = 2 - x^2$ and $y = 1$ is revolved about the horizontal line $y = 1$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the bounds of integration by setting the equations equal to each other:
+   $$2 - x^2 = 1 \implies x^2 = 1 \implies x = \pm 1$$
+   Use the disk method. The axis of revolution is $y = 1$, so the radius of the disk is the distance from the upper curve to the line $y = 1$:
+   $$r(x) = (2 - x^2) - 1 = 1 - x^2$$
+   Set up the integral from $x = -1$ to $x = 1$:
+   $$V = \pi \int_{-1}^{1} (1 - x^2)^2 \, dx$$
+   Expand the integrand:
+   $$V = \pi \int_{-1}^{1} (1 - 2x^2 + x^4) \, dx$$
+   Because the integrand is an even function, we can use symmetry:
+   $$V = 2\pi \int_{0}^{1} (1 - 2x^2 + x^4) \, dx$$
+   Find the antiderivative and evaluate:
+   $$V = 2\pi \left[ x - \frac{2}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{1}$$
+   $$V = 2\pi \left( 1 - \frac{2}{3} + \frac{1}{5} \right) - (0)$$
+   Find a common denominator (15) for the fractions:
+   $$V = 2\pi \left( \frac{15}{15} - \frac{10}{15} + \frac{3}{15} \right)$$
+   $$V = 2\pi \left( \frac{8}{15} \right)$$
+   $$V = \frac{16\pi}{15}$$
+   :::
+
 4. Let $R$ be the region enclosed by the graph of $f(x) = \frac{1}{x}$, the $x$-axis, and the vertical lines $x=1$ and $x=e$. Which of the following expressions represents the volume of the solid generated when $R$ is revolved about the $x$-axis?
 
    **(A)** $\pi \int_1^e \frac{1}{x} \, dx$
@@ -442,12 +597,49 @@ $$
    
    **(D)** $\pi \int_1^e \ln(x) \, dx$
 
-5. Let $R$ be the region in the first quadrant bounded by the graph of $y = 4 - x^2$ and the coordinate axes.
-   a) Find the area of $R$.
-   b) Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
-   c) Find the volume of the solid generated when $R$ is revolved about the $y$-axis.
-:::
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Using the disk method around the $x$-axis, the formula for volume is $V = \pi \int_{a}^{b} [r(x)]^2 \, dx$.
+   The radius is given by the function $r(x) = \frac{1}{x}$, and the bounds are from $x = 1$ to $x = e$.
+   $$V = \pi \int_{1}^{e} \left( \frac{1}{x} \right)^2 \, dx$$
+   $$V = \pi \int_{1}^{e} \frac{1}{x^2} \, dx$$
+   This matches expression **(B)**.
+   :::
 
+5. Let $R$ be the region in the first quadrant bounded by the graph of $y = 4 - x^2$ and the coordinate axes.
+   **a)** Find the area of $R$.
+   **b)** Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
+   **c)** Find the volume of the solid generated when $R$ is revolved about the $y$-axis.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, establish the boundaries for the region in the first quadrant. The curve intersects the $y$-axis at $y = 4$ and the $x$-axis where $4 - x^2 = 0 \implies x = 2$.
+   
+   **a)** Set up the integral for the area from $x = 0$ to $x = 2$:
+   $$A = \int_{0}^{2} (4 - x^2) \, dx$$
+   $$A = \left[ 4x - \frac{1}{3}x^3 \right]_{0}^{2}$$
+   $$A = \left( 4(2) - \frac{1}{3}(8) \right) - 0$$
+   $$A = 8 - \frac{8}{3} = \frac{24}{3} - \frac{8}{3} = \frac{16}{3}$$
+   
+   **b)** Use the disk method with respect to $x$:
+   $$V_x = \pi \int_{0}^{2} (4 - x^2)^2 \, dx$$
+   $$V_x = \pi \int_{0}^{2} (16 - 8x^2 + x^4) \, dx$$
+   $$V_x = \pi \left[ 16x - \frac{8}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{2}$$
+   $$V_x = \pi \left( 16(2) - \frac{8}{3}(8) + \frac{1}{5}(32) \right)$$
+   $$V_x = \pi \left( 32 - \frac{64}{3} + \frac{32}{5} \right)$$
+   Find a common denominator of 15:
+   $$V_x = \pi \left( \frac{480}{15} - \frac{320}{15} + \frac{96}{15} \right) = \pi \left( \frac{256}{15} \right) = \frac{256\pi}{15}$$
+   
+   **c)** Use the disk method with respect to $y$. First, solve the equation for $x$:
+   $$y = 4 - x^2 \implies x^2 = 4 - y \implies x = \sqrt{4 - y}$$
+   The bounds for $y$ are from $y = 0$ to $y = 4$.
+   $$V_y = \pi \int_{0}^{4} (\sqrt{4 - y})^2 \, dy$$
+   $$V_y = \pi \int_{0}^{4} (4 - y) \, dy$$
+   $$V_y = \pi \left[ 4y - \frac{1}{2}y^2 \right]_{0}^{4}$$
+   $$V_y = \pi \left( 4(4) - \frac{1}{2}(16) \right) - 0$$
+   $$V_y = \pi (16 - 8) = 8\pi$$
+   :::
+:::
 ---
 
 ### 7.2.2 The Washer Method
@@ -575,8 +767,36 @@ $$
 
 ::: {.practice-box}
 #### Exercises: The Washer Method
+
 1. Let $R$ be the region bounded by the graphs of $y = x^2$ and $y = 2x$. Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the points of intersection to determine the bounds:
+   $$x^2 = 2x \implies x^2 - 2x = 0 \implies x(x - 2) = 0 \implies x = 0, x = 2$$
+   Use the washer method. The outer radius is the top curve $R(x) = 2x$, and the inner radius is the bottom curve $r(x) = x^2$.
+   $$V = \pi \int_{0}^{2} \left( (2x)^2 - (x^2)^2 \right) \, dx$$
+   $$V = \pi \int_{0}^{2} (4x^2 - x^4) \, dx$$
+   Find the antiderivative and evaluate:
+   $$V = \pi \left[ \frac{4}{3}x^3 - \frac{1}{5}x^5 \right]_{0}^{2}$$
+   $$V = \pi \left( \frac{4}{3}(8) - \frac{1}{5}(32) \right) - 0$$
+   $$V = \pi \left( \frac{32}{3} - \frac{32}{5} \right)$$
+   Find a common denominator of 15:
+   $$V = \pi \left( \frac{160}{15} - \frac{96}{15} \right) = \frac{64\pi}{15}$$
+   :::
+
 2. Let $R$ be the region bounded by the graph of $x = y^2$ and the vertical line $x = 4$. Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the $y$-axis.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the points of intersection for the $y$-bounds:
+   $$y^2 = 4 \implies y = \pm 2$$
+   Use the washer method with respect to $y$. The outer radius is the vertical line $R(y) = 4$, and the inner radius is the curve $r(y) = y^2$.
+   $$V = \pi \int_{-2}^{2} \left( (4)^2 - (y^2)^2 \right) \, dy$$
+   $$V = \pi \int_{-2}^{2} (16 - y^4) \, dy$$
+   *Note: Because of symmetry across the $x$-axis, this can also be written as $V = 2\pi \int_{0}^{2} (16 - y^4) \, dy$.*
+   :::
+
 3. Let $R$ be the region enclosed by the graphs of $y = \sqrt{x}$ and $y = x^2$. Which of the following integrals represents the volume of the solid generated when $R$ is revolved about the horizontal line $y = 2$?
    
    **(A)** $\pi \int_0^1 \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx$
@@ -587,11 +807,59 @@ $$
 
    **(D)** $\pi \int_0^1 \left( (\sqrt{x})^2 - (x^2)^2 \right) \, dx$
 
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The points of intersection are $x = 0$ and $x = 1$. On this interval, $\sqrt{x} \ge x^2$. 
+   The axis of revolution is $y = 2$, which is above the region. 
+   The outer radius $R(x)$ is the distance from the axis of revolution to the bottom curve: $R(x) = 2 - x^2$.
+   The inner radius $r(x)$ is the distance from the axis of revolution to the top curve: $r(x) = 2 - \sqrt{x}$.
+   Set up the washer method integral:
+   $$V = \pi \int_{0}^{1} \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx$$
+   This matches expression **(A)**.
+   :::
+
 4. Let $R$ be the region bounded by the graphs of $y = x^2$ and $y = 4$. Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the horizontal line $y = 5$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Find the intersection points for the bounds:
+   $$x^2 = 4 \implies x = \pm 2$$
+   The axis of revolution is $y = 5$, which is above the region.
+   The outer radius $R(x)$ is the distance from $y = 5$ to the bottom curve $y = x^2$, so $R(x) = 5 - x^2$.
+   The inner radius $r(x)$ is the distance from $y = 5$ to the top curve $y = 4$, so $r(x) = 5 - 4 = 1$.
+   Set up the integral using the washer method:
+   $$V = \pi \int_{-2}^{2} \left( (5 - x^2)^2 - (1)^2 \right) \, dx$$
+   $$V = \pi \int_{-2}^{2} \left( (5 - x^2)^2 - 1 \right) \, dx$$
+   :::
+
 5. Let $R$ be the region bounded by the graph of $y = e^x$, the horizontal line $y = 1$, and the vertical line $x = 2$.
-   a) Find the area of $R$.
-   b) Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
-   c) Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the horizontal line $y = -1$.
+   **a)** Find the area of $R$.
+   **b)** Find the volume of the solid generated when $R$ is revolved about the $x$-axis.
+   **c)** Write, but do not evaluate, an integral expression for the volume of the solid generated when $R$ is revolved about the horizontal line $y = -1$.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find where $y = e^x$ intersects $y = 1$: $e^x = 1 \implies x = 0$. So the bounds are $x = 0$ to $x = 2$.
+   
+   **a)** Set up the integral for the area with $y = e^x$ as the top curve and $y = 1$ as the bottom curve:
+   $$A = \int_{0}^{2} (e^x - 1) \, dx$$
+   $$A = \left[ e^x - x \right]_{0}^{2} = (e^2 - 2) - (e^0 - 0)$$
+   $$A = e^2 - 2 - 1 = e^2 - 3$$
+   
+   **b)** Use the washer method around the $x$-axis ($y = 0$). Outer radius $R(x) = e^x$, inner radius $r(x) = 1$.
+   $$V = \pi \int_{0}^{2} \left( (e^x)^2 - (1)^2 \right) \, dx$$
+   $$V = \pi \int_{0}^{2} (e^{2x} - 1) \, dx$$
+   $$V = \pi \left[ \frac{1}{2}e^{2x} - x \right]_{0}^{2}$$
+   $$V = \pi \left( \left(\frac{1}{2}e^{4} - 2\right) - \left(\frac{1}{2}e^{0} - 0\right) \right)$$
+   $$V = \pi \left( \frac{1}{2}e^4 - 2 - \frac{1}{2} \right) = \pi \left( \frac{1}{2}e^4 - \frac{5}{2} \right) = \frac{\pi}{2}(e^4 - 5)$$
+   
+   **c)** The axis of revolution is $y = -1$, which is below the region.
+   The outer radius $R(x)$ is the distance from $y = -1$ to the top curve $y = e^x$, so $R(x) = e^x - (-1) = e^x + 1$.
+   The inner radius $r(x)$ is the distance from $y = -1$ to the bottom curve $y = 1$, so $r(x) = 1 - (-1) = 2$.
+   Set up the washer method integral:
+   $$V = \pi \int_{0}^{2} \left( (e^x + 1)^2 - (2)^2 \right) \, dx$$
+   $$V = \pi \int_{0}^{2} \left( (e^x + 1)^2 - 4 \right) \, dx$$
+   :::
 :::
 
 ::: {.conceptual-box}
@@ -677,9 +945,56 @@ $$
 
 ::: {.practice-box}
 #### Exercises: Solids with Known Cross Sections
+
 1. Let $R$ be the region bounded by the graph of $y = \sqrt{x}$, the $x$-axis, and the vertical line $x = 9$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Find the volume of the solid.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The base of the square cross section spans from the $x$-axis to the curve, so the side length is $s(x) = \sqrt{x} - 0 = \sqrt{x}$.
+   The area of a square is $A(x) = [s(x)]^2$, so:
+   $$A(x) = (\sqrt{x})^2 = x$$
+   The region goes from $x = 0$ to $x = 9$. Integrate the area function to find the volume:
+   $$V = \int_{0}^{9} x \, dx$$
+   $$V = \left[ \frac{1}{2}x^2 \right]_{0}^{9}$$
+   $$V = \frac{1}{2}(9)^2 - \frac{1}{2}(0)^2$$
+   $$V = \frac{81}{2}$$
+   :::
+
 2. Let $R$ be the region bounded by the graphs of $y = 2 - x^2$ and $y = 0$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are semicircles. Find the volume of the solid.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the points of intersection to establish the bounds:
+   $$2 - x^2 = 0 \implies x^2 = 2 \implies x = \pm \sqrt{2}$$
+   The diameter of the semicircle is the distance from the $x$-axis to the curve, so $d(x) = 2 - x^2$.
+   The radius is half the diameter: $r(x) = \frac{2 - x^2}{2}$.
+   The area of a semicircle is $A(x) = \frac{\pi}{2}[r(x)]^2$:
+   $$A(x) = \frac{\pi}{2} \left( \frac{2 - x^2}{2} \right)^2 = \frac{\pi}{2} \left( \frac{(2 - x^2)^2}{4} \right) = \frac{\pi}{8} (2 - x^2)^2$$
+   Integrate the area function from $-\sqrt{2}$ to $\sqrt{2}$. Because the area function is even, we can use symmetry:
+   $$V = 2 \int_{0}^{\sqrt{2}} \frac{\pi}{8} (4 - 4x^2 + x^4) \, dx$$
+   $$V = \frac{\pi}{4} \left[ 4x - \frac{4}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{\sqrt{2}}$$
+   Evaluate at $x = \sqrt{2}$:
+   $$V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{4}{3}(\sqrt{2})^3 + \frac{1}{5}(\sqrt{2})^5 \right)$$
+   $$V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{4}{3}(2\sqrt{2}) + \frac{1}{5}(4\sqrt{2}) \right)$$
+   $$V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{8\sqrt{2}}{3} + \frac{4\sqrt{2}}{5} \right)$$
+   Find a common denominator of 15:
+   $$V = \frac{\pi}{4} \left( \frac{60\sqrt{2}}{15} - \frac{40\sqrt{2}}{15} + \frac{12\sqrt{2}}{15} \right)$$
+   $$V = \frac{\pi}{4} \left( \frac{32\sqrt{2}}{15} \right) = \frac{8\pi\sqrt{2}}{15}$$
+   :::
+
 3. Let $R$ be the region bounded by the graphs of $y = e^x$, $y = 1$, and $x = 3$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are rectangles whose heights are twice the lengths of their bases in region $R$. Write, but do not evaluate, an integral expression for the volume of the solid.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The base of the rectangle lies in the region $R$, bounded above by $y = e^x$ and below by $y = 1$.
+   The length of the base is $b(x) = e^x - 1$.
+   The height of the rectangle is given as twice the base: $h(x) = 2(e^x - 1)$.
+   The area of a rectangle is $A(x) = b(x) \cdot h(x)$:
+   $$A(x) = (e^x - 1) \cdot 2(e^x - 1) = 2(e^x - 1)^2$$
+   The region starts where $e^x = 1 \implies x = 0$ and ends at the vertical line $x = 3$.
+   $$V = \int_{0}^{3} 2(e^x - 1)^2 \, dx$$
+   :::
+
 4. Let $R$ be the region bounded by the graph of $y = \ln(x)$, the $x$-axis, and the vertical line $x = e$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Which of the following integrals represents the volume of the solid?
    
    **(A)** $\int_1^e \ln(x) \, dx$
@@ -690,9 +1005,56 @@ $$
 
    **(D)** $\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx$
 
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The base of the square spans from the $x$-axis ($y = 0$) to the curve $y = \ln(x)$. The length of the side is $s(x) = \ln(x) - 0 = \ln(x)$.
+   The area of the square cross section is $A(x) = [s(x)]^2 = (\ln(x))^2$.
+   The bounds are from where the curve intersects the $x$-axis ($\ln(x) = 0 \implies x = 1$) to the line $x = e$.
+   The volume is the integral of the area function:
+   $$V = \int_{1}^{e} (\ln(x))^2 \, dx$$
+   This matches expression **(B)**.
+   :::
+
 5. Let $R$ be the region enclosed by the graphs of $x = y^2$ and $x = 4$. The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $y$-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   The cross sections are perpendicular to the $y$-axis, so we must integrate with respect to $y$. 
+   Find the intersection points for the $y$-bounds: $y^2 = 4 \implies y = \pm 2$.
+   The side length of the equilateral triangle spans horizontally from the right curve ($x = 4$) to the left curve ($x = y^2$):
+   $$s(y) = 4 - y^2$$
+   The area of an equilateral triangle with side length $s$ is $A = \frac{\sqrt{3}}{4}s^2$.
+   $$A(y) = \frac{\sqrt{3}}{4}(4 - y^2)^2$$
+   Set up the integral from $y = -2$ to $y = 2$:
+   $$V = \int_{-2}^{2} \frac{\sqrt{3}}{4}(4 - y^2)^2 \, dy$$
+   :::
+
 6. Let $R$ be the region bounded by the graphs of $y = \sin(x)$ and the $x$-axis for $0 \leq x \leq \pi$. 
-   a) Find the area of $R$.
-   b) The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Find the volume of the solid.
-   c) The region $R$ is the base of another solid. For this solid, the cross sections perpendicular to the $x$-axis are semicircles with their diameters across the base. Find the volume of the solid.
+   **a)** Find the area of $R$.
+   **b)** The region $R$ is the base of a solid. For this solid, the cross sections perpendicular to the $x$-axis are squares. Find the volume of the solid.
+   **c)** The region $R$ is the base of another solid. For this solid, the cross sections perpendicular to the $x$-axis are semicircles with their diameters across the base. Find the volume of the solid.
+
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   **a)** Set up the integral for the area under the sine curve:
+   $$A = \int_{0}^{\pi} \sin(x) \, dx$$
+   $$A = \left[ -\cos(x) \right]_{0}^{\pi}$$
+   $$A = (-\cos(\pi)) - (-\cos(0))$$
+   $$A = (-(-1)) - (-1) = 1 + 1 = 2$$
+   
+   **b)** The side length of the square is $s(x) = \sin(x)$. The area is $A(x) = \sin^2(x)$.
+   $$V = \int_{0}^{\pi} \sin^2(x) \, dx$$
+   Use the power-reducing half-angle identity: $\sin^2(x) = \frac{1 - \cos(2x)}{2}$.
+   $$V = \int_{0}^{\pi} \left( \frac{1}{2} - \frac{1}{2}\cos(2x) \right) \, dx$$
+   $$V = \left[ \frac{1}{2}x - \frac{1}{4}\sin(2x) \right]_{0}^{\pi}$$
+   $$V = \left( \frac{1}{2}(\pi) - \frac{1}{4}\sin(2\pi) \right) - \left( 0 - \frac{1}{4}\sin(0) \right)$$
+   $$V = \left( \frac{\pi}{2} - 0 \right) - (0) = \frac{\pi}{2}$$
+   
+   **c)** The diameter of the semicircle is $d(x) = \sin(x)$, so the radius is $r(x) = \frac{1}{2}\sin(x)$.
+   The area of the semicircular cross section is $A(x) = \frac{\pi}{2}[r(x)]^2$:
+   $$A(x) = \frac{\pi}{2} \left( \frac{1}{2}\sin(x) \right)^2 = \frac{\pi}{2} \left( \frac{1}{4}\sin^2(x) \right) = \frac{\pi}{8}\sin^2(x)$$
+   $$V = \int_{0}^{\pi} \frac{\pi}{8}\sin^2(x) \, dx = \frac{\pi}{8} \int_{0}^{\pi} \sin^2(x) \, dx$$
+   Using the result from part (b), we know that $\int_{0}^{\pi} \sin^2(x) \, dx = \frac{\pi}{2}$.
+   $$V = \frac{\pi}{8} \left( \frac{\pi}{2} \right) = \frac{\pi^2}{16}$$
+   :::
 :::

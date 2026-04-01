@@ -857,17 +857,111 @@ A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
 <section id="exercises-intersecting-curves" class="level4 practice-box">
 <h4 class="anchored" data-anchor-id="exercises-intersecting-curves">Exercises: Intersecting Curves</h4>
 <ol type="1">
-<li>Find the area of the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = x\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(x = 2\)</span>.</li>
-<li>Find the area of the region completely bounded by the graphs of <span class="math inline">\(f(x) = 2 - x^2\)</span> and <span class="math inline">\(g(x) = x^2 - 6\)</span>.</li>
-<li>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span> and <span class="math inline">\(y = \frac{x}{2}\)</span>. Find the area of <span class="math inline">\(R\)</span>.</li>
-<li>Find the area of the region in the first quadrant bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span>, <span class="math inline">\(y = \cos(x)\)</span>, and the <span class="math inline">\(y\)</span>-axis.</li>
-<li>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(f(x) = x^3 - 3x^2 + 2x\)</span> and <span class="math inline">\(g(x) = 0\)</span>. Find the total area of the region <span class="math inline">\(R\)</span>.</li>
-<li>Consider the region bounded by the graphs of <span class="math inline">\(x = y^2 - 4\)</span> and <span class="math inline">\(x = y + 2\)</span>.
-<ol type="a">
-<li>Write an integral expression with respect to <span class="math inline">\(x\)</span> that represents the area of the region. Do not evaluate the integral.</li>
-<li>Write an integral expression with respect to <span class="math inline">\(y\)</span> that represents the area of the region.</li>
-<li>Evaluate the integral from part (b) to find the area of the region.</li>
-</ol></li>
+<li><p>Find the area of the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = x\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(x = 2\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, identify the upper and lower functions on the interval <span class="math inline">\([0, 2]\)</span>. Since <span class="math inline">\(e^x &gt; x\)</span> for all <span class="math inline">\(x\)</span> in this interval, the area <span class="math inline">\(A\)</span> is given by: <span class="math display">\[A = \int_{0}^{2} (e^x - x) \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[A = \left[ e^x - \frac{1}{2}x^2 \right]_{0}^{2} = \left( e^2 - \frac{1}{2}(2)^2 \right) - \left( e^0 - \frac{1}{2}(0)^2 \right)\]</span> <span class="math display">\[A = (e^2 - 2) - (1 - 0)\]</span> <span class="math display">\[A = e^2 - 3\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the area of the region completely bounded by the graphs of <span class="math inline">\(f(x) = 2 - x^2\)</span> and <span class="math inline">\(g(x) = x^2 - 6\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find the points of intersection to determine the bounds by setting <span class="math inline">\(f(x) = g(x)\)</span>: <span class="math display">\[2 - x^2 = x^2 - 6\]</span> <span class="math display">\[2x^2 = 8 \implies x^2 = 4 \implies x = \pm 2\]</span> Testing a point in the interval <span class="math inline">\((-2, 2)\)</span>, such as <span class="math inline">\(x = 0\)</span>, reveals <span class="math inline">\(f(0) = 2\)</span> and <span class="math inline">\(g(0) = -6\)</span>, so <span class="math inline">\(f(x)\)</span> is the upper curve. <span class="math display">\[A = \int_{-2}^{2} \left( (2 - x^2) - (x^2 - 6) \right) \, dx\]</span> <span class="math display">\[A = \int_{-2}^{2} (8 - 2x^2) \, dx\]</span> Using symmetry (since the integrand is even): <span class="math display">\[A = 2 \int_{0}^{2} (8 - 2x^2) \, dx\]</span> <span class="math display">\[A = 2 \left[ 8x - \frac{2}{3}x^3 \right]_{0}^{2}\]</span> <span class="math display">\[A = 2 \left( 16 - \frac{16}{3} \right) = 2 \left( \frac{48}{3} - \frac{16}{3} \right)\]</span> <span class="math display">\[A = 2 \left( \frac{32}{3} \right) = \frac{64}{3}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span> and <span class="math inline">\(y = \frac{x}{2}\)</span>. Find the area of <span class="math inline">\(R\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Find the points of intersection: <span class="math display">\[\sqrt{x} = \frac{x}{2}\]</span> <span class="math display">\[x = \frac{x^2}{4}\]</span> <span class="math display">\[x^2 - 4x = 0 \implies x(x - 4) = 0 \implies x = 0, x = 4\]</span> On the interval <span class="math inline">\((0, 4)\)</span>, <span class="math inline">\(\sqrt{x} &gt; \frac{x}{2}\)</span>, so <span class="math inline">\(y = \sqrt{x}\)</span> is the upper curve. <span class="math display">\[A = \int_{0}^{4} \left( \sqrt{x} - \frac{x}{2} \right) \, dx\]</span> <span class="math display">\[A = \left[ \frac{2}{3}x^{3/2} - \frac{1}{4}x^2 \right]_{0}^{4}\]</span> <span class="math display">\[A = \left( \frac{2}{3}(4)^{3/2} - \frac{1}{4}(4)^2 \right) - (0)\]</span> <span class="math display">\[A = \left( \frac{2}{3}(8) - 4 \right) = \frac{16}{3} - \frac{12}{3}\]</span> <span class="math display">\[A = \frac{4}{3}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the area of the region in the first quadrant bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span>, <span class="math inline">\(y = \cos(x)\)</span>, and the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The region is bounded by the <span class="math inline">\(y\)</span>-axis (<span class="math inline">\(x = 0\)</span>). Find where the curves intersect in the first quadrant: <span class="math display">\[\sin(x) = \cos(x)\]</span> <span class="math display">\[\tan(x) = 1 \implies x = \frac{\pi}{4}\]</span> On the interval <span class="math inline">\(\left[0, \frac{\pi}{4}\right]\)</span>, <span class="math inline">\(\cos(x) \ge \sin(x)\)</span>. <span class="math display">\[A = \int_{0}^{\pi/4} (\cos(x) - \sin(x)) \, dx\]</span> <span class="math display">\[A = \left[ \sin(x) + \cos(x) \right]_{0}^{\pi/4}\]</span> <span class="math display">\[A = \left( \sin\left(\frac{\pi}{4}\right) + \cos\left(\frac{\pi}{4}\right) \right) - (\sin(0) + \cos(0))\]</span> <span class="math display">\[A = \left( \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} \right) - (0 + 1)\]</span> <span class="math display">\[A = \sqrt{2} - 1\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(f(x) = x^3 - 3x^2 + 2x\)</span> and <span class="math inline">\(g(x) = 0\)</span>. Find the total area of the region <span class="math inline">\(R\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Find the points of intersection between <span class="math inline">\(f(x)\)</span> and the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(g(x) = 0\)</span>): <span class="math display">\[x^3 - 3x^2 + 2x = 0\]</span> <span class="math display">\[x(x^2 - 3x + 2) = 0 \implies x(x - 1)(x - 2) = 0 \implies x = 0, 1, 2\]</span> The total area requires splitting the integral because the curve crosses the <span class="math inline">\(x\)</span>-axis. On <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\(f(x) &gt; 0\)</span>. On <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\(f(x) &lt; 0\)</span>. <span class="math display">\[A = \int_{0}^{1} (x^3 - 3x^2 + 2x) \, dx - \int_{1}^{2} (x^3 - 3x^2 + 2x) \, dx\]</span> Find the general antiderivative: <span class="math inline">\(F(x) = \frac{1}{4}x^4 - x^3 + x^2\)</span>. Evaluate the first integral: <span class="math display">\[F(1) - F(0) = \left( \frac{1}{4} - 1 + 1 \right) - 0 = \frac{1}{4}\]</span> Evaluate the second integral: <span class="math display">\[F(2) - F(1) = \left( \frac{16}{4} - 8 + 4 \right) - \frac{1}{4} = (4 - 8 + 4) - \frac{1}{4} = -\frac{1}{4}\]</span> Subtract to find the total absolute area: <span class="math display">\[A = \frac{1}{4} - \left(-\frac{1}{4}\right) = \frac{1}{4} + \frac{1}{4} = \frac{1}{2}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Consider the region bounded by the graphs of <span class="math inline">\(x = y^2 - 4\)</span> and <span class="math inline">\(x = y + 2\)</span>. <strong>a)</strong> Write an integral expression with respect to <span class="math inline">\(x\)</span> that represents the area of the region. Do not evaluate the integral. <strong>b)</strong> Write an integral expression with respect to <span class="math inline">\(y\)</span> that represents the area of the region. <strong>c)</strong> Evaluate the integral from part (b) to find the area of the region.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find the points of intersection by setting the equations equal to each other. It is easier to solve for <span class="math inline">\(y\)</span>: <span class="math display">\[y^2 - 4 = y + 2\]</span> <span class="math display">\[y^2 - y - 6 = 0 \implies (y - 3)(y + 2) = 0 \implies y = 3, y = -2\]</span> The intersection points are <span class="math inline">\((5, 3)\)</span> and <span class="math inline">\((0, -2)\)</span>.</p>
+<p><strong>a)</strong> To integrate with respect to <span class="math inline">\(x\)</span>, we must solve both equations for <span class="math inline">\(y\)</span>: <span class="math display">\[x = y^2 - 4 \implies y = \pm\sqrt{x + 4}\]</span> <span class="math display">\[x = y + 2 \implies y = x - 2\]</span> The region must be split at <span class="math inline">\(x = 0\)</span> because the lower boundary changes. <span class="math display">\[A = \int_{-4}^{0} \left( \sqrt{x+4} - (-\sqrt{x+4}) \right) \, dx + \int_{0}^{5} \left( \sqrt{x+4} - (x - 2) \right) \, dx\]</span></p>
+<p><strong>b)</strong> To integrate with respect to <span class="math inline">\(y\)</span>, the “right” curve is <span class="math inline">\(x = y + 2\)</span> and the “left” curve is <span class="math inline">\(x = y^2 - 4\)</span>. <span class="math display">\[A = \int_{-2}^{3} \left( (y + 2) - (y^2 - 4) \right) \, dy\]</span> <span class="math display">\[A = \int_{-2}^{3} (-y^2 + y + 6) \, dy\]</span></p>
+<p><strong>c)</strong> Evaluate the integral from part (b): <span class="math display">\[A = \left[ -\frac{1}{3}y^3 + \frac{1}{2}y^2 + 6y \right]_{-2}^{3}\]</span> Evaluate at upper bound <span class="math inline">\(y = 3\)</span>: <span class="math display">\[-\frac{1}{3}(27) + \frac{1}{2}(9) + 6(3) = -9 + \frac{9}{2} + 18 = 9 + \frac{9}{2} = \frac{27}{2}\]</span> Evaluate at lower bound <span class="math inline">\(y = -2\)</span>: <span class="math display">\[-\frac{1}{3}(-8) + \frac{1}{2}(4) + 6(-2) = \frac{8}{3} + 2 - 12 = \frac{8}{3} - 10 = \frac{8}{3} - \frac{30}{3} = -\frac{22}{3}\]</span> Subtract to find the total area: <span class="math display">\[A = \frac{27}{2} - \left( -\frac{22}{3} \right) = \frac{81}{6} + \frac{44}{6} = \frac{125}{6}\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 <hr>
@@ -898,7 +992,7 @@ A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
 <div class="callout-body-container callout-body">
 <p>Find the area of the region bounded by the graph of <span class="math inline">\(y=4-x^2\)</span> and the <span class="math inline">\(x\)</span>-axis. Describe the integration as an accumulation process.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -907,7 +1001,7 @@ A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The area is given by: <span class="math display">\[A = \int_{-2}^2 \left(4-x^2\right) \, dx\]</span></p>
 <p>You can think of the integration as an accumulation of the areas of the rectangles formed as the representative rectangles slide from <span class="math inline">\(x=-2\)</span> to <span class="math inline">\(x=2\)</span>, as shown via this <a href="https://www.desmos.com/calculator/zaref1t6bq">Desmos Interactive Graph</a>.</p>
@@ -1061,7 +1155,7 @@ A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
 <div class="callout-body-container callout-body">
 <p>Find the volume of the solid formed by revolving the region bounded by the graph of <span class="math inline">\(f(x)= \sqrt{\sin(x)}\)</span> and the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(0 \leq x \leq \pi\)</span>) about the <span class="math inline">\(x\)</span>-axis.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1070,7 +1164,7 @@ A &amp;= \int_{-2}^1 [(3-y^2)-(y+1)] \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Draw the representative rectangle to see that the radius of this solid is: <span class="math display">\[
 \begin{align*}
@@ -1106,7 +1200,7 @@ V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_0^\pi \Big( \sqrt{\sin(x)} \Big)
 <div class="callout-body-container callout-body">
 <p>Find the volume of the solid formed by revolving the region bounded by <span class="math inline">\(f(x) = 2-x^2\)</span> and <span class="math inline">\(g(x)=1\)</span> about the line <span class="math inline">\(y=1\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1115,7 +1209,7 @@ V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_0^\pi \Big( \sqrt{\sin(x)} \Big)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>By equating <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span>, you can determine the two graphs intersect when <span class="math inline">\(x= \pm 1\)</span>. To find the radius, subtract <span class="math inline">\(g(x)\)</span> from <span class="math inline">\(f(x)\)</span>. <span class="math display">\[
 \begin{align*}
@@ -1142,20 +1236,98 @@ V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_{-1}^1 (1-x^2)^2 \, dx \\
 <section id="exercises-the-disk-method" class="level4 practice-box">
 <h4 class="anchored" data-anchor-id="exercises-the-disk-method">Exercises: The Disk Method</h4>
 <ol type="1">
-<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 4\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p></li>
-<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = x^3\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(y = 8\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p></li>
-<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 1\)</span> is revolved about the horizontal line <span class="math inline">\(y = 1\)</span>.</p></li>
+<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 4\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the disk method. The radius of a representative disk is <span class="math inline">\(r(x) = \sqrt{x}\)</span>. Set up the integral with respect to <span class="math inline">\(x\)</span> from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 4\)</span>: <span class="math display">\[V = \pi \int_{0}^{4} (\sqrt{x})^2 \, dx\]</span> Simplify the integrand: <span class="math display">\[V = \pi \int_{0}^{4} x \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = \pi \left[ \frac{1}{2}x^2 \right]_{0}^{4}\]</span> <span class="math display">\[V = \pi \left( \frac{1}{2}(4)^2 - \frac{1}{2}(0)^2 \right)\]</span> <span class="math display">\[V = \pi \left( \frac{16}{2} - 0 \right)\]</span> <span class="math display">\[V = 8\pi\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = x^3\)</span>, <span class="math inline">\(x = 0\)</span>, and <span class="math inline">\(y = 8\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Because the region is revolved around the <span class="math inline">\(y\)</span>-axis, use the disk method with respect to <span class="math inline">\(y\)</span>. First, solve the given function for <span class="math inline">\(x\)</span> to find the radius <span class="math inline">\(r(y)\)</span>: <span class="math display">\[y = x^3 \implies x = \sqrt[3]{y} = y^{1/3}\]</span> Set up the integral from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 8\)</span>: <span class="math display">\[V = \pi \int_{0}^{8} \left(y^{1/3}\right)^2 \, dy\]</span> <span class="math display">\[V = \pi \int_{0}^{8} y^{2/3} \, dy\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = \pi \left[ \frac{3}{5}y^{5/3} \right]_{0}^{8}\]</span> <span class="math display">\[V = \pi \left( \frac{3}{5}(8)^{5/3} - 0 \right)\]</span> Since <span class="math inline">\(8^{1/3} = 2\)</span>, we have <span class="math inline">\(8^{5/3} = 2^5 = 32\)</span>: <span class="math display">\[V = \pi \left( \frac{3}{5}(32) \right)\]</span> <span class="math display">\[V = \frac{96\pi}{5}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the volume of the solid generated when the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 1\)</span> is revolved about the horizontal line <span class="math inline">\(y = 1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Find the bounds of integration by setting the equations equal to each other: <span class="math display">\[2 - x^2 = 1 \implies x^2 = 1 \implies x = \pm 1\]</span> Use the disk method. The axis of revolution is <span class="math inline">\(y = 1\)</span>, so the radius of the disk is the distance from the upper curve to the line <span class="math inline">\(y = 1\)</span>: <span class="math display">\[r(x) = (2 - x^2) - 1 = 1 - x^2\]</span> Set up the integral from <span class="math inline">\(x = -1\)</span> to <span class="math inline">\(x = 1\)</span>: <span class="math display">\[V = \pi \int_{-1}^{1} (1 - x^2)^2 \, dx\]</span> Expand the integrand: <span class="math display">\[V = \pi \int_{-1}^{1} (1 - 2x^2 + x^4) \, dx\]</span> Because the integrand is an even function, we can use symmetry: <span class="math display">\[V = 2\pi \int_{0}^{1} (1 - 2x^2 + x^4) \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = 2\pi \left[ x - \frac{2}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{1}\]</span> <span class="math display">\[V = 2\pi \left( 1 - \frac{2}{3} + \frac{1}{5} \right) - (0)\]</span> Find a common denominator (15) for the fractions: <span class="math display">\[V = 2\pi \left( \frac{15}{15} - \frac{10}{15} + \frac{3}{15} \right)\]</span> <span class="math display">\[V = 2\pi \left( \frac{8}{15} \right)\]</span> <span class="math display">\[V = \frac{16\pi}{15}\]</span></p>
+</div>
+</div>
+</div></li>
 <li><p>Let <span class="math inline">\(R\)</span> be the region enclosed by the graph of <span class="math inline">\(f(x) = \frac{1}{x}\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical lines <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=e\)</span>. Which of the following expressions represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis?</p>
 <p><strong>(A)</strong> <span class="math inline">\(\pi \int_1^e \frac{1}{x} \, dx\)</span></p>
 <p><strong>(B)</strong> <span class="math inline">\(\pi \int_1^e \frac{1}{x^2} \, dx\)</span></p>
 <p><strong>(C)</strong> <span class="math inline">\(2\pi \int_1^e \frac{1}{x^2} \, dx\)</span></p>
-<p><strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \ln(x) \, dx\)</span></p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region in the first quadrant bounded by the graph of <span class="math inline">\(y = 4 - x^2\)</span> and the coordinate axes.</p>
-<ol type="a">
-<li>Find the area of <span class="math inline">\(R\)</span>.</li>
-<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
-<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</li>
-</ol></li>
+<p><strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \ln(x) \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Using the disk method around the <span class="math inline">\(x\)</span>-axis, the formula for volume is <span class="math inline">\(V = \pi \int_{a}^{b} [r(x)]^2 \, dx\)</span>. The radius is given by the function <span class="math inline">\(r(x) = \frac{1}{x}\)</span>, and the bounds are from <span class="math inline">\(x = 1\)</span> to <span class="math inline">\(x = e\)</span>. <span class="math display">\[V = \pi \int_{1}^{e} \left( \frac{1}{x} \right)^2 \, dx\]</span> <span class="math display">\[V = \pi \int_{1}^{e} \frac{1}{x^2} \, dx\]</span> This matches expression <strong>(B)</strong>.</p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region in the first quadrant bounded by the graph of <span class="math inline">\(y = 4 - x^2\)</span> and the coordinate axes. <strong>a)</strong> Find the area of <span class="math inline">\(R\)</span>. <strong>b)</strong> Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis. <strong>c)</strong> Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, establish the boundaries for the region in the first quadrant. The curve intersects the <span class="math inline">\(y\)</span>-axis at <span class="math inline">\(y = 4\)</span> and the <span class="math inline">\(x\)</span>-axis where <span class="math inline">\(4 - x^2 = 0 \implies x = 2\)</span>.</p>
+<p><strong>a)</strong> Set up the integral for the area from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>: <span class="math display">\[A = \int_{0}^{2} (4 - x^2) \, dx\]</span> <span class="math display">\[A = \left[ 4x - \frac{1}{3}x^3 \right]_{0}^{2}\]</span> <span class="math display">\[A = \left( 4(2) - \frac{1}{3}(8) \right) - 0\]</span> <span class="math display">\[A = 8 - \frac{8}{3} = \frac{24}{3} - \frac{8}{3} = \frac{16}{3}\]</span></p>
+<p><strong>b)</strong> Use the disk method with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[V_x = \pi \int_{0}^{2} (4 - x^2)^2 \, dx\]</span> <span class="math display">\[V_x = \pi \int_{0}^{2} (16 - 8x^2 + x^4) \, dx\]</span> <span class="math display">\[V_x = \pi \left[ 16x - \frac{8}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{2}\]</span> <span class="math display">\[V_x = \pi \left( 16(2) - \frac{8}{3}(8) + \frac{1}{5}(32) \right)\]</span> <span class="math display">\[V_x = \pi \left( 32 - \frac{64}{3} + \frac{32}{5} \right)\]</span> Find a common denominator of 15: <span class="math display">\[V_x = \pi \left( \frac{480}{15} - \frac{320}{15} + \frac{96}{15} \right) = \pi \left( \frac{256}{15} \right) = \frac{256\pi}{15}\]</span></p>
+<p><strong>c)</strong> Use the disk method with respect to <span class="math inline">\(y\)</span>. First, solve the equation for <span class="math inline">\(x\)</span>: <span class="math display">\[y = 4 - x^2 \implies x^2 = 4 - y \implies x = \sqrt{4 - y}\]</span> The bounds for <span class="math inline">\(y\)</span> are from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 4\)</span>. <span class="math display">\[V_y = \pi \int_{0}^{4} (\sqrt{4 - y})^2 \, dy\]</span> <span class="math display">\[V_y = \pi \int_{0}^{4} (4 - y) \, dy\]</span> <span class="math display">\[V_y = \pi \left[ 4y - \frac{1}{2}y^2 \right]_{0}^{4}\]</span> <span class="math display">\[V_y = \pi \left( 4(4) - \frac{1}{2}(16) \right) - 0\]</span> <span class="math display">\[V_y = \pi (16 - 8) = 8\pi\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 <hr>
@@ -1207,7 +1379,7 @@ V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_{-1}^1 (1-x^2)^2 \, dx \\
 <div class="callout-body-container callout-body">
 <p>Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math inline">\(y=\sqrt{x}\)</span> and <span class="math inline">\(y = x^2\)</span> about the <span class="math inline">\(x\)</span>-axis.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1216,7 +1388,7 @@ V = \pi \int_a^b [R(x)]^2 \, dx &amp;= \pi \int_{-1}^1 (1-x^2)^2 \, dx \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="columns">
 <div class="column" style="width:35%;">
@@ -1270,7 +1442,7 @@ V &amp;= \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx \\
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1279,7 +1451,7 @@ V &amp;= \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For the region shown, the outer radius is simply <span class="math inline">\(R=1\)</span>. There is, however, no convenient formula that represents the inner radius. When <span class="math inline">\(0 \leq y \leq 1\)</span>, <span class="math inline">\(r=0\)</span>, but when <span class="math inline">\(1 \leq y \leq 2\)</span>, <span class="math inline">\(r\)</span> is determined by the equation <span class="math inline">\(y=x^2+1\)</span>, which implies that <span class="math inline">\(r = \sqrt{y-1}\)</span>. <span class="math display">\[
 r(y) =
@@ -1317,7 +1489,7 @@ V &amp;= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, d
 <div class="callout-body-container callout-body">
 <p>A manufacturer drills a hole through the center of a metal sphere of radius 5 inches. The hole has a radius of 3 inches. What is the volume of the resulting metal ring?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1326,7 +1498,7 @@ V &amp;= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, d
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can imagine the ring to be generated by a segment of the circle whose equation is <span class="math inline">\(x^2+y^2 = 25\)</span>. Because the radius of the hole is 3 inches, you can let <span class="math inline">\(y=3\)</span> and solve the equation <span class="math inline">\(x^2+y^2=25\)</span> to determine that the limits of integration are <span class="math inline">\(x=\pm4\)</span>. So, the inner and outer radii are <span class="math inline">\(r(x)=3\)</span> and <span class="math inline">\(R(x)=\sqrt{25-x^2}\)</span> and the volume is given by: <span class="math display">\[
 \begin{align*}
@@ -1346,20 +1518,98 @@ V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx &amp;= \pi \int_{-4}^4
 <section id="exercises-the-washer-method" class="level4 practice-box">
 <h4 class="anchored" data-anchor-id="exercises-the-washer-method">Exercises: The Washer Method</h4>
 <ol type="1">
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 2x\)</span>. Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(x = y^2\)</span> and the vertical line <span class="math inline">\(x = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 2x\)</span>. Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find the points of intersection to determine the bounds: <span class="math display">\[x^2 = 2x \implies x^2 - 2x = 0 \implies x(x - 2) = 0 \implies x = 0, x = 2\]</span> Use the washer method. The outer radius is the top curve <span class="math inline">\(R(x) = 2x\)</span>, and the inner radius is the bottom curve <span class="math inline">\(r(x) = x^2\)</span>. <span class="math display">\[V = \pi \int_{0}^{2} \left( (2x)^2 - (x^2)^2 \right) \, dx\]</span> <span class="math display">\[V = \pi \int_{0}^{2} (4x^2 - x^4) \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = \pi \left[ \frac{4}{3}x^3 - \frac{1}{5}x^5 \right]_{0}^{2}\]</span> <span class="math display">\[V = \pi \left( \frac{4}{3}(8) - \frac{1}{5}(32) \right) - 0\]</span> <span class="math display">\[V = \pi \left( \frac{32}{3} - \frac{32}{5} \right)\]</span> Find a common denominator of 15: <span class="math display">\[V = \pi \left( \frac{160}{15} - \frac{96}{15} \right) = \frac{64\pi}{15}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(x = y^2\)</span> and the vertical line <span class="math inline">\(x = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Find the points of intersection for the <span class="math inline">\(y\)</span>-bounds: <span class="math display">\[y^2 = 4 \implies y = \pm 2\]</span> Use the washer method with respect to <span class="math inline">\(y\)</span>. The outer radius is the vertical line <span class="math inline">\(R(y) = 4\)</span>, and the inner radius is the curve <span class="math inline">\(r(y) = y^2\)</span>. <span class="math display">\[V = \pi \int_{-2}^{2} \left( (4)^2 - (y^2)^2 \right) \, dy\]</span> <span class="math display">\[V = \pi \int_{-2}^{2} (16 - y^4) \, dy\]</span> <em>Note: Because of symmetry across the <span class="math inline">\(x\)</span>-axis, this can also be written as <span class="math inline">\(V = 2\pi \int_{0}^{2} (16 - y^4) \, dy\)</span>.</em></p>
+</div>
+</div>
+</div></li>
 <li><p>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span> and <span class="math inline">\(y = x^2\)</span>. Which of the following integrals represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = 2\)</span>?</p>
 <p><strong>(A)</strong> <span class="math inline">\(\pi \int_0^1 \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx\)</span></p>
 <p><strong>(B)</strong> <span class="math inline">\(\pi \int_0^1 \left( (2 - \sqrt{x})^2 - (2 - x^2)^2 \right) \, dx\)</span></p>
 <p><strong>(C)</strong> <span class="math inline">\(\pi \int_0^1 \left( \sqrt{x} - x^2 \right)^2 \, dx\)</span></p>
-<p><strong>(D)</strong> <span class="math inline">\(\pi \int_0^1 \left( (\sqrt{x})^2 - (x^2)^2 \right) \, dx\)</span></p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = 5\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = e^x\)</span>, the horizontal line <span class="math inline">\(y = 1\)</span>, and the vertical line <span class="math inline">\(x = 2\)</span>.</p>
-<ol type="a">
-<li>Find the area of <span class="math inline">\(R\)</span>.</li>
-<li>Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</li>
-<li>Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = -1\)</span>.</li>
-</ol></li>
+<p><strong>(D)</strong> <span class="math inline">\(\pi \int_0^1 \left( (\sqrt{x})^2 - (x^2)^2 \right) \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The points of intersection are <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 1\)</span>. On this interval, <span class="math inline">\(\sqrt{x} \ge x^2\)</span>. The axis of revolution is <span class="math inline">\(y = 2\)</span>, which is above the region. The outer radius <span class="math inline">\(R(x)\)</span> is the distance from the axis of revolution to the bottom curve: <span class="math inline">\(R(x) = 2 - x^2\)</span>. The inner radius <span class="math inline">\(r(x)\)</span> is the distance from the axis of revolution to the top curve: <span class="math inline">\(r(x) = 2 - \sqrt{x}\)</span>. Set up the washer method integral: <span class="math display">\[V = \pi \int_{0}^{1} \left( (2 - x^2)^2 - (2 - \sqrt{x})^2 \right) \, dx\]</span> This matches expression <strong>(A)</strong>.</p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span> and <span class="math inline">\(y = 4\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = 5\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Find the intersection points for the bounds: <span class="math display">\[x^2 = 4 \implies x = \pm 2\]</span> The axis of revolution is <span class="math inline">\(y = 5\)</span>, which is above the region. The outer radius <span class="math inline">\(R(x)\)</span> is the distance from <span class="math inline">\(y = 5\)</span> to the bottom curve <span class="math inline">\(y = x^2\)</span>, so <span class="math inline">\(R(x) = 5 - x^2\)</span>. The inner radius <span class="math inline">\(r(x)\)</span> is the distance from <span class="math inline">\(y = 5\)</span> to the top curve <span class="math inline">\(y = 4\)</span>, so <span class="math inline">\(r(x) = 5 - 4 = 1\)</span>. Set up the integral using the washer method: <span class="math display">\[V = \pi \int_{-2}^{2} \left( (5 - x^2)^2 - (1)^2 \right) \, dx\]</span> <span class="math display">\[V = \pi \int_{-2}^{2} \left( (5 - x^2)^2 - 1 \right) \, dx\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = e^x\)</span>, the horizontal line <span class="math inline">\(y = 1\)</span>, and the vertical line <span class="math inline">\(x = 2\)</span>. <strong>a)</strong> Find the area of <span class="math inline">\(R\)</span>. <strong>b)</strong> Find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis. <strong>c)</strong> Write, but do not evaluate, an integral expression for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the horizontal line <span class="math inline">\(y = -1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find where <span class="math inline">\(y = e^x\)</span> intersects <span class="math inline">\(y = 1\)</span>: <span class="math inline">\(e^x = 1 \implies x = 0\)</span>. So the bounds are <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>.</p>
+<p><strong>a)</strong> Set up the integral for the area with <span class="math inline">\(y = e^x\)</span> as the top curve and <span class="math inline">\(y = 1\)</span> as the bottom curve: <span class="math display">\[A = \int_{0}^{2} (e^x - 1) \, dx\]</span> <span class="math display">\[A = \left[ e^x - x \right]_{0}^{2} = (e^2 - 2) - (e^0 - 0)\]</span> <span class="math display">\[A = e^2 - 2 - 1 = e^2 - 3\]</span></p>
+<p><strong>b)</strong> Use the washer method around the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(y = 0\)</span>). Outer radius <span class="math inline">\(R(x) = e^x\)</span>, inner radius <span class="math inline">\(r(x) = 1\)</span>. <span class="math display">\[V = \pi \int_{0}^{2} \left( (e^x)^2 - (1)^2 \right) \, dx\]</span> <span class="math display">\[V = \pi \int_{0}^{2} (e^{2x} - 1) \, dx\]</span> <span class="math display">\[V = \pi \left[ \frac{1}{2}e^{2x} - x \right]_{0}^{2}\]</span> <span class="math display">\[V = \pi \left( \left(\frac{1}{2}e^{4} - 2\right) - \left(\frac{1}{2}e^{0} - 0\right) \right)\]</span> <span class="math display">\[V = \pi \left( \frac{1}{2}e^4 - 2 - \frac{1}{2} \right) = \pi \left( \frac{1}{2}e^4 - \frac{5}{2} \right) = \frac{\pi}{2}(e^4 - 5)\]</span></p>
+<p><strong>c)</strong> The axis of revolution is <span class="math inline">\(y = -1\)</span>, which is below the region. The outer radius <span class="math inline">\(R(x)\)</span> is the distance from <span class="math inline">\(y = -1\)</span> to the top curve <span class="math inline">\(y = e^x\)</span>, so <span class="math inline">\(R(x) = e^x - (-1) = e^x + 1\)</span>. The inner radius <span class="math inline">\(r(x)\)</span> is the distance from <span class="math inline">\(y = -1\)</span> to the bottom curve <span class="math inline">\(y = 1\)</span>, so <span class="math inline">\(r(x) = 1 - (-1) = 2\)</span>. Set up the washer method integral: <span class="math display">\[V = \pi \int_{0}^{2} \left( (e^x + 1)^2 - (2)^2 \right) \, dx\]</span> <span class="math display">\[V = \pi \int_{0}^{2} \left( (e^x + 1)^2 - 4 \right) \, dx\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 <section id="conceptual-questions-1" class="level4 conceptual-box">
@@ -1432,7 +1682,7 @@ V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx &amp;= \pi \int_{-4}^4
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1441,7 +1691,7 @@ V = \pi \int_a^b \left( [R(x)]^2 - [r(x)]^2 \right) \, dx &amp;= \pi \int_{-4}^4
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The base and area of each triangular cross section are as follows: <span class="math display">\[
 \begin{align*}
@@ -1474,7 +1724,7 @@ V = \int_a^b A(x) \, dx &amp;= \int_0^2 \frac{\sqrt{3}}{4}(2-x)^2 \, dx \\
 <div class="callout-body-container callout-body">
 <p>Prove that the volume of a pyramid with a square base is <span class="math inline">\(V=\frac{1}{3}hB\)</span>, where <span class="math inline">\(h\)</span> is the height of the pyramid and <span class="math inline">\(B\)</span> is the area of the base.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1483,7 +1733,7 @@ V = \int_a^b A(x) \, dx &amp;= \int_0^2 \frac{\sqrt{3}}{4}(2-x)^2 \, dx \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can intersect a pyramid with a plane parallel to the base at height <span class="math inline">\(y\)</span> to form a square cross section whose sides are of length <span class="math inline">\(b'\)</span>. Using similar triangles, you can show that: <span class="math display">\[\frac{b'}{b} = \frac{h-y}{h} \quad \text{ or } \quad b'=\frac{b}{h}(h-y)\]</span></p>
 <p>where <span class="math inline">\(b\)</span> is the length of the sides of the base of the pyramid. So: <span class="math display">\[A(y) = (b')^2 = \frac{b^2}{h^2}(h-y)^2\]</span></p>
@@ -1504,21 +1754,114 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 <section id="exercises-solids-with-known-cross-sections" class="level4 practice-box">
 <h4 class="anchored" data-anchor-id="exercises-solids-with-known-cross-sections">Exercises: Solids with Known Cross Sections</h4>
 <ol type="1">
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = \sqrt{x}\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = 9\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid.</p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 0\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles. Find the volume of the solid.</p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = 1\)</span>, and <span class="math inline">\(x = 3\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are rectangles whose heights are twice the lengths of their bases in region <span class="math inline">\(R\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = \sqrt{x}\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = 9\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The base of the square cross section spans from the <span class="math inline">\(x\)</span>-axis to the curve, so the side length is <span class="math inline">\(s(x) = \sqrt{x} - 0 = \sqrt{x}\)</span>. The area of a square is <span class="math inline">\(A(x) = [s(x)]^2\)</span>, so: <span class="math display">\[A(x) = (\sqrt{x})^2 = x\]</span> The region goes from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 9\)</span>. Integrate the area function to find the volume: <span class="math display">\[V = \int_{0}^{9} x \, dx\]</span> <span class="math display">\[V = \left[ \frac{1}{2}x^2 \right]_{0}^{9}\]</span> <span class="math display">\[V = \frac{1}{2}(9)^2 - \frac{1}{2}(0)^2\]</span> <span class="math display">\[V = \frac{81}{2}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = 2 - x^2\)</span> and <span class="math inline">\(y = 0\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles. Find the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find the points of intersection to establish the bounds: <span class="math display">\[2 - x^2 = 0 \implies x^2 = 2 \implies x = \pm \sqrt{2}\]</span> The diameter of the semicircle is the distance from the <span class="math inline">\(x\)</span>-axis to the curve, so <span class="math inline">\(d(x) = 2 - x^2\)</span>. The radius is half the diameter: <span class="math inline">\(r(x) = \frac{2 - x^2}{2}\)</span>. The area of a semicircle is <span class="math inline">\(A(x) = \frac{\pi}{2}[r(x)]^2\)</span>: <span class="math display">\[A(x) = \frac{\pi}{2} \left( \frac{2 - x^2}{2} \right)^2 = \frac{\pi}{2} \left( \frac{(2 - x^2)^2}{4} \right) = \frac{\pi}{8} (2 - x^2)^2\]</span> Integrate the area function from <span class="math inline">\(-\sqrt{2}\)</span> to <span class="math inline">\(\sqrt{2}\)</span>. Because the area function is even, we can use symmetry: <span class="math display">\[V = 2 \int_{0}^{\sqrt{2}} \frac{\pi}{8} (4 - 4x^2 + x^4) \, dx\]</span> <span class="math display">\[V = \frac{\pi}{4} \left[ 4x - \frac{4}{3}x^3 + \frac{1}{5}x^5 \right]_{0}^{\sqrt{2}}\]</span> Evaluate at <span class="math inline">\(x = \sqrt{2}\)</span>: <span class="math display">\[V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{4}{3}(\sqrt{2})^3 + \frac{1}{5}(\sqrt{2})^5 \right)\]</span> <span class="math display">\[V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{4}{3}(2\sqrt{2}) + \frac{1}{5}(4\sqrt{2}) \right)\]</span> <span class="math display">\[V = \frac{\pi}{4} \left( 4\sqrt{2} - \frac{8\sqrt{2}}{3} + \frac{4\sqrt{2}}{5} \right)\]</span> Find a common denominator of 15: <span class="math display">\[V = \frac{\pi}{4} \left( \frac{60\sqrt{2}}{15} - \frac{40\sqrt{2}}{15} + \frac{12\sqrt{2}}{15} \right)\]</span> <span class="math display">\[V = \frac{\pi}{4} \left( \frac{32\sqrt{2}}{15} \right) = \frac{8\pi\sqrt{2}}{15}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = e^x\)</span>, <span class="math inline">\(y = 1\)</span>, and <span class="math inline">\(x = 3\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are rectangles whose heights are twice the lengths of their bases in region <span class="math inline">\(R\)</span>. Write, but do not evaluate, an integral expression for the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The base of the rectangle lies in the region <span class="math inline">\(R\)</span>, bounded above by <span class="math inline">\(y = e^x\)</span> and below by <span class="math inline">\(y = 1\)</span>. The length of the base is <span class="math inline">\(b(x) = e^x - 1\)</span>. The height of the rectangle is given as twice the base: <span class="math inline">\(h(x) = 2(e^x - 1)\)</span>. The area of a rectangle is <span class="math inline">\(A(x) = b(x) \cdot h(x)\)</span>: <span class="math display">\[A(x) = (e^x - 1) \cdot 2(e^x - 1) = 2(e^x - 1)^2\]</span> The region starts where <span class="math inline">\(e^x = 1 \implies x = 0\)</span> and ends at the vertical line <span class="math inline">\(x = 3\)</span>. <span class="math display">\[V = \int_{0}^{3} 2(e^x - 1)^2 \, dx\]</span></p>
+</div>
+</div>
+</div></li>
 <li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graph of <span class="math inline">\(y = \ln(x)\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = e\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Which of the following integrals represents the volume of the solid?</p>
 <p><strong>(A)</strong> <span class="math inline">\(\int_1^e \ln(x) \, dx\)</span></p>
 <p><strong>(B)</strong> <span class="math inline">\(\int_1^e (\ln(x))^2 \, dx\)</span></p>
 <p><strong>(C)</strong> <span class="math inline">\(\pi \int_1^e (\ln(x))^2 \, dx\)</span></p>
-<p><strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx\)</span></p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(x = y^2\)</span> and <span class="math inline">\(x = 4\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(y\)</span>-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.</p></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span> and the <span class="math inline">\(x\)</span>-axis for <span class="math inline">\(0 \leq x \leq \pi\)</span>.</p>
-<ol type="a">
-<li>Find the area of <span class="math inline">\(R\)</span>.</li>
-<li>The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid.</li>
-<li>The region <span class="math inline">\(R\)</span> is the base of another solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles with their diameters across the base. Find the volume of the solid.</li>
-</ol></li>
+<p><strong>(D)</strong> <span class="math inline">\(\pi \int_1^e \left(\frac{\ln(x)}{2}\right)^2 \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The base of the square spans from the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(y = 0\)</span>) to the curve <span class="math inline">\(y = \ln(x)\)</span>. The length of the side is <span class="math inline">\(s(x) = \ln(x) - 0 = \ln(x)\)</span>. The area of the square cross section is <span class="math inline">\(A(x) = [s(x)]^2 = (\ln(x))^2\)</span>. The bounds are from where the curve intersects the <span class="math inline">\(x\)</span>-axis (<span class="math inline">\(\ln(x) = 0 \implies x = 1\)</span>) to the line <span class="math inline">\(x = e\)</span>. The volume is the integral of the area function: <span class="math display">\[V = \int_{1}^{e} (\ln(x))^2 \, dx\]</span> This matches expression <strong>(B)</strong>.</p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region enclosed by the graphs of <span class="math inline">\(x = y^2\)</span> and <span class="math inline">\(x = 4\)</span>. The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(y\)</span>-axis are equilateral triangles. Write, but do not evaluate, an integral expression for the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> The cross sections are perpendicular to the <span class="math inline">\(y\)</span>-axis, so we must integrate with respect to <span class="math inline">\(y\)</span>. Find the intersection points for the <span class="math inline">\(y\)</span>-bounds: <span class="math inline">\(y^2 = 4 \implies y = \pm 2\)</span>. The side length of the equilateral triangle spans horizontally from the right curve (<span class="math inline">\(x = 4\)</span>) to the left curve (<span class="math inline">\(x = y^2\)</span>): <span class="math display">\[s(y) = 4 - y^2\]</span> The area of an equilateral triangle with side length <span class="math inline">\(s\)</span> is <span class="math inline">\(A = \frac{\sqrt{3}}{4}s^2\)</span>. <span class="math display">\[A(y) = \frac{\sqrt{3}}{4}(4 - y^2)^2\]</span> Set up the integral from <span class="math inline">\(y = -2\)</span> to <span class="math inline">\(y = 2\)</span>: <span class="math display">\[V = \int_{-2}^{2} \frac{\sqrt{3}}{4}(4 - y^2)^2 \, dy\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = \sin(x)\)</span> and the <span class="math inline">\(x\)</span>-axis for <span class="math inline">\(0 \leq x \leq \pi\)</span>. <strong>a)</strong> Find the area of <span class="math inline">\(R\)</span>. <strong>b)</strong> The region <span class="math inline">\(R\)</span> is the base of a solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are squares. Find the volume of the solid. <strong>c)</strong> The region <span class="math inline">\(R\)</span> is the base of another solid. For this solid, the cross sections perpendicular to the <span class="math inline">\(x\)</span>-axis are semicircles with their diameters across the base. Find the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> <strong>a)</strong> Set up the integral for the area under the sine curve: <span class="math display">\[A = \int_{0}^{\pi} \sin(x) \, dx\]</span> <span class="math display">\[A = \left[ -\cos(x) \right]_{0}^{\pi}\]</span> <span class="math display">\[A = (-\cos(\pi)) - (-\cos(0))\]</span> <span class="math display">\[A = (-(-1)) - (-1) = 1 + 1 = 2\]</span></p>
+<p><strong>b)</strong> The side length of the square is <span class="math inline">\(s(x) = \sin(x)\)</span>. The area is <span class="math inline">\(A(x) = \sin^2(x)\)</span>. <span class="math display">\[V = \int_{0}^{\pi} \sin^2(x) \, dx\]</span> Use the power-reducing half-angle identity: <span class="math inline">\(\sin^2(x) = \frac{1 - \cos(2x)}{2}\)</span>. <span class="math display">\[V = \int_{0}^{\pi} \left( \frac{1}{2} - \frac{1}{2}\cos(2x) \right) \, dx\]</span> <span class="math display">\[V = \left[ \frac{1}{2}x - \frac{1}{4}\sin(2x) \right]_{0}^{\pi}\]</span> <span class="math display">\[V = \left( \frac{1}{2}(\pi) - \frac{1}{4}\sin(2\pi) \right) - \left( 0 - \frac{1}{4}\sin(0) \right)\]</span> <span class="math display">\[V = \left( \frac{\pi}{2} - 0 \right) - (0) = \frac{\pi}{2}\]</span></p>
+<p><strong>c)</strong> The diameter of the semicircle is <span class="math inline">\(d(x) = \sin(x)\)</span>, so the radius is <span class="math inline">\(r(x) = \frac{1}{2}\sin(x)\)</span>. The area of the semicircular cross section is <span class="math inline">\(A(x) = \frac{\pi}{2}[r(x)]^2\)</span>: <span class="math display">\[A(x) = \frac{\pi}{2} \left( \frac{1}{2}\sin(x) \right)^2 = \frac{\pi}{2} \left( \frac{1}{4}\sin^2(x) \right) = \frac{\pi}{8}\sin^2(x)\]</span> <span class="math display">\[V = \int_{0}^{\pi} \frac{\pi}{8}\sin^2(x) \, dx = \frac{\pi}{8} \int_{0}^{\pi} \sin^2(x) \, dx\]</span> Using the result from part (b), we know that <span class="math inline">\(\int_{0}^{\pi} \sin^2(x) \, dx = \frac{\pi}{2}\)</span>. <span class="math display">\[V = \frac{\pi}{8} \left( \frac{\pi}{2} \right) = \frac{\pi^2}{16}\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 
@@ -1613,7 +1956,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cole-ridgway\.github\.io\/Ridgway-Math-Resources\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
