@@ -2,7 +2,7 @@
 '$schema' = 'https://cdn.posit.co/publisher/schemas/posit-publishing-record-schema-v3.json'
 server_type = 'connect_cloud'
 server_url = 'https://connect.posit.cloud'
-client_version = '1.31.8'
+client_version = '1.36.0'
 created_at = ''
 dismissed_at = ''
 type = 'quarto-static'
@@ -11,12 +11,18 @@ id = '019d30dd-11c3-fcd3-10a5-ed62192647c0'
 dashboard_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0'
 direct_url = 'https://019d30dd-11c3-fcd3-10a5-ed62192647c0.share.connect.posit.cloud'
 logs_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0/history'
-deployed_at = '2026-03-27T14:50:29-06:00'
-bundle_id = '019d310f-e389-6f2f-86a0-ed8d1fdc0658'
+deployed_at = '2026-04-01T14:56:40-06:00'
+bundle_id = '019d4ad5-21d4-373b-e539-f4df9ef89b6f'
 files = [
   ".posit/publish/Welcom. ℝidgway's Math Classes-SO5R.toml",
   '.posit/publish/deployments/deployment-CGVB.toml',
   'AP-Calculus-AB/index.qmd',
+  'AP-Calculus-AB/resources/2012-Practice-Exam.pdf',
+  'AP-Calculus-AB/resources/2014-Practice-Exam.pdf',
+  'AP-Calculus-AB/resources/2017-Practice-Exam.pdf',
+  'AP-Calculus-AB/resources/2023-sample-FRQ.pdf',
+  'AP-Calculus-AB/resources/2024-sample-FRQ.pdf',
+  'AP-Calculus-AB/resources/2025-sample-FRQ.pdf',
   'AP-Calculus-AB/resources/basic-antiderivatives.pdf',
   'AP-Calculus-AB/resources/curve-sketching-practice.pdf',
   'AP-Calculus-AB/resources/derivative-applications-and-IVPs.pdf',
@@ -58,7 +64,14 @@ files = [
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.14.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.15a.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.15b.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.16.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.17.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.18.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.19.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.2.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.20.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.21.png',
+  'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.22.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.3.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.4.png',
   'AP-Calculus-AB/textbook-interactive/Chapter-7/fig-7.5.png',
