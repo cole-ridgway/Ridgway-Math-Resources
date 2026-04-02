@@ -1,5 +1,5 @@
 ---
-title: "Chapter-7: Applications of Integration"
+title: "Chapter 7: Applications of Integration"
 ---
 
 ## 7.1 Area of a Region Between Two Curves

@@ -60,7 +60,13 @@ All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Singl
 
 ## Chapter 7: Applications of Integration
 ::: {.callout-note collapse="true" title="Expand Chapter 7 Resources" icon=false}
-* *(Resources coming soon!)*
+**Interactive Revolution Explorer:**
+*(Use the tool below to visualize solids of revolution and calculate their volumes.)*
+
+::: {.callout-tip collapse="true" title="Revolution Explorer" icon=false}
+<iframe src="revolution-explorer.html" width="100%" height="900px" style="border:none; border-radius:8px;"></iframe>
+:::
+
 :::
 
 ## AP Test Resources

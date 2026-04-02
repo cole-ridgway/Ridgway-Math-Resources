@@ -11,8 +11,8 @@ id = '019d30dd-11c3-fcd3-10a5-ed62192647c0'
 dashboard_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0'
 direct_url = 'https://019d30dd-11c3-fcd3-10a5-ed62192647c0.share.connect.posit.cloud'
 logs_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0/history'
-deployed_at = '2026-04-01T14:56:40-06:00'
-bundle_id = '019d4ad5-21d4-373b-e539-f4df9ef89b6f'
+deployed_at = '2026-04-01T15:11:21-06:00'
+bundle_id = '019d4ae2-cef1-ab1f-1d00-0756ff85ca89'
 files = [
   ".posit/publish/Welcom. ℝidgway's Math Classes-SO5R.toml",
   '.posit/publish/deployments/deployment-CGVB.toml',
@@ -97,6 +97,8 @@ files = [
   'AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6-Student-Notes.pdf',
   'AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6-Teacher-Notes.pdf',
   'AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.qmd',
+  'AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7-Student-Notes.pdf',
+  'AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7-Teacher-Notes.pdf',
   'AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7.qmd',
   '_quarto.yml',
   'custom.scss',
