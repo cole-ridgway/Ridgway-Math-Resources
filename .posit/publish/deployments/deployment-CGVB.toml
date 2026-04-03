@@ -11,8 +11,8 @@ id = '019d30dd-11c3-fcd3-10a5-ed62192647c0'
 dashboard_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0'
 direct_url = 'https://019d30dd-11c3-fcd3-10a5-ed62192647c0.share.connect.posit.cloud'
 logs_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0/history'
-deployed_at = '2026-04-01T15:11:21-06:00'
-bundle_id = '019d4ae2-cef1-ab1f-1d00-0756ff85ca89'
+deployed_at = '2026-04-02T11:05:10-06:00'
+bundle_id = '019d4f27-d200-cd26-4526-7c727ae0d393'
 files = [
   ".posit/publish/Welcom. ℝidgway's Math Classes-SO5R.toml",
   '.posit/publish/deployments/deployment-CGVB.toml',
@@ -27,6 +27,7 @@ files = [
   'AP-Calculus-AB/resources/curve-sketching-practice.pdf',
   'AP-Calculus-AB/resources/derivative-applications-and-IVPs.pdf',
   'AP-Calculus-AB/resources/resources.qmd',
+  'AP-Calculus-AB/resources/revolution-explorer.html',
   'AP-Calculus-AB/resources/riemann-sums-and-integration.pdf',
   'AP-Calculus-AB/resources/slope-field-maker.html',
   'AP-Calculus-AB/resources/suggested-homework.pdf',

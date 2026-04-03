@@ -59,16 +59,26 @@ All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Singl
 :::
 
 ## Chapter 7: Applications of Integration
-::: {.callout-note collapse="true" title="Expand Chapter 7 Resources" icon=false}
+
+:::: {.callout-note collapse="true" title="Expand Chapter 7 Resources" icon=false}
+
+**Interactive Area Between Curves Tool:**
+*(Use the tool below to visualize the area between two curves.)*
+
+::: {.callout-tip collapse="true" title="Area Between Curves Visualizer" icon=false}
+
+<iframe src="area-between-curves.html" width="100%" height="820px" style="border:none; border-radius:8px;"></iframe>
+:::
+
 **Interactive Revolution Explorer:**
 *(Use the tool below to visualize solids of revolution and calculate their volumes.)*
 
 ::: {.callout-tip collapse="true" title="Revolution Explorer" icon=false}
+
 <iframe src="revolution-explorer.html" width="100%" height="900px" style="border:none; border-radius:8px;"></iframe>
 :::
 
-:::
-
+::::
 ## AP Test Resources
 
 :::: {.callout-note collapse="true" title="Expand AP Test Resources" icon=false}

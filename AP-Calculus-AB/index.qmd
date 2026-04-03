@@ -32,10 +32,12 @@ This hub is your central command for the year. Whether you are reviewing today's
 ::: {.card-body}
 **👈 Click the "Course Resources" tab in the left sidebar**  to jump directly to the unit you are currently studying. Click on any chapter block there to expand it and access extra practice files.
 
+Furthermore, there are full AP tests to practice, sample FRQs with solutions, and a collection of helpful videos to support your learning.
+
 Below are some links to outside resources that you may find helpful for review and practice throughout the year:
 
 * [Khan Academy AP Calculus AB Course](https://www.khanacademy.org/math/ap-calculus-ab)
-* [AP Calculus AB Exam Practice](https://apcentral.collegeboard.org/courses/ap-calculus-ab/exam)
+* [AP Calculus AB Exam Information (College Board)](https://apcentral.collegeboard.org/courses/ap-calculus-ab/exam)
 
 
 <!-- * [**AP Exam Formula & Reference Sheet**](resources/reference.pdf) -->
