@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Between Two Curves</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f9f9f9; color: #222; }
+
+  .shell {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .panel {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  label { font-size: 13px; color: #555; min-width: 60px; }
+
+  input[type="text"], input[type="number"] {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    color: #222;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input[type="text"] { width: 180px; }
+  input[type="number"] { width: 80px; }
+  input[type="text"]:focus, input[type="number"]:focus { border-color: #2563eb; }
+  input.error { border-color: #e83d1d; background: #fff5f5; }
+
+  .build-btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 22px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+    align-self: flex-start;
+  }
+  .build-btn:hover { background: #1d4fd8; }
+
+  .error-msg { font-size: 13px; color: #e83d1d; min-height: 18px; }
+
+  /* ── canvas area ── */
+  .canvas-wrap {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  canvas { display: block; width: 100%; }
+
+  /* ── area display ── */
+  .area-display {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .area-label { font-size: 13px; color: #555; }
+  .area-value {
+    font-size: 22px;
+    font-weight: 500;
+    color: #2563eb;
+    font-variant-numeric: tabular-nums;
+    min-width: 120px;
+  }
+  .area-total { font-size: 13px; color: #888; }
+
+  /* ── slider panel ── */
+  .slider-panel {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .slider-panel label { min-width: 180px; font-size: 14px; color: #555; }
+  input[type="range"] { flex: 1; height: 4px; accent-color: #2563eb; cursor: pointer; }
+  .slider-val { font-size: 14px; font-weight: 500; min-width: 52px; text-align: right; color: #222; }
+
+  .hint { font-size: 12px; color: #888; line-height: 1.5; }
+  code { font-family: monospace; background: #f0f0f0; padding: 1px 4px; border-radius: 3px; }
+
+  .loading {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #888;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <div class="panel">
+    <div class="row">
+      <label style="color:#2563eb; font-weight:500;">f(x) =</label>
+      <input type="text" id="fn-f" value="sqrt(x)" placeholder="e.g. sqrt(x)">
+    </div>
+    <div class="row">
+      <label style="color:#e83d1d; font-weight:500;">g(x) =</label>
+      <input type="text" id="fn-g" value="x^2" placeholder="e.g. x^2">
+    </div>
+    <div class="row">
+      <label>from x =</label>
+      <input type="number" id="limit-a" value="0" step="any">
+      <label>to x =</label>
+      <input type="number" id="limit-b" value="1" step="any">
+    </div>
+    <div class="row" style="margin-top:0.25rem;">
+      <button class="build-btn" id="build-btn">Plot</button>
+      <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; user-select: none; margin-left: 10px;">
+        <input type="checkbox" id="toggle-labels" style="width: 16px; height: 16px; cursor: pointer; margin: 0;">
+        <span style="font-size: 13px; color: #555;">Always show intersections</span>
+      </label>
+      <span class="error-msg" id="error-msg"></span>
+    </div>
+    <div class="hint">
+      Supported: <code>x^2</code>, <code>sqrt(x)</code>, <code>sin(x)</code>,
+      <code>cos(x)</code>, <code>tan(x)</code>, <code>abs(x)</code>,
+      <code>ln(x)</code>, <code>pi</code>, <code>e</code>
+    </div>
+  </div>
+
+  <div id="plot-container">
+    <div class="loading" id="loading-msg">Loading...</div>
+  </div>
+
+  <div class="area-display" id="area-display" style="display:none;">
+    <span class="area-label">Accumulated area:</span>
+    <span class="area-value" id="area-value">0.0000</span>
+    <span class="area-total" id="area-total"></span>
+  </div>
+
+  <div class="slider-panel" id="slider-panel" style="display:none;">
+    <label>Accumulate to x =</label>
+    <input type="range" id="x-slider" min="0" max="1" step="0.001" value="0">
+    <span class="slider-val" id="slider-display">0.00</span>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  // ── Function parser (same as revolution explorer) ─────────────────────────
+  function parseFunction(raw) {
+    let s = raw.trim();
+    if (!s) return null;
+    s = s.replace(/\bpi\b/gi, "Math.PI");
+    s = s.replace(/\be\b/g, "Math.E");
+    const fns = ["sqrt","sin","cos","tan","asin","acos","atan",
+                 "abs","ceil","floor","round","log","exp"];
+    for (const fn of fns) {
+      s = s.replace(new RegExp(`\\b${fn}\\b`, "g"), `Math.${fn}`);
+    }
+    s = s.replace(/\bln\b/g, "Math.log");
+    s = s.replace(/\blog10\b/g, "Math.log10");
+    s = s.replace(/Math\.E\s*\^\s*([a-zA-Z0-9_.()]+)/g, "Math.exp($1)");
+    s = s.replace(/\^/g, "**");
+    s = s.replace(/(\d)(x)/g, "$1*$2");
+    s = s.replace(/(\d)\(/g, "$1*(");
+    s = s.replace(/\)\(/g, ")*(");
+    try {
+      const fn = new Function("x", `"use strict"; return (${s});`);
+      const test = fn(0.5);
+      if (typeof test !== "number") throw new Error();
+      return fn;
+    } catch (e) { return null; }
+  }
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let active = null;   // { f, g, a, b, totalArea, xMin, xMax, yMin, yMax }
+  let canvas = null;
+  let ctx    = null;
+  let animFrame = null;
+  let pendingX  = null;
+
+  // ── Numeric integration (Simpson's rule) ─────────────────────────────────
+  function integrate(f, g, lo, hi, n = 400) {
+    if (hi <= lo) return 0;
+    n = n % 2 === 0 ? n : n + 1;
+    const h = (hi - lo) / n;
+    let sum = Math.abs(f(lo) - g(lo)) + Math.abs(f(hi) - g(hi));
+    for (let i = 1; i < n; i++) {
+      const x = lo + i * h;
+      const w = i % 2 === 0 ? 2 : 4;
+      sum += w * Math.abs(f(x) - g(x));
+    }
+    return (h / 3) * sum;
+  }
+
+  // ── Coordinate mapping ────────────────────────────────────────────────────
+  function toCanvas(x, y) {
+    const { xMin, xMax, yMin, yMax } = active;
+    const PAD = active.pad;
+    // FIX: Use clientWidth/clientHeight instead of canvas.width/canvas.height
+    const W = canvas.clientWidth, H = canvas.clientHeight;
+    const cx = PAD + (x - xMin) / (xMax - xMin) * (W - 2 * PAD);
+    const cy = H - PAD - (y - yMin) / (yMax - yMin) * (H - 2 * PAD);
+    return [cx, cy];
+  }
+
+  // ── Main draw ─────────────────────────────────────────────────────────────
+  function draw(accumX) {
+    if (!active || !ctx) return;
+    const { f, g, a, b, xMin, xMax, yMin, yMax, totalArea } = active;
+    
+    // FIX: Use clientWidth/clientHeight instead of canvas.width/canvas.height
+    const W = canvas.clientWidth, H = canvas.clientHeight;
+    const PAD = active.pad;
+    const N = 600;   // curve resolution
+
+    ctx.clearRect(0, 0, W, H);
+
+    // ── Background
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, W, H);
+
+    // ── Grid lines
+    ctx.strokeStyle = "#eeeeee";
+    ctx.lineWidth = 1;
+    const xStep = niceStep((xMax - xMin) / 8);
+    const yStep = niceStep((yMax - yMin) / 6);
+    // vertical
+    for (let x = Math.ceil(xMin / xStep) * xStep; x <= xMax; x += xStep) {
+      const [cx] = toCanvas(x, 0);
+      ctx.beginPath(); ctx.moveTo(cx, PAD); ctx.lineTo(cx, H - PAD);
+      ctx.stroke();
+    }
+    // horizontal
+    for (let y = Math.ceil(yMin / yStep) * yStep; y <= yMax; y += yStep) {
+      const [, cy] = toCanvas(0, y);
+      ctx.beginPath(); ctx.moveTo(PAD, cy); ctx.lineTo(W - PAD, cy);
+      ctx.stroke();
+    }
+
+    // ── Axes
+    ctx.strokeStyle = "#aaaaaa";
+    ctx.lineWidth = 1.5;
+    // x-axis
+    if (yMin <= 0 && yMax >= 0) {
+      const [, ay] = toCanvas(0, 0);
+      ctx.beginPath(); ctx.moveTo(PAD, ay); ctx.lineTo(W - PAD, ay); ctx.stroke();
+    }
+    // y-axis
+    if (xMin <= 0 && xMax >= 0) {
+      const [ax] = toCanvas(0, 0);
+      ctx.beginPath(); ctx.moveTo(ax, PAD); ctx.lineTo(ax, H - PAD); ctx.stroke();
+    }
+
+    // ── Tick labels
+    ctx.fillStyle = "#888";
+    ctx.font = "11px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    for (let x = Math.ceil(xMin / xStep) * xStep; x <= xMax; x += xStep) {
+      const [cx, cy0] = toCanvas(x, Math.max(yMin, 0));
+      const label = +x.toFixed(10) === 0 ? "" : formatTick(x);
+      ctx.fillText(label, cx, Math.min(cy0 + 14, H - 4));
+    }
+    ctx.textAlign = "right";
+    for (let y = Math.ceil(yMin / yStep) * yStep; y <= yMax; y += yStep) {
+      const [cx0, cy] = toCanvas(Math.max(xMin, 0), y);
+      if (+y.toFixed(10) === 0) continue;
+      ctx.fillText(formatTick(y), Math.max(cx0 - 4, 36), cy + 4);
+    }
+
+    // ── Shaded region from a to accumX
+    if (accumX > a) {
+      const xEnd = Math.min(accumX, b);
+      const steps = Math.max(2, Math.round((xEnd - a) / (b - a) * N));
+
+      ctx.beginPath();
+      // Top boundary (whichever fn is higher at each x, or f specifically)
+      // We'll shade in two colors: blue where f > g, red where g > f
+      // Build separate paths for each region
+      let posPath = new Path2D();   // f > g  (blue)
+      let negPath = new Path2D();   // g > f  (red)
+
+      for (let j = 0; j <= steps; j++) {
+        const x  = a + (j / steps) * (xEnd - a);
+        const fv = f(x), gv = g(x);
+        const top = Math.max(fv, gv), bot = Math.min(fv, gv);
+        const [cx, cTop] = toCanvas(x, top);
+        const [,   cBot] = toCanvas(x, bot);
+
+        if (fv >= gv) {
+          if (j === 0) posPath.moveTo(cx, cTop);
+          else posPath.lineTo(cx, cTop);
+        } else {
+          if (j === 0) negPath.moveTo(cx, cTop);
+          else negPath.lineTo(cx, cTop);
+        }
+      }
+      // Close both paths along the bottom boundary
+      for (let j = steps; j >= 0; j--) {
+        const x  = a + (j / steps) * (xEnd - a);
+        const fv = f(x), gv = g(x);
+        const bot = Math.min(fv, gv);
+        const [cx, cBot] = toCanvas(x, bot);
+        if (fv >= gv) posPath.lineTo(cx, cBot);
+        else negPath.lineTo(cx, cBot);
+      }
+      posPath.closePath();
+      negPath.closePath();
+
+      ctx.fillStyle = "rgba(37, 99, 235, 0.20)";
+      ctx.fill(posPath);
+      ctx.fillStyle = "rgba(232, 61, 29, 0.20)";
+      ctx.fill(negPath);
+    }
+
+    // ── Vertical sweep line
+    if (accumX >= a && accumX <= b) {
+      const [sx] = toCanvas(accumX, 0);
+      ctx.strokeStyle = "#555555";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath(); ctx.moveTo(sx, PAD); ctx.lineTo(sx, H - PAD);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // ── Limit markers (a and b)
+    for (const lx of [a, b]) {
+      const [cx] = toCanvas(lx, 0);
+      ctx.strokeStyle = "#999";
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(cx, PAD); ctx.lineTo(cx, H - PAD);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    // ── Curve f(x) — blue
+    ctx.strokeStyle = "#2563eb";
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    let started = false;
+    for (let j = 0; j <= N; j++) {
+      const x = xMin + (j / N) * (xMax - xMin);
+      const y = f(x);
+      if (!isFinite(y)) { started = false; continue; }
+      const [cx, cy] = toCanvas(x, y);
+      if (!started) { ctx.moveTo(cx, cy); started = true; }
+      else ctx.lineTo(cx, cy);
+    }
+    ctx.stroke();
+
+    // ── Curve g(x) — red
+    ctx.strokeStyle = "#e83d1d";
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    started = false;
+    for (let j = 0; j <= N; j++) {
+      const x = xMin + (j / N) * (xMax - xMin);
+      const y = g(x);
+      if (!isFinite(y)) { started = false; continue; }
+      const [cx, cy] = toCanvas(x, y);
+      if (!started) { ctx.moveTo(cx, cy); started = true; }
+      else ctx.lineTo(cx, cy);
+    }
+    ctx.stroke();
+
+    // ── Intersections
+    if (active.intersections) {
+      const showAlways = document.getElementById("toggle-labels").checked;
+      for (const pt of active.intersections) {
+        const [cx, cy] = toCanvas(pt.x, pt.y);
+        const isHovered = active.hovered === pt;
+        const showLabel = isHovered || showAlways;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, isHovered ? 6 : 4.5, 0, 2 * Math.PI);
+        ctx.fillStyle = isHovered ? "#222" : "#fff";
+        ctx.fill();
+        ctx.strokeStyle = isHovered ? "#fff" : "#222";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        if (showLabel) {
+          ctx.font = "bold 13px system-ui, sans-serif";
+          const label = `(${pt.x.toFixed(3)}, ${pt.y.toFixed(3)})`;
+          const metrics = ctx.measureText(label);
+          
+          const tx = cx + 12;
+          const ty = cy - 12;
+          const tw = metrics.width + 16;
+          const th = 26;
+          
+          // Draw tooltip background
+          ctx.fillStyle = "rgba(0, 0, 0, 0.85)";
+          ctx.beginPath();
+          ctx.roundRect(tx, ty - th + 8, tw, th, 6);
+          ctx.fill();
+          
+          // Draw tooltip text
+          ctx.fillStyle = "#fff";
+          ctx.textAlign = "left";
+          ctx.fillText(label, tx + 8, ty + 2);
+        }
+      }
+    }
+
+    // ── Curve labels
+    ctx.font = "bold 13px system-ui, sans-serif";
+    const labelX = xMax - (xMax - xMin) * 0.04;
+    const fLabel = f(labelX), gLabel_ = g(labelX);
+    if (isFinite(fLabel)) {
+      const [lx, ly] = toCanvas(labelX, fLabel);
+      ctx.fillStyle = "#2563eb";
+      ctx.textAlign = "right";
+      ctx.fillText("f(x)", lx - 6, ly - 6);
+    }
+    if (isFinite(gLabel_)) {
+      const [lx, ly] = toCanvas(labelX, gLabel_);
+      ctx.fillStyle = "#e83d1d";
+      ctx.textAlign = "right";
+      ctx.fillText("g(x)", lx - 6, ly + 14);
+    }
+
+    // ── Area readout
+    const accArea = integrate(f, g, a, Math.min(accumX, b));
+    document.getElementById("area-value").textContent = accArea.toFixed(4);
+
+    const pct = (Math.min(accumX, b) - a) / (b - a);
+    if (pct >= 0.999) {
+      document.getElementById("area-total").textContent =
+        `= total area  (${totalArea.toFixed(4)})`;
+    } else {
+      document.getElementById("area-total").textContent =
+        `  total = ${totalArea.toFixed(4)}`;
+    }
+  }
+
+  // ── RAF-throttled slider handler ──────────────────────────────────────────
+  function scheduleRedraw(x) {
+    pendingX = x;
+    if (animFrame) return;
+    animFrame = requestAnimationFrame(() => {
+      animFrame = null;
+      draw(pendingX);
+    });
+  }
+
+  // ── Nice axis step helper ──────────────────────────────────────────────────
+  function niceStep(rough) {
+    const exp = Math.floor(Math.log10(rough));
+    const frac = rough / Math.pow(10, exp);
+    let nice = frac < 1.5 ? 1 : frac < 3.5 ? 2 : frac < 7.5 ? 5 : 10;
+    return nice * Math.pow(10, exp);
+  }
+
+  function formatTick(v) {
+    if (Math.abs(v) >= 100) return v.toFixed(0);
+    if (Math.abs(v) >= 10)  return v.toFixed(1);
+    return v.toFixed(2).replace(/\.?0+$/, "");
+  }
+
+  // ── Build / plot ──────────────────────────────────────────────────────────
+  function buildPlot() {
+    const errEl = document.getElementById("error-msg");
+    errEl.textContent = "";
+
+    const rawF = document.getElementById("fn-f").value.trim();
+    const rawG = document.getElementById("fn-g").value.trim();
+    const a    = parseFloat(document.getElementById("limit-a").value);
+    const b    = parseFloat(document.getElementById("limit-b").value);
+
+    if (!rawF || !rawG) { errEl.textContent = "Both f(x) and g(x) are required."; return; }
+    if (isNaN(a) || isNaN(b)) { errEl.textContent = "Enter valid x limits."; return; }
+    if (a >= b) { errEl.textContent = "Left limit must be less than right limit."; return; }
+
+    const f = parseFunction(rawF);
+    if (!f) { errEl.textContent = "Could not parse f(x).";
+      document.getElementById("fn-f").classList.add("error"); return; }
+    document.getElementById("fn-f").classList.remove("error");
+
+    const g = parseFunction(rawG);
+    if (!g) { errEl.textContent = "Could not parse g(x).";
+      document.getElementById("fn-g").classList.add("error"); return; }
+    document.getElementById("fn-g").classList.remove("error");
+
+    // Sample to find y range
+    const N = 300;
+    const margin = (b - a) * 0.15;
+    const xMin = a - margin, xMax = b + margin;
+    let yMin = Infinity, yMax = -Infinity;
+    for (let j = 0; j <= N; j++) {
+      const x = xMin + (j / N) * (xMax - xMin);
+      const fv = f(x), gv = g(x);
+      if (isFinite(fv)) { yMin = Math.min(yMin, fv); yMax = Math.max(yMax, fv); }
+      if (isFinite(gv)) { yMin = Math.min(yMin, gv); yMax = Math.max(yMax, gv); }
+    }
+    const yPad = (yMax - yMin) * 0.2 + 0.3;
+    yMin -= yPad; yMax += yPad;
+
+    const totalArea = integrate(f, g, a, b);
+
+    active = { f, g, a, b, xMin, xMax, yMin, yMax, totalArea, pad: 48 };
+    active.intersections = findIntersections(f, g, xMin, xMax);
+    active.hovered = null;
+
+    // Set up canvas (DPR-aware for sharp rendering on retina)
+    const container = document.getElementById("plot-container");
+    container.innerHTML = "";
+    const wrap = document.createElement("div");
+    wrap.className = "canvas-wrap";
+    canvas = document.createElement("canvas");
+    const DPR = window.devicePixelRatio || 1;
+    const W = Math.min(860, container.clientWidth || 860);
+    const H = 420;
+    canvas.width  = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width  = W + "px";
+    canvas.style.height = H + "px";
+    ctx = canvas.getContext("2d");
+    ctx.scale(DPR, DPR);
+    wrap.appendChild(canvas);
+    container.appendChild(wrap);
+
+    // Add interactivity for intersections
+    canvas.addEventListener("mousemove", e => {
+      if (!active || !active.intersections) return;
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      let found = null;
+      let minD = 12; // hover radius in CSS pixels
+      for (const pt of active.intersections) {
+        const [cx, cy] = toCanvas(pt.x, pt.y);
+        const dist = Math.hypot(cx - mouseX, cy - mouseY);
+        if (dist < minD) {
+          minD = dist;
+          found = pt;
+        }
+      }
+
+      if (active.hovered !== found) {
+        active.hovered = found;
+        canvas.style.cursor = found ? "pointer" : "default";
+        scheduleRedraw(parseFloat(document.getElementById("x-slider").value));
+      }
+    });
+
+    canvas.addEventListener("mouseleave", () => {
+      if (active && active.hovered) {
+        active.hovered = null;
+        canvas.style.cursor = "default";
+        scheduleRedraw(parseFloat(document.getElementById("x-slider").value));
+      }
+    });
+
+    // Show controls
+    document.getElementById("area-display").style.display = "flex";
+    document.getElementById("slider-panel").style.display = "flex";
+
+    // Reset slider to a
+    const slider  = document.getElementById("x-slider");
+    const display = document.getElementById("slider-display");
+    slider.min   = a;
+    slider.max   = b;
+    slider.step  = (b - a) / 800;
+    slider.value = a;
+    display.textContent = a.toFixed(2);
+
+    draw(a);
+  }
+
+  // ── Wire up slider ────────────────────────────────────────────────────────
+  document.getElementById("x-slider").addEventListener("input", e => {
+    const x = parseFloat(e.target.value);
+    document.getElementById("slider-display").textContent = x.toFixed(2);
+    scheduleRedraw(x);
+  });
+
+  // ── Wire up build button + Enter ──────────────────────────────────────────
+  document.getElementById("build-btn").addEventListener("click", buildPlot);
+  document.addEventListener("keydown", e => { if (e.key === "Enter") buildPlot(); });
+
+  document.getElementById("toggle-labels").addEventListener("change", () => {
+    if (active) scheduleRedraw(parseFloat(document.getElementById("x-slider").value));
+  });
+
+  // ── Initial render ────────────────────────────────────────────────────────
+  document.getElementById("loading-msg").style.display = "none";
+
+  // ── Root Finding Helper ───────────────────────────────────────────────────
+  function findIntersections(f, g, xMin, xMax, steps = 1000) {
+    const roots = [];
+    const diff = x => f(x) - g(x);
+    let xPrev = xMin;
+    let yPrev = diff(xPrev);
+
+    for (let i = 1; i <= steps; i++) {
+      let xCurr = xMin + (i / steps) * (xMax - xMin);
+      let yCurr = diff(xCurr);
+
+      if (!isFinite(yPrev) || !isFinite(yCurr)) {
+        xPrev = xCurr; yPrev = yCurr;
+        continue;
+      }
+
+      // Check for exact zero or sign change between steps
+      if (yCurr === 0) {
+        roots.push({ x: xCurr, y: f(xCurr) });
+      } else if (yPrev * yCurr < 0) {
+        // Bisection method to find the precise intersection point
+        let a = xPrev, b = xCurr;
+        for (let k = 0; k < 50; k++) {
+          let mid = (a + b) / 2;
+          let yMid = diff(mid);
+          if (yMid === 0 || (b - a) < 1e-7) {
+            roots.push({ x: mid, y: f(mid) });
+            break;
+          }
+          if (yMid * diff(a) < 0) b = mid;
+          else a = mid;
+        }
+      }
+      xPrev = xCurr;
+      yPrev = yCurr;
+    }
+
+    // Deduplicate any intersecting roots that fall too close
+    const unique = [];
+    for (const r of roots) {
+      if (!unique.some(u => Math.abs(u.x - r.x) < 1e-5)) {
+        unique.push(r);
+      }
+    }
+    return unique;
+  }
+
+  buildPlot();
+
+})();
+</script>
+</body>
+</html>
