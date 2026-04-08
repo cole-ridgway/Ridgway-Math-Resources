@@ -581,6 +581,11 @@ window.Quarto = {
 </header>
 
 
+<p><span class="math display">\[
+\newcommand{\arcsec}{\mathop{\mathrm{arcsec}}}
+\newcommand{\arccsc}{\mathop{\mathrm{arccsc}}}
+\newcommand{\arccot}{\mathop{\mathrm{arccot}}}
+\]</span></p>
 <section id="the-natural-logarithmic-function-differentiation" class="level2">
 <h2 class="anchored" data-anchor-id="the-natural-logarithmic-function-differentiation">5.1 The Natural Logarithmic Function: Differentiation</h2>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Objectives">
@@ -3801,12 +3806,108 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="practice-exercises-9">Practice Exercises</h4>
 <p><em>Find the derivative of the following functions.</em></p>
 <ol type="1">
-<li><span class="math inline">\(y = \arcsin(3x^2)\)</span></li>
-<li><span class="math inline">\(f(x) = \arctan(\sqrt{x})\)</span></li>
-<li><span class="math inline">\(g(t) = \arcsec(5t)\)</span></li>
-<li>Find the equation of the tangent line to the graph of <span class="math inline">\(y = \arctan(x)\)</span> at <span class="math inline">\(x=1\)</span>.</li>
-<li><span class="math inline">\(y = x \arccos(2x)\)</span></li>
-<li>Show that the derivative of <span class="math inline">\(y = \arcsin(x) + \arccos(x)\)</span> is 0.</li>
+<li><p><span class="math inline">\(y = \arcsin(3x^2)\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-172-contents" aria-controls="callout-172" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-172" class="callout-172-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the chain rule with the derivative of <span class="math inline">\(\arcsin(u)\)</span>, which is <span class="math inline">\(\frac{u'}{\sqrt{1 - u^2}}\)</span>. Let <span class="math inline">\(u = 3x^2\)</span>, so <span class="math inline">\(u' = 6x\)</span>. <span class="math display">\[y' = \frac{1}{\sqrt{1 - (3x^2)^2}} \cdot \frac{d}{dx}(3x^2)\]</span> <span class="math display">\[y' = \frac{1}{\sqrt{1 - 9x^4}} \cdot 6x\]</span> <span class="math display">\[y' = \frac{6x}{\sqrt{1 - 9x^4}}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(f(x) = \arctan(\sqrt{x})\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-173-contents" aria-controls="callout-173" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-173" class="callout-173-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the chain rule with the derivative of <span class="math inline">\(\arctan(u)\)</span>, which is <span class="math inline">\(\frac{u'}{1 + u^2}\)</span>. Let <span class="math inline">\(u = \sqrt{x} = x^{1/2}\)</span>, so <span class="math inline">\(u' = \frac{1}{2\sqrt{x}}\)</span>. <span class="math display">\[f'(x) = \frac{1}{1 + (\sqrt{x})^2} \cdot \frac{d}{dx}(x^{1/2})\]</span> <span class="math display">\[f'(x) = \frac{1}{1 + x} \cdot \frac{1}{2\sqrt{x}}\]</span> <span class="math display">\[f'(x) = \frac{1}{2\sqrt{x}(1 + x)}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(g(t) = \arcsec(5t)\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-174-contents" aria-controls="callout-174" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-174" class="callout-174-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the chain rule with the derivative of <span class="math inline">\(\arcsec(u)\)</span>, which is <span class="math inline">\(\frac{u'}{|u|\sqrt{u^2 - 1}}\)</span>. Let <span class="math inline">\(u = 5t\)</span>, so <span class="math inline">\(u' = 5\)</span>. <span class="math display">\[g'(t) = \frac{1}{|5t|\sqrt{(5t)^2 - 1}} \cdot \frac{d}{dt}(5t)\]</span> <span class="math display">\[g'(t) = \frac{1}{|5t|\sqrt{25t^2 - 1}} \cdot 5\]</span> <span class="math display">\[g'(t) = \frac{5}{5|t|\sqrt{25t^2 - 1}}\]</span> Simplify by canceling the 5 in the numerator and denominator: <span class="math display">\[g'(t) = \frac{1}{|t|\sqrt{25t^2 - 1}}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Find the equation of the tangent line to the graph of <span class="math inline">\(y = \arctan(x)\)</span> at <span class="math inline">\(x=1\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-175-contents" aria-controls="callout-175" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-175" class="callout-175-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> First, find the <span class="math inline">\(y\)</span>-coordinate of the point of tangency by evaluating the function at <span class="math inline">\(x = 1\)</span>: <span class="math display">\[y(1) = \arctan(1) = \frac{\pi}{4}\]</span> The point of tangency is <span class="math inline">\(\left(1, \frac{\pi}{4}\right)\)</span>. Next, find the derivative to determine the slope of the tangent line: <span class="math display">\[y' = \frac{1}{1 + x^2}\]</span> Evaluate the derivative at <span class="math inline">\(x = 1\)</span> to find the slope <span class="math inline">\(m\)</span>: <span class="math display">\[m = y'(1) = \frac{1}{1 + (1)^2} = \frac{1}{1 + 1} = \frac{1}{2}\]</span> Use the point-slope form <span class="math inline">\((y - y_1 = m(x - x_1))\)</span> to write the equation of the line: <span class="math display">\[y - \frac{\pi}{4} = \frac{1}{2}(x - 1)\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(y = x \arccos(2x)\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-176-contents" aria-controls="callout-176" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-176" class="callout-176-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use the product rule, where <span class="math inline">\(u = x\)</span> and <span class="math inline">\(v = \arccos(2x)\)</span>. Remember the derivative of <span class="math inline">\(\arccos(w)\)</span> is <span class="math inline">\(\frac{-w'}{\sqrt{1 - w^2}}\)</span>. <span class="math display">\[y' = (1)\arccos(2x) + x \left( \frac{-2}{\sqrt{1 - (2x)^2}} \right)\]</span> <span class="math display">\[y' = \arccos(2x) + x \left( \frac{-2}{\sqrt{1 - 4x^2}} \right)\]</span> <span class="math display">\[y' = \arccos(2x) - \frac{2x}{\sqrt{1 - 4x^2}}\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Show that the derivative of <span class="math inline">\(y = \arcsin(x) + \arccos(x)\)</span> is 0.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-177-contents" aria-controls="callout-177" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-177" class="callout-177-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Take the derivative of each term separately: <span class="math display">\[y' = \frac{d}{dx}(\arcsin(x)) + \frac{d}{dx}(\arccos(x))\]</span> Substitute the standard derivative formulas for each function: <span class="math display">\[y' = \left( \frac{1}{\sqrt{1 - x^2}} \right) + \left( -\frac{1}{\sqrt{1 - x^2}} \right)\]</span> Combine the terms: <span class="math display">\[y' = \frac{1}{\sqrt{1 - x^2}} - \frac{1}{\sqrt{1 - x^2}}\]</span> <span class="math display">\[y' = 0\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 </section>
@@ -3964,7 +4065,7 @@ window.Quarto = {
 <p>Evaluate each integral.</p>
 <p><strong>a)</strong> <span class="math inline">\(\displaystyle \int \frac{1}{\sqrt{4-x^2}}dx\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-175-contents" aria-controls="callout-175" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-181-contents" aria-controls="callout-181" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3973,7 +4074,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-175" class="callout-175-contents callout-collapse collapse">
+<div id="callout-181" class="callout-181-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[\int \frac{1}{\sqrt{4-x^2}}dx = \arcsin \left( \frac{x}{2} \right) +C\]</span></p>
 </div>
@@ -3981,7 +4082,7 @@ window.Quarto = {
 </div>
 <p><strong>b)</strong> <span class="math inline">\(\displaystyle \int \frac{1}{2+9x^2}dx\)</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-176-contents" aria-controls="callout-176" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-182-contents" aria-controls="callout-182" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3990,7 +4091,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-176" class="callout-176-contents callout-collapse collapse">
+<div id="callout-182" class="callout-182-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[\int \frac{1}{2+9x^2}dx = \frac{1}{3} \int \frac{3}{\left( \sqrt{2} \right)^2 + (3x)^2}dx = \frac{1}{3\sqrt{2}} \arctan \left( \frac{3x}{\sqrt{2}} \right) + C\]</span> Notice that we let <span class="math inline">\(u=3x\)</span> and <span class="math inline">\(a=\sqrt{2}\)</span>.</p>
 </div>
@@ -4011,7 +4112,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Find <span class="math inline">\(\displaystyle \int \frac{1}{\sqrt{e^{2x}-1}}dx\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-178-contents" aria-controls="callout-178" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-184-contents" aria-controls="callout-184" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -4020,7 +4121,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-178" class="callout-178-contents callout-collapse collapse">
+<div id="callout-184" class="callout-184-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If we use the substitution <span class="math inline">\(u=e^x\)</span>, we see <span class="math display">\[ u=e^x \quad \Rightarrow \quad du=e^x dx \quad \Rightarrow \quad dx= \frac{du}{e^x} = \frac{du}{u} \]</span> Using this substitution, we see <span class="math display">\[ \begin{aligned} \int \frac{1}{\sqrt{e^{2x}-1}}dx &amp;= \int \frac{1}{\sqrt{(e^{x})^2-1}}dx &amp;&amp; \text{Rewrite using exponent rules.}\\ &amp;= \int \frac{1}{\sqrt{u^2-1}}\frac{1}{u}du &amp;&amp; \text{Substitute.}\\ &amp;= \int \frac{1}{u\sqrt{u^2-1}}du &amp;&amp; \text{Rewrite to fit arcsecant rule.}\\ &amp;= \arcsec \left(\frac{|u|}{1} \right) + C \\ &amp;= \arcsec(e^x) +C \end{aligned} \]</span></p>
 </div>
@@ -4040,7 +4141,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Find <span class="math inline">\(\displaystyle\int \frac{x+2}{\sqrt{4-x^2}}dx\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-180-contents" aria-controls="callout-180" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-186-contents" aria-controls="callout-186" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -4049,7 +4150,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-180" class="callout-180-contents callout-collapse collapse">
+<div id="callout-186" class="callout-186-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This integral does not appear to fit any of the basic integration formulas. By splitting the integrand into two parts, however, you can see that the first part can be found with the Power Rule and the second part yields an inverse sine function. <span class="math display">\[ \begin{aligned} \int \frac{x+2}{\sqrt{4-x^2}}dx &amp;= \int \frac{x}{\sqrt{4-x^2}}dx + \int \frac{2}{\sqrt{4-x^2}}dx \\ &amp;= -\frac{1}{2}\int (4-x^2)^{-1/2} dx + 2 \int \frac{1}{\sqrt{4-x^2}}dx\\ &amp;= \frac{-1}{2} \left[ \frac{(4-x^2)^{1/2}}{1/2} \right] + 2\arcsin \left( \frac{x}{2} \right) +C \\ &amp;= -\sqrt{4-x^2} + 2\arcsin \left( \frac{x}{2} \right) +C \end{aligned} \]</span></p>
 </div>
@@ -4061,12 +4162,108 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="practice-exercises-10">Practice Exercises</h4>
 <p><em>Evaluate the following definite and indefinite integrals.</em></p>
 <ol type="1">
-<li><span class="math inline">\(\displaystyle \int \frac{5}{1+25x^2} \, dx\)</span></li>
-<li><span class="math inline">\(\displaystyle \int \frac{1}{\sqrt{9-4x^2}} \, dx\)</span></li>
-<li><span class="math inline">\(\displaystyle \int \frac{e^x}{1+e^{2x}} \, dx\)</span></li>
-<li><span class="math inline">\(\displaystyle \int \frac{x+3}{\sqrt{1-x^2}} \, dx\)</span></li>
-<li><span class="math inline">\(\displaystyle \int \frac{1}{x\sqrt{x^2-16}} \, dx\)</span></li>
-<li><span class="math inline">\(\displaystyle \int_{0}^{1} \frac{1}{\sqrt{4-x^2}} \, dx\)</span></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{5}{1+25x^2} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-188-contents" aria-controls="callout-188" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-188" class="callout-188-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use <span class="math inline">\(u\)</span>-substitution. Let <span class="math inline">\(u = 5x\)</span>, then <span class="math inline">\(du = 5 \, dx\)</span>. Substitute into the integral: <span class="math display">\[\int \frac{1}{1+u^2} \, du\]</span> The antiderivative of <span class="math inline">\(\frac{1}{1+u^2}\)</span> is <span class="math inline">\(\arctan(u)\)</span>: <span class="math display">\[= \arctan(u) + C\]</span> Substitute back <span class="math inline">\(u = 5x\)</span>: <span class="math display">\[= \arctan(5x) + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{1}{\sqrt{9-4x^2}} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-189-contents" aria-controls="callout-189" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-189" class="callout-189-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Use <span class="math inline">\(u\)</span>-substitution to match the inverse sine form <span class="math inline">\(\int \frac{du}{\sqrt{a^2-u^2}} = \arcsin\left(\frac{u}{a}\right)\)</span>. Let <span class="math inline">\(a^2 = 9 \implies a = 3\)</span>. Let <span class="math inline">\(u^2 = 4x^2 \implies u = 2x\)</span>, then <span class="math inline">\(du = 2 \, dx\)</span>, which means <span class="math inline">\(dx = \frac{1}{2} \, du\)</span>. Substitute into the integral: <span class="math display">\[\frac{1}{2} \int \frac{1}{\sqrt{3^2-u^2}} \, du\]</span> <span class="math display">\[= \frac{1}{2} \arcsin\left(\frac{u}{3}\right) + C\]</span> Substitute back <span class="math inline">\(u = 2x\)</span>: <span class="math display">\[= \frac{1}{2} \arcsin\left(\frac{2x}{3}\right) + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{e^x}{1+e^{2x}} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-190-contents" aria-controls="callout-190" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-190" class="callout-190-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Note that <span class="math inline">\(e^{2x} = (e^x)^2\)</span>. Use <span class="math inline">\(u\)</span>-substitution with <span class="math inline">\(u = e^x\)</span>, then <span class="math inline">\(du = e^x \, dx\)</span>. Substitute into the integral: <span class="math display">\[\int \frac{1}{1+u^2} \, du\]</span> <span class="math display">\[= \arctan(u) + C\]</span> Substitute back <span class="math inline">\(u = e^x\)</span>: <span class="math display">\[= \arctan(e^x) + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{x+3}{\sqrt{1-x^2}} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-191-contents" aria-controls="callout-191" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-191" class="callout-191-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Split the integral into two separate terms: <span class="math display">\[\int \frac{x}{\sqrt{1-x^2}} \, dx + \int \frac{3}{\sqrt{1-x^2}} \, dx\]</span> For the first integral, use <span class="math inline">\(u\)</span>-substitution. Let <span class="math inline">\(u = 1-x^2\)</span>, then <span class="math inline">\(du = -2x \, dx\)</span>, so <span class="math inline">\(x \, dx = -\frac{1}{2} \, du\)</span>: <span class="math display">\[-\frac{1}{2} \int u^{-1/2} \, du = -\frac{1}{2} \left( \frac{u^{1/2}}{1/2} \right) = -u^{1/2} = -\sqrt{1-x^2}\]</span> For the second integral, factor out the constant and use the standard inverse sine form: <span class="math display">\[3 \int \frac{1}{\sqrt{1-x^2}} \, dx = 3\arcsin(x)\]</span> Combine the results of both integrals and add the constant of integration: <span class="math display">\[-\sqrt{1-x^2} + 3\arcsin(x) + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{1}{x\sqrt{x^2-16}} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-192-contents" aria-controls="callout-192" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-192" class="callout-192-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Recognize the standard form for the inverse secant integral: <span class="math inline">\(\int \frac{du}{u\sqrt{u^2-a^2}} = \frac{1}{a}\arcsec\left(\frac{|u|}{a}\right) + C\)</span>. Here, <span class="math inline">\(u = x\)</span>, <span class="math inline">\(du = dx\)</span>, and <span class="math inline">\(a^2 = 16 \implies a = 4\)</span>. <span class="math display">\[= \frac{1}{4}\arcsec\left(\frac{|x|}{4}\right) + C\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p><span class="math inline">\(\displaystyle \int_{0}^{1} \frac{1}{\sqrt{4-x^2}} \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-193-contents" aria-controls="callout-193" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-193" class="callout-193-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Recognize the standard form for the inverse sine integral where <span class="math inline">\(a^2 = 4 \implies a = 2\)</span> and <span class="math inline">\(u = x\)</span>. Find the general antiderivative: <span class="math display">\[\int \frac{1}{\sqrt{2^2-x^2}} \, dx = \arcsin\left(\frac{x}{2}\right)\]</span> Evaluate the definite integral from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>: <span class="math display">\[\left[ \arcsin\left(\frac{x}{2}\right) \right]_{0}^{1}\]</span> <span class="math display">\[= \arcsin\left(\frac{1}{2}\right) - \arcsin\left(\frac{0}{2}\right)\]</span> <span class="math display">\[= \arcsin\left(\frac{1}{2}\right) - \arcsin(0)\]</span> Recall the angles on the unit circle that yield these sine values: <span class="math display">\[= \frac{\pi}{6} - 0 = \frac{\pi}{6}\]</span></p>
+</div>
+</div>
+</div></li>
 </ol>
 </section>
 </section>
@@ -4098,7 +4295,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>Find <span class="math inline">\(\displaystyle \int \frac{1}{x^2-4x+7}dx\)</span>.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-182-contents" aria-controls="callout-182" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-194-contents" aria-controls="callout-194" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -4107,7 +4304,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-182" class="callout-182-contents callout-collapse collapse">
+<div id="callout-194" class="callout-194-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can write the denominator as the sum of two squares as shown. <span class="math display">\[ \begin{aligned} x^2-4x+7 &amp;= (x^2-4x+4)-4+7 \\ &amp;= (x-2)^2+3 \\ &amp;= u^2+a^2 \end{aligned} \]</span> If you let <span class="math inline">\(u=x-2\)</span> and <span class="math inline">\(a=\sqrt{3}\)</span>, now you can integrate more easily. <span class="math display">\[ \int \frac{1}{x^2-4x+7}dx = \int \frac{1}{(x-2)^2+3}dx = \frac{1}{\sqrt{3}} \arctan \left( \frac{x-2}{\sqrt{3}} \right) +C \]</span></p>
 </div>

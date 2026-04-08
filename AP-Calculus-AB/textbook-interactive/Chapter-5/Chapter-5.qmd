@@ -1,3 +1,9 @@
+$$
+\newcommand{\arcsec}{\mathop{\mathrm{arcsec}}}
+\newcommand{\arccsc}{\mathop{\mathrm{arccsc}}}
+\newcommand{\arccot}{\mathop{\mathrm{arccot}}}
+$$
+
 ---
 title: "Chapter 5: Transcendental Functions and Their Inverses"
 ---
@@ -1761,11 +1767,78 @@ $$ \begin{aligned} y' &= \frac{1}{\sqrt{1-x^2}} + x \left( \frac{1}{2} \right)(-
 *Find the derivative of the following functions.*
 
 1. $y = \arcsin(3x^2)$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the chain rule with the derivative of $\arcsin(u)$, which is $\frac{u'}{\sqrt{1 - u^2}}$.
+   Let $u = 3x^2$, so $u' = 6x$.
+   $$y' = \frac{1}{\sqrt{1 - (3x^2)^2}} \cdot \frac{d}{dx}(3x^2)$$
+   $$y' = \frac{1}{\sqrt{1 - 9x^4}} \cdot 6x$$
+   $$y' = \frac{6x}{\sqrt{1 - 9x^4}}$$
+   :::
+
 2. $f(x) = \arctan(\sqrt{x})$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the chain rule with the derivative of $\arctan(u)$, which is $\frac{u'}{1 + u^2}$.
+   Let $u = \sqrt{x} = x^{1/2}$, so $u' = \frac{1}{2\sqrt{x}}$.
+   $$f'(x) = \frac{1}{1 + (\sqrt{x})^2} \cdot \frac{d}{dx}(x^{1/2})$$
+   $$f'(x) = \frac{1}{1 + x} \cdot \frac{1}{2\sqrt{x}}$$
+   $$f'(x) = \frac{1}{2\sqrt{x}(1 + x)}$$
+   :::
+
 3. $g(t) = \arcsec(5t)$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the chain rule with the derivative of $\arcsec(u)$, which is $\frac{u'}{|u|\sqrt{u^2 - 1}}$.
+   Let $u = 5t$, so $u' = 5$.
+   $$g'(t) = \frac{1}{|5t|\sqrt{(5t)^2 - 1}} \cdot \frac{d}{dt}(5t)$$
+   $$g'(t) = \frac{1}{|5t|\sqrt{25t^2 - 1}} \cdot 5$$
+   $$g'(t) = \frac{5}{5|t|\sqrt{25t^2 - 1}}$$
+   Simplify by canceling the 5 in the numerator and denominator:
+   $$g'(t) = \frac{1}{|t|\sqrt{25t^2 - 1}}$$
+   :::
+
 4. Find the equation of the tangent line to the graph of $y = \arctan(x)$ at $x=1$.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   First, find the $y$-coordinate of the point of tangency by evaluating the function at $x = 1$:
+   $$y(1) = \arctan(1) = \frac{\pi}{4}$$
+   The point of tangency is $\left(1, \frac{\pi}{4}\right)$.
+   Next, find the derivative to determine the slope of the tangent line:
+   $$y' = \frac{1}{1 + x^2}$$
+   Evaluate the derivative at $x = 1$ to find the slope $m$:
+   $$m = y'(1) = \frac{1}{1 + (1)^2} = \frac{1}{1 + 1} = \frac{1}{2}$$
+   Use the point-slope form $(y - y_1 = m(x - x_1))$ to write the equation of the line:
+   $$y - \frac{\pi}{4} = \frac{1}{2}(x - 1)$$
+   :::
+
 5. $y = x \arccos(2x)$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use the product rule, where $u = x$ and $v = \arccos(2x)$. 
+   Remember the derivative of $\arccos(w)$ is $\frac{-w'}{\sqrt{1 - w^2}}$.
+   $$y' = (1)\arccos(2x) + x \left( \frac{-2}{\sqrt{1 - (2x)^2}} \right)$$
+   $$y' = \arccos(2x) + x \left( \frac{-2}{\sqrt{1 - 4x^2}} \right)$$
+   $$y' = \arccos(2x) - \frac{2x}{\sqrt{1 - 4x^2}}$$
+   :::
+
 6. Show that the derivative of $y = \arcsin(x) + \arccos(x)$ is 0.
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Take the derivative of each term separately:
+   $$y' = \frac{d}{dx}(\arcsin(x)) + \frac{d}{dx}(\arccos(x))$$
+   Substitute the standard derivative formulas for each function:
+   $$y' = \left( \frac{1}{\sqrt{1 - x^2}} \right) + \left( -\frac{1}{\sqrt{1 - x^2}} \right)$$
+   Combine the terms:
+   $$y' = \frac{1}{\sqrt{1 - x^2}} - \frac{1}{\sqrt{1 - x^2}}$$
+   $$y' = 0$$
+   :::
 :::
 
 ### Review of Basic Differentiation Rules
@@ -1885,11 +1958,81 @@ $$ \begin{aligned} \int \frac{x+2}{\sqrt{4-x^2}}dx &= \int \frac{x}{\sqrt{4-x^2}
 *Evaluate the following definite and indefinite integrals.*
 
 1. $\displaystyle \int \frac{5}{1+25x^2} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use $u$-substitution. Let $u = 5x$, then $du = 5 \, dx$.
+   Substitute into the integral:
+   $$\int \frac{1}{1+u^2} \, du$$
+   The antiderivative of $\frac{1}{1+u^2}$ is $\arctan(u)$:
+   $$= \arctan(u) + C$$
+   Substitute back $u = 5x$:
+   $$= \arctan(5x) + C$$
+   :::
+
 2. $\displaystyle \int \frac{1}{\sqrt{9-4x^2}} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Use $u$-substitution to match the inverse sine form $\int \frac{du}{\sqrt{a^2-u^2}} = \arcsin\left(\frac{u}{a}\right)$.
+   Let $a^2 = 9 \implies a = 3$. 
+   Let $u^2 = 4x^2 \implies u = 2x$, then $du = 2 \, dx$, which means $dx = \frac{1}{2} \, du$.
+   Substitute into the integral:
+   $$\frac{1}{2} \int \frac{1}{\sqrt{3^2-u^2}} \, du$$
+   $$= \frac{1}{2} \arcsin\left(\frac{u}{3}\right) + C$$
+   Substitute back $u = 2x$:
+   $$= \frac{1}{2} \arcsin\left(\frac{2x}{3}\right) + C$$
+   :::
+
 3. $\displaystyle \int \frac{e^x}{1+e^{2x}} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Note that $e^{2x} = (e^x)^2$. Use $u$-substitution with $u = e^x$, then $du = e^x \, dx$.
+   Substitute into the integral:
+   $$\int \frac{1}{1+u^2} \, du$$
+   $$= \arctan(u) + C$$
+   Substitute back $u = e^x$:
+   $$= \arctan(e^x) + C$$
+   :::
+
 4. $\displaystyle \int \frac{x+3}{\sqrt{1-x^2}} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Split the integral into two separate terms:
+   $$\int \frac{x}{\sqrt{1-x^2}} \, dx + \int \frac{3}{\sqrt{1-x^2}} \, dx$$
+   For the first integral, use $u$-substitution. Let $u = 1-x^2$, then $du = -2x \, dx$, so $x \, dx = -\frac{1}{2} \, du$:
+   $$-\frac{1}{2} \int u^{-1/2} \, du = -\frac{1}{2} \left( \frac{u^{1/2}}{1/2} \right) = -u^{1/2} = -\sqrt{1-x^2}$$
+   For the second integral, factor out the constant and use the standard inverse sine form:
+   $$3 \int \frac{1}{\sqrt{1-x^2}} \, dx = 3\arcsin(x)$$
+   Combine the results of both integrals and add the constant of integration:
+   $$-\sqrt{1-x^2} + 3\arcsin(x) + C$$
+   :::
+
 5. $\displaystyle \int \frac{1}{x\sqrt{x^2-16}} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Recognize the standard form for the inverse secant integral: $\int \frac{du}{u\sqrt{u^2-a^2}} = \frac{1}{a}\arcsec\left(\frac{|u|}{a}\right) + C$.
+   Here, $u = x$, $du = dx$, and $a^2 = 16 \implies a = 4$.
+   $$= \frac{1}{4}\arcsec\left(\frac{|x|}{4}\right) + C$$
+   :::
+
 6. $\displaystyle \int_{0}^{1} \frac{1}{\sqrt{4-x^2}} \, dx$
+   
+   ::: {.callout-tip collapse="true" title="Show Answer" icon=false}
+   **Solution:**
+   Recognize the standard form for the inverse sine integral where $a^2 = 4 \implies a = 2$ and $u = x$.
+   Find the general antiderivative:
+   $$\int \frac{1}{\sqrt{2^2-x^2}} \, dx = \arcsin\left(\frac{x}{2}\right)$$
+   Evaluate the definite integral from $0$ to $1$:
+   $$\left[ \arcsin\left(\frac{x}{2}\right) \right]_{0}^{1}$$
+   $$= \arcsin\left(\frac{1}{2}\right) - \arcsin\left(\frac{0}{2}\right)$$
+   $$= \arcsin\left(\frac{1}{2}\right) - \arcsin(0)$$
+   Recall the angles on the unit circle that yield these sine values:
+   $$= \frac{\pi}{6} - 0 = \frac{\pi}{6}$$
+   :::
 :::
 
 ### Completing the Square

@@ -11,8 +11,8 @@ id = '019d30dd-11c3-fcd3-10a5-ed62192647c0'
 dashboard_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0'
 direct_url = 'https://019d30dd-11c3-fcd3-10a5-ed62192647c0.share.connect.posit.cloud'
 logs_url = 'https://connect.posit.cloud/cole-ridgway/content/019d30dd-11c3-fcd3-10a5-ed62192647c0/history'
-deployed_at = '2026-04-06T20:21:32-06:00'
-bundle_id = '019d65be-9b37-1763-8735-b067dc68a4f8'
+deployed_at = '2026-04-08T13:28:59-06:00'
+bundle_id = '019d6e91-af83-be6b-bac6-26482399e1d3'
 files = [
   ".posit/publish/Welcom. ℝidgway's Math Classes-SO5R.toml",
   '.posit/publish/deployments/deployment-CGVB.toml',
