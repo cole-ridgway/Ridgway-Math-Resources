@@ -1977,11 +1977,20 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 <figcaption>Horizontal and Vertical Axes of Revolution</figcaption>
 </figure>
 </div>
-<p><strong>Example:</strong> Find the volume of the solid of revolution formed by revolving the region bounded by <span class="math display">\[y = x - x^3\]</span> and the <span class="math inline">\(x\)</span>-axis, <span class="math inline">\(0 \leq x \leq 1\)</span>, about the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid of revolution formed by revolving the region bounded by <span class="math display">\[y = x - x^3\]</span> and the <span class="math inline">\(x\)</span>-axis, <span class="math inline">\(0 \leq x \leq 1\)</span>, about the <span class="math inline">\(y\)</span>-axis.</p>
 <div class="grid">
 <div class="g-col-12 g-col-md-7">
 <p>Because the axis of revolution is vertical, use a vertical representative rectangle, as shown in the figure. The width <span class="math inline">\(\Delta x\)</span> indicates that <span class="math inline">\(x\)</span> is the variable of integration. The distance from the center of the rectangle to the axis of revolution is <span class="math inline">\(p(x)=x\)</span>, and the height of the rectangle is <span class="math display">\[h(x)=x-x^3\]</span></p>
-</div>
 <div class="g-col-12 g-col-md-5">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1991,8 +2000,33 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 </div>
 </div>
+</div>
 <p>Because <span class="math inline">\(x\)</span> ranges from 0 to 1, the volume of the solid is <span class="math display">\[\begin{aligned} V &amp;= 2\pi \int_0^1 x(x-x^3)\,dx &amp;&amp; \text{Shell Method} \\ &amp;= 2\pi \int_0^1 (-x^4 + x^2)\,dx &amp;&amp; \text{Simplify} \\ &amp;= 2\pi \left[ -\frac{x^5}{5} + \frac{x^3}{3} \right]_0^1 &amp;&amp; \text{Integrate} \\ &amp;= 2\pi \left( -\frac{1}{5} + \frac{1}{3} \right) \\ &amp;= \frac{4\pi}{15} \end{aligned}\]</span></p>
-<p><strong>Example:</strong> Find the volume of the solid of revolution formed by revolving the region bounded by the graph of <span class="math display">\[x = e^{-y^2}\]</span> and the <span class="math inline">\(y\)</span>-axis (<span class="math inline">\(0 \leq y \leq 1\)</span>) about the <span class="math inline">\(x\)</span>-axis.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid of revolution formed by revolving the region bounded by the graph of <span class="math display">\[x = e^{-y^2}\]</span> and the <span class="math inline">\(y\)</span>-axis (<span class="math inline">\(0 \leq y \leq 1\)</span>) about the <span class="math inline">\(x\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="grid">
 <div class="g-col-12 g-col-md-7">
 <p>Because the axis of revolution is horizontal, use a horizontal representative rectangle. The width <span class="math inline">\(\Delta y\)</span> indicates that <span class="math inline">\(y\)</span> is the variable of integration. The distance from the center of the rectangle to the axis of revolution is <span class="math inline">\(p(y)=y\)</span>, and the height of the rectangle is <span class="math display">\[h(y) = e^{-y^2}\]</span></p>
@@ -2007,6 +2041,11 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 </div>
 <p>Because <span class="math inline">\(y\)</span> ranges from 0 to 1, the volume of the solid is <span class="math display">\[\begin{aligned} V &amp;= 2\pi \int_0^1 y e^{-y^2} \, dy &amp;&amp; \text{Shell Method} \\ &amp;= -\pi \left[ e^{-y^2} \right]_0^1 \\ &amp;= \pi \left( 1 - \frac{1}{e} \right) \\ &amp;\approx 1.986 \end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="comparison-of-disk-and-shell-methods" class="level3">
 <h3 class="anchored" data-anchor-id="comparison-of-disk-and-shell-methods">Comparison of Disk and Shell Methods</h3>
@@ -2018,78 +2057,17 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </figure>
 </div>
 <p>Depending on the situation, it may be more convenient to use one over the other.</p>
-<p><strong>Example:</strong> Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math display">\[y = x^2+1, \quad y=0, \quad x=0, \quad \text{ and } \quad x=1\]</span> about the <span class="math inline">\(y\)</span>-axis.</p>
-<p>This is the exact same problem as <strong>Example 7.10</strong>. So, we can once again see this by using the washer method: <span class="math display">\[\begin{aligned} V &amp;= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, dy &amp;&amp; \text{Apply washer method.} \\ &amp;= \pi \int_0^1 1 \, dy + \pi \int_1^2 (2-y) \, dy &amp;&amp; \text{Simplify.} \\ &amp;= \pi \Bigg[ y \Bigg]_0^1 + \Bigg[ 2y-\frac{y^2}{2} \Bigg]_1^2 &amp;&amp; \text{Integrate.} \\ &amp;= \pi + \pi \left( 4-2-2+\frac{1}{2} \right) \\ &amp;= \frac{3\pi}{2} \end{aligned}\]</span></p>
-<p>However, the shell method only requires one integral to find the volume: <span class="math display">\[\begin{aligned} V &amp;= 2\pi \int_a^b p(x)h(x) \, dx \\ &amp;= 2\pi \int_0^1 x(x^2+1) \, dx \\ &amp;= 2\pi \left[ \frac{x^4}{4} + \frac{x^2}{2} \right]_0^1 \\ &amp;= 2\pi \left( \frac{3}{4} \right) \\ &amp;= \frac{3 \pi}{2} \end{aligned}\]</span></p>
-<p>In some cases, solving for <span class="math inline">\(x\)</span> is very difficult (or even impossible). In such cases you must use a vertical rectangle (of width <span class="math inline">\(\Delta x\)</span>), thus making <span class="math inline">\(x\)</span> the variable of integration. The position (horizontal or vertical) of the axis of revolution then determines the method to be used.</p>
-<p><strong>Example:</strong> Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math inline">\(y=x^3+x+1\)</span>, <span class="math inline">\(y=1\)</span>, and <span class="math inline">\(x=1\)</span> about the line <span class="math inline">\(x=2\)</span>, as shown in the figure below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig-7.22.png" class="img-fluid figure-img"></p>
-<figcaption>Example Region</figcaption>
-</figure>
-</div>
-<p>In the equation <span class="math inline">\(y=x^3+x+1\)</span>, you cannot easily solve for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(y\)</span> (see Newton’s Method). Therefore, the variable of integration must be <span class="math inline">\(x\)</span> and you should choose a vertical representative rectangle. Because the rectangle is parallel to the axis of revolution, use the shell method and obtain <span class="math display">\[\begin{aligned} V = 2\pi \int_a^b p(x)h(x) \, dx &amp;= 2\pi \int_0^1 (2-x)(x^3+x+1-1) \, dx \\ &amp;= 2\pi \int_0^1 (-x^4 + 2x^3 - x^2 + 2x) \, dx \\ &amp;= 2\pi \left[ - \frac{x^5}{5} + \frac{x^4}{2} - \frac{x^3}{3} + x^2 \right]_0^1 \\ &amp;= 2\pi \left( -\frac{1}{5} + \frac{1}{2} - \frac{1}{3} + 1 \right) \\ &amp;= \frac{29\pi}{15} \end{aligned}\]</span></p>
-<hr>
-<section id="exercises-the-shell-method" class="level4 practice-box">
-<h4 class="anchored" data-anchor-id="exercises-the-shell-method">Exercises: The Shell Method</h4>
-<ol type="1">
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 2\)</span>. Use the shell method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
+<span class="screen-reader-only">Warning</span>Example
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-59" class="callout-59-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Using the shell method to revolve around the <span class="math inline">\(y\)</span>-axis requires integrating with respect to <span class="math inline">\(x\)</span>. The radius of a cylindrical shell is the distance from the <span class="math inline">\(y\)</span>-axis to a vertical slice: <span class="math inline">\(p(x) = x\)</span>. The height of the shell is the top curve minus the bottom curve: <span class="math inline">\(h(x) = x^2 - 0 = x^2\)</span>. The region is bounded from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{2} p(x)h(x) \, dx\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} (x)(x^2) \, dx\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} x^3 \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = 2\pi \left[ \frac{1}{4}x^4 \right]_{0}^{2}\]</span> <span class="math display">\[V = 2\pi \left( \frac{1}{4}(16) - 0 \right)\]</span> <span class="math display">\[V = 2\pi (4) = 8\pi\]</span></p>
-</div>
-</div>
-</div></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(x = y^2\)</span> and <span class="math inline">\(x = 4\)</span>. Use the shell method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-60" class="callout-60-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Using the shell method to revolve around the <span class="math inline">\(x\)</span>-axis requires integrating with respect to <span class="math inline">\(y\)</span>. Because the region is symmetric across the <span class="math inline">\(x\)</span>-axis, revolving just the top half of the region (from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 2\)</span>) will generate the entire solid. The radius of a cylindrical shell is the distance from the <span class="math inline">\(x\)</span>-axis: <span class="math inline">\(p(y) = y\)</span>. The height of the shell spans horizontally from the left curve to the right vertical line: <span class="math inline">\(h(y) = 4 - y^2\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{2} y(4 - y^2) \, dy\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} (4y - y^3) \, dy\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = 2\pi \left[ 2y^2 - \frac{1}{4}y^4 \right]_{0}^{2}\]</span> <span class="math display">\[V = 2\pi \left( \left( 2(4) - \frac{1}{4}(16) \right) - 0 \right)\]</span> <span class="math display">\[V = 2\pi (8 - 4)\]</span> <span class="math display">\[V = 2\pi (4) = 8\pi\]</span></p>
-</div>
-</div>
-</div></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 4\)</span>. Write, but do not evaluate, an integral expression using the shell method for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the vertical line <span class="math inline">\(x = 6\)</span>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-61-contents" aria-controls="callout-61" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Show Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-61" class="callout-61-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> Using the shell method around a vertical axis requires integrating with respect to <span class="math inline">\(x\)</span>. The bounds are from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 4\)</span>. The axis of revolution is <span class="math inline">\(x = 6\)</span>, which is to the right of the region. The radius of a shell is the distance from a generic vertical slice <span class="math inline">\(x\)</span> to the axis <span class="math inline">\(x = 6\)</span>: <span class="math inline">\(p(x) = 6 - x\)</span>. The height of the shell is <span class="math inline">\(h(x) = \sqrt{x} - 0 = \sqrt{x}\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{4} (6 - x)\sqrt{x} \, dx\]</span></p>
-</div>
-</div>
-</div></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region in the first quadrant bounded by the graph of <span class="math inline">\(y = \sin(x^2)\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = \sqrt{\pi}\)</span>. Which of the following integrals represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis?</p>
-<p><strong>(A)</strong> <span class="math inline">\(\pi \int_0^{\sqrt{\pi}} (\sin(x^2))^2 \, dx\)</span></p>
-<p><strong>(B)</strong> <span class="math inline">\(2\pi \int_0^{\sqrt{\pi}} x \sin(x^2) \, dx\)</span></p>
-<p><strong>(C)</strong> <span class="math inline">\(2\pi \int_0^{\pi} y \sin(y^2) \, dy\)</span></p>
-<p><strong>(D)</strong> <span class="math inline">\(\pi \int_0^{\sqrt{\pi}} x^2 \sin(x^2) \, dx\)</span></p>
+<p>Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math display">\[y = x^2+1, \quad y=0, \quad x=0, \quad \text{ and } \quad x=1\]</span> about the <span class="math inline">\(y\)</span>-axis.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2102,13 +2080,33 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div id="callout-62" class="callout-62-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Solution:</strong> To revolve around the <span class="math inline">\(y\)</span>-axis using the shell method, we integrate with respect to <span class="math inline">\(x\)</span>. The radius of the shell is <span class="math inline">\(p(x) = x\)</span>. The height of the shell is the distance from the <span class="math inline">\(x\)</span>-axis to the curve: <span class="math inline">\(h(x) = \sin(x^2)\)</span>. The bounds are given as <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = \sqrt{\pi}\)</span>. Using the formula <span class="math inline">\(V = 2\pi \int_{a}^{b} p(x)h(x) \, dx\)</span>: <span class="math display">\[V = 2\pi \int_{0}^{\sqrt{\pi}} x \sin(x^2) \, dx\]</span> This matches expression <strong>(B)</strong>.</p>
+<p>This is the exact same problem as <strong>Example 7.10</strong>. So, we can once again see this by using the washer method: <span class="math display">\[\begin{aligned} V &amp;= \pi \int_0^1 (1^2-0^2) \, dy + \pi \int_1^2 [1^2 - (\sqrt{y-1})^2] \, dy &amp;&amp; \text{Apply washer method.} \\ &amp;= \pi \int_0^1 1 \, dy + \pi \int_1^2 (2-y) \, dy &amp;&amp; \text{Simplify.} \\ &amp;= \pi \Bigg[ y \Bigg]_0^1 + \Bigg[ 2y-\frac{y^2}{2} \Bigg]_1^2 &amp;&amp; \text{Integrate.} \\ &amp;= \pi + \pi \left( 4-2-2+\frac{1}{2} \right) \\ &amp;= \frac{3\pi}{2} \end{aligned}\]</span></p>
+<p>However, the shell method only requires one integral to find the volume: <span class="math display">\[\begin{aligned} V &amp;= 2\pi \int_a^b p(x)h(x) \, dx \\ &amp;= 2\pi \int_0^1 x(x^2+1) \, dx \\ &amp;= 2\pi \left[ \frac{x^4}{4} + \frac{x^2}{2} \right]_0^1 \\ &amp;= 2\pi \left( \frac{3}{4} \right) \\ &amp;= \frac{3 \pi}{2} \end{aligned}\]</span></p>
 </div>
 </div>
-</div></li>
-<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^3 - x^4\)</span> and the <span class="math inline">\(x\)</span>-axis. <strong>a)</strong> Briefly explain why using the disk/washer method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis would be difficult. <strong>b)</strong> Write an integral expression using the shell method that represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis. <strong>c)</strong> Evaluate the integral from part (b) to find the volume of the solid.</p>
+</div>
+</div>
+</div>
+<p>In some cases, solving for <span class="math inline">\(x\)</span> is very difficult (or even impossible). In such cases you must use a vertical rectangle (of width <span class="math inline">\(\Delta x\)</span>), thus making <span class="math inline">\(x\)</span> the variable of integration. The position (horizontal or vertical) of the axis of revolution then determines the method to be used.</p>
+<div class="callout callout-style-simple callout-warning no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Find the volume of the solid formed by revolving the region bounded by the graphs of <span class="math inline">\(y=x^3+x+1\)</span>, <span class="math inline">\(y=1\)</span>, and <span class="math inline">\(x=1\)</span> about the line <span class="math inline">\(x=2\)</span>, as shown in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig-7.22.png" class="img-fluid figure-img"></p>
+<figcaption>Example Region</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-63-contents" aria-controls="callout-63" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2117,7 +2115,102 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-63" class="callout-63-contents callout-collapse collapse">
+<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In the equation <span class="math inline">\(y=x^3+x+1\)</span>, you cannot easily solve for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(y\)</span> (see Newton’s Method). Therefore, the variable of integration must be <span class="math inline">\(x\)</span> and you should choose a vertical representative rectangle. Because the rectangle is parallel to the axis of revolution, use the shell method and obtain <span class="math display">\[\begin{aligned} V = 2\pi \int_a^b p(x)h(x) \, dx &amp;= 2\pi \int_0^1 (2-x)(x^3+x+1-1) \, dx \\ &amp;= 2\pi \int_0^1 (-x^4 + 2x^3 - x^2 + 2x) \, dx \\ &amp;= 2\pi \left[ - \frac{x^5}{5} + \frac{x^4}{2} - \frac{x^3}{3} + x^2 \right]_0^1 \\ &amp;= 2\pi \left( -\frac{1}{5} + \frac{1}{2} - \frac{1}{3} + 1 \right) \\ &amp;= \frac{29\pi}{15} \end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<section id="exercises-the-shell-method" class="level4 practice-box">
+<h4 class="anchored" data-anchor-id="exercises-the-shell-method">Exercises: The Shell Method</h4>
+<ol type="1">
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^2\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 2\)</span>. Use the shell method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-66-contents" aria-controls="callout-66" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-66" class="callout-66-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Using the shell method to revolve around the <span class="math inline">\(y\)</span>-axis requires integrating with respect to <span class="math inline">\(x\)</span>. The radius of a cylindrical shell is the distance from the <span class="math inline">\(y\)</span>-axis to a vertical slice: <span class="math inline">\(p(x) = x\)</span>. The height of the shell is the top curve minus the bottom curve: <span class="math inline">\(h(x) = x^2 - 0 = x^2\)</span>. The region is bounded from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{2} p(x)h(x) \, dx\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} (x)(x^2) \, dx\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} x^3 \, dx\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = 2\pi \left[ \frac{1}{4}x^4 \right]_{0}^{2}\]</span> <span class="math display">\[V = 2\pi \left( \frac{1}{4}(16) - 0 \right)\]</span> <span class="math display">\[V = 2\pi (4) = 8\pi\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(x = y^2\)</span> and <span class="math inline">\(x = 4\)</span>. Use the shell method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(x\)</span>-axis.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-67-contents" aria-controls="callout-67" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-67" class="callout-67-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Using the shell method to revolve around the <span class="math inline">\(x\)</span>-axis requires integrating with respect to <span class="math inline">\(y\)</span>. Because the region is symmetric across the <span class="math inline">\(x\)</span>-axis, revolving just the top half of the region (from <span class="math inline">\(y = 0\)</span> to <span class="math inline">\(y = 2\)</span>) will generate the entire solid. The radius of a cylindrical shell is the distance from the <span class="math inline">\(x\)</span>-axis: <span class="math inline">\(p(y) = y\)</span>. The height of the shell spans horizontally from the left curve to the right vertical line: <span class="math inline">\(h(y) = 4 - y^2\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{2} y(4 - y^2) \, dy\]</span> <span class="math display">\[V = 2\pi \int_{0}^{2} (4y - y^3) \, dy\]</span> Find the antiderivative and evaluate: <span class="math display">\[V = 2\pi \left[ 2y^2 - \frac{1}{4}y^4 \right]_{0}^{2}\]</span> <span class="math display">\[V = 2\pi \left( \left( 2(4) - \frac{1}{4}(16) \right) - 0 \right)\]</span> <span class="math display">\[V = 2\pi (8 - 4)\]</span> <span class="math display">\[V = 2\pi (4) = 8\pi\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = \sqrt{x}\)</span>, <span class="math inline">\(y = 0\)</span>, and <span class="math inline">\(x = 4\)</span>. Write, but do not evaluate, an integral expression using the shell method for the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the vertical line <span class="math inline">\(x = 6\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-68-contents" aria-controls="callout-68" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-68" class="callout-68-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> Using the shell method around a vertical axis requires integrating with respect to <span class="math inline">\(x\)</span>. The bounds are from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 4\)</span>. The axis of revolution is <span class="math inline">\(x = 6\)</span>, which is to the right of the region. The radius of a shell is the distance from a generic vertical slice <span class="math inline">\(x\)</span> to the axis <span class="math inline">\(x = 6\)</span>: <span class="math inline">\(p(x) = 6 - x\)</span>. The height of the shell is <span class="math inline">\(h(x) = \sqrt{x} - 0 = \sqrt{x}\)</span>. Set up the integral: <span class="math display">\[V = 2\pi \int_{0}^{4} (6 - x)\sqrt{x} \, dx\]</span></p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region in the first quadrant bounded by the graph of <span class="math inline">\(y = \sin(x^2)\)</span>, the <span class="math inline">\(x\)</span>-axis, and the vertical line <span class="math inline">\(x = \sqrt{\pi}\)</span>. Which of the following integrals represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis?</p>
+<p><strong>(A)</strong> <span class="math inline">\(\pi \int_0^{\sqrt{\pi}} (\sin(x^2))^2 \, dx\)</span></p>
+<p><strong>(B)</strong> <span class="math inline">\(2\pi \int_0^{\sqrt{\pi}} x \sin(x^2) \, dx\)</span></p>
+<p><strong>(C)</strong> <span class="math inline">\(2\pi \int_0^{\pi} y \sin(y^2) \, dy\)</span></p>
+<p><strong>(D)</strong> <span class="math inline">\(\pi \int_0^{\sqrt{\pi}} x^2 \sin(x^2) \, dx\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-69-contents" aria-controls="callout-69" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-69" class="callout-69-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solution:</strong> To revolve around the <span class="math inline">\(y\)</span>-axis using the shell method, we integrate with respect to <span class="math inline">\(x\)</span>. The radius of the shell is <span class="math inline">\(p(x) = x\)</span>. The height of the shell is the distance from the <span class="math inline">\(x\)</span>-axis to the curve: <span class="math inline">\(h(x) = \sin(x^2)\)</span>. The bounds are given as <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = \sqrt{\pi}\)</span>. Using the formula <span class="math inline">\(V = 2\pi \int_{a}^{b} p(x)h(x) \, dx\)</span>: <span class="math display">\[V = 2\pi \int_{0}^{\sqrt{\pi}} x \sin(x^2) \, dx\]</span> This matches expression <strong>(B)</strong>.</p>
+</div>
+</div>
+</div></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the region bounded by the graphs of <span class="math inline">\(y = x^3 - x^4\)</span> and the <span class="math inline">\(x\)</span>-axis. <strong>a)</strong> Briefly explain why using the disk/washer method to find the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis would be difficult. <strong>b)</strong> Write an integral expression using the shell method that represents the volume of the solid generated when <span class="math inline">\(R\)</span> is revolved about the <span class="math inline">\(y\)</span>-axis. <strong>c)</strong> Evaluate the integral from part (b) to find the volume of the solid.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Show Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-70-contents" aria-controls="callout-70" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Show Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-70" class="callout-70-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Solution:</strong> First, find the points of intersection to establish the bounds: <span class="math display">\[x^3 - x^4 = 0 \implies x^3(1 - x) = 0 \implies x = 0, x = 1\]</span></p>
 <p><strong>a)</strong> To use the washer method around the <span class="math inline">\(y\)</span>-axis, you must integrate with respect to <span class="math inline">\(y\)</span>. This requires solving the equation <span class="math inline">\(y = x^3 - x^4\)</span> for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(y\)</span> to find the inner and outer radii. Because it is a 4th-degree polynomial, isolating <span class="math inline">\(x\)</span> is analytically extremely difficult or impossible for standard calculus students.</p>
@@ -2133,7 +2226,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 <ol type="1">
 <li><p><strong>The Fundamental Difference</strong> When setting up a volume integral, your first step is drawing a representative rectangle. Geometrically, what is the single most important difference in how this rectangle is oriented relative to the axis of revolution for the Shell method compared to the Disk/Washer method?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-71-contents" aria-controls="callout-71" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2142,7 +2235,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div id="callout-71" class="callout-71-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Possible Answer:</strong> For the Disk and Washer methods, the representative rectangle is always drawn <em>perpendicular</em> to the axis of revolution. For the Shell method, the representative rectangle is always drawn <em>parallel</em> to the axis of revolution.</p>
 </div>
@@ -2150,7 +2243,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div></li>
 <li><p><strong>Unrolling the Shell</strong> If you slice open a single cylindrical shell and flatten it out, it forms a rectangular slab. In the integral <span class="math inline">\(2\pi \int p(x)h(x) \, dx\)</span>, the expression <span class="math inline">\(2\pi p(x) \cdot h(x) \cdot dx\)</span> calculates the volume of this slab. Geometrically, which specific dimensions of the flattened slab do <span class="math inline">\(2\pi p(x)\)</span> and <span class="math inline">\(h(x)\)</span> represent?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-65-contents" aria-controls="callout-65" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2159,7 +2252,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-65" class="callout-65-contents callout-collapse collapse">
+<div id="callout-72" class="callout-72-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Possible Answer:</strong> The expression <span class="math inline">\(2\pi p(x)\)</span> represents the length of the flattened slab, which corresponds to the circumference of the original unrolled cylindrical shell. The expression <span class="math inline">\(h(x)\)</span> represents the height of the rectangular slab, which corresponds exactly to the height of the original shell.</p>
 </div>
@@ -2167,7 +2260,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div></li>
 <li><p><strong>Shifted Axes and the Radius <span class="math inline">\(p(x)\)</span></strong> When revolving a region in the first quadrant around the y-axis, the radius of the shell is simply <span class="math inline">\(p(x) = x\)</span>. If you revolve that exact same region around the vertical line <span class="math inline">\(x = 5\)</span> instead, how do you use the “Right <span class="math inline">\(-\)</span> Left” concept to write the new algebraic expression for the radius <span class="math inline">\(p(x)\)</span>?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-66-contents" aria-controls="callout-66" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-73-contents" aria-controls="callout-73" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2176,7 +2269,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-66" class="callout-66-contents callout-collapse collapse">
+<div id="callout-73" class="callout-73-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Possible Answer:</strong> The radius <span class="math inline">\(p(x)\)</span> is the physical distance between the axis of revolution and the representative rectangle. Using the “Right <span class="math inline">\(-\)</span> Left” framework, the vertical line <span class="math inline">\(x = 5\)</span> is further to the right than the region in the first quadrant, making it the “Right” value. The position of the representative rectangle is simply <span class="math inline">\(x\)</span>, making it the “Left” value. Therefore, the distance is <span class="math inline">\(5 - x\)</span>.</p>
 </div>
@@ -2184,7 +2277,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div></li>
 <li><p><strong>The Algebraic Wall</strong> Suppose a region is bounded by <span class="math inline">\(y = x^3 + x + 1\)</span>, <span class="math inline">\(y=0\)</span>, <span class="math inline">\(x=0\)</span>, and <span class="math inline">\(x=1\)</span>, and you revolve it around the y-axis. Algebraically, why is it practically impossible to use the Washer method for this problem, forcing you to use the Shell method instead?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-67-contents" aria-controls="callout-67" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-74-contents" aria-controls="callout-74" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2193,7 +2286,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-67" class="callout-67-contents callout-collapse collapse">
+<div id="callout-74" class="callout-74-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Possible Answer:</strong> To use the Washer method around a vertical axis (the y-axis), you are forced to integrate with respect to <span class="math inline">\(y\)</span>. This means you must solve the boundary equation <span class="math inline">\(y = x^3 + x + 1\)</span> for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(y\)</span>. Algebraically isolating <span class="math inline">\(x\)</span> in a polynomial with both cubic and linear terms is incredibly difficult, creating an “algebraic wall.” The Shell method avoids this entirely by allowing you to integrate with respect to <span class="math inline">\(x\)</span>, using the function exactly as it is written.</p>
 </div>
@@ -2201,7 +2294,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div></li>
 <li><p><strong>Axes and Variables (<span class="math inline">\(dx\)</span> vs.&nbsp;<span class="math inline">\(dy\)</span>)</strong> You are revolving a region around a <em>vertical</em> axis. If you use the Washer method, you must integrate with respect to <span class="math inline">\(y\)</span> (<span class="math inline">\(dy\)</span>). If you use the Shell method, what variable must you integrate with respect to, and geometrically, why does the method dictate this choice?</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Possible Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-68-contents" aria-controls="callout-68" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-75-contents" aria-controls="callout-75" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2210,7 +2303,7 @@ V = \int_0^h A(y) \, dy &amp;= \int_0^h \frac{b^2}{h^2}(h-y)^2 \, dy \\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-68" class="callout-68-contents callout-collapse collapse">
+<div id="callout-75" class="callout-75-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Possible Answer:</strong> For the Shell method around a vertical axis, you must integrate with respect to <span class="math inline">\(x\)</span> (<span class="math inline">\(dx\)</span>). Geometrically, the Shell method requires the representative rectangle to be parallel to the axis of revolution. A rectangle parallel to a vertical axis must be drawn vertically. The infinitesimally small width (or thickness) of a vertical rectangle is measured along the x-axis, which dictates a width of <span class="math inline">\(dx\)</span>.</p>
 </div>
