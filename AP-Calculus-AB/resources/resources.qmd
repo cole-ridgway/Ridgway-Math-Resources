@@ -1,0 +1,109 @@
+---
+title: "Course Resources"
+toc: true
+toc-title: "Jump to Chapter"
+toc-depth: 2
+---
+
+Welcome to the AP Calculus AB resource hub! Use the menu on the right to jump directly to the unit you are currently studying. Click on any chapter block below to expand it and access the interactive tools, printable PDFs, and extra practice files for that section.
+
+---
+
+## Textbook Exercises 
+All textbook exercises are from *Larson, Hostetler, Edwards. Calculus of a Single Variable. 8th Edition*. Note that the "Practice Exercises" from the Interactive Textbook are not the same exercises as those in the textbook.
+
+[Extra Practice Exercises (PDF)](suggested-homework.pdf)
+
+
+## Precalculus & Algebra Review
+::: {.callout-note collapse="true" title="Expand Review Materials" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 1: Limits & Continuity
+::: {.callout-note collapse="true" title="Expand Chapter 1 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 2: Differentiation
+::: {.callout-note collapse="true" title="Expand Chapter 2 Resources" icon=false}
+* [Basic Antiderivative Practice (PDF)](basic-antiderivatives.pdf)
+* [Derivative Applications and Initial Value Problems (PDF)](derivative-applications-and-IVPs.pdf)
+:::
+
+## Chapter 3: Applications of Differentiation
+::: {.callout-note collapse="true" title="Expand Chapter 3 Resources" icon=false}
+* [Curve Sketching Practice (PDF)](curve-sketching-practice.pdf)
+:::
+
+## Chapter 4: Integration
+::: {.callout-note collapse="true" title="Expand Chapter 4 Resources" icon=false}
+* [Riemann Sums & Integration Practice (PDF)](riemann-sums-and-integration.pdf)
+:::
+
+## Chapter 5: Transcendental Functions and Their Inverses
+::: {.callout-note collapse="true" title="Expand Chapter 5 Resources" icon=false}
+* *(Resources coming soon!)*
+:::
+
+## Chapter 6: Differential Equations
+::: {.callout-note collapse="true" title="Expand Chapter 6 Resources" icon=false}
+**Interactive Slope Field Generator:**
+*(Use the tool below to visualize differential equations and trace specific solution curves.)*
+
+::: {.callout-tip collapse="true" title="Slope Field Maker" icon=false}
+<iframe src="slope-field-maker.html" width="100%" height="680px" style="border:none; border-radius:8px;"></iframe>
+:::
+
+<!-- * [Differential Equations Study Guide (PDF)](#) -->
+:::
+
+## Chapter 7: Applications of Integration
+
+:::: {.callout-note collapse="true" title="Expand Chapter 7 Resources" icon=false}
+
+**Interactive Area Between Curves Tool:**
+*(Use the tool below to visualize the area between two curves.)*
+
+::: {.callout-tip collapse="true" title="Area Between Curves Visualizer" icon=false}
+
+<iframe src="area-between-curves.html" width="100%" height="820px" style="border:none; border-radius:8px;"></iframe>
+:::
+
+**Interactive Revolution Explorer:**
+*(Use the tool below to visualize solids of revolution and calculate their volumes.)*
+
+::: {.callout-tip collapse="true" title="Revolution Explorer" icon=false}
+
+<iframe src="revolution-explorer.html" width="100%" height="900px" style="border:none; border-radius:8px;"></iframe>
+:::
+
+::::
+## AP Test Resources
+
+:::: {.callout-note collapse="true" title="Expand AP Test Resources" icon=false}
+
+Practice FRQs and Solutions:
+
+::: {.callout-note collapse="true" title="Expand Practice FRQs" icon=false}
+* [2023 Sample FRQ](2023-sample-FRQ.pdf)
+* [2024 Sample FRQ](2024-sample-FRQ.pdf)
+* [2025 Sample FRQ](2025-sample-FRQ.pdf)
+:::
+
+Practice Exams (including Multiple Choice and FRQs):
+
+::: {.callout-note collapse="true" title="Expand Practice Exams" icon=false}
+* [2012 Practice Exam](2012-Practice-Exam.pdf)
+* [2014 Practice Exam](2014-Practice-Exam.pdf)
+* [2017 Practice Exam](2017-Practice-Exam.pdf)
+:::
+
+::::
+
+## Other Resources
+::: {.callout-note collapse="true" title="Expand General Resources" icon=false}
+<!-- * [AP Exam Formula Sheet (PDF)](#) -->
+* [Desmos Graphing Calculator &rarr;](https://www.desmos.com/calculator)
+:::
+

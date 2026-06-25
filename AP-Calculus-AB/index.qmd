@@ -1,0 +1,48 @@
+---
+title: "AP Calculus AB Hub"
+---
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 3rem;">
+### Welcome to AP Calculus AB!
+This hub is your central command for the year. Whether you are reviewing today's lesson, visualizing a tricky concept, or grabbing a fresh copy of tonight's homework, everything you need is right here. 
+</div>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-header .bg-primary .text-white}
+#### <i class="bi bi-book-half"></i> Interactive & Printable Textbook
+:::
+::: {.card-body}
+**👈 Select a chapter from the left sidebar to get started.**
+
+* **Interactive Visualizations:** Throughout the digital text, you will find interactive tools (like 3D sliders for solids of revolution) to help build geometric intuition.
+* **Click-to-Reveal Solutions:** Try the practice exercises on your own first, then click the yellow boxes to check the step-by-step breakdowns.
+* **Printable Versions:** The note packets given out in class are also available here as downloadable PDFs, so you can annotate them digitally as you prefer. The teacher version of the notes (with solutions) is also available for extra review.
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm}
+::: {.card-header .bg-secondary .text-white}
+#### <i class="bi bi-folder2-open"></i> Resources
+:::
+::: {.card-body}
+**👈 Click the "Course Resources" tab in the left sidebar**  to jump directly to the unit you are currently studying. Click on any chapter block there to expand it and access extra practice files.
+
+Furthermore, there are full AP tests to practice, sample FRQs with solutions, and a collection of helpful videos to support your learning.
+
+Below are some links to outside resources that you may find helpful for review and practice throughout the year:
+
+* [Khan Academy AP Calculus AB Course](https://www.khanacademy.org/math/ap-calculus-ab)
+* [AP Calculus AB Exam Information (College Board)](https://apcentral.collegeboard.org/courses/ap-calculus-ab/exam)
+
+
+<!-- * [**AP Exam Formula & Reference Sheet**](resources/reference.pdf) -->
+:::
+:::
+:::
+
+:::

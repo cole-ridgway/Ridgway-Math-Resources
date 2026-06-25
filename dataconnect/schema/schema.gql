@@ -1,0 +1,57 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Topic @table {
+  name: String!
+  createdAt: Timestamp!
+  description: String
+  # prerequisites: [Topic] # Not supported
+}
+
+type Lesson @table {
+  topic: Topic!
+  title: String!
+  content: String!
+  orderInTopic: Int!
+  difficultyLevel: String
+}
+
+type Exercise @table {
+  lesson: Lesson!
+  topic: Topic!
+  question: String!
+  answer: String!
+  type: String!
+  difficulty: String!
+  hints: String
+  explanation: String
+}
+
+type UserProgress @table {
+  user: User!
+  lesson: Lesson
+  exercise: Exercise
+  completionStatus: String!
+  lastAttemptedAt: Timestamp!
+  score: Int
+  timeSpent: Int
+}
+
+type UserNote @table {
+  user: User!
+  topic: Topic
+  lesson: Lesson
+  content: String!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  title: String
+}
+
+type TopicPrerequisite @table(key: ["topic", "prerequisite"]) {
+  topic: Topic!
+  prerequisite: Topic!
+}

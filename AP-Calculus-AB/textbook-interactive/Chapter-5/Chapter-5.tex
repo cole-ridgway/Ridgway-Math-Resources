@@ -1,0 +1,1826 @@
+\documentclass[12pt, letterpaper]{article}
+
+% --- PACKAGES ---
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage[many]{tcolorbox} 
+\tcbuselibrary{breakable}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, angles, quotes}
+
+\usepackage{multicol}
+\usepackage{multirow}
+
+
+\setlist[enumerate]{itemsep=2mm}
+
+
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyfoot[RO,LE]{\thepage} % R/Odd and L/Even positions
+
+% ==========================================
+% === USER CONFIGURATION: SET CHAPTER HERE ===
+% ==========================================
+\newcommand{\mychapter}{5} 
+\makeatletter
+\renewcommand{\numberline}[1]{#1\hskip1em}
+\makeatother
+
+% --- SECTION NUMBERING LOGIC (NEW) ---
+\renewcommand{\thesection}{\mychapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+% --- FIGURE NUMBERING LOGIC (ADDED) ---
+% This forces figures to display as "5.1"
+\renewcommand{\thefigure}{\mychapter.\arabic{figure}}
+
+% --- CAPTION CONFIGURATION ---
+% labelsep=space replaces the ":" with a simple space
+\captionsetup[figure]{labelsep=space}
+
+% --- SECTION NUMBERING LOGIC (NEW) ---
+% This forces sections to display as "5.1" instead of just "1"
+% and subsections to display as "5.1.1"
+\renewcommand{\thesection}{\mychapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+
+% --- MASTER SPACING CONTROL ---
+\newlength{\envspacing}
+\setlength{\envspacing}{0.25in} % <--- CHANGE THIS NUMBER to adjust space everywhere
+% Apply spacing to all tcolorboxes automatically
+\tcbset{after skip=\envspacing}
+
+
+
+\renewcommand{\maketitle}{
+    \begin{center}
+        \vspace{-2cm} % Adjust the spacing here
+        \LARGE \bfseries \textbf{Chapter 5 Transcendental Functions and Their Inverses} \\[1ex] 
+        \large  Teacher Notes\\[1ex]
+        \large By: Cole $\mathbb{R}$idgway \\[1ex]
+        \vspace{0cm} % Adjust the spacing here
+    \end{center}
+}
+
+% --- 1. DEFINITION ENVIRONMENT (printer-friendly grayscale) ---
+\newtcolorbox{definition}[1][]{
+    enhanced,
+    colback=blue!5,        % light enough for background, visible in print
+    colframe=blue!75!black, % strong enough for the border
+    arc=3mm,
+    fonttitle=\bfseries,
+    title=Definition,
+    attach boxed title to top left={
+        yshift*=-\tcboxedtitleheight/2,
+        xshift=3mm
+    },
+    boxed title style={
+        colback=blue!75!black, % title box more visible
+        colframe=blue!70!black
+    },
+    #1
+}
+
+% --- 2. THEOREM ENVIRONMENT ---
+\newcounter{theoremcount}
+\renewcommand{\thetheoremcount}{\mychapter.\arabic{theoremcount}}
+
+\newtcolorbox{theorem}[1][]{
+    standard jigsaw,
+    colback=gray!10,       % Soft grey background
+    colframe=black,
+    boxrule=0.5pt,
+    sharp corners,
+    % FORCE the line to be solid, black, and match the border thickness
+    segmentation style={solid, black, line width=0.5pt},
+    % Increment counter
+    code={\refstepcounter{theoremcount}},
+    detach title,
+    before upper={%
+        \textbf{Theorem \thetheoremcount}%
+        \if\relax\detokenize{\tcbtitletext}\relax%
+        \else%
+            : \tcbtitletext%
+        \fi%
+        \par\vspace{0.25em}\noindent%
+    },
+    title={}, 
+    #1
+}
+
+% --- 3. EXAMPLE ENVIRONMENT ---
+\newcounter{examplecount}
+\renewcommand{\theexamplecount}{\mychapter.\arabic{examplecount}}
+
+\newtcolorbox{examplewrapper}{
+    enhanced,
+    breakable,
+    colback=white,
+    frame hidden,
+    left=1em, right=1em, top=1em, bottom=1em,
+    overlay={
+        \draw[line width=1.5pt, black] 
+            ([yshift=-0.5in]frame.north west) -- (frame.north west) -- ([xshift=0.5in]frame.north west);
+        \draw[line width=1.5pt, black] 
+            ([yshift=0.5in]frame.south east) -- (frame.south east) -- ([xshift=-0.5in]frame.south east);
+    }
+}
+
+\newenvironment{example}{
+    \refstepcounter{examplecount}
+    \begin{examplewrapper}
+    \noindent\underline{\textbf{Example \theexamplecount}}: 
+}{
+    \end{examplewrapper}
+}
+
+% --- 4. EXERCISE ENVIRONMENT ---
+\newlist{exlist}{enumerate}{1}
+\setlist[exlist]{
+    label=\textbf{\arabic*.}, 
+    itemsep=1in, 
+    topsep=1em
+}
+
+\newenvironment{exercises}[1][]{
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=black,
+        arc=3mm,
+        boxrule=1pt,
+        breakable,
+        enhanced,
+        parbox=false
+    ]
+
+    \subsection*{Practice Exercises}
+
+    % Optional instructions
+    \if\relax\detokenize{#1}\relax\else
+        \noindent #1\par\medskip
+    \fi
+
+    \begin{exlist}[resume=practice_series]
+}{
+    \end{exlist}
+
+    % --- SPACE FOR STUDENT WORK (INSIDE THE BOX) ---
+    \vspace{1in}
+
+    \end{tcolorbox}
+}
+
+
+% --- 5. PROOF ENVIRONMENT ---
+\newenvironment{myproof}{
+    \par\vspace{0.5em}
+    \noindent\underline{\textit{Proof}}: 
+}{
+    \par                          
+    \noindent\hfill $\square$ 
+    \par\vspace{\envspacing}     
+}
+
+% --- 6. OBJECTIVES ENVIRONMENT ---
+% Green "Dashboard" style for Lesson Goals
+\newtcolorbox{objectives}[1][]{
+    enhanced,
+    colback=green!10!white,      % Very light green background
+    colframe=green!50!black,    % Dark green frame
+    arc=3mm,
+    fonttitle=\bfseries\large,
+    title=Lesson Objectives \& Success Criteria, % Default Title
+    attach boxed title to top center={yshift*=-\tcboxedtitleheight/2},
+    boxed title style={colback=green!50!black, arc=3mm},
+    #1
+}
+
+% --- DOCUMENT INFO ---
+\title{\textbf{AP Calculus AB: Chapter \mychapter{} Notes}\\ \large Transcendental Functions and Their Inverses}
+\author{By: Cole $\mathbb{R}$idgway}
+\date{} 
+
+
+
+% --- BEGIN DOCUMENT ---
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}   % no number on title page
+
+% AUTOMATIC TOC (Optional, removes the need to manually list topics)
+\tableofcontents
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\newpage
+\setcounter{page}{1}    % next page will be 1
+% --- SECTION 5.1 ---
+\section{The Natural Logarithmic Function: Differentiation}
+
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Develop and use properties of the natural logarithmic function 
+        & I can use the properties of natural logarithms to rewrite, simplify, and solve expressions and equations. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Understand the definition of the number $e$ 
+        & I can explain what the number $e$ represents and describe how it is defined. \\
+        \midrule
+        
+        % Row 3
+        Find derivatives of functions involving the natural logarithmic function 
+        & I can find derivatives of functions that involve the natural logarithm. \\
+        
+    \end{tabularx}
+\end{objectives}
+
+\subsection{The Natural Logarithmic Function}
+Recall that the General Power Rule 
+$$\int x^n dx = \frac{x^{n+1}}{n+1}+C, \quad n \neq -1$$
+has an important disclaimer - it doesn't apply when $n = -1$. \\
+
+Earlier in the course, when we covered \textbf{Chapter 2}, I specifically gave you the rules that covered this. Namely, 
+$$\frac{d}{dx} \ln(x) = \frac{1}{x}$$ therefore
+$$\int x^{-1}dx = \int \frac{1}{x}dx = \ln(x)+C$$ 
+
+In this chapter, we will discuss the \textbf{natural logarithm function}. Being neither algebraic nor trigonometric, it is in its own class called \textit{logarithmic functions}.
+
+\begin{definition}[title=Definition of the Natural Logarithmic Function]
+    The \textbf{natural logarithmic function} is defined by
+    $$\ln(x) = \int_1^x \frac{1}{t}dt, \quad x>0$$
+    The domain of the natural logarithmic function is the set of all positive real numbers.
+\end{definition}
+
+From the definition, you can see that $\ln(x)$ is positive for $x>1$ and negative for $0<x<1$ as shown below. Moreover, $\ln(1)=0$ because the upper and lower limits of integration are equal when $x=1$.
+\begin{figure}
+    \centering
+    \includegraphics[width=.9\linewidth]{Chapter-5/fig-5.1.png}
+    \caption{}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{theorem}[title=Properties of the Natural Logarithmic Function]
+    \tcblower
+    The natural logarithmic function has the following properties.
+    \begin{enumerate}
+        \item The domain is $(0,\infty)$ and the range is $(-\infty, \infty)$ 
+        \item The function is continuous, increasing, and one-to-one.
+        \item The graph is concave downward.
+    \end{enumerate}
+\end{theorem}
+\begin{myproof}
+    The domain of $f(x)=\ln(x)$ is $(0,\infty)$ by definition. Moreover, the function is continuous because it is differentiable. It is increasing because its derivative
+    $$f'(x)=\frac{1}{x}$$
+    is positive for $x>0$. It is concave downward because 
+    $$f''(x) = -\frac{1}{x^2}$$ 
+    is negative for $x>0$.\\
+    The proof that $f$ is one-to-one is left as an exercise (Exercise 111). \\
+    The following limits imply that its range is the entire real line.
+    $$\lim\limits_{x\to0^+} \ln(x)= -\infty \quad \text{ and } \quad \lim\limits_{x\to \infty} \ln(x)= \infty $$
+\end{myproof}
+
+Using the definition of the natural logarithmic functions, you can prove several important properties involving operations with natural logarithms.
+
+\begin{theorem}[title=Logarithmic Properties]
+\tcblower
+    If $a$ and $b$ are positive numbers and $n$ is rational, then the following properties are true.
+    \begin{enumerate}
+        \item $\ln(1) = 0$
+        \item $\ln(ab) = \ln(a) + \ln(b)$
+        \item $\ln(a^n) = n \ln(a)$
+        \item $\ln(\frac{a}{b}) = \ln(a) - \ln(b)$
+    \end{enumerate}
+\end{theorem}
+
+\begin{myproof}
+    The first property has already been discussed. The proof of the second property follows from the fact that two antiderivatives of the same function differ at most by a constant. From the Second Fundamental Theorem of Calculus and the definition of the natural logarithmic function, you know that
+    $$\frac{d}{dx}[\ln(x)] = \frac{d}{dx} \left( \int_1^x \frac{1}{t}dt \right) = \frac{1}{x}$$
+    So, consider the two derivatives
+    $$\frac{d}{dx} [\ln(ax)] = \frac{a}{ax} = \frac{1}{x}$$
+    and 
+    $$\frac{d}{dx} [\ln(ax) + \ln(bx)] = 0 + \frac{1}{x} = \frac{1}{x}$$
+    Because $\ln(ax)$ and $\ln(a) +\ln(x)$ are both antiderivatives of $1/x$, they must differ at most by a constant.
+    $$\ln(ax) = \ln(a)+\ln(x)+C$$
+    By letting $x=1$, you can see that $C=0$. The third property can be proved similarly by comparing the derivatives of $\ln(x^n)$ and $n\ln(x)$. Finally, using the second and third properties, you can prove the fourth property.
+    $$\ln \left( \frac{a}{b} \right) = \ln[a(b^{-1})] = \ln(a) + \ln(b^{-1}) = \ln(a) - \ln(b)$$
+\end{myproof}
+
+\begin{example}
+    \begin{enumerate}[label=\alph*)]
+        \item $\ln \left( \frac{10}{9} \right) = \ln(10)-\ln(9)$ 
+        \item $\ln \left( \sqrt{3x+2} \right) = \ln \left( (3x+2)^\frac{1}{2} \right) = \frac{1}{2} \ln \left( 3x+2 \right)$
+        \item $\ln \left( \frac{6x}{5}\right) = \ln \left( 6x \right) - \ln(5) = \ln(6) + \ln(x) - \ln(5)$ 
+    \end{enumerate}
+\end{example}
+
+When using the properties of logarithms to rewrite logarithmic functions, you must check to see whether the domain of the rewritten function is the same as the domain of the original. For instance, the domain of $f(x)=\ln(x^2)$ is all real numbers except $x=0$, and the domain of $g(x)=2\ln(x)$ is all positive real numbers.
+
+\begin{exercises}[\textbf{Use the properties of logarithms to expand the expression}]
+    \item $\ln \left( \frac{5}{6} \right)$
+    \item $\ln \left( \sqrt{2^3} \right)$
+    \item $\ln \left( \sqrt[3]{b^2+2} \right)$
+    \item $\ln \left( z(z-1)^2 \right)$
+\end{exercises}
+
+\newpage
+\subsection{The Number $e$}
+Without the benefit of calculus, logarithms would have been defined in terms of a \textbf{base} number. For example, common logarithms have a base of 10 and therefore $\log_{10}(10)=1$. \\
+The \textbf{base for the natural logarithm} is defined using the fact that the natural
+logarithmic function is continuous, is one-to-one, and has a range of $(-\infty, \infty)$. So, there must be a unique real number $x$ such that $\ln(x)=1$. This number is denoted by the letter $e$. It can be shown that $e$ is irrational and has the following decimal approximation,
+$$e \approx 2.71828182846$$
+
+\begin{definition}[title=Definition of $e$]
+    The letter $e$ denotes the positive real number such that 
+    $$\ln(e) = \int_1^e \frac{1}{t}dt = 1$$
+\end{definition}
+
+Once you know that $\ln(e)=1$, you can use logarithmic properties to evaluate the natural logarithms of several other numbers. For example, by using the property 
+\begin{align*}
+    \ln(e^n) &= n \ln(e) \\
+    &= n(1) \\
+    &= n
+\end{align*}
+you can evaluate $\ln(e^n)$ for various values of $n$, as shown below.
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Increases row height
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+        $x$ & $\frac{1}{e^3} \approx 0.050$ & $\frac{1}{e^2} \approx 0.135$ & $\frac{1}{e} \approx 0.368$ & $e^0 =1$ & $e \approx 2.718$ & $e^2 \approx 7.389$\\
+    \hline
+        $\ln(x)$ & $-3$ & $-2$ & $-1$ & $0$ & $1$ & $2$\\
+    \hline
+    \end{tabular}
+    \label{tab:placeholder}
+\end{table}
+
+The logarithms shown in the table above are convenient because the x-values are integer powers of $e$. Most logarithmic expressions are, however, best evaluated with a calculator.
+
+\begin{example}
+    \begin{enumerate}
+        \item $\ln(2) \approx .693$
+        \item $\ln(32) \approx 3.466$
+        \item $\ln(0.1) \approx -2.303$
+    \end{enumerate}
+\end{example}
+
+\newpage
+\subsection{The Derivative of the Natural Logarithmic Function}
+
+\begin{theorem}[title=Derivative of the Natural Logarithmic Function]
+\tcblower
+    Let $u$ be a differentiable function of $x$.
+    \begin{enumerate}
+        \item $\displaystyle \frac{d}{dx}[\ln(x)] = \frac{1}{x}, \quad x>0$
+        \item $\displaystyle \frac{d}{dx}[\ln(u)] = \frac{1}{u} \frac{du}{dx} = \frac{u'}{u}, \quad u>0$
+    \end{enumerate}
+\end{theorem}
+
+We have already discussed this derivative and used it before. However, now we can see the first part of the theorem follows from the definition of the natural logarithmic function as an antiderivative. The second part of the theorem is simply the Chain Rule version of the first part. \\
+
+\begin{example}
+    Let $u=x^2+1$
+    $$\frac{d}{dx}[\ln(x^2+1)] = \frac{u'}{u} = \frac{2x}{x^2+1}$$
+\end{example}
+
+It is often easier to apply the rules of logarithms first, then differentiate.
+
+\begin{example}
+    Differentiate $f(x)=\ln(\sqrt{x+1})$. \\
+    We can use the properties of logarithms to rewrite:
+    $$f(x) = \ln(\sqrt{x+1})= \ln(x+1)^{\frac{1}{2}} = \frac{1}{2} \ln(x+1)$$
+    and now differentiate:
+    $$f'(x) = \frac{1}{2}\left( \frac{1}{x+1} \right) = \frac{1}{2(x+1)}$$
+\end{example}
+
+On occasion, it is convenient to use logarithms as aids in differentiating nonlogarithmic functions. This procedure is called \textbf{logarithmic differentiation}.
+
+\begin{example}
+    Find the derivative of $y= \frac{(x-2)^2}{\sqrt{x^2+1}}, \quad x\neq 2.$ \\
+    Note that $y>0$ for all $x\neq 2$. So, $\ln(y)$ is defined. Begin by taking the natural logarithm of each side of the equation. Then apply logarithmic properties and differentiate implicitly. Finally, solve for $y'$. \\
+    \begin{align*}
+    y &= \frac{(x-2)^2}{\sqrt{x^2+1}}, \quad x \neq 2 &&  \text{Write original equation.} \\
+    \ln y &= \ln \frac{(x-2)^2}{\sqrt{x^2+1}} &&  \text{Take natural log of each side.} \\
+    \ln y &= 2 \ln(x-2) - \frac{1}{2} \ln(x^2+1) &&  \text{Logarithmic properties} \\
+    \frac{y'}{y} &= 2\left(\frac{1}{x-2}\right) - \frac{1}{2}\left(\frac{2x}{x^2+1}\right) &&  \text{Differentiate.} \\
+    &= \frac{2}{x-2} - \frac{x}{x^2+1} \\
+    y' &= y\left( \frac{2}{x-2} - \frac{x}{x^2+1} \right) && \text{Solve for $y'$.}\\
+    &= \frac{(x-2)^2}{\sqrt{x^2+1}} \left[ \frac{x^2+2x+2}{(x-2)(x^2+1)} \right] && \text{Substitute for $y$ and get common denominator.} \\
+    &= \frac{(x-2)(x^2+2x+2)}{(x^2+1)^\frac{3}{2}} && \text{Simplify.}
+\end{align*}
+\end{example}
+
+
+Because the natural logarithm is undefined for negative numbers, you will often
+encounter expressions of the form $\ln |u|$. The following theorem states that you can differentiate functions of the form $y=\ln|u|$ as if the absolute value sign were not present.
+
+\begin{theorem}[title=Derivative involving Absolute Value]
+\tcblower
+    If $u$ is a differentiable function of $x$ such that $u\neq 0$, then
+    $$\frac{d}{dx}[\ln|u|] = \frac{u'}{u}$$
+\end{theorem}
+\begin{myproof}
+    If $u>0$ then $|u| = u$, and the result follows from Theorem 5.3. If $u<0$, then $|u| = -u$, and you have 
+    \begin{align*}
+        \frac{d}{dx}[\ln|u|] &= \frac{d}{dx}[\ln(-u)] \\
+        &= \frac{-u'}{-u} \\
+        &= \frac{u'}{u}
+    \end{align*}
+\end{myproof}
+
+\begin{example}
+    Find the derivative of $$f(x) = \ln|\cos(x)|$$
+    Using Theorem 5.4, let $u=\cos(x)$ and write
+    \begin{align*}
+        \frac{d}{dx} [\ln|\cos(x)|] &= \frac{u'}{u} \\
+        &= \frac{-\sin(x)}{\cos(x)} \\
+        &= -\tan(x)
+    \end{align*}
+\end{example}
+
+
+\begin{exercises}[\textbf{Find the derivative of each of the functions.}]
+    \item $g(x)=\ln(x^2)$
+    \item $y= x\ln(x)$
+    \item $y=\ln|\sin(x)|$
+    \item $f(x)=\ln \left( \frac{2x}{x+2} \right)$
+    \item $y=\ln \left( \frac{\sqrt{4+x^2}}{x} \right)$ \textit{Hint: Use log properties}
+\end{exercises}
+
+\newpage
+\section{The Natural Logarithmic Function: Integration}
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Use the Log Rule for Integration to integrate a rational function. 
+        &  I can recognize when a rational function fits the Log Rule and write its integral. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Integrate trigonometric functions.
+        & I can choose the correct antiderivative for basic trigonometric functions
+    \end{tabularx}
+\end{objectives}
+
+\subsection{Log Rule for Integration}
+
+\begin{theorem}[title=Log Rule for Integration]
+\tcblower
+    Let $u$ be a differentiable function of $x$.\\
+    \begin{enumerate}
+        \item $\displaystyle \int \frac{1}{x}dx = \ln|x| +C$
+        \item $\displaystyle \int \frac{1}{u} du = \ln|u|+C$
+    \end{enumerate}
+\end{theorem}
+
+\textbf{Alternate Form:} Since $du = u' dx$, we can often recognize the pattern:
+\[ \int \frac{u'}{u} dx = \ln|u|+C \]
+\textit{Strategy: If the numerator is the derivative of the denominator, the integral is the natural log of the denominator.}
+
+\begin{example}
+    \begin{align*}
+        \displaystyle \int \frac{2}{x}dx &= 2 \displaystyle \int \frac{1}{x}dx \\
+        &= 2 \ln|x|+C \\
+        &= \ln(x^2)+C
+    \end{align*}
+\end{example}
+Because $x^2$ cannot be negative, the absolute value is unnecessary in the final form of the antiderivative.
+
+\begin{example}
+    Find $\displaystyle\int \frac{1}{4x-1}dx$. \\
+    If you let $u=4x-1$ then $du=4dx$.
+    \begin{align*}
+        \displaystyle\int \frac{1}{4x-1}dx &= \frac{1}{4} \displaystyle\int\left( \frac{1}{4x-1} \right) 4dx && \text{Multiply and divide by 4.} \\
+        &= \frac{1}{4} \displaystyle \int \frac{1}{u}du && \text{Substitute $u=4x-1$.} \\
+        &= \frac{1}{4} \ln|u| + C && \text{Apply Log Rule.}\\
+        &= \frac{1}{4} \ln|4x-1|+C && \text{Back substitute.}
+    \end{align*}
+\end{example}
+
+The next example uses the alternative form of the Log Rule. To apply this rule, look for quotients in which the numerator is the derivative of the denominator.
+\begin{example}
+    Find the area of the region bounded by the graph of $$y=\frac{x}{x^2+1}$$ the $x$-axis, and the line $x=3$\\
+    The area is given by the definite integral $$\int_0^3 \frac{x}{x^2+1}dx$$. If you let $u=x^2+1$, then $u'=2x$. To apply the Log Rule, multiply and divide by $2$ to get
+    \begin{align*}
+        \int_0^3 \frac{x}{x^2+1}dx &= \frac{1}{2} \int_0^3 \frac{2x}{x^2+1}dx \\
+        &= \frac{1}{2} \biggl[ \ln(x^2+1)  \biggr]_0^3 \\
+        &= \frac{1}{2} (\ln(10) - \ln(1))\\
+        &= \frac{1}{2} \ln(10) \\
+        &\approx 1.151
+    \end{align*}
+\end{example}
+
+\begin{definition}[title=Guidelines for Integration]
+    \begin{enumerate}
+    \item Learn a basic list of integration formulas. (Including those given in this section, you now have 12 formulas: the Power Rule, the Log Rule, and ten trigonometric rules. By the end of Section 5.7, this list will have expanded to 20 basic rules.)
+    \item Find an integration formula that resembles all or part of the integrand, and, by trial and error, find a choice of u that will make the integrand conform to the formula.
+    \item If you cannot find a u-substitution that works, try altering the integrand. You might try a trigonometric identity, multiplication and division by the same quantity, or addition and subtraction of the same quantity. Be creative.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+    Solve the differential equation $$\frac{dy}{dx} = \frac{1}{x\ln(x)}$$
+    Begin by rewriting as an indefinite integral.
+    $$y = \int \frac{1}{x\ln(x)}dx$$
+    Because the integrand is a quotient whose denominator is raised to the first power, you should try the Log Rule. There are three basic choices for $u$. The choices $u=x$ and $u=x\ln(x)$ fail to fit the $u'/u$ form of the Log Rule. However, the third choice does fit. Letting $u=\ln(x)$ produces $u'=1/x$, and you obtain the following:
+    \begin{align*}
+        \int \frac{1}{x\ln(x)}dx &= \int \frac{1/x}{\ln(x)}dx \\
+        &= \int \frac{u'}{u}dx \\
+        &= \ln|u| +C \\
+        &= \ln|\ln (x)| +C
+    \end{align*}
+    Thus, the solution is $y=\ln|\ln (x)| +C$
+\end{example}
+
+\subsection{Integrals of Trigonometric Functions}
+In Section 4.1, you looked at six trigonometric integration rules—the six that correspond directly to differentiation rules. With the Log Rule, you can now complete the set of basic trigonometric integration formulas.
+
+\begin{example}
+    Find $\displaystyle \int \tan(x)dx$. \\
+    The Integral does not seem to fit any formulas on our basic list. However, by using a trigonometric identity, you obtain
+    \begin{align*}
+        \int \tan(x)dx &= \int \frac{\sin(x)}{\cos(x)}dx \\
+        \intertext{Knowing that $\frac{d}{dx}\cos(x) = -\sin(x)$, you can let $u=\cos(x)$}
+        \int \tan(x)dx &= - \int \frac{-\sin(x)}{\cos(x)}dx \\ 
+        &= - \int \frac{u'}{u}dx \\
+        &= -\ln|u| +C \\
+        &= -\ln |\cos(x)| +C
+    \end{align*}
+\end{example}
+
+The previous example uses a trigonometric identity to derive an integration rule for the tangent function. The next example takes a rather unusual step (multiplying and dividing by the same quantity) to derive an integration rule for the secant function.
+
+\begin{example}
+    Find $\displaystyle \int \sec(x) dx$.\\
+    \begin{align*}
+        \int \sec(x)dx &= \int \sec(x) \left( \frac{\sec(x)+\tan(x)}{\sec(x)+\tan(x)} \right) dx \\
+        &= \int \frac{\sec^2(x) + \sec(x)\tan(x)}{\sec(x)+\tan(x)}dx \\
+\intertext{Letting $u$ be the denominator of this quotient produces $$u = \sec(x)+\tan(x) \Rightarrow u' = \sec(x)\tan(x)+\sec^2(x)$$ So, you can conclude that}
+        \int \sec(x)dx &= \int \frac{\sec^2(x) + \sec(x)\tan(x)}{\sec(x)+\tan(x)}dx \\
+        &= \ln|u| + C \\
+        &= \ln|\sec(x)+\tan(x)|+C
+    \end{align*}
+\end{example}
+
+With the results of the last two examples, you now have integration formulas for all six trigonometric functions.
+
+\begin{definition}[title=Integrals of the Six Basic Trigonometric Functions]
+    \begin{align*}
+    \int \sin(u) \, du &= -\cos(u) + C & \int \cos(u) \, du &= \sin(u) + C \\
+    \int \tan(u) \, du &= -\ln|\cos(u)| + C & \int \cot(u) \, du &= \ln|\sin(u)| + C \\
+    \int \sec(u) \, du &= \ln|\sec(u) + \tan(u)| + C & \int \csc(u) \, du &= -\ln|\csc(u) + \cot(u)| + C
+\end{align*}
+\end{definition}
+
+\begin{example}
+    Evaluate $\displaystyle \int_0^\frac{\pi}{4} \sqrt{1+\tan^2(x)}dx$ \\
+    Using $1+\tan^2(x) = \sec^2(x)$ you can write
+    \begin{align*}
+        \int_0^\frac{\pi}{4} \sqrt{1+\tan^2(x)}dx &= \int_0^\frac{\pi}{4} \sqrt{\sec^2(x)}dx \\
+        &= \int_0^\frac{\pi}{4} \sec(x) dx \\
+        &= \ln|\sec(x)+\tan(x)| \Bigg]_0^\frac{\pi}{4} \\
+        &= \ln(\sqrt{2}+1 ) - \ln(1) \\
+        &\approx 0.881
+        \end{align*}
+\end{example}
+
+\begin{exercises}[Evaluate the following definite and indefinite integrals]
+    \item $\displaystyle \int \cot(4x) \, dx$
+    \item $\displaystyle \int \frac{\tan(\ln(x))}{x} \, dx$
+    \item $\displaystyle \int e^x \sec(e^x) \, dx$
+    \item $\displaystyle \int x \csc(x^2) \, dx$
+    \item $\displaystyle \int_{0}^{\frac{\pi}{3}} \tan(x) \, dx$
+    \item $\displaystyle \int_{\frac{\pi}{6}}^{\frac{\pi}{4}} \sec(2t) \, dt$
+\end{exercises}
+
+\newpage
+\section{Inverse Functions}
+
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Verify that one function is the inverse function of another function.
+        & I can show that two functions are inverses by composing them and obtaining the identity function. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Determine whether a function has an inverse function.
+        & I can determine whether a function has an inverse by checking if it is one-to-one. \\
+        \midrule
+
+        % Row 3
+        Find the derivative of an inverse function.
+        & I can find the derivative of an inverse function using the inverse function theorem.
+    \end{tabularx}
+\end{objectives}
+
+\subsection{Inverse Functions}
+
+Recall from Section P.3 that a function can be represented by a set of ordered pairs. For instance, the function $f(x)=x+3$ from $A=\{1,2,3,4\}$ to $B=\{4,5,6,7\}$ can be written as 
+$$f: \{ (1,4),(2,5),(3,6),(4,7) \}.$$
+By interchanging the first and second coordinates of each ordered pair, you can form
+the \textbf{inverse function} of $f$. This function is denoted by $f^{-1}$. It is a function from $B$ to $A$, and can be written as 
+$$f^{-1}: \{(4,1),(5,2),(6,3),(7,4)\}.$$
+Note that the domain of $f$ is equal to the range of $f^{-1}$, and vice versa. The functions $f$ and $f^{-1}$ have the effect of "undoing" each other. That is, when you form the composition of $f$ with $f^{-1}$ or the composition of $f^{-1}$ with $f$. you obtain the identity function.
+$$f(f^{-1}(x))=x \quad \text{ and } \quad f^{-1}(f(x))=x$$
+
+\begin{definition}[title=Definition of Inverse Function]
+    A function $g$ is the \textbf{inverse function} of the function $f$ if
+    $$f(g(x))=x \quad \text{for each $x$ in the domain of $g$}$$
+    and
+    $$g(f(x)) = x \quad \text{for each $x$ in the domain of $f$.}$$
+    The function $g$ is denoted by $f^{-1}$ (read ``$f$ inverse'').
+\end{definition}
+
+Inverse operations "undo" operations. For example, subtraction undoes addition and division undoes multiplication.
+
+\begin{example}
+    Show that the functions are inverse functions of each other.
+    $$f(x)=2x^3-1 \quad \text{ and } \quad g(x)=\sqrt[3]{\frac{x+1}{2}}$$
+    Because the domains and ranges of both $f$ and $g$ consist of all real  numbers, you can conclude that both composite functions exist for all $x$. The composition of $f$ with $g$ is given by
+    \begin{align*}
+        f(g(x)) &= 2\left( \sqrt[3]{\frac{x+1}{2}} \right)^3 -1 \\
+        &= 2 \left( \frac{x+1}{2} \right) -1 \\
+        &= x+1-1 \\
+        &= x
+    \end{align*}
+    The composition of $g$ with $f$ is given by 
+    \begin{align*}
+        g(f(x)) &= \sqrt[3]{\frac{(2x^3-1)+1}{2}} \\
+        &= \sqrt[3]{\frac{2x^3}{2}} \\
+        &= x
+    \end{align*}
+    Because $f(g(x))=x$ and $g(f(x))=x$, you can conclude that $f$ and $g$ are inverse functions of each other. 
+
+    \begin{center}
+        \includegraphics[width=.4\linewidth]{Chapter-5/fig-5.2.png}
+        \captionof{figure}{$f$ and $g$ are inverse functions of each other} 
+    \end{center}
+\end{example}
+
+Notice from the figure that the graphs are \textbf{reflections} of one another over the line $y=x$.
+
+\begin{theorem}[title=Reflective Property of Inverse Functions]
+\tcblower
+    The graph of $f$ contains the point $(a,b)$ if and only if the graph of $f^{-1}$ contains the point $(b,a)$.
+\end{theorem}
+
+\begin{myproof}
+    If $(a,b)$ is on the graph of $f$, then $f(a)=b$ and you can write 
+    $$f^{-1}(b)=f^{-1}(f(a))=a$$
+    So, $(b,a)$ is on the graph of $f^{-1}$, as shown in the figure below. A similar argument will prove the theorem in the other direction.
+    \begin{center}
+        \includegraphics[width=.4\linewidth]{Chapter-5/fig-5.3.png}
+        \captionof{figure}{The graph of $f^{-1}$ is a reflection of the graph of $f$ in the line $y=x$} 
+    \end{center}
+\end{myproof}
+
+\subsection{Existence of an Inverse Function}
+Not every function has an inverse function, and Theorem 5.6 suggests a graphical test for those that do—the Horizontal Line Test for an inverse function. This test states that a function $f$ has an inverse function if and only if every horizontal line intersects the graph of $f$ at most once (see the figure below). The following theorem formally states why the horizontal line test is valid. (Recall from Section 3.3 that a function is strictly monotonic if it is either increasing on its entire domain or decreasing on its entire domain.)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{Chapter-5/fig-5.4.png}
+    \caption{Does not pass the Horizontal Line Test}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{theorem}[title=The Existence of an Inverse Function]
+\tcblower
+\begin{enumerate}
+    \item A function has an inverse function if and only if it is one-to-one.
+    \item If $f$ is strictly monotonic on its entire domain, then it is one-to-one and therefore has an inverse function.
+\end{enumerate}
+\end{theorem}
+
+\begin{myproof}
+    To prove the second part of the theorem, recall that Section P.3 that $f$ is one-to-one if for $x_1$ and $x_2$ in its domain
+    $$f(x_1) = f(x_2) \quad \Rightarrow \quad x_1 = x_2$$
+    The \textit{contrapositive} of this implication is logically equivalent and states that 
+    $$x_1 \neq x_2 \quad \Rightarrow \quad f(x_1) \neq f(x_2).$$
+    Now, choose $x_1$ and $x_2$ in the domain of $f$. If $x_1 \neq x_2$, then, because $f$ is strictly monotonic, it follows that either 
+    $$f(x_1) < f(x_2) \quad \text{ or } \quad f(x_1) > f(x_2)$$
+    In either case, $f(x_1) \neq f(x_2)$. So, $f$ is one-to-one on the interval. The proof of the first part of the theorem is left as an exercise.
+\end{myproof}
+
+\begin{example}
+    Which of the functions has an inverse function? \\
+    \begin{enumerate}[label=(\alph*)]
+        \item $f(x)=x^3 + x-1$ \\
+        \item $f(x) = x^3-x+1$ \\
+    \end{enumerate}
+    By graphing, you can see that (a) increases over its entire domain, whereas (b) increases, decreases, then increases again. Therefore, (b) does not pass the horizontal line test. In other words, it is not one-to-one. Therefore, by Theorem 5.7, $f(x)=x^3-x+1$ does not have an inverse.
+\end{example}
+
+The following guidelines suggest a procedure for finding an inverse function.
+
+\begin{definition}[title=Guidelines for Finding an Inverse Function]
+    \begin{enumerate}
+        \item Use Theorem 5.7 to determine whether the function given by $y=f(x)$ has an inverse function.
+        \item Interchange (swap) $x$ and $y$. 
+        \item Solve the equation for $y$. The resulting equation is $y=f^{-1}(x)$.
+        \item Define the domain of $f^{-1}$ to be the range of $f$. 
+        \item Verify that $f(f^{-1}(x))=x$ and $f^{-1}(f(x))=x$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Find the inverse function of $$f(x)=\sqrt{2x-3}$$ 
+    
+    The function has an inverse function because it is increasing on its entire domain. To find an equation for the inverse function, let $y=f(x)$, swap $x$ and $y$, then solve for $y$.
+    \begin{align*}
+        y &= \sqrt{2x-3} \\
+        \intertext{Swap $x$ and $y$}
+        x &= \sqrt{2y-3} \\
+        x^2 &= 2y-3 \\
+        x^2+3 &= 2y \\
+        \frac{x^2+3}{2} &= y
+        \intertext{Replace $y$ by $f^{-1}(x)$}
+        \frac{x^2+3}{2} &= f^{-1}(x)
+    \end{align*}
+    The domain of $f^{-1}$ is the range of $f$, which is $[0,\infty)$. 
+\end{example}
+
+Theorem 5.7 is useful in the following type of problem. Suppose you are given a function that is \textit{not} one-to-one on its domain. By restricting the domain to an interval on which the function is strictly monotonic, you can conclude that the new function \textit{is} one-to-one on the restricted domain.
+
+\begin{example}
+    Show that the sine function, $f(x)=\sin(x)$ is not one-to-one on the entire real line. Then show that $[ -\pi/2, \pi/2 ]$ is the largest interval, centered at the origin, for which $f$ is strictly monotonic. \\
+    It is clear that $f$ is not one-to-one, because many different $x$-values yield the same $y$-values. For instance,
+    $$\sin(0)=0=\sin(\pi)$$
+    Moreover, $f$ is increasing on the open interval $(-\pi/2, \pi/2)$, because its derivative 
+    $$f'(x)=\cos(x)$$
+    is positive there. \\
+    Finally, because the left and right endpoints correspond to relative extrema of the sine function, you can conclude that $f$ is increasing on the closed interval $(-\pi/2, \pi/2)$ \textit{and} that in any larger interval the function is not strictly monotonic.
+\end{example}
+
+\begin{exercises}
+    \item Use the derivative to determine if the function $f(x) = 2x^3 + 5x - 3$ has an inverse function on the entire real line. Explain your reasoning.
+    \item Determine whether the function $f(x) = x^4 - 2x^2$ has an inverse function on the interval $(-\infty, \infty)$. If not, find a restricted domain $x \geq c$ where the function would have an inverse.
+    \item Find the inverse function $f^{-1}(x)$ for the function $f(x) = \sqrt[3]{3x-5}$.
+    \item Find the inverse function of the rational function $f(x) = \frac{x+2}{3x-1}$.
+    \item The function $f(x) = \sqrt{x-4}$ is defined on the domain $[4, \infty)$. Find the equation for $f^{-1}(x)$ and state the domain of $f^{-1}$.
+    \item Let $f(x) = (x-2)^2$ for $x \leq 2$. Find an expression for $f^{-1}(x)$.
+\end{exercises}
+
+\subsection{Derivative of an Inverse Function}
+
+The next two theorems discuss the derivative of an inverse function. The reasonableness of Theorem 5.8 follows from the reflective property of inverse functions as shown in Figure 5.12.
+
+\begin{theorem}[title=Continuity and Differentiability of Inverse Functions]
+\tcblower
+    Let $f$ be a function whose domain is an interval $I$. If $f$ has an inverse function, then the following statements are true.
+    \begin{enumerate}
+        \item If $f$ is continuous on its domain, then $f^{-1}$ is continuous on its domain.
+        \item If $f$ is increasing on its domain, then $f^{-1}$ is increasing on its domain.
+        \item If $f$ is decresaing on its domain, then $f^{-1}$ is decreasing on its domain.
+        \item If $f$ is differentiable at $c$ and $f'(c)\neq 0$, then $f^{-1}$ is differentiable at $f(c)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[title=The Derivative of an Inverse Function]
+\tcblower
+    Let $f$ be a function that is differentiable on an interval $I$. If $f$ has an inverse function $g$, then $g$ is differentiable at any $x$ for which $f'(g(x))\neq 0$. Moreover,
+    $$g'(x)=\frac{1}{f'(g(x))}, \quad f'(g(x)) \neq 0$$
+\end{theorem}
+
+\begin{example}
+    Let $f(x)= \frac{1}{4}x^3 + x -1$. \\
+    \begin{enumerate}
+        \item What is the value of $f^{-1}(x)$ when $x=3$? \\
+        Notice that $f$ is one-to-one and therefore has an inverse function.  \\
+        Because $f(x)=3$ when $x=2$, you know that $f^{-1}(3)=2$.
+        \item What is the value of $(f^{-1})'(x)$ when $x=3$? \\
+        Because the function $f$ is differentiable and has an inverse function, you can apply Theorem 5.9 (with $g = f^{-1}$) to write
+        $$(f^{-1})'(3) = \frac{1}{f'(f^{-1}(3))} = \frac{1}{f'(2)}$$
+        Moreover, using $f'(x)=\frac{3}{4}x^2+1$, you can conclude that 
+        $$(f^{-1})'(3) = \frac{1}{f'(2)} = \frac{1}{\frac{3}{4}(2^2)+1} = \frac{1}{4}$$
+    \end{enumerate} 
+\end{example}
+
+In the previous example, note that the point $(2,3)$ the slope of the graph of $f$ is 4 and at the point $(3,2)$ the slope of the graph of $f^{-1}$ is $\frac{1}{4}$. This reciprocal relationship (which follows from Theorem 5.9) can be written as shown below. \\
+If $y=g(x)=f^{-1}(x)$, then $f(y)=x$ and $f'(y) = \frac{dx}{dy}$. Theorem 5.9 says that 
+$$g'(x) = \frac{dy}{dx} = \frac{1}{f'(g(x))} = \frac{1}{f'(y)} = \frac{1}{(dx/dy)}$$
+So,
+$$\frac{dy}{dx} = \frac{1}{dx/dy}$$
+
+\begin{exercises}
+    \item Given $f(x) = x^3 + 2x - 1$. Notice that $f(1)=2$. Find the value of $(f^{-1})'(2)$.
+    \item Let $f$ be the function defined by $f(x) = \sqrt{x-4}$. Find the value of the derivative of $f^{-1}$ at $x=2$.
+    \item Let $g(x) = f^{-1}(x)$. The table below gives values of the differentiable one-to-one function $f$ and its derivative $f'$.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $x$ & 1 & 2 & 3 & 4 \\
+        \hline
+        $f(x)$ & 4 & 6 & 2 & 5 \\
+        \hline
+        $f'(x)$ & 5 & $\frac{1}{2}$ & -3 & 4 \\
+        \hline
+    \end{tabular}
+    \end{center}
+    Using the table, calculate $g'(6)$.
+    \item The function $h$ is differentiable and one-to-one. If the point $(3, 8)$ lies on the graph of $h$ and $h'(3) = \frac{4}{5}$, find the slope of the tangent line to the graph of $h^{-1}$ at $x=8$.
+    \item Let $f(x) = \sin(x)$ on the interval $[-\frac{\pi}{2}, \frac{\pi}{2}]$. Find $(f^{-1})'(\frac{\sqrt{3}}{2})$.
+    \item Let $f(x) = e^x + x$. Find the value of $(f^{-1})'(1)$.
+\end{exercises}
+
+\newpage
+\section{Exponential Functions: Differentiation and Integration}
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Develop properties of the natural exponential function.
+        & I can explain the key properties of the natural exponential function and use them to rewrite expressions. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Differentiate natural exponential functions.
+        & I can find the derivative of functions involving $e^x$ and apply the result in context. \\
+        \midrule
+
+        % Row 3
+        Integrate natural exponential functions.
+        & I can evaluate integrals involving $e^x$ and use them to solve problems.
+    \end{tabularx}
+\end{objectives}
+
+\subsection{The Natural Exponential Function}
+
+The function $f(x)=\ln(x)$ is increasing on its entire domain, and therefore it has an inverse function $f^{-1}$. The domain of $f^{-1}$ is the set of all reals, and the range is the set of positive reals. So, for any real number $x$,
+$$f(f^{-1}(x)) = \ln[f^{-1}(x)] = x$$
+If $x$ happens to be rational, then
+$$\ln(e^x) = x \ln(e) = x$$
+Because the natural logarithmic function is one-to-one, you can conclude that $f^{-1}(x)$ and $e^x$ agree for \textit{rational} values of $x$. The following definition extends the meaning of $e^x$ to include \textit{all} real values of $x$.
+
+\begin{definition}[title=Definition of the Natural Exponential Function]
+    The inverse function of the natural logarithmic function $f(x)=\ln(x)$ is called the \textbf{natural exponential function} and is denoted by
+    $$f^{-1}(x) = e^x$$
+    That is,
+    $$y=e^x \quad \text{ if and only if } \quad x = \ln(y)$$
+\end{definition}
+
+The inverse relationship between the natural logarithmic function and the natural exponential function can be summarized as follows:
+$$ \ln(e^x) = x \quad \text{ and } \quad e^{\ln(x)} = x$$
+
+
+\begin{example}
+    Solve $7 = e^{x+1}$. \\
+    You can convert the exponential form to logarithmic form by \textit{taking the natural logarithm of each side} of the equation.
+    \begin{align*}
+        7 &= e^{x+1} \\
+        \ln(7) &= \ln(e^{x+1}) && \text{Take natural logarithm of each side.} \\
+        \ln(7) &= x+1 && \text{Apply inverse property.} \\
+        -1 + \ln(7) &= x && \text{Solve for $x$.} \\
+        .946 &\approx x
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Solve $\ln(2x-3)=5$. \\
+    To convert from logarithmic form to exponential form, you can \textit{exponentiate each side} of the equation. 
+    \begin{align*}
+        \ln(2x-3) &= 5 \\
+        e^{\ln(2x-3)} &= e^5 && \text{Exponentiate each side.} \\
+        2x-3 &= e^5 && \text{Apply inverse property.} \\
+        x &= \frac{e^5+3}{2} && \text{Solve for $x$.}\\
+        x & \approx 75.707
+    \end{align*}
+\end{example}
+
+The familiar rules for operating with rational exponents can be extended to the natural exponential function, as shown in the following theorem.
+
+\begin{theorem}[title=Operations with Exponential Functions]
+\tcblower
+    Let $a$ and $b$ be any real numbers. 
+    \begin{enumerate}
+        \item $e^ae^b = e^{a+b}$ 
+        \item $\frac{e^a}{e^b} = e^{a-b}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{myproof}
+    To prove Property 1, you can write 
+    \begin{align*}
+        \ln(e^ae^b) &= \ln(e^a)+\ln(e^b) \\
+        &= a+b \\
+        &= \ln(e^{a+b})
+    \end{align*}
+    Because the natural logarithmic function is one-to-one, you can conclude that 
+    $$e^ae^b = e^{a+b}$$
+    The proof of the second property is left to you.
+\end{myproof}
+
+In Section 5.3, you learned that an inverse function $f^{-1}$ shares many properties with $f$. So, the natural exponential function inherits the following properties from the natural logarithmic function. See the figure below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Chapter-5/fig-5.5.png}
+    \caption{The natural exponential function is increasing, and its graph is concave upward.}
+\end{figure}
+
+\begin{definition}[title=Properties of the Natural Exponential Function]
+    \begin{enumerate}
+        \item The domain of $f(x)=e^x$ is $(-\infty, \infty)$ and the range is $(0,\infty)$.
+        \item The function $f(x)=e^x$ is continuous, increasing, and one-to-one on its entire domain. 
+        \item The graph of $f(x)=e^x$ is concave upward on its entire domain. 
+        \item $\lim\limits_{x\to -\infty} e^x = 0$ and $\lim\limits_{x\to \infty} e^x = \infty$
+    \end{enumerate}
+\end{definition}
+
+\subsection{Derivatives of Exponential Functions}
+
+One of the most intriguing (and useful) characteristics of the natural exponential function is that \textit{it is its own derivative}. In other words, it is a solution to the differential equation $y'=y$. 
+
+\begin{theorem}[title=Derivative of the Natural Exponential Function]
+    \tcblower
+    Let $u$ be a differentiable function of $x$.
+    \begin{enumerate}
+        \item $\frac{d}{dx}[e^x] = e^x$ 
+        \item $\frac{d}{dx}[e^u] = \frac{du}{dx}e^u$
+    \end{enumerate}
+\end{theorem}
+
+\begin{myproof}
+    To prove Property 1, use the fact that $\ln(e^x) = x$ and differentiate each side of the equation.
+    \begin{align*}
+        \ln(e^x) &= x \\
+        \frac{d}{dx} [ \ln(e^x)] &= \frac{d}{dx}[x] \\
+        \frac{1}{e^x} \frac{d}{dx}[e^x] &= 1 \\
+        \frac{d}{dx}[e^x] = e^x
+    \end{align*}
+    The derivative of $e^u$ follows from the Chain Rule.
+\end{myproof}
+
+Since we have already been using this derivative, we will not be going through a bunch of examples. However, below is one example which I think will be fun for the people taking statistics.
+
+\begin{example}
+    Show that the \textit{standard normal probability density function}
+    $$f(x)=\frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$
+    has points of inflection when $x=\pm 1$.\\
+    To locate possible points of inflection, find the $x$-values for which the second derivative is $0$.
+    \begin{align*}
+        f(x) &= \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \\
+        f'(x) &= \frac{1}{\sqrt{2\pi}}(-x) e^{-x^2/2} \\
+        f''(x) &= \frac{1}{\sqrt{2\pi}} \left[ (-x)(-x)e^{-x^2/2}+ (-1)e^{-x^2/2} \right] && \text{Product Rule} \\
+        &= \frac{1}{\sqrt{2\pi}}(e^{-x^2/2})(x^2-1)
+    \end{align*}
+    So, $f''(x) = 0$ when $x=\pm1$, and you can apply the techniques of Chapter 4 to conclude that these values yield two points of inflection as shown in the figure.
+
+    \begin{center}
+        \includegraphics[width=.4\linewidth]{Chapter-5/fig-5.6.png}
+        \captionof{figure}{The bell-shaped curve given by a standard normal probability density function}
+    \end{center}
+
+    As another note, the probability density function for a normal distribution with mean $\mu=0$ is given by:
+    $$f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}}$$
+    where $\sigma$ is the standard deviation. This ``bell-shaped curve'' has points of inflection at $x=\pm \sigma$. The region below the curve has a total area equal to 1, representing the entire sample space. 
+    Computing the integral on the interval $(-\infty, z)$ yields the \textbf{cumulative probability} (the value found in the body of standard lookup tables) associated with the given $z$-score:
+    $$P(X < z) = \int_{-\infty}^{z} \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{x^2}{2\sigma^2}} \, dx$$
+\end{example}
+
+
+\begin{exercises}[Find the derivative of the following functions]
+    \item $y = e^{-x^2}$
+    \item $f(x) = x^3 e^{4x}$
+    \item $g(t) = \frac{e^t}{e^t + 2}$
+    \item Find the equation of the tangent line to the graph of $y = (x-1)e^{x}$ at the point where $x=1$.
+    \item Find $\frac{dy}{dx}$ implicitly for the equation $e^{xy} + x = y^2$.
+    \item Find the $x$-coordinate of the point where the tangent line to the graph of $f(x) = 2x e^{-x}$ is horizontal.
+\end{exercises}
+
+\newpage
+\subsection{Integrals of Exponential Functions}
+Each differentiation formula in Theorem 5.11 has a corresponding integration formula.
+
+\begin{theorem}[title=Integration Rules for Exponential Functions]
+\tcblower
+    Let $u$ be a differentiable function of $x$.
+    \begin{enumerate}
+        \item $\displaystyle \int e^x dx = e^x +C $
+        \item $\displaystyle \int e^u du = e^u +C$
+    \end{enumerate}
+\end{theorem}
+
+\begin{example}
+    Find $\displaystyle \int e^{3x+1} dx$. \\
+    If you let $u=3x+1$, then $du=3dx$. 
+    \begin{align*}
+        \displaystyle \int e^{3x+1} dx  &= \frac{1}{3}\displaystyle \int e^{3x+1} (3)dx && \text{Multiply and divide by 3.} \\
+        &= \frac{1}{3} \displaystyle \int e^u du && \text{Substitute $u=3x+1$.} \\
+        &= \frac{1}{3} e^u + C && \text{Apply Exponential Rule.}\\
+        &= \frac{e^{3x+1}}{3} +C && \text{Back-substitute.}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Find $\displaystyle \int 5xe^{-x^2}dx$. \\
+    If you let $u=-x^2$, then $du = -2x dx$, or $xdx = \frac{-1}{2}du$.
+    \begin{align*}
+        \displaystyle \int 5xe^{-x^2}dx &= \displaystyle \int 5e^{-x^2} xdx && \text{Regroup integrand.} \\
+        &= \displaystyle \int 5e^{u} \left(\frac{-1}{2}\right)du && \text{Substitute: $u=-x^2$.} \\
+        &= -\frac{5}{2} \displaystyle \int e^u du && \text{Constant Multiple Rule.} \\
+        &= -\frac{5}{2} e^u +C && \text{Apply Exponential Rule.} \\
+        &= -\frac{5}{2} e^{-x^2} + C && \text{Back-substitute.}
+    \end{align*}
+\end{example}
+
+
+\begin{example}
+    Evaluate the definite integral $\displaystyle \int_{-1}^0 e^x \cos(e^x)dx$.
+    \begin{align*}
+        \displaystyle \int_{-1}^0 e^x \cos(e^x)dx &= \sin(e^x) \bigg|_{-1}^0 \\
+        &= \sin(1) - \sin(e^{-1}) \\
+        &\approx0.482
+    \end{align*}
+    
+\end{example}
+
+
+\begin{exercises}
+    \item Find the indefinite integral $\displaystyle \int e^{4-2x} \, dx$.
+    \item Find $\displaystyle \int x^2 e^{x^3+1} \, dx$.
+    \item Evaluate $\displaystyle \int \frac{e^{\sqrt{x}}}{\sqrt{x}} \, dx$.
+    \item Find $\displaystyle \int (e^x + e^{-x})^2 \, dx$.
+    \item Evaluate the definite integral $\displaystyle \int_{0}^{\ln(2)} e^{3x} \, dx$.
+    \item Evaluate $\displaystyle \int e^x \sin(e^x) \, dx$.
+\end{exercises}
+
+\newpage
+\section{Bases Other than $e$ and Applications}
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Define exponential functions that have bases other than $e$.
+        & I can define and rewrite exponential functions with any positive base using properties of exponents and logarithms. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Differentiate and integrate exponential functions that have bases other than $e$.
+        & I can differentiate and integrate exponential functions with bases other than $e$ by rewriting them in terms of $e$. \\
+        \midrule
+
+        % Row 3
+        Use exponential functions to model compound interest and exponential growth.
+        & I can use exponential functions to model compound interest and real-world exponential growth situations.
+    \end{tabularx}
+\end{objectives}
+
+\subsection{Bases Other than $e$}
+
+The \textbf{base} of the natural exponential function is $e$. This ``natural" base can be used to assign a meaning to a general base $a$.
+
+\begin{definition}[title=Definition of Exponential Function to Base $a$]
+    If $a$ is a positive real number ($a\neq1$) and $x$ is any real number, then the \textbf{exponential function to the base $a$} is denoted by $a^x$ and is defined by 
+    $$a^x = e^{\ln(a)x}$$
+    If $a=1$, then $y=1^x=1$ is a constant function.
+\end{definition}
+
+\begin{example}
+    The half life of carbon-14 is about 5715 years. A sample contains 1 gram of carbon-14. How much will be present in 10,000 years? \\
+    Let $t=0$ represent the present time and let $y$ represent the amount (in grams) of carbon-14 in the sample. Using a base of $\frac{1}{2}$, you can model $y$ by the equation
+    $$y = \left(\frac{1}{2}\right)^{t/5715}$$
+    Notice that when $t=5715$, the amount is reduced to half of the original amount.
+    $$y = \left(\frac{1}{2}\right)^{5715/5715} = \frac{1}{2} \text{ gram}$$
+    When $t=11,430$, the amount is reduced to a quarter of the original amount, and so on. To find the amount of carbon-14 after 10,000 years, substitute 10,000 in for $t$.
+    $$y = \left(\frac{1}{2}\right)^{10,000/5715} \approx 0.30 \text{ gram}$$
+\end{example}
+
+\begin{definition}[title=Definition of Logarithmic Function to Base $a$]
+    If $a$ is a positive real number ($a \neq 1$) and $x$ is any positive real number, then the \textbf{logarithmic function to the base $a$} is denoted by $\log_a(x)$ and is defined as 
+    $$\log_a(x) = \frac{1}{\ln(a)} \ln(x)$$
+\end{definition}
+
+Logarithmic functions to the base $a$ have properties similar to those of the natural logarithmic function given in Theorem 5.2.
+\begin{enumerate}
+    \item $\log_a(1) = 0$
+    \item $\log_a(xy) = \log_a(x)+\log_a(y)$
+    \item $\log_a(x^n) = n \log_a(x)$
+    \item $\log_a(\frac{x}{y}) = \log_a(x)-\log_a(y)$
+\end{enumerate}
+
+From the definitions of the exponential and logarithmic functions to the base $a$, it follows that $f(x)=a^x$ and $g(x)=\log_a(x)$ are inverse functions of each other.
+
+\begin{definition}[title=Properties of Inverse Functions]
+    \begin{enumerate}
+        \item $\displaystyle y=a^x$ if and only if $x=\log_a(y)$
+        \item $\displaystyle a^{\log_a(x)} = x,$ for all $x>0$
+        \item $\displaystyle \log_a(a^x) = x$, for all $x$
+    \end{enumerate}
+\end{definition}
+
+The logarithmic function to the base 10 is called the \textbf{common logarithmic function}. So, for common logarithms, $y=10^x$ if and only if $x=\log_{10}(y)$.
+
+\begin{example}
+    Solve for $x$ in each equation.
+    \begin{enumerate}
+        \item $3^x = \frac{1}{81}$ \\
+        To solve this equation, you can apply the logarithmic function to the base 3 to each side of the equation.
+        \begin{align*}
+            3^x &= \frac{1}{81} \\
+            \log_3(3^x) &= \log_3 \left(\frac{1}{81} \right) \\
+            x &= \log_3 \left(3^{-4}\right) \\
+            x&= -4
+        \end{align*}
+        \item $\log_2(x)=-4$ \\
+        To solve this equation, you can apply the exponential function to the base 2 to each side of the equation.
+        \begin{align*}
+            \log_2(x) &= -4 \\
+            2^{\log_2(x)} &= 2^{-4} \\
+            x &= \frac{1}{2^4} \\
+            x &= \frac{1}{16}
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+\subsection{Differentiation and Integration}
+
+To differentiate exponential and logarithmic functions to other bases, you have three options: (1) use the definitions of $a^x$ and $\log_a(x)$ and differentiate using the rules for the natural exponential and logarithmic functions, (2) use logarithmic differentiation, or (3) use the following differentiation rules for bases other than $e$.
+
+\begin{theorem}[title=Derivatives for Bases Other than $e$]
+\tcblower
+    Let $a$ be a positive real number ($a\neq 1$) and let $u$ be a differentiable function of $x$.
+    \begin{enumerate}[]
+        \item $\displaystyle \frac{d}{dx}[a^x] = (\ln(a))a^x$
+        \item $\displaystyle \frac{d}{dx}[a^u] = (\ln(a))a^u \frac{du}{dx}$
+        \item $\displaystyle \frac{d}{dx} [\log_a(x)] = \frac{1}{(\ln(a))x}$
+        \item $\displaystyle \frac{d}{dx} [\log_a(u)] = \frac{1}{(\ln(a))u}\frac{du}{dx}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{example}
+    Find the derivative of each function.
+    \begin{enumerate}
+        \item $y=2^x$
+        $$y' = \frac{d}{dx}[2^x] = (\ln(2))2^x$$
+        \item $y=2^{3x}$
+        $$y' = \frac{d}{dx}[2^{3x}] = (\ln(2))2^{3x}(3) = (3\ln(2))2^{3x}$$
+        \item $y=\log_{10}\cos(x)$
+        $$y' = \frac{d}{dx}[\log_{10}\cos(x)] = \frac{-\sin(x)}{(\ln(10))\cos(x)} = - \frac{1}{\ln(10)}\tan(x)$$
+    \end{enumerate}
+\end{example}
+
+Occasionally, an integrand involves an exponential function to a base other than $e$. When this occurs, there are two options: (1) convert to base $e$ using the formula $a^x = e^{\ln(a)x}$ and then integrate, or (2) integrate directly, using the integration formula
+$$\int a^x dx = \left( \frac{1}{\ln(a)} \right) a^x + C$$
+(which follows from Theorem 5.13).
+
+\begin{example}
+    Find $\displaystyle \int2^x dx$. \\
+    $$\displaystyle \int2^x dx = \frac{1}{\ln(2)}2^x +C$$
+\end{example}
+
+When the Power Rule, $\frac{d}{dx}[x^n] = nx^{n-1}$, was introduced in Chapter 2, the exponent $n$ was required to be a rational number. Now the rule is extended to cover any real value of $n$. 
+
+\begin{theorem}[title=The Power Rule for Real Exponents]
+    \tcblower
+    \begin{enumerate}
+        \item $\frac{d}{dx}[x^n] = nx^{n-1}$
+        \item $\frac{d}{dx}[u^n] = nu^{n-1}\frac{du}{dx}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{exercises}[Evaluate the following derivatives and integrals]
+    \item Find the derivative of the function $f(x) = 4^{3x-2}$.
+    \item Find $g'(t)$ given $g(t) = \log_5(\sqrt{t^2+1})$.
+    \item Differentiate $y = x^{\pi} + \pi^{x}$.
+    \item Evaluate the indefinite integral $\displaystyle \int x 6^{x^2} \, dx$.
+    \item Evaluate the definite integral $\displaystyle \int_{-1}^{2} 2^x \, dx$.
+    \item Find the equation of the tangent line to the graph of $y = \log_2(x)$ at the point $(8, 3)$.
+\end{exercises}
+
+\subsection{Applications of Exponential Functions}
+
+Suppose $P$ dollars is deposited in an account at an annual interest rate $r$ (in decimal
+form). If interest accumulates in the account, what is the balance in the account at the
+end of 1 year? The answer depends on the number of times $n$ the interest is compounded according to the formula
+$$A = P \left( 1 + \frac{r}{n} \right) ^n$$
+
+As $n$ increases, the balance $A$ approaches a limit. To develop this limit, use the following theorem.
+\begin{theorem}[title=A Limit Involving $e$]
+\tcblower
+    $$\lim\limits_{x\to\infty} \left( 1 + \frac{1}{x} \right)^x = \lim\limits_{x\to\infty} \left( \frac{x+1}{x} \right)^x = e$$
+\end{theorem}
+
+Now, looking back at the formula for the balance $A$ in an account as the limit $n$ goes to infinity, we see
+\begin{align*}
+    A &= \displaystyle \lim\limits_{n\to\infty} \left[ P \left( 1 + \frac{r}{n} \right)  ^n \right] && \text{Take limit as $n \to \infty$.} \\
+    &= P \lim\limits_{n\to\infty} \left[ \left( 1 + \frac{1}{n/r} \right)  ^{n/r} \right]^r && \text{Rewrite.} \\
+    &= P \lim\limits_{x\to\infty} \left[ \left( 1 + \frac{1}{x} \right)  ^x \right]^r && \text{Let $x=n/r$. Then  $x\to\infty $ as $n \to \infty$} \\
+    &= Pe^r && \text{Apply Theorem 5.15}
+\end{align*}
+
+This limit produces the balance after 1 year of \textbf{continuous compounding}. So, for a deposit of \$1000 at 8\% interest compounded continuously, the balance at the end of 1 year would be 
+\begin{align*}
+    A &= 1000e^{0.08} \\
+    &\approx \$1083.29
+\end{align*}
+
+\begin{example}
+    Calculate the balance (to the nearest cent) of a \$1,500 deposit at 6\% interest after 1 year if compounded:
+    \begin{enumerate}[label=(\alph*)]
+        \item Monthly ($n=12$): \\
+        $A = 1500 \left(1 + \frac{.06}{12}\right)^{12} = \$1592.5167178 \approx \$1592.52 $
+        \item Continuously: \\
+        $A = 1500e^{0.06} = 1592.75481982 \approx 1592.75$
+    \end{enumerate}
+\end{example}
+
+Populations in real-world biology seldom grow exponentially indefinitely; they are constrained by factors such as food and space. This phenomenon is effectively represented by \textbf{Logistic Growth}.
+
+
+\begin{example}
+    A bacterial culture is growing according to the \textit{logistic growth function}
+    $$y =\frac{1.25}{1+0.25e^{-.4t}}, \quad t\geq 0$$
+    where $y$ is the weight of the culture in grams and $t$ is the time in hours. Find the weight of the culture after (a) 0 hours, (b) 1 hour, and (c) 10 hours. (d) What is the limit as $t$ approaches infinity?
+
+    \begin{enumerate}[label=(\alph*)]
+        \item When $\displaystyle t=0, \quad y =\frac{1.25}{1+0.25e^{0}} = 1$ gram.
+        \item When $\displaystyle t=1, \quad y =\frac{1.25}{1+0.25e^{-.4(1)}} = 1.071$ grams.
+        \item When $\displaystyle t=10, \quad y =\frac{1.25}{1+0.25e^{-.4(10)}} = 1.244$ grams.
+        \item Taking the limit as $t$ approaches infinity, you obtain
+        $$ \displaystyle  \lim_{t\to\infty}\frac{1.25}{1+0.25e^{-.4(t)}} = \frac{1.25}{1+0} = 1.25 \text{ grams} $$
+    \end{enumerate}
+\end{example}
+
+\begin{exercises}
+    \item Evaluate the following limit: $\displaystyle \lim_{x \to \infty} \left( 1 + \frac{3}{x} \right)^{2x}$.
+    \item A sum of \$5,000 is invested at an annual interest rate of 6\%. Find the balance in the account after 10 years if the interest is compounded continuously.
+    \item The spread of a flu virus in a school is modeled by the function $P(t) = \frac{1200}{1 + 19e^{-0.6t}}$, where $P(t)$ is the number of infected students $t$ days after the virus is first identified.
+    \begin{enumerate}
+        \item How many students are initially infected?
+        \item What is the carrying capacity of the model (the maximum number of students who will eventually be infected)?
+    \end{enumerate}
+    \item A radioactive substance decays according to the formula $A(t) = A_0 e^{-0.05t}$, where $t$ is measured in years. If the initial amount $A_0$ is 100 grams, find the rate of decay $\frac{dA}{dt}$ when $t=10$ years.
+    \item Find the equation of the tangent line to the graph of the logistic function $y = \frac{20}{1 + 3e^{-2x}}$ at $x=0$.
+    \item The population of a city is given by $P(t) = 50,000e^{0.02t}$, where $t=0$ represents the year 2000. Find the instantaneous rate of change of the population in the year 2010.
+\end{exercises}
+
+
+\newpage
+\section{Inverse Trigonometric Functions: Differentiation}
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Develop properties of the six inverse trigonometric functions.
+        & I can describe the domains, ranges, and key properties of the inverse trigonometric functions. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Differentiate an inverse trigonometric function.
+        & I can find the derivative of an inverse trigonometric function and apply it to solve problems. \\
+        \midrule
+
+        % Row 3
+        Review the basic differentiation rules for elementary functions.
+        & I can correctly apply the basic differentiation rules to elementary functions.
+    \end{tabularx}
+\end{objectives}
+
+\subsection{Inverse Trigonometric Functions}
+This section begins with a rather surprising statement: \textit{None of the six basic trigonometric functions has an inverse function.} This statement is true because all six
+trigonometric functions are periodic and therefore are not one-to-one. In this section
+you will examine these six functions to see whether their domains can be redefined in
+such a way that they will have inverse functions on the \textit{restricted domains.}
+
+In an example in Section 5.3, you saw that the sine function is increasing (and
+therefore is one-to-one) on the interval $[-\pi/2, \pi/2]$. On this interval you can define the inverse of the \textit{restricted} sine function to be 
+$$y=\arcsin(x) \quad \text{ if and only if } \quad \sin(y)=x$$
+where $-1\leq x\leq 1$ and $-\pi/2 \leq \arcsin(x) \leq \pi/2$.
+
+Under suitable restrictions, each of the six trigonometric functions is one-to-one and so has an inverse function, as shown in the following definition.
+
+\begin{definition}[title=Definitions of Inverse Trigonometric Functions]
+\setlength{\arraycolsep}{16pt}
+\renewcommand{\arraystretch}{2.5}
+    $$
+    \begin{array}{|c|c|c|}
+        \hline
+        \textbf{Function} & \textbf{Domain} & \textbf{Range} \\
+        \hline
+        y = \arcsin (x) \iff \sin (y) = x
+        & -1 \le x \le 1
+        & -\dfrac{\pi}{2} \le y \le \dfrac{\pi}{2} \\
+        \hline
+        y = \arccos (x)\iff \cos (y) = x
+        & -1 \le x \le 1
+        & 0 \le y \le \pi \\
+        \hline
+        y = \arctan (x) \iff \tan (y) = x
+        & -\infty < x < \infty
+        & -\dfrac{\pi}{2} < y < \dfrac{\pi}{2} \\
+        \hline
+        y = \arccot (x) \iff \cot (y) = x
+        & -\infty < x < \infty
+        & 0 < y < \pi \\
+        \hline
+        y = \arcsec (x) \iff \sec (y) = x
+        & |x| \ge 1
+        & 0 \le y \le \pi,\; y \ne \dfrac{\pi}{2} \\
+        \hline
+        y = \arccsc (x) \iff \csc (y) = x
+        & |x| \ge 1
+        & -\dfrac{\pi}{2} \le y \le \dfrac{\pi}{2},\; y \ne 0 \\
+        \hline
+    \end{array}
+    $$
+
+Note that $\iff$ stands for ``if and only if", which is a bidirectional statement in math. Meaning that the statement is true in both directions (each implies the other).
+
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Chapter-5/fig-5.7.png}
+    \caption{Graphs of the six inverse trigonometric functions.}
+\end{figure}
+
+Here, I will provide a unit circle because it will be helpful for our examples.
+\begin{center}
+    \includegraphics[width=.6\linewidth]{Chapter-5/unitcircle.jpg}
+\end{center}
+However, I would like to note that there is no unit circle provided on the AP Calculus test, nor is there for the final exam. \textbf{You will need to know the values of the unit circle.}
+
+\begin{example}
+    Evaluate each function.\\
+    \begin{enumerate}
+        \item $\displaystyle \arcsin \left(-\frac{1}{2} \right)$ \\
+        By definition, $y=\arcsin \left( - \frac{1}{2} \right)$ implies that $\sin(y) = -\frac{1}{2}$. In the interval $[-\pi/2, \pi/2]$, the correct value of $y$ is $-\pi/6$.
+        $$\arcsin \left(-\frac{1}{2} \right) = - \frac{\pi}{6}$$
+        \item $\arccos(0)$ \\
+        By definition. $y =\arccos(0)$ implies that $\cos(y) = 0$.In the interval $[0,\pi]$, you have $y=\pi/2$.
+        $$\arccos(0) = \frac{\pi}{2}$$
+        \item $\arctan \left(\sqrt{3} \right)$\\
+        By definition, $y = \arctan \left(\sqrt{3} \right)$ implies that $\tan(y) = \sqrt{3}$. In the interval $(-\pi/2,\pi/2)$, you have $y=\pi/3$.
+        $$\arctan \left(\sqrt{3} \right) = \frac{\pi}{3}$$
+        \item $\arcsin(0.3)$ \\
+        Using a calculator, \textbf{specifically in radian mode} produces
+        $$\arcsin(0.3) \approx 0.305$$
+    \end{enumerate}
+\end{example}
+
+Inverse functions have the properties
+$$f(f^{-1}(x))=x \quad \text{ and } \quad f^{-1}(f(x)) = x$$
+When applying these properties to inverse trigonometric functions, remember that the
+trigonometric functions have inverse functions only in restricted domains. For $x$-values outside these domains, these two properties do not hold. For example, $\arcsin(\sin(\pi)) = 0$, not $\pi$.
+
+\begin{definition}[title=Properties of Inverse Trigonometric Functions]
+    If $-1 \leq x \leq 1$ and $-\pi/2 \leq y \leq \pi/2$. then 
+    $$\sin(\arcsin(x)) = x \quad \text{ and } \quad \arcsin(\sin(y)) = y$$
+    If $-\pi/2 < y< \pi/2$, then 
+    $$\tan(\arctan(x)) = x \quad \text{ and } \quad \arctan(\tan(y)) = y$$
+    If $|x| \geq 1$ and $0 \leq y \leq \pi/2$ or $\pi/2 < y \leq \pi$, then 
+    $$\sec(\arcsec(x)) = x \quad \text{ and } \quad \arcsec(\sec(y)) = y$$
+    Similar properties hold for the other inverse trigonometric functions.
+\end{definition}
+
+\begin{example}
+    Given $y=\arcsec \left( \sqrt{5}/2 \right)$, find $\tan(y)$. \\
+    Begin by drawing a right triangle: \\
+    \begin{center}
+    \begin{tikzpicture}[scale=3][H] % Scale set to 3 for clear visibility
+      % Define vertices
+      \coordinate (A) at (0,0);
+      \coordinate (B) at (2,0);
+      \coordinate (C) at (2,1);
+    
+      % Draw the triangle lines
+      \draw[thick] (A) -- (B) -- (C) -- cycle;
+    
+      % Draw the right angle square (Magenta)
+      \draw[black, thick] ($(B) + (-0.15,0)$) |- ($(B) + (0,0.15)$);
+    
+      % Draw the angle arc for y (Magenta)
+      % We use the 'angles' library to draw the arc automatically
+      \pic [draw=black, thick, angle radius=1cm] {angle = B--A--C};
+      
+      % Label for angle y
+      % Placing it manually for precise alignment with the arc
+      \node at (0.4, 0.1) {$y$};
+    
+      % Label the sides
+      \node[below] at ($(A)!0.5!(B)$) {$2$};       % Midpoint of base
+      \node[right] at ($(B)!0.5!(C)$) {$1$};       % Midpoint of height
+      \node[above left] at ($(A)!0.5!(C)$) {$\sqrt{5}$}; % Midpoint of hypotenuse
+    
+    \end{tikzpicture}
+    \end{center}
+    Then notice that
+    $$\tan(y) = \tan \left[ \arcsec \left(\frac{\sqrt{5}}{2} \right) \right] = \frac{\text{opp}}{\text{adj}} =\frac{1}{2}$$
+\end{example}
+
+\subsection{Derivatives of Inverse Trigonometric Functions}
+
+Earlier in the chapter, we saw that the derivative of the transcendental function $f(x)=\ln(x)$ is the algebraic function $f'(x) = 1/x$. Now we will see that the derivatives of the inverse trigonometric functions also are algebraic (even though the inverse trigonometric functions are themselves transcendental).
+The following theorem lists the derivatives of the six inverse trigonometric functions. Note that the derivatives of $\arccos(u), \arccot(u),$ and $\arccsc(u)$ are the \textit{negatives} of the derivatives of $\arcsin(u), \arctan(u),$ and $\arcsec(u)$, respectively.
+
+\begin{theorem}[title=Derivatives of Inverse Trigonometric Functions]
+\tcblower
+    Let $u$ be a differentiable function of $x$
+    \begin{align*}
+        \frac{d}{dx}[\arcsin(u)] &= \frac{u}{\sqrt{1-u^2}} & \frac{d}{dx}[\arccos(u)] &= \frac{-u'}{\sqrt{1-u^2}} \\
+        \frac{d}{dx}[\arctan(u)] &= \frac{u'}{1+u^2} & \frac{d}{dx}[\arccot(u)] &= \frac{-u'}{1+u^2} \\
+        \frac{d}{dx}[\arcsec(u)] &= \frac{u'}{|u|\sqrt{u^2-1}} & \frac{d}{dx}[\arccsc(u)] &= \frac{-u'}{|u|\sqrt{u^2-1}} 
+    \end{align*}
+\end{theorem}
+
+To derive these formulas, you can use implicit differentiation. For instance, if $y=\arcsin(x)$, then $\sin(y)=x$. Differentiating implicitly with respect to $x$ yields $\cos(y)y' = 1$.
+
+\footnotesize{
+NOTE: There is no common agreement on the definition of $\arcsec(x)$ (or $\arccsc(x)$ for negative values of $x$. When we defined the range of the arcsecant, we chose to preserve the reciprocal identity 
+$$\arcsec(x) = \arccos \left(\frac{1}{x}\right)$$
+For example, to evaluate $\arcsec(-2)$ you can write 
+$$\arcsec(-2) = \arccos(-0.5) \approx2.09$$
+One of  the consequences of the definition of the inverse secant function given in this text is that its graph has a positive slope at every $x$-value in its domain. This acounts for the absolute value sign in the formula for the derivative of $\arcsec(x)$.}
+
+\newpage
+\normalsize
+\begin{example}
+    \begin{enumerate}
+        \item $\displaystyle \frac{d}{dx}[\arcsin(2x)] = \frac{2}{\sqrt{1-(2x)^2}} = \frac{2}{\sqrt{1-4x^2}}$
+        \item $\displaystyle \frac{d}{dx} [\arctan(3x)] = \frac{3}{1+(3x)^2} = \frac{3}{1+9x^2}$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Differentiate $y=\arcsin(x)+x\sqrt{1-x^2}$. 
+    \begin{align*}
+        y' &= \frac{1}{\sqrt{1-x^2}} + x \left( \frac{1}{2} \right)(-2x)\left(1-x^2\right)^{-1/2} + \sqrt{1-x^2} \\
+        &= \frac{1}{\sqrt{1-x^2}} - \frac{x^2}{\sqrt{1-x^2}} + \sqrt{1-x^2} \\
+        &= \sqrt{1-x^2} + \sqrt{1-x^2} \\
+        &= 2 \sqrt{1-x^2}
+    \end{align*}
+\end{example}
+
+\begin{exercises}[Find the derivative of the following functions]
+    \item $y = \arcsin(3x^2)$
+    \item $f(x) = \arctan(\sqrt{x})$
+    \item $g(t) = \arcsec(5t)$
+    \item Find the equation of the tangent line to the graph of $y = \arctan(x)$ at $x=1$.
+    \item $y = x \arccos(2x)$
+    \item Show that the derivative of $y = \arcsin(x) + \arccos(x)$ is 0.
+\end{exercises}
+
+\subsection{Review of Basic Differentiation Rules}
+As mathematics has developed during the past few hundred years, a small number of elementary functions has proven sufficient for modeling most* phenomena in physics, chemistry, biology, engineering, economics, and a variety of other fields. An elementary function is a function from the following list or one that can be formed as the sum, product, quotient, or composition of functions in the list.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{ll}
+        \textit{Algebraic Functions} & \textit{Transcendental Functions} \\
+        \midrule
+         Polynomial functions & Logarithmic functions \\
+         Rational functions & Exponential functions \\
+         Functions involving radicals &  Trigonometric functions \\
+          & Inverse trigonometric functions
+    \end{tabular}
+\end{table}
+
+With the differentiation rules introduced so far in the text, you can differentiate any elementary function. For convenience, these differentiation rules are summarized below.
+
+\begin{definition}[title=Basic Differentiation Rules for Elementary Functions]
+    \setlength{\columnsep}{1cm}
+    \begin{multicols}{2}
+        \begin{enumerate}
+        \item $\displaystyle \frac{d}{dx}[cu] = c\,u'$
+        
+        \item $\displaystyle \frac{d}{dx}[u \pm v] = u' \pm v'$
+        
+        \item $\displaystyle \frac{d}{dx}[uv] = u v' + v u'$
+        
+        \item $\displaystyle \frac{d}{dx}\!\left[\frac{u}{v}\right]
+        = \frac{v u' - u v'}{v^{2}}$
+        
+        \item $\displaystyle \frac{d}{dx}[c] = 0$
+        
+        \item $\displaystyle \frac{d}{dx}[u^{n}] = n u^{\,n-1} u'$
+        
+        \item $\displaystyle \frac{d}{dx}[x] = 1$
+        
+        \item $\displaystyle \frac{d}{dx}[|u|] = \frac{u}{|u|}\,u',
+        \quad u \neq 0$
+        
+        \item $\displaystyle \frac{d}{dx}[\ln u] = \frac{u'}{u}$
+        
+        \item $\displaystyle \frac{d}{dx}[e^{u}] = e^{u}u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\log_a u]
+        = \frac{u'}{(\ln a)u}$
+        
+        \item $\displaystyle \frac{d}{dx}[a^{u}]
+        = (\ln a)\,a^{u}u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\sin u]
+        = (\cos u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\cos u]
+        = -(\sin u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\tan u]
+        = (\sec^{2}u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\cot u]
+        = -(\csc^{2}u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\sec u]
+        = (\sec u \tan u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\csc u]
+        = -(\csc u \cot u)u'$
+        
+        \item $\displaystyle \frac{d}{dx}[\arcsin u]
+        = \frac{u'}{\sqrt{1-u^{2}}}$
+        
+        \item $\displaystyle \frac{d}{dx}[\arccos u]
+        = \frac{-u'}{\sqrt{1-u^{2}}}$
+        
+        \item $\displaystyle \frac{d}{dx}[\arctan u]
+        = \frac{u'}{1+u^{2}}$
+        
+        \item $\displaystyle \frac{d}{dx}[\arccot u]
+        = \frac{-u'}{1+u^{2}}$
+        
+        \item $\displaystyle \frac{d}{dx}[\arcsec u]
+        = \frac{u'}{|u|\sqrt{u^{2}-1}}$
+
+        \item $\displaystyle \frac{d}{dx}[\arccsc u]
+        = -\frac{u'}{|u|\sqrt{u^{2}-1}}$
+        \end{enumerate}
+    \end{multicols}
+\end{definition}
+
+\newpage
+\section{Inverse Trigonometric Functions: Integration}
+\begin{objectives}
+    \renewcommand{\arraystretch}{1.5} % Adds vertical space between rows
+    % @{} removes the tight padding on the far left and right edges
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+        
+        % The Header Row
+        \textbf{Key Topics \& Formulas} & \textbf{Success Criteria} \\ 
+        \midrule[1.5pt] % A slightly thicker line under the header
+        
+        % Row 1
+        Integrate functions whose antiderivatives involve inverse trigonometric functions.
+        & I can recognize integrals that lead to inverse trigonometric functions and evaluate them correctly. \\
+        \midrule % Standard thin line
+        
+        % Row 2
+        Use the method of completing the square to integrate a function.
+        & I can complete the square to rewrite an integrand and use it to evaluate the integral. \\
+        \midrule
+
+        % Row 3
+        Review the basic integration rules involving elementary functions.
+        & I can correctly apply the basic integration rules to elementary functions.
+    \end{tabularx}
+\end{objectives}
+
+\subsection{Integrals Involving Inverse Trigonometric Functions}
+The derivatives of the six trigonometric functions fall into three pairs. In each pair, the derivative of one function is the negative of the other. For example,
+\begin{align*}
+    \displaystyle \frac{d}{dx} [\arcsin(x)] &= \frac{1}{\sqrt{1-x^2}} \\
+    \intertext{and}
+    \displaystyle \frac{d}{dx} [\arccos(x)] &= -\frac{1}{\sqrt{1-x^2}} 
+\end{align*}
+
+When listing the \textit{antiderivative}  that corresponds to each of the inverse trigonometric functions, you need to use only one member from each pair. It is conventional to use $\arcsin(x)$ as the antiderivative of $1/\sqrt{1-x^2}$ rather than $-\arccos(x)$. The next theorem gives one antiderivative formula for each of the three pairs. The proofs of these integration rules are left to you. 
+
+\begin{theorem}[title=Integrals Involving Inverse Trigonometric Functions]
+    \tcblower
+    Let $u$ be a differentiable function of $x$, and let $a>0$.
+    \begin{enumerate}
+        \item $\displaystyle \int \frac{1}{\sqrt{a^2-u^2}}du = \arcsin \left( \frac{u}{a} \right) +C$ 
+        \item $\displaystyle \int \frac{1}{a^2+u^2}du = \frac{1}{a}\arctan \left( \frac{u}{a} \right) +C$ 
+        \item $\displaystyle \int \frac{1}{u\sqrt{u^2-a^2}}du = \frac{1}{a} \arcsec \left( \frac{|u|}{a} \right) +C$ 
+    \end{enumerate}
+\end{theorem}
+
+\begin{example}
+    \begin{enumerate}
+        \item $\displaystyle \int \frac{1}{\sqrt{4-x^2}}dx = \arcsin \left( \frac{x}{2} \right) +C$
+        \item $\displaystyle \int \frac{1}{2+9x^2}dx = \frac{1}{3} \int \frac{3}{\left( \sqrt{2} \right)^2 + (3x)^2}dx = \frac{1}{3\sqrt{2}} \arctan \left( \frac{3x}{\sqrt{2}} \right) + C$ \\
+        Notice that we let $u=3x$ and $a=\sqrt{2}$.
+    \end{enumerate}
+\end{example}
+
+The integrals in that example are fairly straightforward applications of integration formulas. Unfortunately, this is not typical. The integration formulas for inverse trigonometric functions can be disguised in many ways.
+
+\begin{example}
+    Find $\displaystyle \int \frac{1}{\sqrt{e^{2x}-1}}dx$.\\
+    If we use the substitution $u=e^x$, we see
+    $$u=e^x \quad \Rightarrow \quad du=e^x dx \quad \Rightarrow \quad dx= \frac{du}{e^x} = \frac{du}{u}$$
+    Using this substitution, we see
+    \begin{align*}
+        \int \frac{1}{\sqrt{e^{2x}-1}}dx &= \int \frac{1}{\sqrt{(e^{x})^2-1}}dx && \text{Rewrite using exponent rules.}\\
+        &= \int \frac{1}{\sqrt{u^2-1}}\frac{1}{u}du && \text{Substitute.}\\
+        &= \int \frac{1}{u\sqrt{u^2-1}}du && \text{Rewrite to fit arcsecant rule.}\\
+        &= \arcsec \left(\frac{|u|}{1} \right) + C \\
+        &= \arcsec(e^x) +C
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Find $\displaystyle\int \frac{x+2}{\sqrt{4-x^2}}dx$. \\
+    This integral does not appear to fit any of the basic integration formulas. By splitting the integrand into two parts, however, you can see that the first part can be found with the Power Rule and the second part yields an inverse sine function.
+    \begin{align*}
+        \int \frac{x+2}{\sqrt{4-x^2}}dx &= \int \frac{x}{\sqrt{4-x^2}}dx + \int \frac{2}{\sqrt{4-x^2}}dx \\
+        &= -\frac{1}{2}\int (4-x^2)^{-1/2} dx + 2 \int \frac{1}{\sqrt{4-x^2}}dx\\
+        &= \frac{-1}{2} \left[ \frac{(4-x^2)^{1/2}}{1/2} \right] + 2\arcsin \left( \frac{x}{2} \right) +C \\
+        &= -\sqrt{4-x^2} + 2\arcsin \left( \frac{x}{2} \right) +C
+    \end{align*}
+\end{example}
+
+\begin{exercises}[Evaluate the following definite and indefinite integrals]
+    \item $\displaystyle \int \frac{5}{1+25x^2} \, dx$
+    \item $\displaystyle \int \frac{1}{\sqrt{9-4x^2}} \, dx$
+    \item $\displaystyle \int \frac{e^x}{1+e^{2x}} \, dx$
+    \item $\displaystyle \int \frac{x+3}{\sqrt{1-x^2}} \, dx$
+    \item $\displaystyle \int \frac{1}{x\sqrt{x^2-16}} \, dx$
+    \item $\displaystyle \int_{0}^{1} \frac{1}{\sqrt{4-x^2}} \, dx$
+\end{exercises}
+
+\subsection{Completing the Square}
+\noindent
+\begin{minipage}[c]{0.73\textwidth} % Takes up roughly 3/4 of the width
+    Completing the square helps when quadratic functions are involved in the integrand. For example, the quadratic $x^2+bx+c$ can be written as the difference of two squares by adding and subtracting $(b/2)^2$.
+    \begin{align*}
+        x^2+bx+c &= x^2 +bx + \left( \frac{b}{2} \right)^2 - \left( \frac{b}{2} \right)^2 +c \\
+        &= \left(x+ \frac{b}{2} \right)^2 - \left( \frac{b}{2} \right)^2 +c
+    \end{align*}
+
+    I would like to take this moment to note that you may be unfamiliar with this when it is written algebraically. You were probably taught to complete the square using an area model, which is fine, but calculus requires a strong understanding of algebraic manipulation. Furthermore, an area model does not generalize well to \href{https://en.wikipedia.org/wiki/Completing_the_square#Completing_the_cube}{cubics} or quartics (in my opinion); this means that while you might intuitively understand where the square has been ``completed", the skill needs to be understand algebraically.
+    \end{minipage}%
+    \hfill % Fills the remaining gap
+    \begin{minipage}[c]{0.23\textwidth} % Takes up roughly 1/4 of the width
+        \centering
+        % \linewidth here refers to the width of this specific minipage (the 0.23)
+        \includegraphics[width=\linewidth]{Chapter-5/Completing_the_square.png}
+\end{minipage}
+
+\begin{example}
+    Find $\displaystyle \int \frac{1}{x^2-4x+7}dx$. \\
+    You can write the denominator as the sum of two squares as shown.
+    \begin{align*}
+        x^2-4x+7 &= (x^2-4x+4)-4+7 \\
+        &= (x-2)^2+3 \\
+        &= u^2+a^2
+    \end{align*}
+    If you let $u=x-2$ and $a=\sqrt{3}$, now you can integrate more easily.
+    $$\int \frac{1}{x^2-4x+7}dx = \int \frac{1}{(x-2)^2+3}dx = \frac{1}{\sqrt{3}} \arctan \left( \frac{x-2}{\sqrt{3}} \right) +C$$
+\end{example}
+
+If the leading  coefficient is not 1, it helps to factor before completing the square. For instance, you can complete the square $2x^2-8x+10$ by factoring first.
+\begin{align*}
+    2x^2-8x+10 &= 2(x^2-4x+5) \\
+    &= 2(x^2-4x+4-4+5) \\
+    &= 2[(x-2)^2+1]
+\end{align*}
+To complete the square when the coefficient of $x^2$ is negative, use the same factoring process shown above. For instance, you can complete the square for $3x-x^2$ as shown.
+\begin{align*}
+    3x-x^2 &= -(x^2-3x) \\
+    &= - \left[ x^2 -3x + \left( \frac{3}{2} \right)^2 - \left( \frac{3}{2} \right)^2   \right] \\
+    &= \left( \frac{3}{2} \right)^2 - \left( x-\frac{3}{2} \right)^2
+\end{align*}
+
+
+\subsection{Review of Basic Integration Rules}
+
+You have now completed the introduction of the basic integration rules. To be efficient at applying these rules, you should have practiced enough so that each rule is committed to memory
+
+\begin{definition}[title=Basic Integration Rules ($a>0$)]
+
+    \setlength{\columnsep}{1cm}
+    
+    \begin{multicols}{2}
+    \begin{enumerate}
+    \item $\displaystyle \int k f(u)\,du = k\int f(u)\,du$
+    
+    \item $\displaystyle \int [f(u)\pm g(u)]\,du
+    \\ = \int f(u)\,du \pm \int g(u)\,du$
+    
+    \item $\displaystyle \int du = u + C$
+    
+    \item $\displaystyle \int u^{n}\,du
+    = \frac{u^{n+1}}{n+1}+C,\quad n\neq -1$
+    
+    \item $\displaystyle \int \frac{1}{u}du
+    = \ln|u|+C$
+    
+    \item $\displaystyle \int e^{u}\,du
+    = e^{u}+C$
+    
+    \item $\displaystyle \int a^{u}\,du
+    = \frac{1}{\ln a}a^{u}+C$
+    
+    \item $\displaystyle \int \sin u\,du
+    = -\cos u + C$
+    
+    \item $\displaystyle \int \cos u\,du
+    = \sin u + C$
+    
+    \item $\displaystyle \int \tan u\,du
+    = -\ln|\cos u| + C$
+    
+    \item $\displaystyle \int \cot u\,du
+    = \ln|\sin u| + C$
+    
+    \item $\displaystyle \int \sec u\,du
+    = \ln|\sec u + \tan u| + C$
+    
+    \item $\displaystyle \int \csc u\,du
+    \\= -\ln|\csc u + \cot u| + C$
+    
+    \item $\displaystyle \int \sec^{2}u\,du
+    = \tan u + C$
+    
+    \item $\displaystyle \int \csc^{2}u\,du
+    = -\cot u + C$
+    
+    \item $\displaystyle \int \sec u \tan u\,du
+    = \sec u + C$
+    
+    \item $\displaystyle \int \csc u \cot u\,du
+    = -\csc u + C$
+    
+    \item $\displaystyle \int \frac{1}{\sqrt{a^{2}-u^{2}}}du
+    = \arcsin\!\left(\frac{u}{a}\right)+C$
+    
+    \item $\displaystyle \int \frac{1}{a^{2}+u^{2}}du
+    = \frac{1}{a}\arctan\!\left(\frac{u}{a}\right)+C$
+    
+    \item $\displaystyle \int \frac{1}{u\sqrt{u^{2}-a^{2}}}du
+    \\= \frac{1}{a}\arcsec\!\left(\frac{|u|}{a}\right)+C$
+    \end{enumerate}
+    \end{multicols}
+
+\end{definition}
+
+You can learn a lot about the nature of integration by comparing this list with the summary of differentiation rules given in the preceding section. For differentiation, you now have rules that allow you to differentiate any elementary function. For integration, this is far from true.
+The integration rules listed above are primarily those that were happened on when developing differentiation rules. So far, you have not learned any rules or techniques for finding the antiderivative of a general product or quotient, the natural logarithmic function, or the inverse trigonometric functions. More importantly, you cannot apply any of the rules in this list unless you can create the proper $du$ corresponding to the $u$ in the formula. The point is that you need to work on more integration techniques, which are in Chapter 8. 
+
+However, we will not explore them in this class. AP Calculus BC, also known as \textit{Calculus 2}, is where you explore more integration techniques. Specifically, they cover rules like \textit{integration by parts} which is used to ``undo" the product rule.
+
+
+\end{document}

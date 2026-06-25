@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solid of Revolution — Explorer</title>
+<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f9f9f9; color: #222; }
+
+  .shell {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* ── control panel ─────────────────────────────────────────────────── */
+  .panel {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  label {
+    font-size: 13px;
+    color: #555;
+    min-width: 60px;
+  }
+
+  input[type="text"], input[type="number"] {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    color: #222;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input[type="text"] { width: 180px; }
+  input[type="number"] { width: 80px; }
+  input[type="text"]:focus, input[type="number"]:focus { border-color: #2563eb; }
+  input.error { border-color: #e83d1d; background: #fff5f5; }
+
+  .toggle-group {
+    display: flex;
+    gap: 4px;
+  }
+  .toggle-group button {
+    font-size: 13px;
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+    color: #333;
+  }
+  .toggle-group button.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+  }
+
+  .axis-val-wrap { display: none; align-items: center; gap: 6px; }
+  .axis-val-wrap.visible { display: flex; }
+
+  .build-btn {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 22px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+    align-self: flex-start;
+  }
+  .build-btn:hover { background: #1d4fd8; }
+
+  .error-msg {
+    font-size: 13px;
+    color: #e83d1d;
+    min-height: 18px;
+  }
+
+  /* ── plot ──────────────────────────────────────────────────────────── */
+  .plot-area {
+    width: 100%;
+    height: 480px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* ── slider ────────────────────────────────────────────────────────── */
+  .slider-panel {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .slider-panel label { min-width: 220px; font-size: 14px; color: #555; }
+  input[type="range"] { flex: 1; height: 4px; accent-color: #2563eb; cursor: pointer; }
+  .slider-val { font-size: 14px; font-weight: 500; min-width: 52px; text-align: right; color: #222; }
+
+  .hint {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ── control panel ─────────────────────────────────────────── -->
+  <div class="panel">
+
+    <!-- f(x) -->
+    <div class="row">
+      <label style="color:#1d6fe8; font-weight:500;">f(x) =</label>
+      <input type="text" id="fn-f" value="sqrt(x)" placeholder="e.g. sqrt(x)">
+      <span class="hint">outer boundary (required)</span>
+    </div>
+
+    <!-- g(x) -->
+    <div class="row">
+      <label style="color:#e83d1d; font-weight:500;">g(x) =</label>
+      <input type="text" id="fn-g" value="" placeholder="e.g. x^2  (leave blank for disk)">
+      <span class="hint">inner boundary — leave blank for disk method</span>
+    </div>
+
+    <!-- limits -->
+    <div class="row">
+      <label>from x =</label>
+      <input type="number" id="limit-a" value="0" step="any">
+      <label>to x =</label>
+      <input type="number" id="limit-b" value="1" step="any">
+    </div>
+
+    <!-- axis of revolution -->
+    <div class="row">
+      <label>Revolve around:</label>
+      <div class="toggle-group" id="axis-toggle">
+        <button data-axis="x" class="active">x-axis</button>
+        <button data-axis="y">y-axis</button>
+        <button data-axis="line">y = ...</button>
+      </div>
+      <div class="axis-val-wrap" id="line-val-wrap">
+        <label>y =</label>
+        <input type="number" id="axis-line-val" value="0" step="any">
+      </div>
+    </div>
+
+    <!-- build -->
+    <div class="row" style="margin-top:0.25rem;">
+      <button class="build-btn" id="build-btn">Build solid</button>
+      <span class="error-msg" id="error-msg"></span>
+    </div>
+
+    <div class="hint">
+      Supported syntax: <code>x^2</code>, <code>sqrt(x)</code>, <code>sin(x)</code>,
+      <code>cos(x)</code>, <code>tan(x)</code>, <code>abs(x)</code>, <code>ln(x)</code>,
+      <code>log(x)</code>, <code>e^x</code>, <code>pi</code>, <code>e</code>
+    </div>
+
+  </div>
+
+  <!-- ── plot ──────────────────────────────────────────────────── -->
+  <div id="plot" class="plot-area"></div>
+
+  <!-- ── slider ────────────────────────────────────────────────── -->
+  <div class="slider-panel">
+    <label>Angle of revolution (radians):</label>
+    <input type="range" id="angle-slider" min="0.05" max="6.2832" step="0.01" value="0.05">
+    <span class="slider-val" id="angle-display">0.05</span>
+  </div>
+
+</div>
+
+<script>
+// ─── Function parser ──────────────────────────────────────────────────────────
+// Converts student-friendly notation into valid JS, then wraps in a Function.
+function parseFunction(raw) {
+  let s = raw.trim();
+  if (!s) return null;
+
+  // Constants
+  s = s.replace(/\bpi\b/gi, "Math.PI");
+  s = s.replace(/\be\b/g, "Math.E");
+
+  // Named functions
+  const fns = ["sqrt","sin","cos","tan","asin","acos","atan","abs","ceil","floor","round","log","exp"];
+  for (const fn of fns) {
+    s = s.replace(new RegExp(`\\b${fn}\\b`, "g"), `Math.${fn}`);
+  }
+  // ln → Math.log
+  s = s.replace(/\bln\b/g, "Math.log");
+  // log base 10
+  s = s.replace(/\blog10\b/g, "Math.log10");
+
+  // e^(expr) — handle before general ^ replacement
+  s = s.replace(/Math\.E\s*\^\s*([a-zA-Z0-9_.()]+)/g, "Math.exp($1)");
+
+  // Exponentiation: x^2 → x**2
+  s = s.replace(/\^/g, "**");
+
+  // Implicit multiplication: 2x → 2*x, 2( → 2*(, )(  → )*(
+  s = s.replace(/(\d)(x)/g, "$1*$2");
+  s = s.replace(/(\d)\(/g, "$1*(");
+  s = s.replace(/\)\(/g, ")*(");
+
+  try {
+    const fn = new Function("x", `"use strict"; return (${s});`);
+    // Smoke-test at x = 0.5
+    const test = fn(0.5);
+    if (typeof test !== "number") throw new Error("Not a number");
+    return fn;
+  } catch (e) {
+    return null;
+  }
+}
+
+// ─── State ────────────────────────────────────────────────────────────────────
+let currentAngle = 0.05;
+let plotDiv      = document.getElementById("plot");
+let animFrame    = null;
+let pendingAngle = null;
+let plotReady    = false;
+let savedCamera  = null;
+
+// Active config — set when Build is clicked
+let active = null;
+
+// ─── Geometry builder ─────────────────────────────────────────────────────────
+function buildTraces(angle) {
+  if (!active) return [];
+  const { f, g, a, b, axisMode, axisY, stepsX, stepsTheta } = active;
+  const traces = [];
+  const STEPS = stepsX, STHETA = stepsTheta;
+
+  if (axisMode === "horizontal") {
+    // Outer surface
+    {
+      const xVals = [], yVals = [], zVals = [];
+      for (let i = 0; i <= STHETA; i++) {
+        const theta = (i / STHETA) * angle;
+        const xRow = [], yRow = [], zRow = [];
+        for (let j = 0; j <= STEPS; j++) {
+          const x = a + (j / STEPS) * (b - a);
+          const r = f(x);
+          xRow.push(x);
+          yRow.push(axisY + r * Math.cos(theta));
+          zRow.push(r * Math.sin(theta));
+        }
+        xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+      }
+      traces.push({ x: xVals, y: yVals, z: zVals, type: "surface",
+        colorscale: "Blues", showscale: false, opacity: 0.85, hoverinfo: "skip" });
+    }
+
+    // Inner surface (washer)
+    if (g) {
+      const xVals = [], yVals = [], zVals = [];
+      for (let i = 0; i <= STHETA; i++) {
+        const theta = (i / STHETA) * angle;
+        const xRow = [], yRow = [], zRow = [];
+        for (let j = 0; j <= STEPS; j++) {
+          const x = a + (j / STEPS) * (b - a);
+          const r = g(x);
+          xRow.push(x);
+          yRow.push(axisY + r * Math.cos(theta));
+          zRow.push(r * Math.sin(theta));
+        }
+        xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+      }
+      traces.push({ x: xVals, y: yVals, z: zVals, type: "surface",
+        colorscale: "Greys", showscale: false, opacity: 0.6, hoverinfo: "skip" });
+    }
+
+    // End cap
+    if (angle < 2 * Math.PI - 0.05) {
+      const capX = [], capY = [], capZ = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const x = a + (j / STEPS) * (b - a);
+        const rO = f(x), rI = g ? g(x) : 0;
+        for (let k = 0; k <= 12; k++) {
+          const r = rI + (k / 12) * (rO - rI);
+          capX.push(x);
+          capY.push(axisY + r * Math.cos(angle));
+          capZ.push(r * Math.sin(angle));
+        }
+      }
+      traces.push({ x: capX, y: capY, z: capZ, type: "scatter3d", mode: "markers",
+        marker: { size: 1.8, color: "#aaaaaa", opacity: 0.4 }, hoverinfo: "skip" });
+    }
+
+    // f(x) curve line
+    {
+      const lx = [], ly = [], lz = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const x = a + (j / STEPS) * (b - a);
+        lx.push(x); ly.push(axisY + f(x)); lz.push(0);
+      }
+      traces.push({ x: lx, y: ly, z: lz, type: "scatter3d", mode: "lines",
+        line: { color: "#1d6fe8", width: 5 }, hoverinfo: "skip" });
+    }
+
+    // g(x) curve line
+    if (g) {
+      const lx = [], ly = [], lz = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const x = a + (j / STEPS) * (b - a);
+        lx.push(x); ly.push(axisY + g(x)); lz.push(0);
+      }
+      traces.push({ x: lx, y: ly, z: lz, type: "scatter3d", mode: "lines",
+        line: { color: "#e83d1d", width: 5 }, hoverinfo: "skip" });
+    }
+
+  } else {
+    // ── Vertical axis (y-axis) ────────────────────────────────────────────────
+    // Integrate w.r.t. y: treat f as R(y) and g as r(y)
+    // Surface sweeps: x = r·cos(θ), y = y, z = r·sin(θ)
+    const ay = a, by = b;
+
+    // Outer surface
+    {
+      const xVals = [], yVals = [], zVals = [];
+      for (let i = 0; i <= STHETA; i++) {
+        const theta = (i / STHETA) * angle;
+        const xRow = [], yRow = [], zRow = [];
+        for (let j = 0; j <= STEPS; j++) {
+          const y = ay + (j / STEPS) * (by - ay);
+          const r = f(y);
+          xRow.push(r * Math.cos(theta));
+          yRow.push(y);
+          zRow.push(r * Math.sin(theta));
+        }
+        xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+      }
+      traces.push({ x: xVals, y: yVals, z: zVals, type: "surface",
+        colorscale: "Blues", showscale: false, opacity: 0.85, hoverinfo: "skip" });
+    }
+
+    // Inner surface
+    if (g) {
+      const xVals = [], yVals = [], zVals = [];
+      for (let i = 0; i <= STHETA; i++) {
+        const theta = (i / STHETA) * angle;
+        const xRow = [], yRow = [], zRow = [];
+        for (let j = 0; j <= STEPS; j++) {
+          const y = ay + (j / STEPS) * (by - ay);
+          const r = g(y);
+          xRow.push(r * Math.cos(theta));
+          yRow.push(y);
+          zRow.push(r * Math.sin(theta));
+        }
+        xVals.push(xRow); yVals.push(yRow); zVals.push(zRow);
+      }
+      traces.push({ x: xVals, y: yVals, z: zVals, type: "surface",
+        colorscale: "Greys", showscale: false, opacity: 0.6, hoverinfo: "skip" });
+    }
+
+    // End cap
+    if (angle < 2 * Math.PI - 0.05) {
+      const capX = [], capY = [], capZ = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const y = ay + (j / STEPS) * (by - ay);
+        const rO = f(y), rI = g ? g(y) : 0;
+        for (let k = 0; k <= 12; k++) {
+          const r = rI + (k / 12) * (rO - rI);
+          capX.push(r * Math.cos(angle));
+          capY.push(y);
+          capZ.push(r * Math.sin(angle));
+        }
+      }
+      traces.push({ x: capX, y: capY, z: capZ, type: "scatter3d", mode: "markers",
+        marker: { size: 1.8, color: "#aaaaaa", opacity: 0.4 }, hoverinfo: "skip" });
+    }
+
+    // f curve
+    {
+      const lx = [], ly = [], lz = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const y = ay + (j / STEPS) * (by - ay);
+        lx.push(f(y)); ly.push(y); lz.push(0);
+      }
+      traces.push({ x: lx, y: ly, z: lz, type: "scatter3d", mode: "lines",
+        line: { color: "#1d6fe8", width: 5 }, hoverinfo: "skip" });
+    }
+
+    // g curve
+    if (g) {
+      const lx = [], ly = [], lz = [];
+      for (let j = 0; j <= STEPS; j++) {
+        const y = ay + (j / STEPS) * (by - ay);
+        lx.push(g(y)); ly.push(y); lz.push(0);
+      }
+      traces.push({ x: lx, y: ly, z: lz, type: "scatter3d", mode: "lines",
+        line: { color: "#e83d1d", width: 5 }, hoverinfo: "skip" });
+    }
+  }
+
+  // ── Axis lines ──────────────────────────────────────────────────────────────
+  const AL = active.axisLineLength;
+  const AY = active.axisMode === "horizontal" ? active.axisY : 0;
+  const axesDef = [
+    { x: [-AL, AL], y: [AY, AY],    z: [0, 0]   },
+    { x: [0, 0],    y: [AY-AL, AY+AL], z: [0, 0] },
+    { x: [0, 0],    y: [AY, AY],    z: [-AL, AL] }
+  ];
+  for (const ax of axesDef) {
+    traces.push({ x: ax.x, y: ax.y, z: ax.z, type: "scatter3d", mode: "lines",
+      line: { color: "#333333", width: 3 }, hoverinfo: "skip" });
+  }
+
+  // ── x-y grid plane ──────────────────────────────────────────────────────────
+  {
+    const gmin = -AL, gmax = AL, gs = 10;
+    const xVals = [], yVals = [], zVals = [];
+    for (let i = 0; i <= gs; i++) {
+      const row_x = [], row_y = [], row_z = [];
+      const xv = gmin + (i / gs) * (gmax - gmin);
+      for (let j = 0; j <= gs; j++) {
+        const yv = gmin + (j / gs) * (gmax - gmin);
+        row_x.push(xv); row_y.push(yv); row_z.push(AY);
+      }
+      xVals.push(row_x); yVals.push(row_y); zVals.push(row_z);
+    }
+    traces.push({
+      x: xVals, y: yVals, z: zVals, type: "surface",
+      colorscale: [[0, "#e8e8e8"], [1, "#e8e8e8"]],
+      showscale: false, opacity: 0.35, hoverinfo: "skip",
+      contours: {
+        x: { show: true, color: "#bbbbbb", width: 1 },
+        y: { show: true, color: "#bbbbbb", width: 1 },
+        z: { show: false }
+      }
+    });
+  }
+
+  return traces;
+}
+
+// ─── Auto-compute axis ranges from the data ───────────────────────────────────
+function computeRanges() {
+  const { f, g, a, b, axisMode, axisY } = active;
+  const N = 80;
+  let fMax = 0;
+  for (let j = 0; j <= N; j++) {
+    const t = a + (j / N) * (b - a);
+    const fv = Math.abs(f(t));
+    if (isFinite(fv)) fMax = Math.max(fMax, fv);
+    if (g) {
+      const gv = Math.abs(g(t));
+      if (isFinite(gv)) fMax = Math.max(fMax, gv);
+    }
+  }
+  const pad = fMax * 0.25 + 0.3;
+  const span = b - a;
+
+  if (axisMode === "horizontal") {
+    return {
+      xRange: [a - span * 0.15, b + span * 0.15],
+      yRange: [axisY - fMax - pad, axisY + fMax + pad],
+      zRange: [-(fMax + pad), fMax + pad],
+      axisLineLength: parseFloat((fMax + pad * 0.8).toFixed(2))
+    };
+  } else {
+    return {
+      xRange: [-(fMax + pad), fMax + pad],
+      yRange: [a - (b - a) * 0.1, b + (b - a) * 0.1],
+      zRange: [-(fMax + pad), fMax + pad],
+      axisLineLength: parseFloat((fMax + pad * 0.8).toFixed(2))
+    };
+  }
+}
+
+// ─── Layout builder ───────────────────────────────────────────────────────────
+function buildLayout() {
+  const { xRange, yRange, zRange, axisMode } = active;
+  return {
+    title: { text: active.title, font: { size: 13 } },
+    uirevision: active.uid,
+    scene: {
+      xaxis: { title: "x", range: xRange },
+      yaxis: { title: "y", range: yRange },
+      zaxis: { title: "z", range: zRange },
+      aspectmode: "manual",
+      aspectratio: active.aspectRatio,
+      camera: savedCamera || active.defaultCamera
+    },
+    margin: { l: 0, r: 0, b: 0, t: 36 },
+    showlegend: false,
+    paper_bgcolor: "rgba(0,0,0,0)",
+    plot_bgcolor:  "rgba(0,0,0,0)"
+  };
+}
+
+// ─── Build button ─────────────────────────────────────────────────────────────
+function buildSolid() {
+  const errEl = document.getElementById("error-msg");
+  errEl.textContent = "";
+
+  const rawF = document.getElementById("fn-f").value.trim();
+  const rawG = document.getElementById("fn-g").value.trim();
+  const a    = parseFloat(document.getElementById("limit-a").value);
+  const b    = parseFloat(document.getElementById("limit-b").value);
+
+  // Validate
+  if (!rawF) { errEl.textContent = "f(x) is required."; return; }
+  if (isNaN(a) || isNaN(b)) { errEl.textContent = "Enter valid numbers for x limits."; return; }
+  if (a >= b) { errEl.textContent = "Left limit must be less than right limit."; return; }
+
+  const f = parseFunction(rawF);
+  if (!f) { errEl.textContent = "Could not parse f(x). Check your syntax.";
+    document.getElementById("fn-f").classList.add("error"); return; }
+  document.getElementById("fn-f").classList.remove("error");
+
+  let g = null;
+  if (rawG) {
+    g = parseFunction(rawG);
+    if (!g) { errEl.textContent = "Could not parse g(x). Check your syntax.";
+      document.getElementById("fn-g").classList.add("error"); return; }
+  }
+  document.getElementById("fn-g").classList.remove("error");
+
+  // Validate f > g on the interval
+  if (g) {
+    const N = 20;
+    for (let j = 0; j <= N; j++) {
+      const x = a + (j / N) * (b - a);
+      const fv = f(x), gv = g(x);
+      if (isFinite(fv) && isFinite(gv) && gv > fv + 1e-9) {
+        errEl.textContent = "Warning: g(x) > f(x) at some points. Make sure f(x) is the outer (larger) function.";
+        break;
+      }
+    }
+  }
+
+  // Axis of revolution
+  const axisBtn = document.querySelector("#axis-toggle button.active").dataset.axis;
+  let axisMode, axisY = 0;
+  if (axisBtn === "x")    { axisMode = "horizontal"; axisY = 0; }
+  if (axisBtn === "y")    { axisMode = "vertical";   axisY = 0; }
+  if (axisBtn === "line") {
+    axisMode = "horizontal";
+    axisY = parseFloat(document.getElementById("axis-line-val").value) || 0;
+    // Shift f and g by axisY so geometry centers on y=0 in the swept coordinate
+    const fRaw = f, gRaw = g;
+    active = null; // reset before reassigning
+    const fShifted = x => fRaw(x) - axisY;
+    const gShifted = g ? (x => gRaw(x) - axisY) : null;
+    g = gShifted;
+    // Store unshifted for curve display — done below via axisY offset in buildTraces
+  }
+
+  // Build title string
+  const axisLabel = axisBtn === "x" ? "x-axis"
+                  : axisBtn === "y" ? "y-axis"
+                  : `y = ${document.getElementById("axis-line-val").value}`;
+  const gLabel = rawG ? `,  g(x) = ${rawG}` : "";
+  const title  = `f(x) = ${rawF}${gLabel}  —  revolved about ${axisLabel},  x ∈ [${a}, ${b}]`;
+
+  // Default camera depends on axis mode
+  const defaultCamera = axisMode === "vertical"
+    ? { eye: {x:1.6, y:0.5, z:1.2}, center: {x:0, y:(a+b)/2, z:0}, up: {x:0, y:1, z:0} }
+    : { eye: {x:1.6, y:1.4, z:0.8}, center: {x:(a+b)/2, y:axisY, z:0}, up: {x:0, y:0, z:1} };
+
+  // Assemble active config
+  active = {
+    f: axisBtn === "line" ? (x => parseFunction(rawF)(x) - axisY) : f,
+    g: axisBtn === "line" && rawG ? (x => parseFunction(rawG)(x) - axisY) : g,
+    a, b, axisMode, axisY,
+    title, stepsX: 60, stepsTheta: 40,
+    aspectRatio: axisMode === "vertical" ? {x:1, y:1.2, z:1} : {x:1.2, y:1, z:1},
+    defaultCamera,
+    uid: Date.now()   // unique per build so uirevision resets camera on new solid
+  };
+
+  // Auto-compute ranges
+  const ranges = computeRanges();
+  Object.assign(active, ranges);
+
+  // Reset slider and camera
+  savedCamera  = null;
+  currentAngle = 0.05;
+  document.getElementById("angle-slider").value = 0.05;
+  document.getElementById("angle-display").textContent = "0.05";
+
+  // Draw
+  plotReady = false;
+  Plotly.newPlot(plotDiv, buildTraces(currentAngle), buildLayout(), {
+    responsive: true, displayModeBar: true,
+    modeBarButtonsToRemove: ["toImage", "sendDataToCloud"],
+    scrollZoom: true
+  }).then(() => {
+    plotReady = true;
+    plotDiv.on("plotly_relayout", () => {
+      const c = plotDiv._fullLayout?.scene?.camera;
+      if (c) savedCamera = JSON.parse(JSON.stringify(c));
+    });
+  });
+}
+
+// ─── RAF-throttled slider update ──────────────────────────────────────────────
+function scheduleUpdate(angle) {
+  pendingAngle = angle;
+  if (animFrame) return;
+  animFrame = requestAnimationFrame(() => {
+    animFrame = null;
+    if (!plotReady || !active) return;
+    const a = pendingAngle;
+    pendingAngle = null;
+    const c = plotDiv._fullLayout?.scene?.camera || active.defaultCamera;
+    savedCamera = JSON.parse(JSON.stringify(c));
+    Plotly.react(plotDiv, buildTraces(a), buildLayout(), { responsive: true });
+  });
+}
+
+// ─── Axis toggle ──────────────────────────────────────────────────────────────
+document.querySelectorAll("#axis-toggle button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#axis-toggle button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const wrap = document.getElementById("line-val-wrap");
+    wrap.classList.toggle("visible", btn.dataset.axis === "line");
+  });
+});
+
+// ─── Slider ───────────────────────────────────────────────────────────────────
+const slider  = document.getElementById("angle-slider");
+const display = document.getElementById("angle-display");
+slider.addEventListener("input", e => {
+  currentAngle = parseFloat(e.target.value);
+  display.textContent = currentAngle.toFixed(2);
+  scheduleUpdate(currentAngle);
+});
+
+// ─── Build button + Enter key ─────────────────────────────────────────────────
+document.getElementById("build-btn").addEventListener("click", buildSolid);
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter") buildSolid();
+});
+
+// ─── Initial render with default values ──────────────────────────────────────
+buildSolid();
+</script>
+</body>
+</html>

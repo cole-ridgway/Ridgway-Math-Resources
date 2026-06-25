@@ -1,0 +1,57 @@
+project:
+  type: website
+
+website:
+  title: "ℝidgway Math Resources"
+  search: true
+
+  # --- TOP NAVIGATION (The Class Selector) ---
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "AP Calculus AB"
+        file: AP-Calculus-AB/index.qmd
+
+  # --- SIDE NAVIGATION (Course-Specific Materials) ---
+  sidebar:
+    - id: calculus
+      title: "AP Calculus AB"
+      style: "floating"
+      collapse-level: 1    # <--- The global override command
+      contents:
+        - AP-Calculus-AB/index.qmd
+        
+        - section: "Interactive Textbook"
+          contents:
+            - AP-Calculus-AB/textbook-interactive/Chapter-1/Chapter-1.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-2/Chapter-2.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-3/Chapter-3.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-4/Chapter-4.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-5/Chapter-5.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-6/Chapter-6.qmd
+            - AP-Calculus-AB/textbook-interactive/Chapter-7/Chapter-7.qmd
+
+        - section: "Printable Textbook (PDF)"
+          contents:
+            - AP-Calculus-AB/textbook-pdf/Chapter-1/Chapter-1.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-2/Chapter-2.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-3/Chapter-3.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-4/Chapter-4.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-5/Chapter-5.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-6/Chapter-6.qmd
+            - AP-Calculus-AB/textbook-pdf/Chapter-7/Chapter-7.qmd
+
+        - text: "Course Resources"
+          file: AP-Calculus-AB/resources/resources.qmd
+
+format:
+  html:
+    theme: 
+      light: [cosmo, custom.scss]
+      dark: [darkly, custom.scss]
+    toc: true
+    toc-depth: 4
+    toc-expand: true
+    html-math-method: mathjax
