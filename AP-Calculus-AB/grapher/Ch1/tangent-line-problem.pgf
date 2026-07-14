@@ -476,11 +476,11 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.000000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{1.798667in}{0.611074in}}%
-\pgfpathlineto{\pgfqpoint{2.701343in}{0.611074in}}%
-\pgfpathlineto{\pgfqpoint{2.701343in}{0.820926in}}%
-\pgfpathlineto{\pgfqpoint{1.798667in}{0.820926in}}%
-\pgfpathlineto{\pgfqpoint{1.798667in}{0.611074in}}%
+\pgfpathmoveto{\pgfqpoint{1.384662in}{0.611074in}}%
+\pgfpathlineto{\pgfqpoint{2.287338in}{0.611074in}}%
+\pgfpathlineto{\pgfqpoint{2.287338in}{0.820926in}}%
+\pgfpathlineto{\pgfqpoint{1.384662in}{0.820926in}}%
+\pgfpathlineto{\pgfqpoint{1.384662in}{0.611074in}}%
 \pgfpathclose%
 \pgfusepath{fill}%
 \end{pgfscope}%
@@ -488,7 +488,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=1.836000in,y=0.716000in,left,]{\color{textcolor}{\rmfamily\fontsize{11.200000}{13.440000}\selectfont\catcode`\^=\active\def^{\ifmmode\sp\else\^{}\fi}\catcode`\%=\active\def%{\%}Tangent line}}%
+\pgftext[x=1.836000in,y=0.716000in,,]{\color{textcolor}{\rmfamily\fontsize{11.200000}{13.440000}\selectfont\catcode`\^=\active\def^{\ifmmode\sp\else\^{}\fi}\catcode`\%=\active\def%{\%}Tangent line}}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
